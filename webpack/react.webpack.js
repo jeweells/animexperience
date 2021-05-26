@@ -19,7 +19,27 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
-      }
+      },
+      {
+        test: /\.less$/i,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "less-loader",
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+                modifyVars: { '@base-color': '#f44336' }
+              },
+            },
+          },
+        ],
+      },
     ]
   },
   devServer: {

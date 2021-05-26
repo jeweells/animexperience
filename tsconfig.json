@@ -6,13 +6,18 @@
       "dom",
       "es2015",
       "es2016",
-      "es2017"
+      "es2017",
+      "es2019"
     ],
+    "downlevelIteration": true,
     "allowJs": true,
     "jsx": "react",
     "sourceMap": true,
     "outDir": "./dist",
     "strict": true ,
-    "esModuleInterop": true,
-  }
+    "esModuleInterop": true
+  },
+  "includes": [
+    "./src/externals.d.ts"
+  ]
 }
