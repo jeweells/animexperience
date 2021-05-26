@@ -8,8 +8,7 @@
   "extends": [
     "standard",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint"
+    "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -25,19 +24,104 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "react/prop-types": "off",
-    "import/extensions": [
+    "indent": [
       "error",
-      "ignorePackages",
+      4
+    ],
+    "linebreak-style": "off",
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "react/prop-types": 0,
+    "no-empty-pattern": 0,
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
       {
-        "ts": "never",
-        "tsx": "never"
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "varsIgnorePattern": "^React$"
       }
-    ]
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error",
+          "debug"
+        ]
+      }
+    ],
+    "no-unsafe-optional-chaining": "error",
+    "no-multi-spaces": "error",
+    "no-var": "error",
+    "array-bracket-newline": ["error", { "multiline": true }],
+    "array-bracket-spacing": ["error", "never"],
+    "array-element-newline": ["error", "consistent"],
+    "block-spacing": "error",
+    "brace-style": ["error","1tbs"],
+    "comma-dangle": ["error", {
+      "arrays": "only-multiline",
+      "objects": "only-multiline",
+      "imports": "only-multiline",
+      "exports": "only-multiline",
+      "functions": "only-multiline"
+    }],
+    "comma-spacing": "error",
+    "comma-style": ["error", "last"],
+    "computed-property-spacing": ["error", "never"],
+    "func-call-spacing": ["error", "never"],
+    "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+    "function-call-argument-newline": ["error", "consistent"],
+    "key-spacing": ["error", { "beforeColon": false }],
+    "keyword-spacing": ["error", { "after": true, "before": true }],
+    "max-depth": ["error", 4],
+    "max-len": ["error", {
+      "code": 120
+    }],
+    "max-lines": ["error", 1000],
+    "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 4 }],
+    "no-lonely-if": "error",
+    "no-multiple-empty-lines": ["error", { "max": 3, "maxBOF": 0 }],
+    "no-trailing-spaces": "error",
+    "no-unneeded-ternary": "error",
+    "quote-props": ["error", "consistent"],
+    "no-useless-computed-key": "error",
+    "prefer-const": "error",
+    "react/self-closing-comp": "error",
+    "react/jsx-closing-bracket-location": ["error", "line-aligned"],
+    "react/jsx-closing-tag-location": "error",
+    "react/jsx-curly-brace-presence": ["error", { "props": "always"}],
+    "react/jsx-curly-spacing": ["error", "never"],
+    "react/jsx-equals-spacing": ["error", "never"],
+    "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
+    "react/jsx-indent-props": "error",
+    "react/jsx-no-constructed-context-values": "warn",
+    "react/jsx-one-expression-per-line": "error",
+    // MOST IMPORTANT RULE OF ALL
+    "react/jsx-wrap-multilines": ["error", {
+      "declaration": "parens-new-line",
+      "assignment": "parens-new-line",
+      "return": "parens-new-line",
+      "arrow": "parens-new-line",
+      "condition": "parens-new-line",
+      "logical": "parens-new-line",
+      "prop": "parens-new-line"
+    }],
+    "react/jsx-indent": "error",
+    "react/jsx-max-props-per-line": ["error", { "when": "multiline", "maximum": 1 }],
+    "@typescript-eslint/ban-types": "off"
   },
   "settings": {
     "import/resolver": {
-      "typescript": {} 
+      "typescript": {}
     }
   }
 }

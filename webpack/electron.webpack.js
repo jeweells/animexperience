@@ -12,13 +12,21 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|jpe?g|gif|html)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
         test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
         }
-      }
-    ]
+      },
+    ],
   },
   node: {
     __dirname: false
