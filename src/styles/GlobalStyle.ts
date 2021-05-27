@@ -6,11 +6,4 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    color: #E1E1E6;
-    overflow: overlay;
-  }
 `;
