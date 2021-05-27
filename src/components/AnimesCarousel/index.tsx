@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "rsuite";
 import styled from "styled-components";
+import { NavigationButton } from "./components/NavigationButton";
 import { useSliding } from "./hooks";
 
 
@@ -14,21 +14,6 @@ const Items = styled.div<{ gap: number; }>`
     width: min-content;
     gap: ${props => props.gap}px;
     transition: all 400ms ease-in-out;
-`;
-
-const NavContainer = styled.div`
-    position: absolute;
-    top: 0;
-    background-color: rgba(0,0,0,0.3);
-    z-index: 10;
-`;
-
-const NextContainer = styled(NavContainer)`
-    right: 0;
-`;
-
-const PrevContainer = styled(NavContainer)`
-    left: 0;
 `;
 
 export type AnimesCarouselProps = {
@@ -51,19 +36,11 @@ export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(({
     } = useSliding(gap, children?.length ?? 0);
     return (
         <Scroller ref={scrollerRef}>
-            <PrevContainer ref={prevButtonRef}>
-                <Button onClick={handlePrev} disabled={!hasPrev}>
-                    Prev
-                </Button>
-            </PrevContainer>
+            <NavigationButton ref={prevButtonRef} onClick={handlePrev} disabled={!hasPrev} direction={"left"} />
             <Items ref={containerRef} gap={gap} {...slideProps}>
                 {children}
             </Items>
-            <NextContainer>
-                <Button onClick={handleNext} disabled={!hasNext}>
-                    Next
-                </Button>
-            </NextContainer>
+            <NavigationButton ref={prevButtonRef} onClick={handleNext} disabled={!hasNext} direction={"right"} />
         </Scroller>
     );
 });

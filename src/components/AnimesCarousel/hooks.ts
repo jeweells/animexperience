@@ -7,7 +7,7 @@ export const useSliding = (
 ) => {
     const { ref: containerRef, width: containerWidth = 1 } = useResizeObserver<HTMLDivElement>();
     const { ref: scrollerRef, width: scrollerWidth = 1 } = useResizeObserver<HTMLDivElement>();
-    const { ref: prevButtonRef, width: prevButtonWidth = 1 } = useResizeObserver<HTMLDivElement>();
+    const { ref: prevButtonRef, width: prevButtonWidth = 1 } = useResizeObserver<any>();
     const [totalInViewport, setTotalInViewport] = useState(0);
     const [viewed, setViewed] = useState(0);
     const availableScrollerWidth = scrollerWidth - prevButtonWidth;
