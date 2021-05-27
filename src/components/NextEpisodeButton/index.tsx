@@ -1,8 +1,39 @@
 import { Fade } from "@material-ui/core";
 import React from "react";
-import { Button } from "rsuite";
 import { watch } from "../../../redux/reducers/watch";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
+
+
+const css = `
+    button.raex-button-injected {
+        color: #e9ebf0;
+        background: #292d33;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        outline: 0 !important;
+        white-space: nowrap;
+        border: none;
+        user-select: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 6px;
+        position: relative;
+        transition: color 0.2s linear, background-color 0.3s linear;
+        margin: 0;
+        overflow: hidden;
+        text-decoration: none;
+    }
+    button.raex-button-injected:hover, button.raex-button-injected:focus {
+        color: #e9ebf0;
+        background-color: #3c3f43;
+        
+    }
+`;
 
 export type NextEpisodeButtonProps = {}
 
@@ -14,6 +45,7 @@ export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({
         dispatch(watch.setNextEpisodeButton(false));
         dispatch(watch.nextEpisode());
     };
+
     return (
         <Fade in={showNextButton} timeout={400}>
             <div style={{
@@ -23,10 +55,11 @@ export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({
                 zIndex: 2147483647,
             }}
             >
-                <Button
-                    style={{
-                        position: "relative",
-                    }}
+                <style>
+                    {css}
+                </style>
+                <button
+                    className={"raex-button-injected"}
                     onClick={() => {
                         handleNext();
                     }}
@@ -46,7 +79,7 @@ export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({
                             transition: timeout === -1 ? "none" : `all ${timeout}s`,
                         }}
                     />
-                </Button>
+                </button>
             </div>
         </Fade>
     );

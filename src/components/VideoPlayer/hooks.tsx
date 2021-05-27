@@ -176,7 +176,10 @@ export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<H
             if (video.paused) {
                 video.play();
             }
-            const refs: { nextButtonShown?: boolean; nextBtnRef?: HTMLDivElement | null } = {};
+            const refs: {
+                nextButtonShown?: boolean;
+                nextBtnRef?: JQuery | null;
+            } = {};
             const handleTimeUpdate = () => {
                 if (isFinite(video.duration)) {
                     const { duration, currentTime } = video;
@@ -205,7 +208,6 @@ export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<H
                 }
             };
             console.debug("VIDEO", video);
-            const jVideo = $(video);
             const handleMouseMove = () => {
                 dispatch(watch.setNextEpisodeTimeout(-1));
             };
@@ -213,17 +215,29 @@ export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<H
                 // document.fullscreenElement will point to the element that
                 // is in fullscreen mode if there is one. If there isn't one,
                 // the value of the property is null.
-                if (document.fullscreenElement) {
+                let targetElement: Optional<Element> = document.fullscreenElement;
+                // The target fullscreen element changes depending on the iframe we're in
+                // It's needed to find an non iframe element to attach the button
+                // so that its visible in fullscreen mode
+                while (targetElement?.tagName.toLowerCase() === "iframe" && "contentDocument" in targetElement) {
+                    // targetElement instanceof HTMLIFrameElement does not work for iframes
+                    // Alternative: Use iframe.contentWindow.HTMLIFrameElement
+                    // However, this might be a cleaner way
+                    targetElement = (targetElement as HTMLIFrameElement).contentDocument?.fullscreenElement;
+                }
+                if (targetElement) {
+                    const jTargetElement = $(targetElement as HTMLElement);
                     console.debug("Setting fullscreen");
-                    const root = refs.nextBtnRef || $("<div id='raex-injected-root' />").get(0);
-                    if (!jVideo.parent().is($(root).parent())) {
+                    const root = refs.nextBtnRef || $("<div id='raex-injected-root' />");
+                    if (!root.parent().is(jTargetElement)) {
+                        refs.nextBtnRef = root;
                         console.debug("Attaching node to element");
-                        jVideo.parent().append(root);
+                        jTargetElement.append(root);
                         ReactDOM.render(
                             <Provider store={store}>
                                 <NextEpisodeButton />
-                            </Provider>
-                            , root
+                            </Provider>,
+                            root.get(0)
                         );
                     } else {
                         console.debug("Element already attached");
