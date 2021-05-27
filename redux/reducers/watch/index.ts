@@ -3,6 +3,7 @@ import { ipcRenderer } from "electron";
 import { VideoOption } from "../../../src/components/VideoPlayer";
 import { RecentAnimeData } from "../../../src/hooks/useRecentAnimes";
 import { Optional, Status } from "../../../src/types";
+import { player } from "../player";
 import { addFetchFlow } from "../utils";
 
 // Define a type for the slice state
@@ -11,12 +12,15 @@ interface WatchState {
     availableVideos?: Optional<VideoOption[]>;
     status: {
         availableVideos?: Status;
-    }
+    },
+    showNextEpisodeButton?: boolean;
+    nextEpisodeTimeout: number;
 }
 
 // Define the initial state using that type
 const initialState: WatchState = {
-    status: {}
+    status: {},
+    nextEpisodeTimeout: -1,
 };
 
 const getAvailableVideos = createAsyncThunk(
@@ -33,6 +37,37 @@ const getAvailableVideos = createAsyncThunk(
     }
 );
 
+const nextEpisode = createAsyncThunk(
+    "watch/nextEpisode",
+    async (arg, api) => {
+        const state = api.getState();
+        const watching = state.watch.watching;
+        if (watching && typeof watching.episode === "number") {
+            await api.dispatch(watchEpisode({
+                ...watching,
+                episode: watching.episode + 1,
+            }));
+        }
+    }
+);
+
+const watchEpisode = createAsyncThunk(
+    "watch/watchEpisode",
+    async (anime: RecentAnimeData, {
+        getState,
+        dispatch
+    }) => {
+        const state = getState();
+        const watching = state.watch.watching;
+        if (watching?.name === anime?.name &&
+            watching?.episode === anime?.episode) return;
+        dispatch(watch.set(anime));
+        const p = dispatch(watch.getAvailableVideos());
+        dispatch(player.show());
+        await p;
+    }
+);
+
 export const slice = createSlice({
     name: "watch",
     // `createSlice` will infer the state type from the `initialState` argument
@@ -43,6 +78,15 @@ export const slice = createSlice({
         },
         reset () {
             return initialState;
+        },
+        setNextEpisodeButton (state, { payload }: PayloadAction<boolean>) {
+            state.showNextEpisodeButton = payload;
+            if (!payload) {
+                state.nextEpisodeTimeout = -1;
+            }
+        },
+        setNextEpisodeTimeout (state, { payload }: PayloadAction<number>) {
+            state.nextEpisodeTimeout = payload;
         }
     },
     extraReducers: ({ addCase }) => {
@@ -58,5 +102,7 @@ export const slice = createSlice({
 export const watch = {
     ...slice.actions,
     getAvailableVideos,
+    nextEpisode,
+    watchEpisode,
 };
 export default slice.reducer;

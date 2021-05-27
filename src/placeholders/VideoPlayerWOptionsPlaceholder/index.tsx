@@ -6,6 +6,7 @@ import { FCol, FRow } from "../../atoms/Layout";
 import { range } from "../../utils";
 
 export const Wrapper = styled(FCol)`
+    position: relative;
     width: 100%;
     height: 100%;
     gap: 16px;

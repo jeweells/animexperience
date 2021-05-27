@@ -1,7 +1,6 @@
 import React from "react";
-import { player } from "../../../redux/reducers/player";
 import { watch } from "../../../redux/reducers/watch";
-import { useAppDispatch, useAppSelector } from "../../../redux/store";
+import { useAppDispatch } from "../../../redux/store";
 import { RecentAnimeData, useRecentAnimes } from "../../hooks/useRecentAnimes";
 import AnimeEntry from "../AnimeEntry";
 import { AnimesCarousel } from "../AnimesCarousel";
@@ -16,7 +15,6 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({
         status
     } = useRecentAnimes();
     const dispatch = useAppDispatch();
-    const waching = useAppSelector(d => d.watch.watching);
 
     return (
         <React.Fragment>
@@ -33,11 +31,8 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({
                                         key={`${x.name} ${x.episode}`}
                                         anime={x}
                                         onClick={(anime) => {
-                                            if (waching) return;
                                             if (anime.name && anime.episode) {
-                                                dispatch(watch.set(anime));
-                                                dispatch(watch.getAvailableVideos());
-                                                dispatch(player.show());
+                                                dispatch(watch.watchEpisode(anime));
                                             } else {
                                                 console.error("No enough data to perform search");
                                             }

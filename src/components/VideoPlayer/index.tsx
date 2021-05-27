@@ -2,7 +2,9 @@ import $ from "jquery";
 import React from "react";
 import useResizeObserver from "use-resize-observer";
 import { useAppSelector } from "../../../redux/store";
+import { FCol } from "../../atoms/Layout";
 import { Wrapper } from "../../placeholders/VideoPlayerWOptionsPlaceholder";
+import NextEpisodeButton from "../NextEpisodeButton";
 import { useVideoImprovements } from "./hooks";
 
 export type VideoOption = {
@@ -13,6 +15,33 @@ export type VideoPlayerProps = {
     option: VideoOption | null;
 }
 
+
+const IFrame: React.FC<{
+    html?: string;
+    updateRef?(r: HTMLDivElement | null): void;
+}> = React.memo(({
+    html,
+    updateRef,
+    children,
+}) => {
+    if (!html) return null;
+    return (
+        <FCol
+            className={"fade-in"}
+            style={{ flex: 1, width: "100%", overflow: "hidden", position: "relative" }}
+            ref={updateRef}
+        >
+            <div
+                style={{ flex: 1, width: "100%", overflow: "hidden" }}
+                ref={updateRef}
+                dangerouslySetInnerHTML={{ __html: html }}
+            />
+            {children}
+        </FCol>
+    );
+});
+
+IFrame.displayName = "IFrame";
 
 export const VideoPlayer: React.FC<VideoPlayerProps> = React.memo(({
     option,
@@ -32,6 +61,11 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = React.memo(({
         anime: watching,
         option,
     }, ref);
+
+    const updateWrapperRef = React.useCallback((r) => {
+        setRef(r);
+        return containerRef(r);
+    }, []);
     return (
         <Wrapper
             style={{
@@ -41,15 +75,12 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = React.memo(({
         >
             {children}
             {option && (
-                <div
-                    className={"fade-in"}
-                    style={{ flex: 1, width: "100%", overflow: "hidden" }}
-                    ref={(r) => {
-                        setRef(r);
-                        return containerRef(r);
-                    }}
-                    dangerouslySetInnerHTML={{ __html: option?.html }}
-                />
+                <IFrame
+                    html={option?.html}
+                    updateRef={updateWrapperRef}
+                >
+                    <NextEpisodeButton />
+                </IFrame>
             )}
         </Wrapper>
     );
