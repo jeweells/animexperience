@@ -29,7 +29,9 @@ async function createWindow () {
             enableRemoteModule: true
         }
     });
-
+    const publicPath = process.env.NODE_ENV === "development"
+        ? "http://localhost:4000"
+        : path.join(__dirname, "renderer");
     mainWindow.webContents.setWindowOpenHandler(() => {
         return {
             action: "deny"
@@ -48,9 +50,9 @@ async function createWindow () {
     }, (details, callback) => {
         const url = new URL(details.url);
         details.requestHeaders.Origin = url.origin;
-        if (!details.url.includes("//localhost") &&
+        if (!details.url.includes(publicPath) &&
             details.requestHeaders.Referer &&
-            details.requestHeaders.Referer.includes("//localhost")) {
+            details.requestHeaders.Referer.includes(publicPath)) {
             details.requestHeaders.Referer = details.url;
             console.debug("ADDED REFERER FOR", details.url);
         }
@@ -104,11 +106,11 @@ async function createWindow () {
             });
         });
 
-        mainWindow.loadURL("http://localhost:4000");
+        mainWindow.loadURL(publicPath);
     } else {
         mainWindow.loadURL(
             url.format({
-                pathname: path.join(__dirname, "renderer/index.html"),
+                pathname: path.join(publicPath, "index.html"),
                 protocol: "file:",
                 slashes: true
             })

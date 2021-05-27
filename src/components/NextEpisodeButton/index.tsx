@@ -2,10 +2,21 @@ import { Fade } from "@material-ui/core";
 import React from "react";
 import { watch } from "../../../redux/reducers/watch";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
+import font from "../../fonts/Quicksand/Quicksand-Light.ttf";
 
-
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const currUrl = require("@electron/remote").getCurrentWindow().webContents.getURL();
+// We need to form an absolute url since this element will be injected inside an iframe
+// and inside iframes, relatives url won't match ours
 const css = `
+    @font-face {
+        font-family: 'Quicksand';
+        src: url('${new URL(font, currUrl).href}') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+    }
     button.raex-button-injected {
+        font-family: 'Quicksand';
         color: #e9ebf0;
         background: #292d33;
         display: inline-block;
@@ -47,7 +58,7 @@ export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({
     };
 
     return (
-        <Fade in={showNextButton} timeout={400}>
+        <Fade in={!showNextButton} timeout={400}>
             <div style={{
                 position: "absolute",
                 top: 16,
