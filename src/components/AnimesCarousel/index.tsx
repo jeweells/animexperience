@@ -47,10 +47,11 @@ export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(({
         hasNext,
         hasPrev,
         slideProps,
+        prevButtonRef,
     } = useSliding(gap, children?.length ?? 0);
     return (
         <Scroller ref={scrollerRef}>
-            <PrevContainer>
+            <PrevContainer ref={prevButtonRef}>
                 <Button onClick={handlePrev} disabled={!hasPrev}>
                     Prev
                 </Button>
