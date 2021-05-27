@@ -7,6 +7,12 @@ import fetch from "node-fetch";
 import * as path from "path";
 import * as url from "url";
 import setupSdk from "./sdk";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require("@electron/remote/main").initialize();
+
+
 app.commandLine.appendSwitch("disable-site-isolation-trials");
 let mainWindow: Electron.BrowserWindow | null;
 
