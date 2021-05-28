@@ -58,7 +58,7 @@ export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({
     };
 
     return (
-        <Fade in={!showNextButton} timeout={400}>
+        <Fade in={showNextButton} timeout={400}>
             <div style={{
                 position: "absolute",
                 top: 16,
