@@ -16,6 +16,8 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({
     } = useRecentAnimes();
     const dispatch = useAppDispatch();
 
+
+
     return (
         <React.Fragment>
             {status !== "succeeded" ? "Loading"
@@ -27,7 +29,6 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({
                             .map(x => {
                                 return (
                                     <AnimeEntry
-
                                         key={`${x.name} ${x.episode}`}
                                         anime={x}
                                         onClick={(anime) => {

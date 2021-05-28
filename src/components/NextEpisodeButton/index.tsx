@@ -86,7 +86,7 @@ export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({
                             left: 0,
                             bottom: 0,
                             backgroundColor: "rgba(255,255,255,0.1)",
-                            width: timeout !== -1 && showNextButton ? "100%" : "0",
+                            containerWidth: timeout !== -1 && showNextButton ? "100%" : "0",
                             transition: timeout === -1 ? "none" : `all ${timeout}s`,
                         }}
                     />

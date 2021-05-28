@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { NavigationButton } from "./components/NavigationButton";
-import { useSliding } from "./hooks";
+import { useSizes, useSliding } from "./hooks";
 
 
 const Scroller = styled.div`
@@ -23,7 +23,7 @@ export type AnimesCarouselProps = {
 export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(({
     children,
 }) => {
-    const gap = 16;
+    const { gap, navigationWidth, containerWidth } = useSizes();
     const {
         containerRef,
         scrollerRef,
@@ -32,15 +32,14 @@ export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(({
         hasNext,
         hasPrev,
         slideProps,
-        prevButtonRef,
-    } = useSliding(gap, children?.length ?? 0);
+    } = useSliding(gap, children?.length ?? 0, navigationWidth);
     return (
-        <Scroller ref={scrollerRef}>
-            <NavigationButton ref={prevButtonRef} onClick={handlePrev} disabled={!hasPrev} direction={"left"} />
+        <Scroller ref={scrollerRef} style={{ width: containerWidth }}>
+            <NavigationButton onClick={handlePrev} disabled={!hasPrev} direction={"left"} />
             <Items ref={containerRef} gap={gap} {...slideProps}>
                 {children}
             </Items>
-            <NavigationButton ref={prevButtonRef} onClick={handleNext} disabled={!hasNext} direction={"right"} />
+            <NavigationButton onClick={handleNext} disabled={!hasNext} direction={"right"} />
         </Scroller>
     );
 });
