@@ -28,11 +28,11 @@ const IFrame: React.FC<{
     return (
         <FCol
             className={"fade-in"}
-            style={{ flex: 1, containerWidth: "100%", overflow: "hidden", position: "relative" }}
+            style={{ flex: 1, width: "100%", overflow: "hidden", position: "relative" }}
             ref={updateRef}
         >
             <div
-                style={{ flex: 1, containerWidth: "100%", overflow: "hidden" }}
+                style={{ flex: 1, width: "100%", overflow: "hidden" }}
                 ref={updateRef}
                 dangerouslySetInnerHTML={{ __html: html }}
             />
@@ -69,7 +69,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = React.memo(({
     return (
         <Wrapper
             style={{
-                containerWidth: "100vw",
+                width: "100vw",
                 height: "100vh",
             }}
         >

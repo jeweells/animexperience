@@ -19,7 +19,7 @@ let mainWindow: Electron.BrowserWindow | null;
 
 async function createWindow () {
     mainWindow = new BrowserWindow({
-        containerWidth: 1100,
+        width: 1100,
         height: 700,
         backgroundColor: "#191622",
         webPreferences: {
