@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Icon } from "rsuite";
 import styled from "styled-components";
+import { useSizes } from "../../hooks";
 
 const NavContainer = styled.div`
     position: absolute;
@@ -35,10 +36,12 @@ export const NavigationButton = React.memo(React.forwardRef<HTMLDivElement, Navi
     onClick,
     disabled,
 }, ref) => {
+    const { navigationWidth } = useSizes();
+
     return (
         <NavContainer
             ref={ref}
-            style={{ [direction]: 0 }}
+            style={{ [direction]: 0, width: navigationWidth }}
         >
             <SButton
                 direction={direction}

@@ -1,13 +1,13 @@
-import { useLayoutEffect, useMemo, useState } from "react";
+import React, { useLayoutEffect, useMemo, useState } from "react";
 import useResizeObserver from "use-resize-observer";
 
 export const useSliding = (
     gap: number,
-    countElements: number
+    countElements: number,
+    prevButtonWidth: number,
 ) => {
     const { ref: containerRef, width: containerWidth = 1 } = useResizeObserver<HTMLDivElement>();
     const { ref: scrollerRef, width: scrollerWidth = 1 } = useResizeObserver<HTMLDivElement>();
-    const { ref: prevButtonRef, width: prevButtonWidth = 1 } = useResizeObserver<any>();
     const [totalInViewport, setTotalInViewport] = useState(0);
     const [viewed, setViewed] = useState(0);
     const availableScrollerWidth = scrollerWidth - prevButtonWidth;
@@ -33,14 +33,31 @@ export const useSliding = (
         setViewed(viewed => Math.min(countElements, Math.max(viewed + totalInViewport, 0)));
     };
 
+    const [sliding, setSliding] = React.useState<boolean>(false);
     const distance = useMemo(() => {
         const elementWithGap = elementWidth + gap;
         return -prevButtonWidth + elementWithGap * viewed;
     }, [viewed, elementWidth, gap, prevButtonWidth]);
+    const mounted = React.useRef(false);
+    React.useLayoutEffect(() => {
+        if (mounted.current) {
+            setSliding(true);
+        }
+        mounted.current = true;
+    }, [distance]);
 
-    const slideProps = useMemo(() => ({
-        style: { transform: `translate3d(${-distance}px, 0, 0)` }
-    }), [distance]);
+    const slideProps = useMemo<Partial<React.HTMLAttributes<HTMLElement>>>(() => ({
+        onTransitionEnd: () => {
+            setSliding(false);
+        },
+        style: {
+            transform: `translate3d(${-distance}px, 0, 0)`,
+            // These will be unset when the transition ends
+            pointerEvents: sliding ? "none" : "all",
+        },
+    }),
+    // Do not depend it on distance; very important! Otherwise, 1 frame will be inconsistent
+    [sliding]);
 
 
 
@@ -48,7 +65,6 @@ export const useSliding = (
     const hasNext = (viewed + totalInViewport) < countElements;
 
     return {
-        prevButtonRef,
         scrollerRef,
         handlePrev,
         handleNext,
@@ -57,4 +73,15 @@ export const useSliding = (
         hasPrev,
         hasNext
     };
+};
+
+
+const defaultSizes = {
+    gap: 16,
+    containerWidth: "100vw",
+    navigationWidth: 72,
+};
+
+export const useSizes = () => {
+    return defaultSizes;
 };

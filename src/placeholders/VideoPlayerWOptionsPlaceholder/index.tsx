@@ -95,7 +95,7 @@ export const VideoPlayerWOptionsPlaceholder: React.FC<VideoPlayerWOptionsPlaceho
                                 key={x}
                                 style={{
                                     height: "100%",
-                                    width: 80,
+                                    containerWidth: 80,
                                     opacity: 1 - x * 0.2
                                 }}
                             >
