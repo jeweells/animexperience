@@ -18,10 +18,14 @@ const Items = styled.div<{ gap: number; }>`
 
 export type AnimesCarouselProps = {
     children?: React.ReactNode[];
+    loading?: boolean;
+    count: number;
 }
 
 export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(({
     children,
+    count,
+    loading,
 }) => {
     const { gap, navigationWidth, containerWidth } = useSizes();
     const {
@@ -32,14 +36,14 @@ export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(({
         hasNext,
         hasPrev,
         slideProps,
-    } = useSliding(gap, children?.length ?? 0, navigationWidth);
+    } = useSliding(gap, count, navigationWidth);
     return (
         <Scroller ref={scrollerRef} style={{ width: containerWidth }}>
-            <NavigationButton onClick={handlePrev} disabled={!hasPrev} direction={"left"} />
+            <NavigationButton onClick={handlePrev} disabled={loading || !hasPrev} direction={"left"} />
             <Items ref={containerRef} gap={gap} {...slideProps}>
                 {children}
             </Items>
-            <NavigationButton onClick={handleNext} disabled={!hasNext} direction={"right"} />
+            <NavigationButton onClick={handleNext} disabled={loading || !hasNext} direction={"right"} />
         </Scroller>
     );
 });

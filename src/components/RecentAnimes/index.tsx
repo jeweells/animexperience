@@ -4,6 +4,7 @@ import { useAppDispatch } from "../../../redux/store";
 import { RecentAnimeData, useRecentAnimes } from "../../hooks/useRecentAnimes";
 import AnimeEntry from "../AnimeEntry";
 import { AnimesCarousel } from "../AnimesCarousel";
+import { AnimeCarouselContent } from "../../placeholders/AnimeCarouselContent";
 
 export type RecentAnimesProps = {}
 
@@ -16,17 +17,20 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({
     } = useRecentAnimes();
     const dispatch = useAppDispatch();
 
+    const filteredAnimes = recentAnimes
+        ?.flat(1)
+        .filter((x): x is RecentAnimeData => !!x);
 
+    const count = status !== "succeeded" ? 5 : filteredAnimes?.length ?? 5;
 
     return (
         <React.Fragment>
-            {status !== "succeeded" ? "Loading"
-                : (
-                    <AnimesCarousel>
-                        {recentAnimes
-                            ?.flat(1)
-                            .filter((x): x is RecentAnimeData => !!x)
-                            .map(x => {
+            <AnimesCarousel count={count} loading={status !== "succeeded"}>
+                {status !== "succeeded"
+                    ? <AnimeCarouselContent count={count} />
+                    : (
+                        filteredAnimes
+                            ?.map(x => {
                                 return (
                                     <AnimeEntry
                                         key={`${x.name} ${x.episode}`}
@@ -40,10 +44,10 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({
                                         }}
                                     />
                                 );
-                            })}
-                    </AnimesCarousel>
-                )
-            }
+                            })
+                    )
+                }
+            </AnimesCarousel>
         </React.Fragment>
     );
 });

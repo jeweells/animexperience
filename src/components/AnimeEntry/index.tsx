@@ -29,7 +29,7 @@ const wrapperSize = (nElements: number, props: WrapperProps) => {
     `;
 };
 
-const Wrapper = styled.div<WrapperProps>`
+export const Wrapper = styled.div<WrapperProps>`
     position: relative;
     border-radius: 4px;
     overflow: hidden;
