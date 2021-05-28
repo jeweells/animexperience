@@ -46,8 +46,5 @@ export type RecentAnimeData = Partial<{
 }>
 
 export const useRecentAnimes = () => {
-    return {
-        status: "loading",
-    };
     return useInnerFetch<Array<Array<RecentAnimeData>>>("getRecentAnimes");
 };
