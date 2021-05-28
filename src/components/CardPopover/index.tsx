@@ -116,7 +116,6 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(({
             };
         }
     }, [open, position !== null]);
-    console.debug("Position:", position);
     return (
         <Portal>
             <ScaleOnHover
