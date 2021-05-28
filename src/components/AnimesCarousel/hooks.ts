@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import useResizeObserver from "use-resize-observer";
 
 export const useSliding = (
@@ -8,21 +8,20 @@ export const useSliding = (
 ) => {
     const { ref: containerRef, width: containerWidth = 1 } = useResizeObserver<HTMLDivElement>();
     const { ref: scrollerRef, width: scrollerWidth = 1 } = useResizeObserver<HTMLDivElement>();
-    const [totalInViewport, setTotalInViewport] = useState(0);
     const [viewed, setViewed] = useState(0);
     const availableScrollerWidth = scrollerWidth - prevButtonWidth;
 
     const elementWidth = useMemo(() => {
         return (containerWidth - gap * (countElements - 1)) / countElements;
     }, [countElements, gap, containerWidth]);
-    useLayoutEffect(() => {
+    const totalInViewport = useMemo(() => {
         const elementWidthWithGap = elementWidth + gap;
 
         let visibleElementsCount = Math.floor(availableScrollerWidth / elementWidthWithGap);
         if (elementWidthWithGap * visibleElementsCount + elementWidth <= availableScrollerWidth) {
             visibleElementsCount++;
         }
-        setTotalInViewport(visibleElementsCount);
+        return visibleElementsCount;
     }, [availableScrollerWidth, elementWidth]);
 
     const [sliding, setSliding] = React.useState<boolean>(false);
@@ -48,7 +47,7 @@ export const useSliding = (
             setSliding(true);
         }
         mounted.current = true;
-    }, [distance]);
+    }, [distance, totalInViewport, viewed]);
 
     const slideProps = useMemo<Partial<React.HTMLAttributes<HTMLElement>>>(() => ({
         style: {

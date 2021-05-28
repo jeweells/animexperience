@@ -22,6 +22,13 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({
         .filter((x): x is RecentAnimeData => !!x);
 
     const count = status !== "succeeded" ? 1 : filteredAnimes?.length ?? 1;
+    const handleCardClick = React.useCallback((anime: RecentAnimeData) => {
+        if (anime.name && anime.episode) {
+            dispatch(watch.watchEpisode(anime));
+        } else {
+            console.error("No enough data to perform search");
+        }
+    }, []);
     return (
         <React.Fragment>
             <AnimesCarousel
@@ -41,13 +48,7 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({
                             sliding={sliding}
                             key={`${x.name} ${x.episode}`}
                             anime={x}
-                            onClick={(anime) => {
-                                if (anime.name && anime.episode) {
-                                    dispatch(watch.watchEpisode(anime));
-                                } else {
-                                    console.error("No enough data to perform search");
-                                }
-                            }}
+                            onClick={handleCardClick}
                         />
                     );
                 }}
