@@ -69,6 +69,7 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(({
     const { navigationWidth } = useSizes();
     React.useLayoutEffect(() => {
         if (anchorEl?.current && open) {
+            console.debug("Open is true");
             const rect = anchorEl.current.getBoundingClientRect().toJSON();
             const width = window.innerWidth;
             const height = window.innerHeight;
@@ -87,7 +88,7 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(({
             right,
             bottom,
         } = position;
-        let originY = "center";
+        let originY = "top";
         let originX = "center";
         if (top <= 0) {
             originY = "top";

@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import { Fade } from "@material-ui/core";
+import React from "react";
 import styled, { css } from "styled-components";
 import { AnimeDescription, AnimeTitle } from "../../atoms/Text";
 import { RecentAnimeData } from "../../hooks/useRecentAnimes";
@@ -9,10 +10,13 @@ import CardPopover from "../CardPopover";
 
 export type AnimeEntryProps = {
     anime: Optional<RecentAnimeData>;
+    index: number;
     onClick?(anime: RecentAnimeData): void;
     onMouseOver?: React.HTMLAttributes<HTMLDivElement>["onMouseOver"];
     onMouseOut?: React.HTMLAttributes<HTMLDivElement>["onMouseOut"];
     isPopover?: boolean;
+    visible?: boolean;
+    sliding?: boolean;
 };
 
 
@@ -79,10 +83,18 @@ export const AnimeEntry = React.memo<AnimeEntryProps>(({
     onMouseOver,
     onMouseOut,
     isPopover,
+    index,
+    visible,
+    sliding,
 }) => {
     const { navigationWidth, containerWidth, gap } = useSizes();
     const cardRef = React.useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = React.useState<boolean>(false);
+    React.useLayoutEffect(() => {
+        if (sliding) {
+            setIsHovered(false);
+        }
+    }, [sliding, isHovered]);
     if (!anime) return null;
     const handleMouseOver = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         onMouseOver?.(e);
@@ -93,39 +105,44 @@ export const AnimeEntry = React.memo<AnimeEntryProps>(({
     };
 
     return (
-        <Fragment>
-            <Wrapper
-                ref={cardRef}
-                onClick={handleClick}
-                onMouseOver={handleMouseOver}
-                onMouseOut={onMouseOut}
-                gap={gap}
-                containerWidth={containerWidth}
-                navigationWidth={navigationWidth}
-            >
-                <Img alt={anime.name} src={anime.img}/>
-                <AnimeInfo>
-                    <AnimeTitle>
-                        {anime.name}
-                    </AnimeTitle>
-                    <AnimeDescription>
-                        {`Episodio ${anime.episode}`}
-                    </AnimeDescription>
-                </AnimeInfo>
-            </Wrapper>
-            {!isPopover && (
-                <AnimeEntryPopover
-                    open={isHovered}
-                    anime={anime}
-                    onMouseOver={handleMouseOver}
+        <Fade in={true} timeout={2000 + 500 * index} appear={!isPopover}>
+            <div>
+                <Wrapper
+                    ref={cardRef}
                     onClick={handleClick}
-                    cardRef={cardRef}
-                    onClose={() => {
-                        setIsHovered(false);
-                    }}
-                />
-            )}
-        </Fragment>
+                    onMouseOver={handleMouseOver}
+                    onMouseOut={onMouseOut}
+                    gap={gap}
+                    containerWidth={containerWidth}
+                    navigationWidth={navigationWidth}
+                >
+                    <Img alt={anime.name} src={anime.img}/>
+                    <AnimeInfo>
+                        <AnimeTitle>
+                            {anime.name}
+                        </AnimeTitle>
+                        <AnimeDescription>
+                            {`Episodio ${anime.episode}`}
+                        </AnimeDescription>
+                    </AnimeInfo>
+                </Wrapper>
+                {!isPopover && (
+                    <AnimeEntryPopover
+                        index={index}
+                        open={isHovered}
+                        visible={visible}
+                        anime={anime}
+                        onMouseOver={handleMouseOver}
+                        onClick={handleClick}
+                        cardRef={cardRef}
+                        sliding={sliding}
+                        onClose={() => {
+                            setIsHovered(false);
+                        }}
+                    />
+                )}
+            </div>
+        </Fade>
     );
 });
 
@@ -137,7 +154,7 @@ type AnimeEntryPopoverProps = {
     onMouseOver?:React.HTMLAttributes<HTMLDivElement>["onMouseOut"];
     cardRef?: React.RefObject<HTMLElement>;
     onClose?(): void;
-} & Pick<AnimeEntryProps, "anime" | "onClick">
+} & Pick<AnimeEntryProps, "anime" | "onClick" | "index" | "visible" | "sliding">
 
 const AnimeEntryPopover: React.VFC<AnimeEntryPopoverProps> = React.memo<AnimeEntryPopoverProps>(({
     open,
@@ -147,10 +164,13 @@ const AnimeEntryPopover: React.VFC<AnimeEntryPopoverProps> = React.memo<AnimeEnt
     onMouseOut,
     onMouseOver,
     onClose,
+    index,
+    visible,
+    sliding,
 }) => {
     return (
         <CardPopover
-            open={open}
+            open={Boolean(!sliding && visible && open)}
             anchorEl={cardRef}
             onClose={onClose}
         >
@@ -160,6 +180,9 @@ const AnimeEntryPopover: React.VFC<AnimeEntryPopoverProps> = React.memo<AnimeEnt
                 onClick={onClick}
                 onMouseOut={onMouseOut}
                 onMouseOver={onMouseOver}
+                index={index}
+                visible={visible}
+                sliding={sliding}
             />
         </CardPopover>
     );

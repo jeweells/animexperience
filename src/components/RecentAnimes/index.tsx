@@ -2,9 +2,9 @@ import React from "react";
 import { watch } from "../../../redux/reducers/watch";
 import { useAppDispatch } from "../../../redux/store";
 import { RecentAnimeData, useRecentAnimes } from "../../hooks/useRecentAnimes";
+import { AnimeCarouselContent } from "../../placeholders/AnimeCarouselContent";
 import AnimeEntry from "../AnimeEntry";
 import { AnimesCarousel } from "../AnimesCarousel";
-import { AnimeCarouselContent } from "../../placeholders/AnimeCarouselContent";
 
 export type RecentAnimesProps = {}
 
@@ -21,33 +21,37 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({
         ?.flat(1)
         .filter((x): x is RecentAnimeData => !!x);
 
-    const count = status !== "succeeded" ? 5 : filteredAnimes?.length ?? 5;
-
+    const count = status !== "succeeded" ? 1 : filteredAnimes?.length ?? 1;
     return (
         <React.Fragment>
-            <AnimesCarousel count={count} loading={status !== "succeeded"}>
-                {status !== "succeeded"
-                    ? <AnimeCarouselContent count={count} />
-                    : (
-                        filteredAnimes
-                            ?.map(x => {
-                                return (
-                                    <AnimeEntry
-                                        key={`${x.name} ${x.episode}`}
-                                        anime={x}
-                                        onClick={(anime) => {
-                                            if (anime.name && anime.episode) {
-                                                dispatch(watch.watchEpisode(anime));
-                                            } else {
-                                                console.error("No enough data to perform search");
-                                            }
-                                        }}
-                                    />
-                                );
-                            })
-                    )
-                }
-            </AnimesCarousel>
+            <AnimesCarousel
+                title={"Recientes"}
+                count={count}
+                loading={status !== "succeeded"}
+                render={({ index, visible, sliding }) => {
+                    if (status !== "succeeded") {
+                        return <AnimeCarouselContent key={"placeholder" + index} count={5} />;
+                    }
+                    if (!filteredAnimes) return null;
+                    const x = filteredAnimes[index];
+                    return (
+                        <AnimeEntry
+                            index={index}
+                            visible={visible}
+                            sliding={sliding}
+                            key={`${x.name} ${x.episode}`}
+                            anime={x}
+                            onClick={(anime) => {
+                                if (anime.name && anime.episode) {
+                                    dispatch(watch.watchEpisode(anime));
+                                } else {
+                                    console.error("No enough data to perform search");
+                                }
+                            }}
+                        />
+                    );
+                }}
+            />
         </React.Fragment>
     );
 });

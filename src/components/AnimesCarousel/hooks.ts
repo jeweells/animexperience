@@ -25,15 +25,19 @@ export const useSliding = (
         setTotalInViewport(visibleElementsCount);
     }, [availableScrollerWidth, elementWidth]);
 
+    const [sliding, setSliding] = React.useState<boolean>(false);
     const handlePrev = () => {
-        setViewed(viewed => Math.min(countElements, Math.max(viewed - totalInViewport, 0)));
+        if (!sliding) {
+            setViewed(viewed => Math.min(countElements, Math.max(viewed - totalInViewport, 0)));
+        }
     };
 
     const handleNext = () => {
-        setViewed(viewed => Math.min(countElements, Math.max(viewed + totalInViewport, 0)));
+        if (!sliding) {
+            setViewed(viewed => Math.min(countElements, Math.max(viewed + totalInViewport, 0)));
+        }
     };
 
-    const [sliding, setSliding] = React.useState<boolean>(false);
     const distance = useMemo(() => {
         const elementWithGap = elementWidth + gap;
         return -prevButtonWidth + elementWithGap * viewed;
@@ -47,9 +51,6 @@ export const useSliding = (
     }, [distance]);
 
     const slideProps = useMemo<Partial<React.HTMLAttributes<HTMLElement>>>(() => ({
-        onTransitionEnd: () => {
-            setSliding(false);
-        },
         style: {
             transform: `translate3d(${-distance}px, 0, 0)`,
             // These will be unset when the transition ends
@@ -71,7 +72,14 @@ export const useSliding = (
         slideProps,
         containerRef,
         hasPrev,
-        hasNext
+        hasNext,
+        sliding,
+        viewed,
+        totalInViewport,
+        onSlidingComplete: () => {
+            console.debug("Sliding finished");
+            setSliding(false);
+        },
     };
 };
 
