@@ -7,6 +7,7 @@ import fetch from "node-fetch";
 import * as path from "path";
 import * as url from "url";
 import setupSdk from "./sdk";
+import { setupStores } from "./store";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -32,7 +33,8 @@ async function createWindow () {
     const publicPath = process.env.NODE_ENV === "development"
         ? "http://localhost:4000"
         : path.join(__dirname, "renderer");
-    mainWindow.webContents.setWindowOpenHandler(() => {
+    mainWindow.webContents.setWindowOpenHandler((d) => {
+        console.debug("Denied popup", d.url);
         return {
             action: "deny"
         };
@@ -137,3 +139,4 @@ app.on("ready", createWindow)
 
 app.allowRendererProcessReuse = true;
 setupSdk();
+setupStores();

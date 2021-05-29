@@ -12,7 +12,7 @@ const useStyles = makeStyles<DefaultTheme, {
     {
         item: {
             "transform": "scale(1)",
-            "transition": props => `all ${props.duration}ms ease-out`,
+            "transition": props => `all ${props.duration}ms`,
             "&:hover": {
                 transform: "scale(1.1)",
             },

@@ -2,9 +2,11 @@ import $ from "jquery";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import { Store } from "../../../globals/types";
 import { watch } from "../../../redux/reducers/watch";
 import store, { useAppDispatch } from "../../../redux/store";
 import { RecentAnimeData } from "../../hooks/useRecentAnimes";
+import { useStaticStore } from "../../hooks/useStaticStore";
 import { Optional } from "../../types";
 import NextEpisodeButton from "../NextEpisodeButton";
 import { VideoOption } from "./index";
@@ -168,6 +170,7 @@ const SECONDS_NEXT_BUTTON_DISPLAY = SECONDS_LEFT_TO_NEXT_EPISODE - SECONDS_LEFT_
 export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<HTMLDivElement>) => {
     const video = useVideo(info, container);
     const dispatch = useAppDispatch();
+    const staticStore = useStaticStore(Store.WATCHED);
     React.useLayoutEffect(() => {
         if (video) {
             if (!video.autoplay) {
@@ -204,6 +207,19 @@ export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<H
                     } else if (refs.nextButtonShown) {
                         refs.nextButtonShown = false;
                         dispatch(watch.setNextEpisodeButton(false));
+                    }
+                    const anime = info.anime;
+                    if (anime &&
+                        anime.name &&
+                        typeof anime.episode === "number" &&
+                        // Save each 5 seconds
+                        Math.floor(video.duration) % 5 === 0
+                    ) {
+                        staticStore.set(anime.name, anime.episode, {
+                            duration: video.duration,
+                            currentTime: video.currentTime,
+                            at: new Date().getTime(),
+                        });
                     }
                 }
             };
