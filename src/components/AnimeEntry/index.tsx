@@ -105,7 +105,7 @@ export const AnimeEntry = React.memo<AnimeEntryProps>(({
     };
 
     return (
-        <Fade in={true} timeout={2000 + 500 * index} appear={!isPopover}>
+        <Fade in={true} timeout={1000 + Math.min(5000, 500 * index)} appear={!isPopover}>
             <div>
                 <Wrapper
                     ref={cardRef}
