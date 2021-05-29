@@ -88,6 +88,7 @@
     "babel-preset-rsuite": "^4.0.1",
     "cheerio": "^1.0.0-rc.9",
     "copy-webpack-plugin": "^9.0.0",
+    "electron-store": "^8.0.0",
     "jquery": "^3.6.0",
     "json5": "^2.2.0",
     "less": "^4.1.1",
