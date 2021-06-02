@@ -1,34 +1,28 @@
-import { Fade } from "@material-ui/core";
-import { Skeleton, SkeletonProps } from "@material-ui/lab";
-import React, { Fragment } from "react";
-import { useSizes } from "../../components/AnimesCarousel/hooks";
-import { range } from "../../utils";
-import { Wrapper } from "../../components/AnimeEntry";
+import { Fade } from '@material-ui/core'
+import { Skeleton, SkeletonProps } from '@material-ui/lab'
+import React, { Fragment } from 'react'
+import { useSizes } from '../../components/AnimesCarousel/hooks'
+import { range } from '../../utils'
+import { Wrapper } from '../../components/AnimeEntry'
 
 export type AnimeCarouselContentProps = {
-    count: number;
+    count: number
 }
 
-export const AnimeCarouselContent: React.FC<AnimeCarouselContentProps> = React.memo(({
-    count
-}) => {
-    const {
-        navigationWidth,
-        gap,
-        containerWidth,
-    } = useSizes();
-    const animation: SkeletonProps["animation"] = "pulse";
+export const AnimeCarouselContent: React.FC<AnimeCarouselContentProps> = React.memo(({ count }) => {
+    const { navigationWidth, gap, containerWidth } = useSizes()
+    const animation: SkeletonProps['animation'] = 'pulse'
 
     return (
         <Fragment>
-            {range(count).map(x => {
+            {range(count).map((x) => {
                 return (
                     <Fade key={x} in={true} timeout={2000 + 500 * x} appear={true}>
                         <div>
                             <Wrapper
                                 gap={gap}
                                 style={{
-                                    cursor: "default",
+                                    cursor: 'default',
                                     opacity: 1 - x * 0.2,
                                 }}
                                 containerWidth={containerWidth}
@@ -36,21 +30,21 @@ export const AnimeCarouselContent: React.FC<AnimeCarouselContentProps> = React.m
                             >
                                 <Skeleton
                                     animation={animation}
-                                    variant={"rect"}
+                                    variant={'rect'}
                                     style={{
-                                        width: "100%",
-                                        height: "100%",
+                                        width: '100%',
+                                        height: '100%',
                                     }}
                                 />
                             </Wrapper>
                         </div>
                     </Fade>
-                );
+                )
             })}
         </Fragment>
-    );
-});
+    )
+})
 
-AnimeCarouselContent.displayName = "AnimeCarouselContent";
+AnimeCarouselContent.displayName = 'AnimeCarouselContent'
 
-export default AnimeCarouselContent;
+export default AnimeCarouselContent

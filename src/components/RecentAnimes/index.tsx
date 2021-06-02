@@ -1,46 +1,39 @@
-import React from "react";
-import { watch } from "../../../redux/reducers/watch";
-import { useAppDispatch } from "../../../redux/store";
-import { RecentAnimeData, useRecentAnimes } from "../../hooks/useRecentAnimes";
-import { AnimeCarouselContent } from "../../placeholders/AnimeCarouselContent";
-import AnimeEntry from "../AnimeEntry";
-import { AnimesCarousel } from "../AnimesCarousel";
+import React from 'react'
+import { watch } from '../../../redux/reducers/watch'
+import { useAppDispatch } from '../../../redux/store'
+import { RecentAnimeData, useRecentAnimes } from '../../hooks/useRecentAnimes'
+import { AnimeCarouselContent } from '../../placeholders/AnimeCarouselContent'
+import AnimeEntry from '../AnimeEntry'
+import { AnimesCarousel } from '../AnimesCarousel'
 
 export type RecentAnimesProps = {}
 
-export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({
+export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({}) => {
+    const { data: recentAnimes, status } = useRecentAnimes()
+    const dispatch = useAppDispatch()
 
-}) => {
-    const {
-        data: recentAnimes,
-        status
-    } = useRecentAnimes();
-    const dispatch = useAppDispatch();
+    const filteredAnimes = recentAnimes?.flat(1).filter((x): x is RecentAnimeData => !!x)
 
-    const filteredAnimes = recentAnimes
-        ?.flat(1)
-        .filter((x): x is RecentAnimeData => !!x);
-
-    const count = status !== "succeeded" ? 1 : filteredAnimes?.length ?? 1;
+    const count = status !== 'succeeded' ? 1 : filteredAnimes?.length ?? 1
     const handleCardClick = React.useCallback((anime: RecentAnimeData) => {
         if (anime.name && anime.episode) {
-            dispatch(watch.watchEpisode(anime));
+            dispatch(watch.watchEpisode(anime))
         } else {
-            console.error("No enough data to perform search");
+            console.error('No enough data to perform search')
         }
-    }, []);
+    }, [])
     return (
         <React.Fragment>
             <AnimesCarousel
-                title={"Recientes"}
+                title={'Recientes'}
                 count={count}
-                loading={status !== "succeeded"}
+                loading={status !== 'succeeded'}
                 render={({ index, visible, sliding }) => {
-                    if (status !== "succeeded") {
-                        return <AnimeCarouselContent key={"placeholder" + index} count={5} />;
+                    if (status !== 'succeeded') {
+                        return <AnimeCarouselContent key={'placeholder' + index} count={5} />
                     }
-                    if (!filteredAnimes) return null;
-                    const x = filteredAnimes[index];
+                    if (!filteredAnimes) return null
+                    const x = filteredAnimes[index]
                     return (
                         <AnimeEntry
                             index={index}
@@ -50,13 +43,13 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({
                             anime={x}
                             onClick={handleCardClick}
                         />
-                    );
+                    )
                 }}
             />
         </React.Fragment>
-    );
-});
+    )
+})
 
-RecentAnimes.displayName = "RecentAnimes";
+RecentAnimes.displayName = 'RecentAnimes'
 
-export default RecentAnimes;
+export default RecentAnimes
