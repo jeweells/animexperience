@@ -2,124 +2,45 @@ import $ from "jquery";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { Store } from "../../../globals/types";
+import { EpisodeInfo, Store } from "../../../globals/types";
 import { watch } from "../../../redux/reducers/watch";
 import store, { useAppDispatch } from "../../../redux/store";
-import { RecentAnimeData } from "../../hooks/useRecentAnimes";
 import { useStaticStore } from "../../hooks/useStaticStore";
 import { Optional } from "../../types";
 import NextEpisodeButton from "../NextEpisodeButton";
-import { VideoOption } from "./index";
+import { handleSpecificOptions } from "./autoPlayHandlers";
+import {
+    SECONDS_LEFT_TO_NEXT_EPISODE,
+    SECONDS_LEFT_TO_TRIGGER_NEXT_EPISODE,
+    SECONDS_NEXT_BUTTON_DISPLAY,
+} from "./constants";
+import { handleSeek } from "./seekHandlers";
+import { BasicVideoInfo } from "./types";
+import { deepFindVideos } from "./utils";
 
-type $IframeContents = JQuery<HTMLIFrameElement | Text | Comment | Document>;
-
-// Target must be iframe.contents() ... always
-function * deepIframes (
-    target: $IframeContents,
-    depth = 5,
-    currDepth = 1
-): Generator<$IframeContents> {
-    if (!target || target.length === 0 || currDepth >= depth) return;
-    if (currDepth === 1) {
-        yield target;
-    }
-    const iframes = target.find("iframe").get().map(x => $(x).contents());
-    for (const iframe of iframes) {
-        yield iframe;
-    }
-    for (const iframe of iframes) {
-        for (const t of deepIframes(iframe, depth, currDepth + 1)) {
-            yield t;
-        }
-    }
-}
-
-// The array returned will always be of length greater than 0
-const deepFindVideos = (target: $IframeContents, depth = 5): Optional<HTMLVideoElement[]> => {
-    for (const iframe of deepIframes(target, depth)) {
-        const video = iframe.find("video");
-        if (video.length > 0) {
-            return video.get();
-        }
-    }
-};
-
-
-const handleSpecificOptions = (option: Optional<VideoOption>, contents: $IframeContents): boolean => {
-    const methods: Partial<Record<string, (contents: $IframeContents) => boolean>> = {
-        "fembed": handleFembedPlayer,
-        "okru": handleOkRuPlayer,
-        "mixdrop": handleMixDrop,
-    };
-    const handler = methods[option?.name?.toLowerCase() ?? ""];
-    if (handler) {
-        for (const iframe of deepIframes(contents)) {
-            if (handler(iframe)) {
-                return true;
-            }
-        }
-    }
-
-    return false;
-};
-
-const handleFembedPlayer = (iframe: $IframeContents) => {
-    console.debug("Fembed: Clicking play button");
-    const playBtn = iframe.find(".faplbu");
-    if (playBtn.length > 0) {
-        console.debug("GOT", playBtn);
-        playBtn.trigger("click");
-        return true;
-    }
-    return false;
-};
-
-const handleOkRuPlayer = (iframe: $IframeContents) => {
-    console.debug("Okru: Clicking play button");
-    const playBtn = iframe.find("div#embedVideoC.vid-card_cnt_w");
-    if (playBtn.length > 0) {
-        const video = iframe.find("video");
-        if (video.length === 0) {
-            console.debug("GOT", playBtn);
-            playBtn.trigger("click");
-            // Let it spam or else it won't work
-            return false;
-        }
-    }
-    return false;
-};
-
-const handleMixDrop = (iframe: $IframeContents) => {
-    let adClicked = false;
-    for (const adClick of iframe.find("div[onclick]").get()) {
-        const onclick = adClick.getAttribute("onclick");
-        if (onclick && onclick.includes("$(this).remove()")) {
-            $(adClick).trigger("click");
-            adClicked = true;
-        }
-    }
-    if (!adClicked) {
-        iframe.find("button.vjs-big-play-button").trigger("click");
-    }
-    return false;
-};
-
-export type BasicVideoInfo = {
-    option?: Optional<VideoOption>;
-    anime?: Optional<RecentAnimeData>;
-}
 
 export const useVideo = (info: BasicVideoInfo, container: Optional<HTMLDivElement>, ms = 300) => {
     const [video, setVideo] = React.useState<Optional<HTMLVideoElement>>(null);
     const [detachedVideo, setDetachedVideo] = React.useState<Optional<HTMLVideoElement>>(null);
+    const [episodeInfo, setEpisodeInfo] = React.useState<Optional<EpisodeInfo>>(null);
+    const staticStore = useStaticStore(Store.WATCHED);
     React.useLayoutEffect(() => {
-        if (container) {
+        if (info.anime) {
+            setEpisodeInfo(null);
+            staticStore.get(info.anime.name, info.anime.episode).then(videoInfo => {
+                setEpisodeInfo(videoInfo || {});
+            });
+        }
+    }, [info.anime?.name, info.anime?.episode, info.option?.name]);
+
+    React.useLayoutEffect(() => {
+        if (container && episodeInfo !== null) {
             const interval: { handle?: number; handledSpecificOptions?: boolean } = {};
             const iframeContent = $(container).find("iframe");
             const check = () => {
                 const contents = iframeContent.contents();
                 if (!interval.handledSpecificOptions) {
-                    interval.handledSpecificOptions = handleSpecificOptions(info.option, contents);
+                    interval.handledSpecificOptions = handleSpecificOptions(info.option, contents, episodeInfo);
                 }
                 const video = deepFindVideos(contents);
                 console.debug("Trying to find video: ", video);
@@ -157,15 +78,11 @@ export const useVideo = (info: BasicVideoInfo, container: Optional<HTMLDivElemen
                 clearInterval(interval.handle);
             };
         }
-    }, [info.anime?.name, info.anime?.episode, info.option?.name, container, ms, detachedVideo]);
+    }, [info.anime?.name, info.anime?.episode, info.option?.name, container, ms, detachedVideo, episodeInfo === null]);
 
     return video;
 };
 
-
-const SECONDS_LEFT_TO_NEXT_EPISODE = 5;
-const SECONDS_LEFT_TO_TRIGGER_NEXT_EPISODE = 1;
-const SECONDS_NEXT_BUTTON_DISPLAY = SECONDS_LEFT_TO_NEXT_EPISODE - SECONDS_LEFT_TO_TRIGGER_NEXT_EPISODE;
 
 export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<HTMLDivElement>) => {
     const video = useVideo(info, container);
@@ -176,14 +93,19 @@ export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<H
             if (!video.autoplay) {
                 video.autoplay = true;
             }
-            if (video.paused) {
-                video.play();
+            const anime = info.anime;
+            if (anime) {
+                staticStore.get(anime.name, anime.episode).then((data: Optional<EpisodeInfo>) => {
+                    // Try auto play the video at latest time stored
+                    handleSeek(info, data, video);
+                });
             }
             const refs: {
                 nextButtonShown?: boolean;
                 nextBtnRef?: JQuery | null;
             } = {};
-            const handleTimeUpdate = () => {
+            const handleTimeUpdate = (e: Event) => {
+                console.debug("TARGET", e.target, e.currentTarget);
                 if (isFinite(video.duration)) {
                     const { duration, currentTime } = video;
                     console.debug("VIDEO TIME", video.currentTime);
@@ -208,18 +130,17 @@ export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<H
                         refs.nextButtonShown = false;
                         dispatch(watch.setNextEpisodeButton(false));
                     }
-                    const anime = info.anime;
                     if (anime &&
                         anime.name &&
                         typeof anime.episode === "number" &&
-                        // Save each 5 seconds
-                        Math.floor(video.duration) % 5 === 0
+                        // Save each 3 seconds
+                        Math.floor(video.currentTime) % 3 === 0
                     ) {
                         staticStore.set(anime.name, anime.episode, {
                             duration: video.duration,
                             currentTime: video.currentTime,
                             at: new Date().getTime(),
-                        });
+                        } as EpisodeInfo);
                     }
                 }
             };
