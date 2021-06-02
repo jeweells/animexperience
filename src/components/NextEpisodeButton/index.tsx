@@ -1,11 +1,11 @@
-import { Fade } from "@material-ui/core";
-import React from "react";
-import { watch } from "../../../redux/reducers/watch";
-import { useAppDispatch, useAppSelector } from "../../../redux/store";
-import font from "../../fonts/Quicksand/Quicksand-Light.ttf";
+import { Fade } from '@material-ui/core'
+import React from 'react'
+import { watch } from '../../../redux/reducers/watch'
+import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import font from '../../fonts/Quicksand/Quicksand-Light.ttf'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const currUrl = require("@electron/remote").getCurrentWindow().webContents.getURL();
+const currUrl = require('@electron/remote').getCurrentWindow().webContents.getURL()
 // We need to form an absolute url since this element will be injected inside an iframe
 // and inside iframes, relatives url won't match ours
 const css = `
@@ -44,58 +44,55 @@ const css = `
         background-color: #3c3f43;
         
     }
-`;
+`
 
 export type NextEpisodeButtonProps = {}
 
 export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({}) => {
-    const timeout = useAppSelector(d => d.watch.nextEpisodeTimeout);
-    const dispatch = useAppDispatch();
-    const showNextButton = useAppSelector(d => d.watch.showNextEpisodeButton);
+    const timeout = useAppSelector((d) => d.watch.nextEpisodeTimeout)
+    const dispatch = useAppDispatch()
+    const showNextButton = useAppSelector((d) => d.watch.showNextEpisodeButton)
     const handleNext = () => {
-        dispatch(watch.setNextEpisodeButton(false));
-        dispatch(watch.nextEpisode());
-    };
+        dispatch(watch.setNextEpisodeButton(false))
+        dispatch(watch.nextEpisode())
+    }
 
     return (
         <Fade in={showNextButton} timeout={400}>
-            <div style={{
-                position: "absolute",
-                top: 16,
-                right: 16,
-                zIndex: 2147483647,
-            }}
+            <div
+                style={{
+                    position: 'absolute',
+                    top: 16,
+                    right: 16,
+                    zIndex: 2147483647,
+                }}
             >
-                <style>
-                    {css}
-                </style>
+                <style>{css}</style>
                 <button
-                    className={"raex-button-injected"}
+                    className={'raex-button-injected'}
                     onClick={() => {
-                        handleNext();
+                        handleNext()
                     }}
                 >
-                    <span style={{ position: "relative", zIndex: 2 }}>
-                        Siguiente episodio
-                    </span>
+                    <span style={{ position: 'relative', zIndex: 2 }}>Siguiente episodio</span>
                     <div
                         style={{
-                            position: "absolute",
+                            position: 'absolute',
                             zIndex: 1,
                             top: 0,
                             left: 0,
                             bottom: 0,
-                            backgroundColor: "rgba(255,255,255,0.1)",
-                            width: timeout !== -1 && showNextButton ? "100%" : "0",
-                            transition: timeout === -1 ? "none" : `all ${timeout}s`,
+                            backgroundColor: 'rgba(255,255,255,0.1)',
+                            width: timeout !== -1 && showNextButton ? '100%' : '0',
+                            transition: timeout === -1 ? 'none' : `all ${timeout}s`,
                         }}
                     />
                 </button>
             </div>
         </Fade>
-    );
-});
+    )
+})
 
-NextEpisodeButton.displayName = "NextEpisodeButton";
+NextEpisodeButton.displayName = 'NextEpisodeButton'
 
-export default NextEpisodeButton;
+export default NextEpisodeButton
