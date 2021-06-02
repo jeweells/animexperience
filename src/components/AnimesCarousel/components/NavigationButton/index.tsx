@@ -18,6 +18,7 @@ export type NavigationButtonProps = {
 
 const SButton = styled(Button)<Pick<NavigationButtonProps, 'direction'>>`
     height: 100%;
+    border-radius: 0;
     background-color: transparent !important;
     opacity: ${(props) => (props.disabled ? 0 : 0.7)} !important;
     background-image: linear-gradient(
