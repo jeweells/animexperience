@@ -1,15 +1,14 @@
 export enum Store {
-    WATCHED = "watched",
+    WATCHED = 'watched',
 }
 
 export enum StoreMethod {
-    getStore = "getStore",
-    setStore = "setStore",
+    getStore = 'getStore',
+    setStore = 'setStore',
 }
 
-
 export type EpisodeInfo = {
-    currentTime: number;
-    duration: number;
-    at: number;
+    currentTime: number
+    duration: number
+    at: number
 }

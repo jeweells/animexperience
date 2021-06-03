@@ -4,8 +4,10 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { EpisodeInfo, Store } from '../../../globals/types'
 import { watch } from '../../../redux/reducers/watch'
+import { watched } from '../../../redux/reducers/watched'
 import store, { useAppDispatch } from '../../../redux/store'
 import { useStaticStore } from '../../hooks/useStaticStore'
+import { useWatched } from '../../hooks/useWatched'
 import { Optional } from '../../types'
 import NextEpisodeButton from '../NextEpisodeButton'
 import { handleSpecificOptions } from './autoPlayHandlers'
@@ -21,16 +23,7 @@ import { deepFindVideos } from './utils'
 export const useVideo = (info: BasicVideoInfo, container: Optional<HTMLDivElement>, ms = 300) => {
     const [video, setVideo] = React.useState<Optional<HTMLVideoElement>>(null)
     const [detachedVideo, setDetachedVideo] = React.useState<Optional<HTMLVideoElement>>(null)
-    const [episodeInfo, setEpisodeInfo] = React.useState<Optional<EpisodeInfo>>(null)
-    const staticStore = useStaticStore(Store.WATCHED)
-    React.useLayoutEffect(() => {
-        if (info.anime) {
-            setEpisodeInfo(null)
-            staticStore.get(info.anime.name, info.anime.episode).then((videoInfo) => {
-                setEpisodeInfo(videoInfo || {})
-            })
-        }
-    }, [info.anime?.name, info.anime?.episode, info.option?.name])
+    const episodeInfo = useWatched(info.anime)
 
     React.useLayoutEffect(() => {
         if (container && episodeInfo !== null) {
@@ -135,11 +128,16 @@ export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<H
                         // Save each 3 seconds
                         Math.floor(video.currentTime) % 3 === 0
                     ) {
-                        staticStore.set(anime.name, anime.episode, {
-                            duration: video.duration,
-                            currentTime: video.currentTime,
-                            at: new Date().getTime(),
-                        } as EpisodeInfo)
+                        dispatch(
+                            watched.set({
+                                anime,
+                                info: {
+                                    duration: video.duration,
+                                    currentTime: video.currentTime,
+                                    at: new Date().getTime(),
+                                },
+                            }),
+                        )
                     }
                 }
             }

@@ -15,7 +15,7 @@ const useStyles = makeStyles<
         transform: 'scale(1)',
         transition: (props) => `all ${props.duration}ms`,
         '&:hover': {
-            transform: 'scale(1.1)',
+            transform: 'scale(1.3)',
         },
     },
 })

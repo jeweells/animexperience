@@ -1,12 +1,14 @@
 import { Fade } from '@material-ui/core'
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled, { css } from 'styled-components'
 import { AnimeDescription, AnimeTitle } from '../../atoms/Text'
 import { RecentAnimeData } from '../../hooks/useRecentAnimes'
+import { useWatched } from '../../hooks/useWatched'
 import { Optional } from '../../types'
 import { pixel } from '../../utils'
 import { useSizes } from '../AnimesCarousel/hooks'
 import CardPopover from '../CardPopover'
+import WatchedRange from '../WatchedRange'
 
 export type AnimeEntryProps = {
     anime: Optional<RecentAnimeData>
@@ -53,6 +55,7 @@ export const Wrapper = styled.div<WrapperProps>`
     flex: 0 0 auto;
     cursor: pointer;
     transition: all 300ms ease-in-out;
+
     &:hover {
         //transform: scale(1.1);
         z-index: 10;
@@ -95,6 +98,7 @@ export const AnimeEntry = React.memo<AnimeEntryProps>(
         const handleClick = () => {
             onClick?.(anime)
         }
+        const watched = useWatched(anime)
 
         return (
             <Fade in={true} timeout={1000 + Math.min(5000, 500 * index)} appear={!isPopover}>
@@ -112,6 +116,12 @@ export const AnimeEntry = React.memo<AnimeEntryProps>(
                         <AnimeInfo>
                             <AnimeTitle>{anime.name}</AnimeTitle>
                             <AnimeDescription>{`Episodio ${anime.episode}`}</AnimeDescription>
+                            {watched && (
+                                <Fragment>
+                                    <div style={{ minHeight: 8 }} />
+                                    <WatchedRange info={watched} />
+                                </Fragment>
+                            )}
                         </AnimeInfo>
                     </Wrapper>
                     {!isPopover && (
