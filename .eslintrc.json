@@ -68,7 +68,8 @@
     "comma-dangle": "off",
     "space-before-function-paren": "off",
     "generator-star-spacing": "off",
-    "@typescript-eslint/no-empty-interface": "off"
+    "@typescript-eslint/no-empty-interface": "off",
+    "prettier/prettier": "error"
   },
   "settings": {
     "import/resolver": {
