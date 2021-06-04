@@ -34,7 +34,11 @@ export interface TypedUseRelaySelectorHook<TState> {
     ): TSelected
 }
 
-export const useRelaySelector: TypedUseRelaySelectorHook<RootState> = (dataSelector, statusSelector, equalityFn) => {
+export const useRelaySelector: TypedUseRelaySelectorHook<RootState> = (
+    dataSelector,
+    statusSelector,
+    equalityFn,
+) => {
     const data = useAppSelector(dataSelector, equalityFn)
     const status = useAppSelector(statusSelector)
     const ref = React.useRef<Promise<any>>()

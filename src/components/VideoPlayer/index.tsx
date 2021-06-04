@@ -38,45 +38,49 @@ const IFrame: React.FC<{
 
 IFrame.displayName = 'IFrame'
 
-export const VideoPlayer: React.FC<VideoPlayerProps> = React.memo(({ option, children }) => {
-    const [ref, setRef] = React.useState<HTMLDivElement | null>(null)
-    const watching = useAppSelector((d) => d.watch.watching)
-    const { ref: containerRef, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>()
-    React.useLayoutEffect(() => {
-        if (!ref) return
-        const iframe = $(ref).find('iframe')
-        if (!iframe) return
-        iframe.attr('width', Math.floor(width) - 1)
-        iframe.attr('height', Math.floor(height) - 1)
-    }, [ref, option?.name, width, height])
-    useVideoImprovements(
-        {
-            anime: watching,
-            option,
-        },
-        ref,
-    )
+export const VideoPlayer: React.FC<VideoPlayerProps> = React.memo(
+    ({ option, children }) => {
+        const [ref, setRef] = React.useState<HTMLDivElement | null>(null)
+        const watching = useAppSelector((d) => d.watch.watching)
+        const { ref: containerRef, width = 1, height = 1 } = useResizeObserver<
+            HTMLDivElement
+        >()
+        React.useLayoutEffect(() => {
+            if (!ref) return
+            const iframe = $(ref).find('iframe')
+            if (!iframe) return
+            iframe.attr('width', Math.floor(width) - 1)
+            iframe.attr('height', Math.floor(height) - 1)
+        }, [ref, option?.name, width, height])
+        useVideoImprovements(
+            {
+                anime: watching,
+                option,
+            },
+            ref,
+        )
 
-    const updateWrapperRef = React.useCallback((r) => {
-        setRef(r)
-        return containerRef(r)
-    }, [])
-    return (
-        <Wrapper
-            style={{
-                width: '100vw',
-                height: '100vh',
-            }}
-        >
-            {children}
-            {option && (
-                <IFrame html={option?.html} updateRef={updateWrapperRef}>
-                    <NextEpisodeButton />
-                </IFrame>
-            )}
-        </Wrapper>
-    )
-})
+        const updateWrapperRef = React.useCallback((r) => {
+            setRef(r)
+            return containerRef(r)
+        }, [])
+        return (
+            <Wrapper
+                style={{
+                    width: '100vw',
+                    height: '100vh',
+                }}
+            >
+                {children}
+                {option && (
+                    <IFrame html={option?.html} updateRef={updateWrapperRef}>
+                        <NextEpisodeButton />
+                    </IFrame>
+                )}
+            </Wrapper>
+        )
+    },
+)
 
 VideoPlayer.displayName = 'VideoPlayer'
 

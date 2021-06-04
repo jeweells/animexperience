@@ -1,9 +1,10 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { Icon, IconButton, Modal, ModalProps } from 'rsuite'
 import styled from 'styled-components'
 import { player } from '../../../redux/reducers/player'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import VideoPlayerWOptionsPlaceholder from '../../placeholders/VideoPlayerWOptionsPlaceholder'
+import EpisodeNavigation from '../EpisodeNavigation'
 import VideoPlayerWOptions from '../VideoPlayerWOptions'
 
 const SModal = styled(Modal)`
@@ -27,25 +28,35 @@ const SModal = styled(Modal)`
 
 export type VideoPlayerModalProps = Omit<ModalProps, 'show'>
 
-export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = React.memo<VideoPlayerModalProps>(({ ...rest }) => {
+export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = React.memo<
+    VideoPlayerModalProps
+>(({ ...rest }) => {
     const show = useAppSelector((d) => d.player.open)
+    const availableVideosStatus = useAppSelector((d) => d.watch.status.availableVideos)
     const dispatch = useAppDispatch()
     const close = () => {
         dispatch(player.hide())
     }
     return (
         <SModal {...rest} show={show} full={true}>
-            <Suspense
-                fallback={(
-                    <VideoPlayerWOptionsPlaceholder>
-                        <IconButton onClick={close} icon={<Icon icon={'close'} size={'lg'} />} size={'lg'} />
-                    </VideoPlayerWOptionsPlaceholder>
-                  )}
-            >
+            {availableVideosStatus === 'succeeded' ? (
                 <VideoPlayerWOptions>
-                    <IconButton onClick={close} icon={<Icon icon={'close'} size={'lg'} />} size={'lg'} />
+                    <EpisodeNavigation />
+                    <IconButton
+                        onClick={close}
+                        icon={<Icon icon={'close'} size={'lg'} />}
+                        size={'lg'}
+                    />
                 </VideoPlayerWOptions>
-            </Suspense>
+            ) : (
+                <VideoPlayerWOptionsPlaceholder>
+                    <IconButton
+                        onClick={close}
+                        icon={<Icon icon={'close'} size={'lg'} />}
+                        size={'lg'}
+                    />
+                </VideoPlayerWOptionsPlaceholder>
+            )}
         </SModal>
     )
 })
