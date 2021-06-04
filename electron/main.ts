@@ -1,7 +1,10 @@
 import '@babel/polyfill'
 import { ElectronBlocker, fullLists, Request } from '@cliqz/adblocker-electron'
 import { app, BrowserWindow, session } from 'electron'
-import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer'
+import installExtension, {
+    REACT_DEVELOPER_TOOLS,
+    REDUX_DEVTOOLS,
+} from 'electron-devtools-installer'
 import { promises as fs } from 'fs'
 import fetch from 'node-fetch'
 import * as path from 'path'
@@ -21,6 +24,7 @@ async function createWindow() {
         width: 1100,
         height: 700,
         backgroundColor: '#191622',
+        frame: false,
         webPreferences: {
             nodeIntegration: true,
             webSecurity: false,
@@ -29,7 +33,9 @@ async function createWindow() {
         },
     })
     const publicPath =
-        process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : path.join(__dirname, 'renderer')
+        process.env.NODE_ENV === 'development'
+            ? 'http://localhost:4000'
+            : path.join(__dirname, 'renderer')
     mainWindow.webContents.setWindowOpenHandler((d) => {
         console.debug('Denied popup', d.url)
         return {

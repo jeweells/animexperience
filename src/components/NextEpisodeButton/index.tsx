@@ -8,13 +8,17 @@ import font from '../../fonts/Quicksand/Quicksand-Light.ttf'
 const currUrl = require('@electron/remote').getCurrentWindow().webContents.getURL()
 // We need to form an absolute url since this element will be injected inside an iframe
 // and inside iframes, relatives url won't match ours
-const css = `
+export const quicksandCss = `
     @font-face {
         font-family: 'Quicksand';
         src: url('${new URL(font, currUrl).href}') format('truetype');
         font-weight: 300;
         font-style: normal;
     }
+`
+
+export const buttonCss = `
+   
     button.raex-button-injected {
         font-family: 'Quicksand';
         color: #e9ebf0;
@@ -50,8 +54,11 @@ export type NextEpisodeButtonProps = {}
 
 export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({}) => {
     const timeout = useAppSelector((d) => d.watch.nextEpisodeTimeout)
+    const max = useAppSelector((d) => d.watch.info?.episodesRange?.max) ?? 0
+    const episode = useAppSelector((d) => d.watch.watching?.episode) ?? 0
     const dispatch = useAppDispatch()
-    const showNextButton = useAppSelector((d) => d.watch.showNextEpisodeButton)
+    const showNextButton =
+        useAppSelector((d) => d.watch.showNextEpisodeButton) && episode < max
     const handleNext = () => {
         dispatch(watch.setNextEpisodeButton(false))
         dispatch(watch.nextEpisode())
@@ -67,14 +74,19 @@ export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({
                     zIndex: 2147483647,
                 }}
             >
-                <style>{css}</style>
+                <style>
+                    {quicksandCss}
+                    {buttonCss}
+                </style>
                 <button
                     className={'raex-button-injected'}
                     onClick={() => {
                         handleNext()
                     }}
                 >
-                    <span style={{ position: 'relative', zIndex: 2 }}>Siguiente episodio</span>
+                    <span style={{ position: 'relative', zIndex: 2 }}>
+                        Siguiente episodio
+                    </span>
                     <div
                         style={{
                             position: 'absolute',

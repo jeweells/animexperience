@@ -20,9 +20,15 @@ import { handleSeek } from './seekHandlers'
 import { BasicVideoInfo } from './types'
 import { deepFindVideos } from './utils'
 
-export const useVideo = (info: BasicVideoInfo, container: Optional<HTMLDivElement>, ms = 300) => {
+export const useVideo = (
+    info: BasicVideoInfo,
+    container: Optional<HTMLDivElement>,
+    ms = 300,
+) => {
     const [video, setVideo] = React.useState<Optional<HTMLVideoElement>>(null)
-    const [detachedVideo, setDetachedVideo] = React.useState<Optional<HTMLVideoElement>>(null)
+    const [detachedVideo, setDetachedVideo] = React.useState<Optional<HTMLVideoElement>>(
+        null,
+    )
     const episodeInfo = useWatched(info.anime)
 
     React.useLayoutEffect(() => {
@@ -32,7 +38,11 @@ export const useVideo = (info: BasicVideoInfo, container: Optional<HTMLDivElemen
             const check = () => {
                 const contents = iframeContent.contents()
                 if (!interval.handledSpecificOptions) {
-                    interval.handledSpecificOptions = handleSpecificOptions(info.option, contents, episodeInfo)
+                    interval.handledSpecificOptions = handleSpecificOptions(
+                        info.option,
+                        contents,
+                        episodeInfo,
+                    )
                 }
                 const video = deepFindVideos(contents)
                 console.debug('Trying to find video: ', video)
@@ -70,12 +80,23 @@ export const useVideo = (info: BasicVideoInfo, container: Optional<HTMLDivElemen
                 clearInterval(interval.handle)
             }
         }
-    }, [info.anime?.name, info.anime?.episode, info.option?.name, container, ms, detachedVideo, episodeInfo === null])
+    }, [
+        info.anime?.name,
+        info.anime?.episode,
+        info.option?.name,
+        container,
+        ms,
+        detachedVideo,
+        episodeInfo === null,
+    ])
 
     return video
 }
 
-export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<HTMLDivElement>) => {
+export const useVideoImprovements = (
+    info: BasicVideoInfo,
+    container: Optional<HTMLDivElement>,
+) => {
     const video = useVideo(info, container)
     const dispatch = useAppDispatch()
     const staticStore = useStaticStore(Store.WATCHED)
@@ -86,10 +107,12 @@ export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<H
             }
             const anime = info.anime
             if (anime) {
-                staticStore.get(anime.name, anime.episode).then((data: Optional<EpisodeInfo>) => {
-                    // Try auto play the video at latest time stored
-                    handleSeek(info, data, video)
-                })
+                staticStore
+                    .get(anime.name, anime.episode)
+                    .then((data: Optional<EpisodeInfo>) => {
+                        // Try auto play the video at latest time stored
+                        handleSeek(info, data, video)
+                    })
             }
             const refs: {
                 nextButtonShown?: boolean
@@ -103,7 +126,8 @@ export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<H
                     if (currentTime + SECONDS_LEFT_TO_NEXT_EPISODE >= duration) {
                         const timeoutToNextEpisode = Math.max(
                             0,
-                            duration - (currentTime + SECONDS_LEFT_TO_TRIGGER_NEXT_EPISODE),
+                            duration -
+                                (currentTime + SECONDS_LEFT_TO_TRIGGER_NEXT_EPISODE),
                         )
                         if (timeoutToNextEpisode === 0) {
                             // With timeout -1 auto play next episode is disabled (user probable moved the mouse)
@@ -115,7 +139,9 @@ export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<H
                         } else if (!refs.nextButtonShown) {
                             refs.nextButtonShown = true
                             dispatch(watch.setNextEpisodeButton(true))
-                            dispatch(watch.setNextEpisodeTimeout(SECONDS_NEXT_BUTTON_DISPLAY))
+                            dispatch(
+                                watch.setNextEpisodeTimeout(SECONDS_NEXT_BUTTON_DISPLAY),
+                            )
                         }
                     } else if (refs.nextButtonShown) {
                         refs.nextButtonShown = false
@@ -153,11 +179,15 @@ export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<H
                 // The target fullscreen element changes depending on the iframe we're in
                 // It's needed to find an non iframe element to attach the button
                 // so that its visible in fullscreen mode
-                while (targetElement?.tagName.toLowerCase() === 'iframe' && 'contentDocument' in targetElement) {
+                while (
+                    targetElement?.tagName.toLowerCase() === 'iframe' &&
+                    'contentDocument' in targetElement
+                ) {
                     // targetElement instanceof HTMLIFrameElement does not work for iframes
                     // Alternative: Use iframe.contentWindow.HTMLIFrameElement
                     // However, this might be a cleaner way
-                    targetElement = (targetElement as HTMLIFrameElement).contentDocument?.fullscreenElement
+                    targetElement = (targetElement as HTMLIFrameElement).contentDocument
+                        ?.fullscreenElement
                 }
                 if (targetElement) {
                     const jTargetElement = $(targetElement as HTMLElement)
