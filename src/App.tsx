@@ -5,7 +5,9 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { watch } from '../redux/reducers/watch'
 import store, { useAppDispatch } from '../redux/store'
+import { VSpace } from './atoms/Spacing'
 import RecentAnimes from './components/RecentAnimes'
+import Topbar from './components/Topbar'
 import { VideoPlayerModal } from './components/VideoPlayerModal'
 import './index.less'
 import { GlobalStyle } from './styles/GlobalStyle'
@@ -20,12 +22,15 @@ const App = () => {
     return (
         <React.Fragment>
             <GlobalStyle />
-            <RecentAnimes />
-            <VideoPlayerModal
-                onExited={() => {
-                    dispatch(watch.reset())
-                }}
-            />
+            <Topbar>
+                <VSpace size={32} />
+                <RecentAnimes />
+                <VideoPlayerModal
+                    onExited={() => {
+                        dispatch(watch.reset())
+                    }}
+                />
+            </Topbar>
         </React.Fragment>
     )
 }

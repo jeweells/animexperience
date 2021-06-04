@@ -68,7 +68,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = React.memo(
             <Wrapper
                 style={{
                     width: '100vw',
-                    height: '100vh',
+                    height: 'var(--modal-height)',
                 }}
             >
                 {children}

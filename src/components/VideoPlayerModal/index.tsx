@@ -5,13 +5,16 @@ import { player } from '../../../redux/reducers/player'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import VideoPlayerWOptionsPlaceholder from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import EpisodeNavigation from '../EpisodeNavigation'
+import { useTopBarHeight } from '../Topbar'
 import VideoPlayerWOptions from '../VideoPlayerWOptions'
 
-const SModal = styled(Modal)`
+const SModal = styled(Modal)<{ topBarHeight: number }>`
     margin: 0;
     width: 100vw;
-    height: 100vh;
     overflow: hidden;
+    --modal-height: calc(100vh - ${(props) => props.topBarHeight}px);
+    height: var(--modal-height);
+    top: ${(props) => props.topBarHeight}px;
     .rs-modal {
         &-dialog {
             margin: 0;
@@ -19,7 +22,7 @@ const SModal = styled(Modal)`
         &-content {
             padding: 0;
             width: 100vw;
-            height: 100vh;
+            height: var(--modal-height);
             overflow: hidden;
             border-radius: 0;
         }
@@ -34,11 +37,12 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = React.memo<
     const show = useAppSelector((d) => d.player.open)
     const availableVideosStatus = useAppSelector((d) => d.watch.status.availableVideos)
     const dispatch = useAppDispatch()
+    const topBarHeight = useTopBarHeight()
     const close = () => {
         dispatch(player.hide())
     }
     return (
-        <SModal {...rest} show={show} full={true}>
+        <SModal topBarHeight={topBarHeight} {...rest} show={show} full={true}>
             {availableVideosStatus === 'succeeded' ? (
                 <VideoPlayerWOptions>
                     <EpisodeNavigation />
