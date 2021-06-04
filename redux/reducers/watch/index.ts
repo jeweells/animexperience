@@ -60,6 +60,10 @@ const getAnimeInfo = createAsyncThunk('watch/getAnimeInfo', async (arg, api) => 
 
 const nextEpisode = createAsyncThunk('watch/nextEpisode', async (arg, api) => {
     const state = api.getState()
+    const currentEpisode = state.watch.watching?.episode ?? 0
+    const maxEpisode = state.watch.info?.episodesRange?.max ?? 0
+    // No episodes available
+    if (currentEpisode >= maxEpisode) return
     const watching = state.watch.watching
     if (watching && typeof watching.episode === 'number') {
         const newEpisode = watching.episode + 1

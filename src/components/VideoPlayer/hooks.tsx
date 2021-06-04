@@ -132,13 +132,7 @@ export const useVideoImprovements = (
                         if (timeoutToNextEpisode === 0) {
                             // With timeout -1 auto play next episode is disabled (user probable moved the mouse)
                             const _state = store.getState()
-                            const hasNextEpisode =
-                                (anime?.episode ?? 0) <
-                                (_state.watch.info?.episodesRange?.max ?? 0)
-                            if (
-                                hasNextEpisode &&
-                                _state.watch.nextEpisodeTimeout !== -1
-                            ) {
+                            if (_state.watch.nextEpisodeTimeout !== -1) {
                                 dispatch(watch.nextEpisode())
                                 refs.nextButtonShown = false
                                 dispatch(watch.setNextEpisodeButton(false))
