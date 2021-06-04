@@ -12,3 +12,10 @@ export type EpisodeInfo = {
     duration: number
     at: number
 }
+
+export type AnimeInfo = Partial<{
+    episodesRange: {
+        min: number
+        max: number
+    }
+}>

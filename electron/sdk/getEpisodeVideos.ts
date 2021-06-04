@@ -11,7 +11,9 @@ export const getJKAnimeEpisodeVideos = async (anime: string, episode: number) =>
     const results: JKAnimeSearchResults = await searchJKAnime(anime)
     if (Array.isArray(results) && results.length > 0) {
         const result = results[0]
-        const episodeLink = result.link?.endsWith('/') ? `${result.link}${episode}` : `${result.link}/${episode}`
+        const episodeLink = result.link?.endsWith('/')
+            ? `${result.link}${episode}`
+            : `${result.link}/${episode}`
         console.debug('Obtained:', episodeLink)
         const body = await fetch(episodeLink).then((x) => x.text())
         const $ = cheerio.load(body)
@@ -60,7 +62,11 @@ export const getAnimeIDEpisodeVideos = async (episodeLink: string) => {
     const datas = $('#partes .subtab .parte')
         .map((elm, b) => {
             const tabId = $(b).parent().attr('data-tab-id')
-            const optionName = mirrors.find(`li.tab[data-tab-id=${tabId}]`)?.text()?.trim()?.toUpperCase()
+            const optionName = mirrors
+                .find(`li.tab[data-tab-id=${tabId}]`)
+                ?.text()
+                ?.trim()
+                ?.toUpperCase()
             return {
                 name: optionName,
                 data: $(b).attr('data'),

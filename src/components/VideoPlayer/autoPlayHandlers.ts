@@ -17,6 +17,7 @@ export const handleSpecificOptions = (
         fembed: handleFembedPlayer,
         okru: handleOkRuPlayer,
         mixdrop: handleMixDrop,
+        streamtape: handleStreamtape,
     }
     const handler = methods[option?.name?.toLowerCase() ?? '']
     if (handler) {
@@ -29,6 +30,17 @@ export const handleSpecificOptions = (
 
     return false
 }
+
+export const handleStreamtape = (iframe: $IframeContents) => {
+    const adOverlay = iframe.find('.plyr-container > .plyr-overlay')
+    if (adOverlay.length > 0) {
+        if (adOverlay.css('display') !== 'none') {
+            adOverlay.trigger('click')
+        }
+    }
+    return false
+}
+
 export const handleFembedPlayer = (iframe: $IframeContents) => {
     console.debug('Fembed: Clicking play button')
     const playBtn = iframe.find('.faplbu')
@@ -39,7 +51,10 @@ export const handleFembedPlayer = (iframe: $IframeContents) => {
     }
     return false
 }
-export const handleOkRuPlayer = (iframe: $IframeContents, episodeInfo?: Optional<EpisodeInfo>) => {
+export const handleOkRuPlayer = (
+    iframe: $IframeContents,
+    episodeInfo?: Optional<EpisodeInfo>,
+) => {
     console.debug('Okru: Clicking play button')
     const playBtn = iframe.find('div#embedVideoC.vid-card_cnt_w')
     if (playBtn.length > 0) {
@@ -67,7 +82,9 @@ export const handleOkRuPlayer = (iframe: $IframeContents, episodeInfo?: Optional
                                 // By default is 0.85 so we wouldn't be able to automatically seek after that certain
                                 // point of the video
                                 dataOptions.flashvars.notSavePositionAfter = 1
-                                console.debug('Injecting data options; notSavePositionAfter=1')
+                                console.debug(
+                                    'Injecting data options; notSavePositionAfter=1',
+                                )
                             }
                             targetPlayer.attr('data-options', JSON.stringify(dataOptions))
                         } catch (e) {
@@ -80,9 +97,20 @@ export const handleOkRuPlayer = (iframe: $IframeContents, episodeInfo?: Optional
                     console.debug('VideoId', videoId)
                     if (videoId) {
                         targetStorage.getMovieLastPlayingTime = (n: string) => {
-                            console.debug('CHECKING', n, videoId, videoId === n, typeof n, episodeInfo)
+                            console.debug(
+                                'CHECKING',
+                                n,
+                                videoId,
+                                videoId === n,
+                                typeof n,
+                                episodeInfo,
+                            )
                             if (videoId === n) {
-                                console.debug('CHECKING:: RETURN', episodeInfo, episodeInfo.currentTime)
+                                console.debug(
+                                    'CHECKING:: RETURN',
+                                    episodeInfo,
+                                    episodeInfo.currentTime,
+                                )
                                 return episodeInfo.currentTime
                             }
                             return targetFn(n)

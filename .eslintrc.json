@@ -52,16 +52,6 @@
     "no-lonely-if": "error",
     "prefer-const": "error",
     "react/self-closing-comp": "error",
-    // MOST IMPORTANT RULE OF ALL
-    "react/jsx-wrap-multilines": ["error", {
-      "declaration": "parens-new-line",
-      "assignment": "parens-new-line",
-      "return": "parens-new-line",
-      "arrow": "parens-new-line",
-      "condition": "parens-new-line",
-      "logical": "parens-new-line",
-      "prop": "parens-new-line"
-    }],
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/ban-ts-comment": "warn",
     "indent": "off",

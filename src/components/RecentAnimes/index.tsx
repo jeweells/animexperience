@@ -30,7 +30,9 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({}) => {
                 loading={status !== 'succeeded'}
                 render={({ index, visible, sliding }) => {
                     if (status !== 'succeeded') {
-                        return <AnimeCarouselContent key={'placeholder' + index} count={5} />
+                        return (
+                            <AnimeCarouselContent key={'placeholder' + index} count={5} />
+                        )
                     }
                     if (!filteredAnimes) return null
                     const x = filteredAnimes[index]
