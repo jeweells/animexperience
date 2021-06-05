@@ -1,14 +1,12 @@
 import '@babel/polyfill'
-import { ElectronBlocker, fullLists, Request } from '@cliqz/adblocker-electron'
 import { app, BrowserWindow, session } from 'electron'
 import installExtension, {
     REACT_DEVELOPER_TOOLS,
     REDUX_DEVTOOLS,
 } from 'electron-devtools-installer'
-import { promises as fs } from 'fs'
-import fetch from 'node-fetch'
 import * as path from 'path'
 import * as url from 'url'
+import { setupBlocker } from './blocker'
 import setupSdk from './sdk'
 import { setupStores } from './store'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -16,6 +14,7 @@ import { setupStores } from './store'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('@electron/remote/main').initialize()
 
+// Comment in order to make the react dev tools work
 app.commandLine.appendSwitch('disable-site-isolation-trials')
 let mainWindow: Electron.BrowserWindow | null
 
@@ -43,12 +42,6 @@ async function createWindow() {
         }
     })
 
-    mainWindow.webContents.on('media-paused', () => {
-        console.debug('Media paused!')
-    })
-    mainWindow.webContents.on('media-started-playing', () => {
-        console.debug('Media started playing!')
-    })
     // Referrer needed to display some players in JKAnime.net
     session.defaultSession.webRequest.onBeforeSendHeaders(
         {
@@ -69,44 +62,7 @@ async function createWindow() {
             callback({ cancel: false, requestHeaders: details.requestHeaders })
         },
     )
-    const blocker = await ElectronBlocker.fromLists(
-        fetch,
-        fullLists,
-        {
-            enableCompression: true,
-        },
-        {
-            path: 'engine.bin',
-            read: fs.readFile,
-            write: fs.writeFile,
-        },
-    )
-
-    blocker.enableBlockingInSession(session.defaultSession)
-
-    blocker.on('request-blocked', (request: Request) => {
-        console.debug('blocked', request.tabId, request.url)
-    })
-
-    blocker.on('request-redirected', (request: Request) => {
-        console.debug('redirected', request.tabId, request.url)
-    })
-
-    blocker.on('request-whitelisted', (request: Request) => {
-        console.debug('whitelisted', request.tabId, request.url)
-    })
-
-    blocker.on('csp-injected', (request: Request) => {
-        console.debug('csp', request.url)
-    })
-
-    blocker.on('script-injected', (script: string, url: string) => {
-        console.debug('script', script.length, url)
-    })
-
-    blocker.on('style-injected', (style: string, url: string) => {
-        console.debug('style', style.length, url)
-    })
+    await setupBlocker()
 
     if (process.env.NODE_ENV === 'development') {
         const window = mainWindow

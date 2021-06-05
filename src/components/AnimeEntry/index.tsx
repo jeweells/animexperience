@@ -81,7 +81,9 @@ export const AnimeEntry = React.memo<AnimeEntryProps>(
         }, [sliding, isHovered])
         const handleMouseOver = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
             onMouseOver?.(e)
-            setIsHovered(true)
+            if (!sliding) {
+                setIsHovered(true)
+            }
         }
 
         return (
