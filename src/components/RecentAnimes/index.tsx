@@ -3,7 +3,7 @@ import { watch } from '../../../redux/reducers/watch'
 import { useAppDispatch } from '../../../redux/store'
 import { RecentAnimeData, useRecentAnimes } from '../../hooks/useRecentAnimes'
 import { AnimeCarouselContent } from '../../placeholders/AnimeCarouselContent'
-import AnimeEntry from '../AnimeEntry'
+import { AnimeEpisodeEntry } from '../AnimeEpisodeEntry'
 import { AnimesCarousel } from '../AnimesCarousel'
 
 export type RecentAnimesProps = {}
@@ -37,7 +37,7 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({}) => {
                     if (!filteredAnimes) return null
                     const x = filteredAnimes[index]
                     return (
-                        <AnimeEntry
+                        <AnimeEpisodeEntry
                             index={index}
                             visible={visible}
                             sliding={sliding}

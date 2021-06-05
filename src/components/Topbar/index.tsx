@@ -20,6 +20,10 @@ const Container = styled.div`
     font-weight: 700;
 `
 
+const Content = styled.div`
+    overflow-x: hidden;
+`
+
 export const useTopBarHeight = () => 56
 
 export type TopbarProps = {}
@@ -57,7 +61,15 @@ export const Topbar: React.FC<TopbarProps> = React.memo(({ children }) => {
                     </SwitchTransition>
                 </Container>
             </Wrapper>
-            <div style={{ paddingTop: height }}>{children}</div>
+            <Content
+                style={{
+                    overflowY: 'overlay',
+                    marginTop: height,
+                    height: `calc(100vh - ${height}px)`,
+                }}
+            >
+                {children}
+            </Content>
         </Fragment>
     )
 })

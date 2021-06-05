@@ -1,5 +1,6 @@
 export enum Store {
     WATCHED = 'watched',
+    RECENTLY_WATCHED = 'recently-watched',
 }
 
 export enum StoreMethod {
@@ -19,3 +20,34 @@ export type AnimeInfo = Partial<{
         max: number
     }
 }>
+
+export type RecentAnimeInfo = {
+    name: string
+    lastEpisode: number
+    at: number
+}
+
+/* eslint-disable camelcase */
+export type MalAnimeInfo = {
+    id: number
+    type: string
+    name: string
+    image_url: string
+    payload: {
+        aired: string
+        media_type: string
+        score: string
+        start_year: number
+        status: string
+    }
+    es_score: number
+    url: string
+    thumbnail_url: string
+}
+/* eslint-enable camelcase */
+
+export type RecommendationInfo = {
+    id: number
+    name: string
+    images: string[]
+}

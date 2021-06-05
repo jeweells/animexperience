@@ -1,34 +1,32 @@
 import { Fade } from '@material-ui/core'
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
-import { AnimeDescription, AnimeTitle } from '../../atoms/Text'
-import { RecentAnimeData } from '../../hooks/useRecentAnimes'
-import { useWatched } from '../../hooks/useWatched'
-import { Optional } from '../../types'
 import { pixel } from '../../utils'
 import { useSizes } from '../AnimesCarousel/hooks'
 import CardPopover from '../CardPopover'
-import WatchedRange from '../WatchedRange'
 
 export type AnimeEntryProps = {
-    anime: Optional<RecentAnimeData>
     index: number
-    onClick?(anime: RecentAnimeData): void
+    onClick?(): void
     onMouseOver?: React.HTMLAttributes<HTMLDivElement>['onMouseOver']
     onMouseOut?: React.HTMLAttributes<HTMLDivElement>['onMouseOut']
     isPopover?: boolean
     visible?: boolean
     sliding?: boolean
+    render(): React.ReactNode
 }
 
-type WrapperProps = Pick<ReturnType<typeof useSizes>, 'containerWidth' | 'gap' | 'navigationWidth'>
+type WrapperProps = Pick<
+    ReturnType<typeof useSizes>,
+    'containerWidth' | 'gap' | 'navigationWidth'
+>
 
 const wrapperSize = (nElements: number, props: WrapperProps) => {
     return css`
         --width: calc(
             (
-                    ${pixel(props.containerWidth)} - ${nElements - 1} * ${pixel(props.gap)} - 2 *
-                        ${pixel(props.navigationWidth)}
+                    ${pixel(props.containerWidth)} - ${nElements - 1} *
+                        ${pixel(props.gap)} - 2 * ${pixel(props.navigationWidth)}
                 ) / ${nElements}
         );
         --height: calc(var(--width) * 0.64);
@@ -62,26 +60,17 @@ export const Wrapper = styled.div<WrapperProps>`
     }
 `
 
-const AnimeInfo = styled.div`
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0) 40%);
-    padding: 16px;
-`
-const Img = styled.img`
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-`
-
 export const AnimeEntry = React.memo<AnimeEntryProps>(
-    ({ anime, onClick, onMouseOver, onMouseOut, isPopover, index, visible, sliding }) => {
+    ({
+        onClick,
+        onMouseOver,
+        onMouseOut,
+        isPopover,
+        index,
+        visible,
+        sliding,
+        render,
+    }) => {
         const { navigationWidth, containerWidth, gap } = useSizes()
         const cardRef = React.useRef<HTMLDivElement>(null)
         const [isHovered, setIsHovered] = React.useState<boolean>(false)
@@ -90,53 +79,42 @@ export const AnimeEntry = React.memo<AnimeEntryProps>(
                 setIsHovered(false)
             }
         }, [sliding, isHovered])
-        if (!anime) return null
         const handleMouseOver = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
             onMouseOver?.(e)
             setIsHovered(true)
         }
-        const handleClick = () => {
-            onClick?.(anime)
-        }
-        const watched = useWatched(anime)
 
         return (
-            <Fade in={true} timeout={1000 + Math.min(5000, 500 * index)} appear={!isPopover}>
+            <Fade
+                in={true}
+                timeout={1000 + Math.min(5000, 500 * index)}
+                appear={!isPopover}
+            >
                 <div>
                     <Wrapper
                         ref={cardRef}
-                        onClick={handleClick}
+                        onClick={onClick}
                         onMouseOver={handleMouseOver}
                         onMouseOut={onMouseOut}
                         gap={gap}
                         containerWidth={containerWidth}
                         navigationWidth={navigationWidth}
                     >
-                        <Img alt={anime.name} src={anime.img} />
-                        <AnimeInfo>
-                            <AnimeTitle>{anime.name}</AnimeTitle>
-                            <AnimeDescription>{`Episodio ${anime.episode}`}</AnimeDescription>
-                            {watched && (
-                                <Fragment>
-                                    <div style={{ minHeight: 8 }} />
-                                    <WatchedRange info={watched} />
-                                </Fragment>
-                            )}
-                        </AnimeInfo>
+                        {render()}
                     </Wrapper>
                     {!isPopover && (
                         <AnimeEntryPopover
                             index={index}
                             open={isHovered}
                             visible={visible}
-                            anime={anime}
                             onMouseOver={handleMouseOver}
-                            onClick={handleClick}
+                            onClick={onClick}
                             cardRef={cardRef}
                             sliding={sliding}
                             onClose={() => {
                                 setIsHovered(false)
                             }}
+                            render={render}
                         />
                     )}
                 </div>
@@ -153,21 +131,38 @@ type AnimeEntryPopoverProps = {
     onMouseOver?: React.HTMLAttributes<HTMLDivElement>['onMouseOut']
     cardRef?: React.RefObject<HTMLElement>
     onClose?(): void
-} & Pick<AnimeEntryProps, 'anime' | 'onClick' | 'index' | 'visible' | 'sliding'>
+} & Pick<AnimeEntryProps, 'onClick' | 'index' | 'visible' | 'sliding' | 'render'>
 
-const AnimeEntryPopover: React.VFC<AnimeEntryPopoverProps> = React.memo<AnimeEntryPopoverProps>(
-    ({ open, cardRef, anime, onClick, onMouseOut, onMouseOver, onClose, index, visible, sliding }) => {
+const AnimeEntryPopover: React.VFC<AnimeEntryPopoverProps> = React.memo<
+    AnimeEntryPopoverProps
+>(
+    ({
+        open,
+        cardRef,
+        onClick,
+        onMouseOut,
+        onMouseOver,
+        onClose,
+        index,
+        visible,
+        sliding,
+        render,
+    }) => {
         return (
-            <CardPopover open={Boolean(!sliding && visible && open)} anchorEl={cardRef} onClose={onClose}>
+            <CardPopover
+                open={Boolean(!sliding && visible && open)}
+                anchorEl={cardRef}
+                onClose={onClose}
+            >
                 <AnimeEntry
                     isPopover={true}
-                    anime={anime}
                     onClick={onClick}
                     onMouseOut={onMouseOut}
                     onMouseOver={onMouseOver}
                     index={index}
                     visible={visible}
                     sliding={sliding}
+                    render={render}
                 />
             </CardPopover>
         )

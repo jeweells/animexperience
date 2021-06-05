@@ -1,5 +1,5 @@
 import React from 'react'
-import { Optional, Status } from '../../types'
+import { Optional, FStatus } from '../../types'
 
 export class Suspended extends Error {}
 
@@ -13,7 +13,7 @@ const createPromise = (): UnmanagedPromise => {
     return (r as any) as UnmanagedPromise
 }
 
-export const useAssertStatus = (status: Optional<Status>) => {
+export const useAssertStatus = (status: Optional<FStatus>) => {
     const [up, setUp] = React.useState<UnmanagedPromise | null>(null)
     React.useLayoutEffect(() => {
         if (up === null) {

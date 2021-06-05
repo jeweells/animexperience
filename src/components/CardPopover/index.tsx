@@ -25,7 +25,11 @@ type ScaleOnHoverProps = {
     onExited?(): void
 }
 
-const ScaleOnHover: React.VFC<ScaleOnHoverProps> = ({ in: inProp, children, onExited }) => {
+const ScaleOnHover: React.VFC<ScaleOnHoverProps> = ({
+    in: inProp,
+    children,
+    onExited,
+}) => {
     const duration = 300
     const classes = useStyles({
         duration,
@@ -52,101 +56,104 @@ export type CardPopoverProps = {
     onClose?(): void
 }
 
-export const CardPopover: React.FC<CardPopoverProps> = React.memo(({ open, children, anchorEl, onClose }) => {
-    const floatingContainerRef = React.useRef<HTMLDivElement>(null)
-    const [position, setPosition] = React.useState<DOMRect | null>(null)
-    const { navigationWidth } = useSizes()
-    React.useLayoutEffect(() => {
-        if (anchorEl?.current && open) {
-            console.debug('Open is true')
-            const rect = anchorEl.current.getBoundingClientRect().toJSON()
-            const width = window.innerWidth
-            const height = window.innerHeight
-            setPosition({
-                ...rect,
-                right: width - rect.right,
-                bottom: height - rect.bottom,
-            })
-        }
-    }, [anchorEl, open, navigationWidth])
-    const origin = React.useMemo(() => {
-        if (position === null) return null
-        const { top, left, right, bottom } = position
-        let originY = 'top'
-        let originX = 'center'
-        if (top <= 0) {
-            originY = 'top'
-        }
-        if (bottom <= 0) {
-            originY = 'bottom'
-        }
-        if (left - navigationWidth - 1 <= 0) {
-            originX = 'left'
-        }
-        if (right - navigationWidth - 1 <= 0) {
-            originX = 'right'
-        }
-        return `${originX} ${originY}`
-    }, [position, navigationWidth])
-    React.useLayoutEffect(() => {
-        if (open && position !== null) {
-            const shouldCloseHandle = () => {
-                if (!floatingContainerRef.current?.matches(':hover')) {
-                    onClose?.()
+export const CardPopover: React.FC<CardPopoverProps> = React.memo(
+    ({ open, children, anchorEl, onClose }) => {
+        const floatingContainerRef = React.useRef<HTMLDivElement>(null)
+        const [position, setPosition] = React.useState<DOMRect | null>(null)
+        const { navigationWidth } = useSizes()
+        React.useLayoutEffect(() => {
+            if (anchorEl?.current && open) {
+                console.debug('Open is true')
+
+                const rect = anchorEl.current.getBoundingClientRect().toJSON()
+                const width = window.innerWidth
+                const height = window.innerHeight
+                setPosition({
+                    ...rect,
+                    right: width - rect.right,
+                    bottom: height - rect.bottom,
+                })
+            }
+        }, [anchorEl, open, navigationWidth])
+        const origin = React.useMemo(() => {
+            if (position === null) return null
+            const { top, left, right, bottom } = position
+            let originY = 'top'
+            let originX = 'center'
+            if (top <= 0) {
+                originY = 'top'
+            }
+            if (bottom <= 0) {
+                originY = 'bottom'
+            }
+            if (left - navigationWidth - 1 <= 0) {
+                originX = 'left'
+            }
+            if (right - navigationWidth - 1 <= 0) {
+                originX = 'right'
+            }
+            return `${originX} ${originY}`
+        }, [position, navigationWidth])
+        React.useLayoutEffect(() => {
+            if (open && position !== null) {
+                const shouldCloseHandle = () => {
+                    if (!floatingContainerRef.current?.matches(':hover')) {
+                        onClose?.()
+                    }
+                }
+                document.addEventListener('mousemove', shouldCloseHandle)
+                return () => {
+                    document.removeEventListener('mousemove', shouldCloseHandle)
                 }
             }
-            document.addEventListener('mousemove', shouldCloseHandle)
-            return () => {
-                document.removeEventListener('mousemove', shouldCloseHandle)
-            }
-        }
-    }, [open, position !== null])
-    return (
-        <Portal>
-            <ScaleOnHover
-                in={open}
-                onExited={() => {
-                    setPosition(null)
-                }}
-            >
-                {(className) => (
-                    <div
-                        style={{
-                            position: 'absolute',
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                            top: 0,
-                            overflow: 'hidden',
-                            pointerEvents: 'none',
-                        }}
-                    >
-                        {position !== null && origin !== null && (
-                            <div
-                                ref={floatingContainerRef}
-                                style={{
-                                    position: 'absolute',
-                                    pointerEvents: 'all',
-                                    top: position.top,
-                                    left: position.left,
-                                }}
-                            >
+        }, [open, position !== null])
+        return (
+            <Portal>
+                <ScaleOnHover
+                    in={open}
+                    onExited={() => {
+                        setPosition(null)
+                    }}
+                >
+                    {(className) => (
+                        <div
+                            style={{
+                                position: 'absolute',
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                top: 0,
+                                overflow: 'hidden',
+                                pointerEvents: 'none',
+                            }}
+                        >
+                            {position !== null && origin !== null && (
                                 <div
-                                    className={className}
+                                    ref={floatingContainerRef}
                                     style={{
-                                        transformOrigin: origin,
+                                        position: 'absolute',
+                                        pointerEvents: 'all',
+                                        top: position.top,
+                                        left: position.left,
                                     }}
                                 >
-                                    {children}
+                                    <div
+                                        className={className}
+                                        style={{
+                                            transformOrigin: origin,
+                                        }}
+                                    >
+                                        {children}
+                                    </div>
                                 </div>
-                            </div>
-                        )}
-                    </div>
-                )}
-            </ScaleOnHover>
-        </Portal>
-    )
-})
+                            )}
+                        </div>
+                    )}
+                </ScaleOnHover>
+            </Portal>
+        )
+    },
+)
 
 CardPopover.displayName = 'CardPopover'
 

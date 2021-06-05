@@ -1,8 +1,8 @@
 import { ActionReducerMapBuilder, AsyncThunk, CaseReducer } from '@reduxjs/toolkit'
-import { Status } from '../../src/types'
+import { FStatus } from '../../src/types'
 
 type StateFlowType<Keys extends string> = {
-    status: Partial<Record<Keys, Status>>
+    status: Partial<Record<Keys, FStatus>>
 }
 
 export const addFetchFlow = <State extends StateFlowType<any>>(

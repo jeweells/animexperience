@@ -1,19 +1,21 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ipcRenderer } from 'electron'
-import { AnimeInfo } from '../../../globals/types'
+import { AnimeInfo, RecentAnimeInfo, Store } from '../../../globals/types'
 import { VideoOption } from '../../../src/components/VideoPlayer'
 import { RecentAnimeData } from '../../../src/hooks/useRecentAnimes'
-import { Optional, Status } from '../../../src/types'
+import { getStaticStore } from '../../../src/hooks/useStaticStore'
+import { FStatus, Optional } from '../../../src/types'
 import { player } from '../player'
 import { addFetchFlow } from '../utils'
+import { watched } from '../watched'
 
 // Define a type for the slice state
 interface WatchState {
     watching?: Optional<RecentAnimeData>
     availableVideos?: Optional<VideoOption[]>
     status: {
-        availableVideos?: Status
-        info?: Status
+        availableVideos?: FStatus
+        info?: FStatus
     }
     info?: Optional<AnimeInfo>
     showNextEpisodeButton?: boolean
@@ -93,6 +95,37 @@ const previousEpisode = createAsyncThunk('watch/previousEpisode', async (arg, ap
         )
     }
 })
+
+export const updateRecentlyWatched = createAsyncThunk(
+    'watch/updateRecentlyWatched',
+    async (anime: Optional<RecentAnimeData>, api) => {
+        if (!(anime?.name && typeof anime.episode === 'number')) return
+        const recently: RecentAnimeInfo[] =
+            (await getStaticStore(Store.RECENTLY_WATCHED, 'sorted')) ?? []
+        const targetIdx = recently.findIndex((x) => x.name === anime.name)
+        const newData: RecentAnimeInfo = {
+            name: anime.name,
+            at: new Date().getTime(),
+            lastEpisode: anime.episode,
+        }
+        if (targetIdx > -1) {
+            const targetAnime = recently[targetIdx]
+            if (targetAnime.lastEpisode < newData.lastEpisode) {
+                targetAnime.lastEpisode = newData.lastEpisode
+            }
+            targetAnime.at = newData.at
+        } else {
+            recently.push(newData)
+        }
+        console.debug('Updating recently watched anime', newData)
+        recently.sort((a, b) => b.at - a.at)
+        return api.dispatch(
+            watched.setRecently({
+                recently: recently.slice(0, 5),
+            }),
+        )
+    },
+)
 
 const watchEpisode = createAsyncThunk(
     'watch/watchEpisode',
