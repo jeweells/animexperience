@@ -1,4 +1,11 @@
-import React, { Fragment, useLayoutEffect, useState } from 'react'
+import React, {
+    createContext,
+    Fragment,
+    useContext,
+    useLayoutEffect,
+    useRef,
+    useState,
+} from 'react'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import styled from 'styled-components'
 import { useAppSelector } from '../../../redux/store'
@@ -22,11 +29,15 @@ const Container = styled.div`
 
 const Content = styled.div`
     overflow-x: hidden;
+    position: relative;
 `
 
 export const useTopBarHeight = () => 56
 
 export type TopbarProps = {}
+
+export const ContentContext = createContext<React.RefObject<HTMLDivElement> | null>(null)
+export const useContentRef = () => useContext(ContentContext)
 
 export const Topbar: React.FC<TopbarProps> = React.memo(({ children }) => {
     const watching = useAppSelector((d) => d.watch.watching)
@@ -44,6 +55,7 @@ export const Topbar: React.FC<TopbarProps> = React.memo(({ children }) => {
     const title = watching
         ? `${watching.name} - Episodio ${watching.episode}`
         : 'Animexperience'
+    const contentRef = useRef<HTMLDivElement>(null)
     return (
         <Fragment>
             <Wrapper style={{ height, display: isFullscreen ? 'none' : 'block' }}>
@@ -62,13 +74,18 @@ export const Topbar: React.FC<TopbarProps> = React.memo(({ children }) => {
                 </Container>
             </Wrapper>
             <Content
+                ref={contentRef}
                 style={{
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
                     overflowY: 'overlay',
                     marginTop: height,
                     height: `calc(100vh - ${height}px)`,
                 }}
             >
-                {children}
+                <ContentContext.Provider value={contentRef}>
+                    {children}
+                </ContentContext.Provider>
             </Content>
         </Fragment>
     )
