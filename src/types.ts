@@ -40,5 +40,5 @@ export type AnimeIDSearchItem = {
 export type AnimeIDSearchResponse = Array<AnimeIDSearchItem>
 /* eslint-enable camelcase */
 
-export type Status = 'idle' | 'loading' | 'succeeded' | 'failed'
+export type FStatus = 'idle' | 'loading' | 'succeeded' | 'failed'
 export type Optional<T> = T | undefined | null

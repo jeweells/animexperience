@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { EpisodeInfo, Store } from '../../../globals/types'
-import { watch } from '../../../redux/reducers/watch'
+import { updateRecentlyWatched, watch } from '../../../redux/reducers/watch'
 import { watched } from '../../../redux/reducers/watched'
 import store, { useAppDispatch } from '../../../redux/store'
 import { useStaticStore } from '../../hooks/useStaticStore'
@@ -117,6 +117,7 @@ export const useVideoImprovements = (
             const refs: {
                 nextButtonShown?: boolean
                 nextBtnRef?: JQuery | null
+                watched?: boolean
             } = {}
             const handleTimeUpdate = (e: Event) => {
                 console.debug('TARGET', e.target, e.currentTarget)
@@ -124,6 +125,11 @@ export const useVideoImprovements = (
                     const { duration, currentTime } = video
                     console.debug('VIDEO TIME', video.currentTime)
                     if (currentTime + SECONDS_LEFT_TO_NEXT_EPISODE >= duration) {
+                        if (!refs.watched) {
+                            refs.watched = true
+                            // At this time of the video, the video can be considered "watched"
+                            dispatch(updateRecentlyWatched(anime))
+                        }
                         const timeoutToNextEpisode = Math.max(
                             0,
                             duration -

@@ -7,6 +7,7 @@ import { watch } from '../redux/reducers/watch'
 import store, { useAppDispatch } from '../redux/store'
 import { VSpace } from './atoms/Spacing'
 import RecentAnimes from './components/RecentAnimes'
+import RecentlyWatchedRecommendations from './components/RecentlyWatchedRecommendations'
 import Topbar from './components/Topbar'
 import { VideoPlayerModal } from './components/VideoPlayerModal'
 import './index.less'
@@ -25,6 +26,8 @@ const App = () => {
             <Topbar>
                 <VSpace size={32} />
                 <RecentAnimes />
+                <VSpace size={32} />
+                <RecentlyWatchedRecommendations />
                 <VideoPlayerModal
                     onExited={() => {
                         dispatch(watch.reset())

@@ -1,5 +1,6 @@
 import cheerio from 'cheerio'
 import fetch from 'node-fetch'
+import { MalAnimeInfo } from '../../globals/types'
 import { AnimeIDSearchResponse, RecentAnimeData } from '../../src/types'
 import { getAnimeIDEpisodeVideos } from './getEpisodeVideos'
 
@@ -21,7 +22,8 @@ export const searchAIDFromMALEpisode = async (arg: RecentAnimeData) => {
                 'accept-language': 'en,es;q=0.9,es-ES;q=0.8',
                 'cache-control': 'no-cache',
                 pragma: 'no-cache',
-                'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="90", "Google Chrome";v="90"',
+                'sec-ch-ua':
+                    '" Not A;Brand";v="99", "Chromium";v="90", "Google Chrome";v="90"',
                 'sec-ch-ua-mobile': '?0',
                 'sec-fetch-dest': 'empty',
                 'sec-fetch-mode': 'cors',
@@ -54,7 +56,9 @@ export const searchJKAnime = async (animeName: string) => {
         .join('_')
 
     console.debug('SearchingJKAnime:', animeName, '->', filteredName)
-    const body = await fetch(`https://jkanime.net/buscar/${filteredName}/1/`).then((x) => x.text())
+    const body = await fetch(`https://jkanime.net/buscar/${filteredName}/1/`).then((x) =>
+        x.text(),
+    )
     const $ = cheerio.load(body)
     return $('.anime__page__content > .row')
         .children()
@@ -67,4 +71,20 @@ export const searchJKAnime = async (animeName: string) => {
             }
         })
         .toArray()
+}
+
+export const searchMalAnime = async (name: string) => {
+    const url = new URL('https://myanimelist.net/search/prefix.json?type=anime&v=1')
+    url.searchParams.append('keyword', name.replace(/[^a-zA-Z\s]/g, ''))
+    console.debug('Searching for', name, '->', url.toString())
+    const body = (await fetch(url).then((x) => x.json())) as {
+        categories: Array<{
+            type: string
+            items: Array<MalAnimeInfo>
+        }>
+    }
+    // We already filter by category=anime
+    if (!body) return []
+
+    return body.categories[0].items ?? []
 }

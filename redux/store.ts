@@ -1,11 +1,12 @@
+import './store.types'
 import { configureStore } from '@reduxjs/toolkit'
 import React from 'react'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-import { Optional, Status } from '../src/types'
+import { Optional, FStatus } from '../src/types'
 import player from './reducers/player'
+import recommendations from './reducers/recommendations'
 import test from './reducers/test'
 import watch from './reducers/watch'
-import './store.types'
 import watched from './reducers/watched'
 
 const store = configureStore({
@@ -14,6 +15,7 @@ const store = configureStore({
         watch,
         player,
         watched,
+        recommendations,
     },
 })
 
@@ -29,7 +31,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 export interface TypedUseRelaySelectorHook<TState> {
     <TSelected>(
         dataSelector: (state: TState) => TSelected,
-        statusSelector: (state: TState) => Optional<Status>,
+        statusSelector: (state: TState) => Optional<FStatus>,
         equalityFn?: (left: TSelected, right: TSelected) => boolean,
     ): TSelected
 }

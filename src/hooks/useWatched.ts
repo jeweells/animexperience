@@ -11,7 +11,7 @@ export const useWatched = (anime: Optional<RecentAnimeData>): Optional<EpisodeIn
         if (!anime) return null
         return formatKeys([anime?.name, anime?.episode])
     }, [anime?.name, anime?.episode])
-    const data = useAppSelector((d) => (key ? d.watched[key] : null))
+    const data = useAppSelector((d) => (key ? d.watched.episodes[key] : null))
     const dispatch = useAppDispatch()
     React.useLayoutEffect(() => {
         if (key && !data && anime) {
