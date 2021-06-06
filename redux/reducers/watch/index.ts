@@ -14,10 +14,12 @@ interface WatchState {
     status: {
         availableVideos?: FStatus
         info?: FStatus
+        watchEpisode?: FStatus
     }
     info?: Optional<AnimeInfo>
     showNextEpisodeButton?: boolean
     nextEpisodeTimeout: number
+    autoFullScreen?: boolean
 }
 
 // Define the initial state using that type
@@ -67,6 +69,9 @@ const nextEpisode = createAsyncThunk('watch/nextEpisode', async (arg, api) => {
     const watching = state.watch.watching
     if (watching && typeof watching.episode === 'number') {
         const newEpisode = watching.episode + 1
+        console.debug('Called next episode, fullscreen:', !!document.fullscreenElement)
+        // If the user is on fullscreen mode, the next video will be played on fullscreen mode
+        api.dispatch(watch.setAutoFullScreen(!!document.fullscreenElement))
         await api.dispatch(
             watchEpisode({
                 ...watching,
@@ -129,6 +134,9 @@ export const slice = createSlice({
         setNextEpisodeTimeout(state, { payload }: PayloadAction<number>) {
             state.nextEpisodeTimeout = payload
         },
+        setAutoFullScreen(state, { payload }: PayloadAction<boolean>) {
+            state.autoFullScreen = payload
+        },
     },
     extraReducers: ({ addCase }) => {
         addFetchFlow(
@@ -148,6 +156,7 @@ export const slice = createSlice({
                 state.info = payload
             },
         )
+        addFetchFlow(addCase, watchEpisode, 'watchEpisode')
     },
 })
 
