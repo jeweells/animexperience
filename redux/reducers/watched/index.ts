@@ -1,20 +1,26 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import {
+    createAsyncThunk,
+    createSlice,
+    PayloadAction,
+    unwrapResult,
+} from '@reduxjs/toolkit'
 import { EpisodeInfo, RecentAnimeInfo, Store } from '../../../globals/types'
 import { RecentAnimeData } from '../../../src/hooks/useRecentAnimes'
-import { FStatus } from '../../../src/types'
 import {
     formatKeys,
     getStaticStore,
     setStaticStore,
 } from '../../../src/hooks/useStaticStore'
+import { FStatus, Optional } from '../../../src/types'
 import { addFetchFlow } from '../utils'
+import { watchHistory } from '../watchHistory'
 
 // Define a type for the slice state
 interface WatchedState {
     episodes: {
         [name: string]: EpisodeInfo
     }
-    recently: RecentAnimeInfo[]
+    recently?: RecentAnimeInfo[]
     status: {
         episodes?: FStatus
         recently?: FStatus
@@ -23,7 +29,6 @@ interface WatchedState {
 
 // Define the initial state using that type
 const initialState: WatchedState = {
-    recently: [],
     episodes: {},
     status: {},
 }
@@ -38,7 +43,7 @@ const fetchStore = createAsyncThunk(
             }))
             .then((x) => {
                 if (x.info) {
-                    dispatch(watched.set({ ...x, noUpdate: true }))
+                    dispatch(watched.set({ ...x }))
                 }
             })
     },
@@ -48,7 +53,7 @@ const fetchRecentlyStore = createAsyncThunk(
     'watched/fetchRecentlyStore',
     async (arg, { dispatch }) => {
         return await getStaticStore(Store.RECENTLY_WATCHED, 'sorted')
-            .then((x) => (x ?? []) as RecentAnimeInfo[])
+            .then((x) => (Array.isArray(x) ? x : []) as RecentAnimeInfo[])
             .then((x) => {
                 dispatch(
                     watched.setRecently({
@@ -56,7 +61,64 @@ const fetchRecentlyStore = createAsyncThunk(
                         noUpdate: true,
                     }),
                 )
+                return x
             })
+    },
+)
+
+const updateRecentlyWatched = createAsyncThunk(
+    'watched/updateRecentlyWatched',
+    async (anime: Optional<RecentAnimeData>, api) => {
+        if (!(anime?.name && typeof anime.episode === 'number')) return
+        const recently: RecentAnimeInfo[] =
+            api.getState().watched.recently?.slice() ??
+            (await api.dispatch(watched.fetchRecentlyStore()).then(unwrapResult)) ??
+            []
+        const targetIdx = recently.findIndex((x) => x.name === anime.name)
+        const newData: RecentAnimeInfo = {
+            name: anime.name,
+            at: new Date().getTime(),
+            lastEpisode: anime.episode,
+        }
+        if (targetIdx > -1) {
+            const targetAnime = recently[targetIdx]
+            if (targetAnime.lastEpisode < newData.lastEpisode) {
+                targetAnime.lastEpisode = newData.lastEpisode
+            }
+            targetAnime.at = newData.at
+        } else {
+            recently.push(newData)
+        }
+        console.debug('Updating recently watched anime', newData)
+        recently.sort((a, b) => b.at - a.at)
+        api.dispatch(
+            watched.setRecently({
+                recently: recently.slice(0, 5),
+            }),
+        )
+    },
+)
+
+const updateWatched = createAsyncThunk(
+    'watched/updateWatched',
+    async (
+        payload: {
+            anime: RecentAnimeData
+            info: EpisodeInfo
+        },
+        api,
+    ) => {
+        api.dispatch(watched.set(payload))
+        const keys = [payload.anime?.name, payload.anime?.episode]
+        await Promise.all([
+            setStaticStore(Store.WATCHED, ...keys, payload.info).catch(console.error),
+            api.dispatch(
+                watchHistory.push({
+                    at: new Date().getTime(),
+                    info: payload.anime,
+                }),
+            ),
+        ])
     },
 )
 
@@ -65,6 +127,7 @@ export const slice = createSlice({
     // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {
+        // Do not call this directly, use updateWatched instead if you wish to update the static stores
         set(
             state,
             {
@@ -72,14 +135,10 @@ export const slice = createSlice({
             }: PayloadAction<{
                 anime: RecentAnimeData
                 info: EpisodeInfo
-                noUpdate?: boolean
             }>,
         ) {
             const keys = [payload.anime?.name, payload.anime?.episode]
             state.episodes[formatKeys(keys)] = payload.info
-            if (!payload.noUpdate) {
-                setStaticStore(Store.WATCHED, ...keys, payload.info).catch(console.error)
-            }
         },
         setRecently(
             state,
@@ -108,5 +167,7 @@ export const watched = {
     ...slice.actions,
     fetchStore,
     fetchRecentlyStore,
+    updateWatched,
+    updateRecentlyWatched,
 }
 export default slice.reducer

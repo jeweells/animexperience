@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { watch } from '../redux/reducers/watch'
 import store, { useAppDispatch } from '../redux/store'
 import { VSpace } from './atoms/Spacing'
+import ContinueWatching from './components/ContinueWatching'
 import RecentAnimes from './components/RecentAnimes'
 import RecentlyWatchedRecommendations from './components/RecentlyWatchedRecommendations'
 import Topbar from './components/Topbar'
@@ -24,10 +25,12 @@ const App = () => {
         <React.Fragment>
             <GlobalStyle />
             <Topbar>
+                <ContinueWatching />
                 <VSpace size={32} />
                 <RecentAnimes />
                 <VSpace size={32} />
                 <RecentlyWatchedRecommendations />
+                <VSpace size={32} />
                 <VideoPlayerModal
                     onExited={() => {
                         dispatch(watch.reset())

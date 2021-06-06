@@ -2,16 +2,17 @@ import Store from 'electron-store'
 import { Store as TStore, StoreMethod } from '../globals/types'
 import { ipcMain } from 'electron'
 
-export const stores = {
-    [TStore.WATCHED]: new Store({
-        name: TStore.WATCHED,
-        defaults: {},
-    }),
-    [TStore.RECENTLY_WATCHED]: new Store({
-        name: TStore.RECENTLY_WATCHED,
-        defaults: {},
-    }),
-}
+// Create the same store for each store in the TStore enum
+export const stores: Record<TStore, Store> = Object.values(TStore).reduce(
+    (acc: any, x) => {
+        acc[x] = new Store({
+            name: x,
+            defaults: {},
+        })
+        return acc
+    },
+    {},
+)
 
 export const setupStores = () => {
     ipcMain.handle(StoreMethod.getStore, (event, store: TStore, key: string) => {

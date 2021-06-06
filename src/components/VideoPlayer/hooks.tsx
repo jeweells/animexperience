@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { EpisodeInfo, Store } from '../../../globals/types'
-import { updateRecentlyWatched, watch } from '../../../redux/reducers/watch'
+import { watch } from '../../../redux/reducers/watch'
 import { watched } from '../../../redux/reducers/watched'
 import store, { useAppDispatch } from '../../../redux/store'
 import { useStaticStore } from '../../hooks/useStaticStore'
@@ -150,7 +150,7 @@ export const useVideoImprovements = (
                         if (!refs.watched) {
                             refs.watched = true
                             // At this time of the video, the video can be considered "watched"
-                            dispatch(updateRecentlyWatched(anime))
+                            dispatch(watched.updateRecentlyWatched(anime))
                         }
                         const timeoutToNextEpisode = Math.max(
                             0,
@@ -184,7 +184,7 @@ export const useVideoImprovements = (
                         Math.floor(video.currentTime) % 3 === 0
                     ) {
                         dispatch(
-                            watched.set({
+                            watched.updateWatched({
                                 anime,
                                 info: {
                                     duration: video.duration,
