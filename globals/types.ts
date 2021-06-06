@@ -1,6 +1,9 @@
+import { RecentAnimeData } from '../src/hooks/useRecentAnimes'
+
 export enum Store {
     WATCHED = 'watched',
     RECENTLY_WATCHED = 'recently-watched',
+    WATCH_HISTORY = 'watch-history',
 }
 
 export enum StoreMethod {
@@ -50,4 +53,9 @@ export type RecommendationInfo = {
     id: number
     name: string
     images: string[]
+}
+
+export type WatchHistoryItem = {
+    at: number
+    info: RecentAnimeData
 }

@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import { Skeleton } from '@material-ui/lab'
+import React, { Fragment, useMemo } from 'react'
 import { Transition } from 'react-transition-group'
 import styled from 'styled-components'
 import { CarouselTitle } from '../../atoms/Text'
@@ -26,6 +27,9 @@ export type AnimesCarouselProps = {
 
 export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(
     ({ count, loading, title, render }) => {
+        const titleSkeletonWidth = useMemo(() => {
+            return 15 + Math.random() * 20 + '%'
+        }, [])
         const { gap, navigationWidth, containerWidth } = useSizes()
         const {
             containerRef,
@@ -50,7 +54,17 @@ export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(
                             marginBottom: 8,
                         }}
                     >
-                        {title}
+                        {loading ? (
+                            <Skeleton
+                                animation={'pulse'}
+                                variant={'text'}
+                                style={{
+                                    width: titleSkeletonWidth,
+                                }}
+                            />
+                        ) : (
+                            title
+                        )}
                     </CarouselTitle>
                 )}
                 <Scroller ref={scrollerRef} style={{ width: containerWidth }}>

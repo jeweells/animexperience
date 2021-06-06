@@ -54,7 +54,7 @@ export const Topbar: React.FC<TopbarProps> = React.memo(({ children }) => {
     const height = useTopBarHeight()
     const title = watching
         ? `${watching.name} - Episodio ${watching.episode}`
-        : 'Animexperience'
+        : 'ANIMEXPERIENCE'
     const contentRef = useRef<HTMLDivElement>(null)
     return (
         <Fragment>

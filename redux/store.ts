@@ -8,6 +8,7 @@ import recommendations from './reducers/recommendations'
 import test from './reducers/test'
 import watch from './reducers/watch'
 import watched from './reducers/watched'
+import watchHistory from './reducers/watchHistory'
 
 const store = configureStore({
     reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
         player,
         watched,
         recommendations,
+        watchHistory,
     },
 })
 
