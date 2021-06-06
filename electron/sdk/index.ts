@@ -3,6 +3,7 @@ import { getAnimeRecommendations } from './getAnimeRecommendations'
 import { getAnimeInfo } from './getEpisodesRange'
 import { getAnimeIDEpisodeVideos, getJKAnimeEpisodeVideos } from './getEpisodeVideos'
 import { getRecentAnimes } from './getRecentAnimes'
+import { keyDown } from './inputEvents'
 import { searchAIDFromMALEpisode, searchJKAnime, searchMalAnime } from './searchAnime'
 
 export const setupSdk = () => {
@@ -15,6 +16,7 @@ export const setupSdk = () => {
         searchJKAnime,
         searchMalAnime,
         getAnimeRecommendations,
+        keyDown,
     ]) {
         ipcMain.handle(fn.name, async (event, ...args) => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
