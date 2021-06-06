@@ -9,8 +9,9 @@ export type WatchedRangeProps = {
 
 const Back = styled.div`
     width: 100%;
-    height: 4px;
-    background: rgba(154, 154, 154, 0.4);
+    background: rgba(154, 154, 154, 0.2);
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
 `
 
 const Progress = styled.div<{ progress: number }>`
@@ -20,13 +21,21 @@ const Progress = styled.div<{ progress: number }>`
     transition: all 400ms;
 `
 
-export const WatchedRange: React.FC<WatchedRangeProps> = React.memo<WatchedRangeProps>(({ info }) => {
-    return (
-        <Back>
-            <Progress progress={info && info.duration !== 0 ? (info.currentTime / info.duration) * 100 : 0} />
-        </Back>
-    )
-})
+export const WatchedRange: React.FC<WatchedRangeProps> = React.memo<WatchedRangeProps>(
+    ({ info }) => {
+        return (
+            <Back>
+                <Progress
+                    progress={
+                        info && info.duration !== 0
+                            ? (info.currentTime / info.duration) * 100
+                            : 0
+                    }
+                />
+            </Back>
+        )
+    },
+)
 
 WatchedRange.displayName = 'WatchedRange'
 
