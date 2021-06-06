@@ -16,6 +16,7 @@ import {
     SECONDS_LEFT_TO_TRIGGER_NEXT_EPISODE,
     SECONDS_NEXT_BUTTON_DISPLAY,
 } from './constants'
+import { handleFullScreen } from './fullScreenHandlers'
 import { handleSeek } from './seekHandlers'
 import { BasicVideoInfo } from './types'
 import { deepFindVideos } from './utils'
@@ -33,12 +34,17 @@ export const useVideo = (
 
     React.useLayoutEffect(() => {
         if (container && episodeInfo !== null) {
-            const interval: { handle?: number; handledSpecificOptions?: boolean } = {}
+            const refs: {
+                handle?: number
+                fsHandle?: number
+                handledSpecificOptions?: boolean
+                handledFullscreen?: boolean
+            } = {}
             const iframeContent = $(container).find('iframe')
             const check = () => {
                 const contents = iframeContent.contents()
-                if (!interval.handledSpecificOptions) {
-                    interval.handledSpecificOptions = handleSpecificOptions(
+                if (!refs.handledSpecificOptions) {
+                    refs.handledSpecificOptions = handleSpecificOptions(
                         info.option,
                         contents,
                         episodeInfo,
@@ -71,13 +77,29 @@ export const useVideo = (
                             setDetachedVideo(targetVideo)
                         }
                     })
-                    clearInterval(interval.handle)
+                    clearInterval(refs.handle)
                 }
             }
-            interval.handle = setInterval(check, ms)
+            const checkFs = () => {
+                const contents = iframeContent.contents()
+                if (!refs.handledFullscreen) {
+                    refs.handledFullscreen = handleFullScreen(
+                        info.option,
+                        contents,
+                        episodeInfo,
+                    )
+                }
+                if (document.fullscreenElement) {
+                    clearInterval(refs.fsHandle)
+                }
+            }
+            refs.handle = setInterval(check, ms)
+            refs.fsHandle = setInterval(checkFs, ms)
             check()
+            checkFs()
             return () => {
-                clearInterval(interval.handle)
+                clearInterval(refs.handle)
+                clearInterval(refs.fsHandle)
             }
         }
     }, [
