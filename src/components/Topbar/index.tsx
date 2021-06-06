@@ -58,21 +58,27 @@ export const Topbar: React.FC<TopbarProps> = React.memo(({ children }) => {
     const contentRef = useRef<HTMLDivElement>(null)
     return (
         <Fragment>
-            <Wrapper style={{ height, display: isFullscreen ? 'none' : 'block' }}>
-                <Container>
-                    <SwitchTransition>
-                        <CSSTransition
-                            key={title}
-                            addEndListener={(node, done) =>
-                                node.addEventListener('transitionend', done, false)
-                            }
-                            classNames={{ ...fade }}
-                        >
-                            <div>{title}</div>
-                        </CSSTransition>
-                    </SwitchTransition>
-                </Container>
-            </Wrapper>
+            {!isFullscreen && (
+                <Wrapper
+                    style={{
+                        height,
+                    }}
+                >
+                    <Container>
+                        <SwitchTransition>
+                            <CSSTransition
+                                key={title}
+                                addEndListener={(node, done) =>
+                                    node.addEventListener('transitionend', done, false)
+                                }
+                                classNames={{ ...fade }}
+                            >
+                                <div>{title}</div>
+                            </CSSTransition>
+                        </SwitchTransition>
+                    </Container>
+                </Wrapper>
+            )}
             <Content
                 ref={contentRef}
                 style={{

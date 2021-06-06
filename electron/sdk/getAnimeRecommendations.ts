@@ -5,7 +5,7 @@ import fetch from 'node-fetch'
 export const getAnimeRecommendations = async (animeName: string) => {
     console.debug('Getting anime recommendations')
     const animes = await searchMalAnime(animeName)
-    console.debug(`Got recommendatios for ${animeName}:`, animes)
+    console.debug(`Got recommendations for ${animeName}:`, animes.length)
     if (animes.length > 0) {
         return (await getMalAnimeRecommendations(animes[0].url)) ?? []
     }

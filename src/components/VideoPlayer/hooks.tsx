@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { EpisodeInfo, Store } from '../../../globals/types'
 import { watch } from '../../../redux/reducers/watch'
 import { watched } from '../../../redux/reducers/watched'
-import store, { useAppDispatch } from '../../../redux/store'
+import store, { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { useStaticStore } from '../../hooks/useStaticStore'
 import { useWatched } from '../../hooks/useWatched'
 import { Optional } from '../../types'
@@ -30,10 +30,12 @@ export const useVideo = (
     const [detachedVideo, setDetachedVideo] = React.useState<Optional<HTMLVideoElement>>(
         null,
     )
+    const watchEpisodeStatus = useAppSelector((d) => d.watch.status.watchEpisode)
+    const dispatch = useAppDispatch()
     const episodeInfo = useWatched(info.anime)
 
     React.useLayoutEffect(() => {
-        if (container && episodeInfo !== null) {
+        if (watchEpisodeStatus === 'succeeded' && container && episodeInfo !== null) {
             const refs: {
                 handle?: number
                 fsHandle?: number
@@ -94,9 +96,15 @@ export const useVideo = (
                 }
             }
             refs.handle = setInterval(check, ms)
-            refs.fsHandle = setInterval(checkFs, ms)
             check()
-            checkFs()
+            const autoFullScreen = store.getState().watch.autoFullScreen
+            console.debug('Displaying with fullscreen:', autoFullScreen)
+            if (autoFullScreen) {
+                // Disable auto fullscreen until the next episode is triggered
+                dispatch(watch.setAutoFullScreen(false))
+                refs.fsHandle = setInterval(checkFs, ms)
+                checkFs()
+            }
             return () => {
                 clearInterval(refs.handle)
                 clearInterval(refs.fsHandle)
@@ -110,8 +118,8 @@ export const useVideo = (
         ms,
         detachedVideo,
         episodeInfo === null,
+        watchEpisodeStatus,
     ])
-
     return video
 }
 
