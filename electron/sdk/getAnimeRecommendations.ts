@@ -12,6 +12,25 @@ export const getAnimeRecommendations = async (animeName: string) => {
     return []
 }
 
+const getImage = (srcset: string) => {
+    const images = srcset
+        .split(' ')
+        .map((x) => {
+            return x.replace(/^[1-2]x,/, '')
+        })
+        .filter((x) => !!x)
+    if (images.length === 0) {
+        console.debug('No images found for', srcset)
+        return ''
+    }
+
+    const imageUrl = new URL(images[0])
+    console.debug(imageUrl)
+    imageUrl.search = ''
+    imageUrl.pathname = imageUrl.pathname.replace(/^\/r\/[0-9]+x[0-9]+\//, '/')
+    return imageUrl.toString()
+}
+
 export const getMalAnimeRecommendations = async (malUrl: string) => {
     console.debug('Fetching MalAnimeRecommendations')
     const body = await fetch(malUrl).then((x) => x.text())
@@ -27,17 +46,12 @@ export const getMalAnimeRecommendations = async (malUrl: string) => {
                 const id = /-([0-9]+)$/.exec(link)?.[1]
                 if (id) {
                     const srcset = node.find('img[data-srcset]').attr('data-srcset') ?? ''
-                    const images = srcset
-                        .split(' ')
-                        .map((x) => {
-                            return x.replace(/^[1-2]x,/, '')
-                        })
-                        .filter((x) => !!x)
+
                     const title = node.find('span.title').text()
                     return {
                         id: parseInt(id),
                         name: title,
-                        images,
+                        image: getImage(srcset),
                     }
                 }
             }

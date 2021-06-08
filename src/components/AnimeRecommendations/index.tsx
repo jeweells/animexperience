@@ -27,8 +27,7 @@ export const AnimeRecommendations: React.FC<AnimeRecommendationsProps> = React.m
                 _recommendations?.recommendations?.map((x) => {
                     return {
                         name: x.name,
-                        // Sorted by default x1, x2
-                        image: x.images[1 % x.images.length],
+                        image: x.image,
                     }
                 }) ?? [],
             [_recommendations],

@@ -52,7 +52,7 @@ export type MalAnimeInfo = {
 export type RecommendationInfo = {
     id: number
     name: string
-    images: string[]
+    image: string
 }
 
 export type WatchHistoryItem = {
