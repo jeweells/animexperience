@@ -53,6 +53,25 @@ const push = createAsyncThunk('watchHistory/push', async (arg: WatchHistoryItem,
     )
 })
 
+const remove = createAsyncThunk(
+    'watchHistory/remove',
+    async (name: WatchHistoryItem['info']['name'], api) => {
+        const history =
+            api.getState().watchHistory.sorted?.slice() ??
+            (await api.dispatch(watchHistory.fetchStore()).then(unwrapResult)) ??
+            []
+        const idx = history.findIndex((x) => x.info?.name === name)
+        if (idx > -1) {
+            history.splice(idx, 1)
+            api.dispatch(
+                watchHistory.set({
+                    sorted: history.slice(0, 20),
+                }),
+            )
+        }
+    },
+)
+
 export const slice = createSlice({
     name: 'watchHistory',
     // `createSlice` will infer the state type from the `initialState` argument
@@ -80,5 +99,6 @@ export const watchHistory = {
     ...slice.actions,
     fetchStore,
     push,
+    remove,
 }
 export default slice.reducer

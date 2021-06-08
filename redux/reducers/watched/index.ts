@@ -112,12 +112,15 @@ const updateWatched = createAsyncThunk(
         const keys = [payload.anime?.name, payload.anime?.episode]
         await Promise.all([
             setStaticStore(Store.WATCHED, ...keys, payload.info).catch(console.error),
-            api.dispatch(
-                watchHistory.push({
-                    at: new Date().getTime(),
-                    info: payload.anime,
-                }),
-            ),
+            // Should remove it because we can consider it as "watched"
+            payload.info.currentTime / payload.info.duration > 0.85
+                ? api.dispatch(watchHistory.remove(payload.anime.name))
+                : api.dispatch(
+                      watchHistory.push({
+                          at: new Date().getTime(),
+                          info: payload.anime,
+                      }),
+                  ),
         ])
     },
 )
