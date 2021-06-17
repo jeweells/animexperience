@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid'
+
 // Memory cache which self-invalidates after a specific amount of time
 export class TimedCache {
     cache: Record<string, any> = {}
@@ -26,7 +28,9 @@ export class TimedCache {
         return this.cache[key]
     }
 
-    cached<Fn extends (...args: any) => any>(id: string, fn: Fn): Fn {
+    cached<Fn extends (...args: any) => any>(fn: Fn): Fn {
+        // Creates an identifier for this function
+        const id = uuidv4()
         const wrappedFn = ((...args) => {
             const key = JSON.stringify({ id, args })
             if (this.has(key)) {
