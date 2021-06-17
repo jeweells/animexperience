@@ -25,7 +25,7 @@ export const setupSdk = () => {
         getAnimeRecommendations,
         // Allow the use of a cache for any result
     ] as Array<(...arg: any) => any>)
-        .map((fn) => cached(fn))
+        .map((fn) => cached(fn.name, fn))
         // Non-cached functions
         .concat(keyDown)) {
         ipcMain.handle(fn.name, async (event, ...args) => {
