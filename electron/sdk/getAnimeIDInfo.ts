@@ -13,7 +13,23 @@ const getEpisodeNumber = (elm: Cheerio<Element>) => {
     return null
 }
 
-export const getAnimeInfo = async (link: string) => {
+const parseType = (s: string): AnimeInfo['type'] | undefined => {
+    const _s = s as AnimeInfo['type']
+    switch (_s as AnimeInfo['type']) {
+        case 'Serie':
+            return _s
+    }
+}
+const parseStatus = (s: string): AnimeInfo['status'] | undefined => {
+    const _s = s as AnimeInfo['status']
+    switch (_s) {
+        case 'En emisión':
+        case 'Finalizada':
+            return _s
+    }
+}
+
+export const getAnimeIDInfo = async (link: string) => {
     const animeLink = link.replace(/-[0-9]$/, '').replace('animeid.tv/v/', 'animeid.tv/')
 
     const animeHTML = await fetch(animeLink).then((x) => x.text())
@@ -44,6 +60,21 @@ export const getAnimeInfo = async (link: string) => {
             max: maxRange,
         }
     }
+    const animeHeader = $('article#anime')
+    info.image = animeHeader.find('figure > img[src]').attr('src')
+    const titles = animeHeader.find('hgroup')
+    info.title = titles.find('h1').text()
+    info.otherTitles = titles.find('h2').text().split(', ')
 
+    info.description = animeHeader.find('p.sinopsis').text()
+    info.tags = animeHeader
+        .find('ul.tags > li > a[href]')
+        .map((idx, elm) => {
+            return $(elm).text()
+        })
+        .toArray()
+    const data = $('div.status-left > div.cuerpo')
+    info.type = parseType(data.find("strong:contains('Tipo') + span").text().trim())
+    info.status = parseStatus(data.find("strong:contains('Estado') + span").text().trim())
     return info
 }

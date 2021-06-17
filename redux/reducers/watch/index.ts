@@ -57,7 +57,7 @@ const getAnimeInfo = createAsyncThunk('watch/getAnimeInfo', async (arg, api) => 
     if (!anime) {
         return api.rejectWithValue('Needs to be watching to request available videos')
     }
-    return await ipcRenderer.invoke('getAnimeInfo', anime.link)
+    return await ipcRenderer.invoke('getAnimeIDInfo', anime.link)
 })
 
 const nextEpisode = createAsyncThunk('watch/nextEpisode', async (arg, api) => {
