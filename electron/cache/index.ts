@@ -26,9 +26,9 @@ export class TimedCache {
         return this.cache[key]
     }
 
-    cached<Fn extends (...args: any) => any>(fn: Fn): Fn {
+    cached<Fn extends (...args: any) => any>(id: string, fn: Fn): Fn {
         const wrappedFn = ((...args) => {
-            const key = JSON.stringify(args)
+            const key = JSON.stringify({ id, args })
             if (this.has(key)) {
                 console.debug(`Using cache for ${fn?.name ?? 'Unknown'}:`, args)
                 return this.get(key)
