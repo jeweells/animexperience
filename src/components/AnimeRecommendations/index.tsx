@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useMemo } from 'react'
+import { peek } from '../../../redux/reducers/peek'
 import { recommendations } from '../../../redux/reducers/recommendations'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { AnimeCarouselContent } from '../../placeholders/AnimeCarouselContent'
@@ -64,6 +65,8 @@ export const AnimeRecommendations: React.FC<AnimeRecommendationsProps> = React.m
                                 key={`${x.name}`}
                                 anime={x}
                                 onClick={(anime) => {
+                                    if (!anime) return
+                                    dispatch(peek.peek(anime.name))
                                     console.debug('CLICKED', anime)
                                 }}
                             />

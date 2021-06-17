@@ -9,6 +9,14 @@ export const CarouselTitle = styled.h2`
     margin-bottom: 4px;
 `
 
+export const AnimePeekTitle = styled(CarouselTitle)``
+
+export const AnimePeekType = styled.h5`
+    font-weight: 700;
+    color: #bbbbbb;
+    font-size: 0.7rem;
+`
+
 export const AnimeTitle = styled.h3`
     font-weight: 700;
     color: white;

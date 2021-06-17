@@ -75,6 +75,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/polyfill": "^7.12.1",
     "@babel/runtime": "^7.14.0",
     "@cliqz/adblocker-electron": "^1.20.6",

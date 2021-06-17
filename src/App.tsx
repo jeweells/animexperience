@@ -3,9 +3,11 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
+import { peek } from '../redux/reducers/peek'
 import { watch } from '../redux/reducers/watch'
 import store, { useAppDispatch } from '../redux/store'
 import { VSpace } from './atoms/Spacing'
+import AnimePeekModal from './components/AnimePeekModal'
 import ContinueWatching from './components/ContinueWatching'
 import RecentAnimes from './components/RecentAnimes'
 import RecentlyWatchedRecommendations from './components/RecentlyWatchedRecommendations'
@@ -34,6 +36,11 @@ const App = () => {
                 <VideoPlayerModal
                     onExited={() => {
                         dispatch(watch.reset())
+                    }}
+                />
+                <AnimePeekModal
+                    onExited={() => {
+                        dispatch(peek.setInfo(null))
                     }}
                 />
             </Topbar>

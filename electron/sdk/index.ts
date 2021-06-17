@@ -1,23 +1,33 @@
 import { ipcMain } from 'electron'
+import { cached } from '../cache'
 import { getAnimeRecommendations } from './getAnimeRecommendations'
-import { getAnimeInfo } from './getEpisodesRange'
+import { getAnimeIDInfo } from './getAnimeIDInfo'
 import { getAnimeIDEpisodeVideos, getJKAnimeEpisodeVideos } from './getEpisodeVideos'
 import { getRecentAnimes } from './getRecentAnimes'
 import { keyDown } from './inputEvents'
-import { searchAIDFromMALEpisode, searchJKAnime, searchMalAnime } from './searchAnime'
+import {
+    searchAIDFromMALEpisode,
+    searchAnimeID,
+    searchJKAnime,
+    searchMalAnime,
+} from './searchAnime'
 
 export const setupSdk = () => {
-    for (const fn of [
+    for (const fn of ([
         getRecentAnimes,
-        getAnimeInfo,
+        getAnimeIDInfo,
         getAnimeIDEpisodeVideos,
         getJKAnimeEpisodeVideos,
         searchAIDFromMALEpisode,
         searchJKAnime,
         searchMalAnime,
+        searchAnimeID,
         getAnimeRecommendations,
-        keyDown,
-    ]) {
+        // Allow the use of a cache for any result
+    ] as Array<(...arg: any) => any>)
+        .map((fn) => cached(fn))
+        // Non-cached functions
+        .concat(keyDown)) {
         ipcMain.handle(fn.name, async (event, ...args) => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore

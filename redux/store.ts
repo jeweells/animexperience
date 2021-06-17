@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import React from 'react'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { Optional, FStatus } from '../src/types'
+import peek from './reducers/peek'
 import player from './reducers/player'
 import recommendations from './reducers/recommendations'
 import test from './reducers/test'
@@ -18,6 +19,7 @@ const store = configureStore({
         watched,
         recommendations,
         watchHistory,
+        peek,
     },
 })
 

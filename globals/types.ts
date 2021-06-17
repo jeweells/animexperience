@@ -22,6 +22,13 @@ export type AnimeInfo = Partial<{
         min: number
         max: number
     }
+    title: string
+    otherTitles: string[]
+    description: string
+    image: string
+    tags: string[]
+    type: 'Serie'
+    status: 'En emisión' | 'Finalizada'
 }>
 
 export type RecentAnimeInfo = {
@@ -58,4 +65,10 @@ export type RecommendationInfo = {
 export type WatchHistoryItem = {
     at: number
     info: RecentAnimeData
+}
+
+export type AnimeIDAnimeMatch = {
+    name: string
+    link: string
+    image: string
 }
