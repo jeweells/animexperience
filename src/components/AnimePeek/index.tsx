@@ -1,8 +1,10 @@
 import React from 'react'
-import { Button } from 'rsuite'
+import { Button, Icon, IconButton } from 'rsuite'
 import styled from 'styled-components'
-import { useAppSelector } from '../../../redux/store'
+import { peek } from '../../../redux/reducers/peek'
+import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { FCol, FColG16, FRow, FRowG16 } from '../../atoms/Layout'
+import { FExpand } from '../../atoms/Misc'
 import { AnimePeekTitle, AnimePeekType } from '../../atoms/Text'
 import { range } from '../../utils'
 
@@ -24,6 +26,7 @@ export type AnimePeekProps = {}
 
 export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
     const info = useAppSelector((d) => d.peek.info)
+    const dispatch = useAppDispatch()
     if (!info) return null
     const { min, max } = info.episodesRange ?? {
         min: 0,
@@ -39,21 +42,37 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
                     height: '100%',
                 }}
             >
-                <TitleRow>
-                    <AnimePeekTitle>{info.title}</AnimePeekTitle>
-                    <AnimePeekType>{info.type}</AnimePeekType>
-                </TitleRow>
-                {(info.otherTitles?.length ?? 0) > 0 && (
-                    <AnimePeekType>{info.otherTitles?.join(', ')}</AnimePeekType>
-                )}
+                <FCol>
+                    <TitleRow>
+                        <AnimePeekTitle>{info.title}</AnimePeekTitle>
+                        <AnimePeekType>{info.type}</AnimePeekType>
+                        <FExpand />
+                        <IconButton
+                            onClick={() => {
+                                dispatch(peek.setPeeking(false))
+                            }}
+                            icon={<Icon icon={'close'} size={'lg'} />}
+                            size={'lg'}
+                        />
+                    </TitleRow>
+                    {(info.otherTitles?.length ?? 0) > 0 && (
+                        <AnimePeekType>{info.otherTitles?.join(', ')}</AnimePeekType>
+                    )}
+                </FCol>
                 <FRowG16>
                     <ImageCol>
                         <div style={{ position: 'relative' }}>
-                            <img src={info.image} />
+                            <img
+                                src={info.image}
+                                style={{ width: '100%', minHeight: 200 }}
+                            />
                             <Button
                                 style={{
                                     pointerEvents: 'none',
                                     backgroundColor: 'darkred',
+                                    bottom: 16,
+                                    right: 16,
+                                    position: 'absolute',
                                 }}
                             >
                                 {info.status}
@@ -66,7 +85,7 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
                         </FRowG16>
                     </ImageCol>
                     <FColG16>
-                        <div>{info.description}</div>
+                        <div style={{ textAlign: 'justify' }}>{info.description}</div>
                         <FColG16>
                             {range(max - min + 1).map((e) => {
                                 const epN = e + min
