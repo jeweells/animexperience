@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Button, Icon, IconButton } from 'rsuite'
 import styled from 'styled-components'
+import { AnimeInfo } from '../../../globals/types'
 import { peek } from '../../../redux/reducers/peek'
-import { player } from '../../../redux/reducers/player'
-import { watch } from '../../../redux/reducers/watch'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { FCol, FColG16, FRow, FRowG16 } from '../../atoms/Layout'
 import { FExpand } from '../../atoms/Misc'
 import { AnimePeekTitle, AnimePeekType } from '../../atoms/Text'
-import { range } from '../../utils'
+import AnimeRecommendations from '../AnimeRecommendations'
+import Episodes from './components/Episodes'
+import { ContentContext } from '../Topbar'
 
 const TitleRow = styled(FRow)`
     align-items: center;
@@ -20,102 +21,96 @@ const ImageCol = styled(FCol)`
     gap: 16px;
 `
 
-const EpisodeButton = styled(Button)`
-    width: 100%;
-`
-
 export type AnimePeekProps = {}
 
 export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
     const info = useAppSelector((d) => d.peek.info)
     const dispatch = useAppDispatch()
+    const contentRef = useRef<HTMLDivElement>(null)
     if (!info) return null
-    const { min, max } = info.episodesRange ?? {
-        min: 0,
-        max: 0,
-    }
     return (
-        <React.Fragment>
+        <ContentContext.Provider value={contentRef}>
             <FColG16
+                ref={contentRef}
                 style={{
                     // @ts-ignore
                     overflowY: 'overlay',
-                    padding: '32px 64px',
+                    paddingBottom: 32,
                     height: '100%',
+                    position: 'relative',
                 }}
             >
-                <FCol>
-                    <TitleRow>
-                        <AnimePeekTitle>{info.title}</AnimePeekTitle>
-                        <AnimePeekType>{info.type}</AnimePeekType>
-                        <FExpand />
-                        <IconButton
-                            onClick={() => {
-                                dispatch(peek.setPeeking(undefined))
-                            }}
-                            icon={<Icon icon={'close'} size={'lg'} />}
-                            size={'lg'}
-                        />
-                    </TitleRow>
-                    {(info.otherTitles?.length ?? 0) > 0 && (
-                        <AnimePeekType>{info.otherTitles?.join(', ')}</AnimePeekType>
-                    )}
-                </FCol>
-                <FRowG16>
-                    <ImageCol>
-                        <div style={{ position: 'relative' }}>
-                            <img
-                                src={info.image}
-                                style={{ width: '100%', minHeight: 200 }}
-                            />
-                            <Button
-                                style={{
-                                    pointerEvents: 'none',
-                                    backgroundColor: 'darkred',
-                                    bottom: 16,
-                                    right: 16,
-                                    position: 'absolute',
+                <FColG16
+                    style={{
+                        padding: '32px 64px',
+                    }}
+                >
+                    <FCol>
+                        <TitleRow>
+                            <AnimePeekTitle>{info.title}</AnimePeekTitle>
+                            <AnimePeekType>{info.type}</AnimePeekType>
+                            <FExpand />
+                            <IconButton
+                                onClick={() => {
+                                    dispatch(peek.setPeeking(undefined))
                                 }}
+                                icon={<Icon icon={'close'} size={'lg'} />}
+                                size={'lg'}
+                            />
+                        </TitleRow>
+                        {(info.otherTitles?.length ?? 0) > 0 && (
+                            <AnimePeekType>{info.otherTitles?.join(', ')}</AnimePeekType>
+                        )}
+                    </FCol>
+                    <FRowG16>
+                        <ImageCol>
+                            <div style={{ position: 'relative' }}>
+                                <img
+                                    src={info.image}
+                                    style={{ width: '100%', minHeight: 200 }}
+                                />
+                                <Button
+                                    style={{
+                                        pointerEvents: 'none',
+                                        backgroundColor: ({
+                                            'En emisión': '#3d773d',
+                                            Finalizada: 'darkred',
+                                        } as Record<
+                                            Required<AnimeInfo>['status'],
+                                            string
+                                        >)[info.status ?? 'Finalizada'],
+                                        bottom: 16,
+                                        right: 16,
+                                        position: 'absolute',
+                                    }}
+                                >
+                                    {info.status}
+                                </Button>
+                            </div>
+                            <FRowG16
+                                style={{ flexWrap: 'wrap', justifyContent: 'center' }}
                             >
-                                {info.status}
-                            </Button>
-                        </div>
-                        <FRowG16 style={{ flexWrap: 'wrap', justifyContent: 'center' }}>
-                            {info.tags?.map((tag) => {
-                                return <Button key={tag}>{tag}</Button>
-                            })}
-                        </FRowG16>
-                    </ImageCol>
-                    <FColG16>
-                        <div style={{ textAlign: 'justify' }}>{info.description}</div>
+                                {info.tags?.map((tag) => {
+                                    return <Button key={tag}>{tag}</Button>
+                                })}
+                            </FRowG16>
+                        </ImageCol>
                         <FColG16>
-                            {range(max - min + 1).map((e) => {
-                                const epN = e + min
-                                return (
-                                    <EpisodeButton
-                                        onClick={() => {
-                                            dispatch(
-                                                watch.watchEpisode({
-                                                    episode: epN,
-                                                    name: info.title,
-                                                    link: info.episodeLink.replace(
-                                                        info.episodeReplace,
-                                                        String(epN),
-                                                    ),
-                                                    img: info.image,
-                                                }),
-                                            )
-                                            dispatch(player.freeze(false))
-                                        }}
-                                        key={epN}
-                                    >{`Episodio ${epN}`}</EpisodeButton>
-                                )
-                            })}
+                            <div style={{ textAlign: 'justify' }}>{info.description}</div>
+                            <Episodes info={info} />
                         </FColG16>
-                    </FColG16>
-                </FRowG16>
+                    </FRowG16>
+                </FColG16>
+                {info.title && (
+                    <div>
+                        <AnimeRecommendations
+                            animeName={info.title}
+                            title={'Similares a ' + info.title}
+                        />
+                    </div>
+                )}
             </FColG16>
-        </React.Fragment>
+        </ContentContext.Provider>
     )
 })
 

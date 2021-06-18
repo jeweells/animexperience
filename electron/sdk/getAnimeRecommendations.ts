@@ -33,7 +33,7 @@ const getImage = (srcset: string) => {
 
 export const getMalAnimeRecommendations = async (malUrl: string) => {
     console.debug('Fetching MalAnimeRecommendations')
-    const body = await fetch(malUrl).then((x) => x.text())
+    const body = await fetch(new URL(malUrl)).then((x) => x.text())
     console.debug('Parsing html')
     const $ = cheerio.load(body)
     const items = $('#anime_recommendation li.btn-anime > a[href]')
