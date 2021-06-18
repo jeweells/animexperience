@@ -4,6 +4,7 @@ import { peek } from '../../../redux/reducers/peek'
 import { player } from '../../../redux/reducers/player'
 import { watch } from '../../../redux/reducers/watch'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { TopView } from '../../types'
 
 export type EpisodeNavigationProps = {}
 
@@ -21,11 +22,11 @@ export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({
         watching.episode < max
 
     const dispatch = useAppDispatch()
-    const isPeeking = useAppSelector((d) => d.peek.peeking)
+    const topview = useAppSelector((d) => d.topview.views[0])
     React.useLayoutEffect(() => {
         // Avoids the player to keep playing but does not closes the modal
-        dispatch(player.freeze(!!isPeeking))
-    }, [isPeeking])
+        dispatch(player.freeze(topview !== TopView.PLAYER))
+    }, [topview])
 
     return (
         <React.Fragment>

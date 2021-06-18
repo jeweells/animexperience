@@ -7,6 +7,7 @@ import peek from './reducers/peek'
 import player from './reducers/player'
 import recommendations from './reducers/recommendations'
 import test from './reducers/test'
+import topview from './reducers/topview'
 import watch from './reducers/watch'
 import watched from './reducers/watched'
 import watchHistory from './reducers/watchHistory'
@@ -20,6 +21,7 @@ const store = configureStore({
         recommendations,
         watchHistory,
         peek,
+        topview,
     },
 })
 

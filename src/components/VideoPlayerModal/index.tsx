@@ -3,6 +3,7 @@ import { Icon, IconButton, ModalProps } from 'rsuite'
 import { player } from '../../../redux/reducers/player'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import VideoPlayerWOptionsPlaceholder from '../../placeholders/VideoPlayerWOptionsPlaceholder'
+import { TopView } from '../../types'
 import EpisodeNavigation from '../EpisodeNavigation'
 import FullModal from '../FullModal'
 import VideoPlayerWOptions from '../VideoPlayerWOptions'
@@ -19,7 +20,7 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = React.memo<
         dispatch(player.hide())
     }
     return (
-        <FullModal {...rest} show={show}>
+        <FullModal {...rest} view={TopView.PLAYER} show={show}>
             {availableVideosStatus === 'succeeded' ? (
                 <VideoPlayerWOptions>
                     <EpisodeNavigation />

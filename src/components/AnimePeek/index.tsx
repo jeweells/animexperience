@@ -2,6 +2,8 @@ import React from 'react'
 import { Button, Icon, IconButton } from 'rsuite'
 import styled from 'styled-components'
 import { peek } from '../../../redux/reducers/peek'
+import { player } from '../../../redux/reducers/player'
+import { watch } from '../../../redux/reducers/watch'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { FCol, FColG16, FRow, FRowG16 } from '../../atoms/Layout'
 import { FExpand } from '../../atoms/Misc'
@@ -49,7 +51,7 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
                         <FExpand />
                         <IconButton
                             onClick={() => {
-                                dispatch(peek.setPeeking(false))
+                                dispatch(peek.setPeeking(undefined))
                             }}
                             icon={<Icon icon={'close'} size={'lg'} />}
                             size={'lg'}
@@ -91,6 +93,20 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
                                 const epN = e + min
                                 return (
                                     <EpisodeButton
+                                        onClick={() => {
+                                            dispatch(
+                                                watch.watchEpisode({
+                                                    episode: epN,
+                                                    name: info.title,
+                                                    link: info.episodeLink.replace(
+                                                        info.episodeReplace,
+                                                        String(epN),
+                                                    ),
+                                                    img: info.image,
+                                                }),
+                                            )
+                                            dispatch(player.freeze(false))
+                                        }}
                                         key={epN}
                                     >{`Episodio ${epN}`}</EpisodeButton>
                                 )

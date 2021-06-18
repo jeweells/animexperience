@@ -3,6 +3,7 @@ import { ipcRenderer } from 'electron'
 import { AnimeIDAnimeMatch, AnimeInfo } from '../../../globals/types'
 import { FStatus, Optional } from '../../../src/types'
 import { addFetchFlow } from '../utils'
+import { v4 as uuidv4 } from 'uuid'
 
 // Define a type for the slice state
 interface PeekState {
@@ -11,7 +12,7 @@ interface PeekState {
         info: FStatus
     }>
     info?: Optional<AnimeInfo>
-    peeking?: boolean
+    peeking?: string
 }
 
 // Define the initial state using that type
@@ -20,7 +21,7 @@ const initialState: PeekState = {
 }
 
 const _peek = createAsyncThunk('peek/peek', async (name: string, api) => {
-    api.dispatch(peek.setPeeking(true))
+    api.dispatch(peek.setPeeking(uuidv4()))
 
     const animes: AnimeIDAnimeMatch[] =
         (await ipcRenderer.invoke('searchAnimeID', name)) ?? []
@@ -41,7 +42,7 @@ export const slice = createSlice({
         setInfo(state, { payload }: PayloadAction<Optional<AnimeInfo>>) {
             state.info = payload
         },
-        setPeeking(state, { payload }: PayloadAction<boolean>) {
+        setPeeking(state, { payload }: PayloadAction<string | undefined>) {
             state.peeking = payload
         },
     },

@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { v4 as uuidv4 } from 'uuid'
 
 // Define a type for the slice state
 interface PlayerState {
-    open?: boolean
+    open?: string
     freezed?: boolean
 }
 
@@ -15,10 +16,10 @@ export const slice = createSlice({
     initialState,
     reducers: {
         show(state) {
-            state.open = true
+            state.open = uuidv4()
         },
         hide(state) {
-            state.open = false
+            state.open = undefined
         },
         freeze(state, { payload }: PayloadAction<boolean>) {
             state.freezed = payload
