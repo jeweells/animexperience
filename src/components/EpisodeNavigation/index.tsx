@@ -1,5 +1,7 @@
 import React from 'react'
 import { Icon, IconButton } from 'rsuite'
+import { peek } from '../../../redux/reducers/peek'
+import { player } from '../../../redux/reducers/player'
 import { watch } from '../../../redux/reducers/watch'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 
@@ -19,6 +21,12 @@ export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({
         watching.episode < max
 
     const dispatch = useAppDispatch()
+    const isPeeking = useAppSelector((d) => d.peek.peeking)
+    React.useLayoutEffect(() => {
+        // Avoids the player to keep playing but does not closes the modal
+        dispatch(player.freeze(!!isPeeking))
+    }, [isPeeking])
+
     return (
         <React.Fragment>
             <IconButton
@@ -29,7 +37,8 @@ export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({
             />
             <IconButton
                 onClick={() => {
-                    console.error('Not implemented yet')
+                    if (!watching?.name) return
+                    dispatch(peek.peek(watching.name))
                 }}
                 icon={<Icon icon={'bars'} size={'lg'} />}
                 size={'lg'}

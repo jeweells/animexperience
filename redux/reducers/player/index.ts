@@ -1,8 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 // Define a type for the slice state
 interface PlayerState {
     open?: boolean
+    freezed?: boolean
 }
 
 // Define the initial state using that type
@@ -18,6 +19,9 @@ export const slice = createSlice({
         },
         hide(state) {
             state.open = false
+        },
+        freeze(state, { payload }: PayloadAction<boolean>) {
+            state.freezed = payload
         },
     },
 })
