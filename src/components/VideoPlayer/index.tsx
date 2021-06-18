@@ -41,6 +41,7 @@ IFrame.displayName = 'IFrame'
 export const VideoPlayer: React.FC<VideoPlayerProps> = React.memo(
     ({ option, children }) => {
         const [ref, setRef] = React.useState<HTMLDivElement | null>(null)
+        const freezed = useAppSelector((d) => d.player.freezed)
         const watching = useAppSelector((d) => d.watch.watching)
         const { ref: containerRef, width = 1, height = 1 } = useResizeObserver<
             HTMLDivElement
@@ -64,6 +65,8 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = React.memo(
             setRef(r)
             return containerRef(r)
         }, [])
+
+        console.debug('FREEZED:', freezed)
         return (
             <Wrapper
                 style={{
@@ -72,7 +75,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = React.memo(
                 }}
             >
                 {children}
-                {option && (
+                {!freezed && option && (
                     <IFrame html={option?.html} updateRef={updateWrapperRef}>
                         <NextEpisodeButton />
                     </IFrame>
