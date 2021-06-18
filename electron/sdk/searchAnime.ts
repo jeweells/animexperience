@@ -2,6 +2,7 @@ import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import { AnimeIDAnimeMatch, MalAnimeInfo } from '../../globals/types'
 import { AnimeIDSearchResponse, RecentAnimeData } from '../../src/types'
+import { cleanName } from '../utils'
 import { getAnimeIDEpisodeVideos } from './getEpisodeVideos'
 
 export type JKAnimeSearchResult = Partial<{
@@ -12,7 +13,7 @@ export type JKAnimeSearchResults = JKAnimeSearchResult[]
 
 export const searchAnimeID = async (animeName: string) => {
     const url = new URL('https://www.animeid.tv/ajax/search')
-    url.searchParams.append('q', animeName.replace(/[^\s0-9a-zA-Z]/g, '').toLowerCase())
+    url.searchParams.append('q', cleanName(animeName))
     const animeResponse: AnimeIDSearchResponse = await fetch(url, {
         headers: {
             accept: 'application/json, text/javascript, */*; q=0.01',
@@ -30,7 +31,14 @@ export const searchAnimeID = async (animeName: string) => {
         method: 'GET',
     }).then((x) => x.json())
     if (Array.isArray(animeResponse)) {
-        console.debug('Found', animeResponse.length, 'matches')
+        console.debug(
+            'For',
+            animeName,
+            '. Found',
+            animeResponse.length,
+            'matches',
+            animeResponse,
+        )
         return animeResponse.map((x) => ({
             name: x.text,
             link: x.link,
@@ -57,8 +65,7 @@ export const searchAIDFromMALEpisode = async (arg: RecentAnimeData) => {
 }
 
 export const searchJKAnime = async (animeName: string) => {
-    const filteredName = animeName
-        .replace(/[^A-Za-z]/g, ' ')
+    const filteredName = cleanName(animeName)
         .split(' ')
         .filter((x) => !!x)
         .map((x) => x.toLowerCase())
@@ -84,7 +91,7 @@ export const searchJKAnime = async (animeName: string) => {
 
 export const searchMalAnime = async (name: string) => {
     const url = new URL('https://myanimelist.net/search/prefix.json?type=anime&v=1')
-    url.searchParams.append('keyword', name.replace(/[^a-zA-Z\s]/g, ''))
+    url.searchParams.append('keyword', cleanName(name))
     console.debug('Searching for', name, '->', url.toString())
     const body = (await fetch(url).then((x) => x.json())) as {
         categories: Array<{

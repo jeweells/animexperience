@@ -36,8 +36,8 @@ export const getAnimeIDInfo = async (link: string) => {
         'animeid.tv/v/',
     )}-${episodeReplace}`
 
-    const animeHTML = await fetch(link).then((x) => x.text())
     console.debug('Getting anime info html...', link)
+    const animeHTML = await fetch(link).then((x) => x.text())
     const $ = cheerio.load(animeHTML)
     const info: AnimeInfo = {
         episodeLink,
