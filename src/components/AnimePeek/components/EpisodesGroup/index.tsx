@@ -1,5 +1,5 @@
 import { Collapse } from '@material-ui/core'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { AnimeInfo } from '../../../../../globals/types'
 import { FCol, FColG16 } from '../../../../atoms/Layout'
 import { range } from '../../../../utils'
@@ -10,16 +10,24 @@ export type EpisodesGroupProps = {
     min: number
     max: number
     info: AnimeInfo
+    sort: number
 }
 
 export const EpisodesGroup: React.FC<EpisodesGroupProps> = React.memo(
-    ({ size, info, min, max }) => {
+    ({ size, info, min, max, sort }) => {
         const [show, setShow] = React.useState(false)
+        const episodes = useMemo(() => {
+            const _episodes = range(max - min + 1)
+            if (sort < 0) {
+                return _episodes.reverse()
+            }
+            return _episodes
+        }, [max, min, sort])
 
         const renderEpisodes = () => {
             return (
                 <FColG16>
-                    {range(max - min + 1).map((e) => {
+                    {episodes.map((e) => {
                         const epN = e + min
                         return <EpisodeButton key={epN} episode={epN} info={info} />
                     })}
