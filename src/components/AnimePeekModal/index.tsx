@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAppSelector } from '../../../redux/store'
+import { TopView } from '../../types'
 import AnimePeek from '../AnimePeek'
 import FullModal, { FullModalProps } from '../FullModal'
 
@@ -9,7 +10,13 @@ export const AnimePeekModal: React.FC<AnimePeekModalProps> = React.memo(({ ...re
     const peeking = useAppSelector((d) => d.peek.peeking)
     const status = useAppSelector((d) => d.peek.status.info)
     return (
-        <FullModal show={peeking} full={false} contrast={true} {...rest}>
+        <FullModal
+            view={TopView.PEEK}
+            show={peeking}
+            full={false}
+            contrast={true}
+            {...rest}
+        >
             {status === 'succeeded' ? <AnimePeek /> : <div>Loading...</div>}
         </FullModal>
     )

@@ -29,7 +29,11 @@ export type AnimeInfo = Partial<{
     tags: string[]
     type: 'Serie'
     status: 'En emisión' | 'Finalizada'
-}>
+}> & {
+    episodeLink: string
+    episodeReplace: string
+    link: string
+}
 
 export type RecentAnimeInfo = {
     name: string

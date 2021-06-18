@@ -42,3 +42,8 @@ export type AnimeIDSearchResponse = Array<AnimeIDSearchItem>
 
 export type FStatus = 'idle' | 'loading' | 'succeeded' | 'failed'
 export type Optional<T> = T | undefined | null
+
+export enum TopView {
+    PLAYER = 'player',
+    PEEK = 'peek',
+}

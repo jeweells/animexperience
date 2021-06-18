@@ -30,12 +30,20 @@ const parseStatus = (s: string): AnimeInfo['status'] | undefined => {
 }
 
 export const getAnimeIDInfo = async (link: string) => {
-    const animeLink = link.replace(/-[0-9]$/, '').replace('animeid.tv/v/', 'animeid.tv/')
+    const episodeReplace = '<episode>'
+    const episodeLink = `${link.replace(
+        'animeid.tv/',
+        'animeid.tv/v/',
+    )}-${episodeReplace}`
 
-    const animeHTML = await fetch(animeLink).then((x) => x.text())
-    console.debug('Getting anime info html...', animeLink, 'RAW:', link)
+    const animeHTML = await fetch(link).then((x) => x.text())
+    console.debug('Getting anime info html...', link)
     const $ = cheerio.load(animeHTML)
-    const info: AnimeInfo = {}
+    const info: AnimeInfo = {
+        episodeLink,
+        link,
+        episodeReplace,
+    }
     const orderBtn = $('#ord[data-id]')
     if (orderBtn.length > 0) {
         const id = orderBtn.attr('data-id')

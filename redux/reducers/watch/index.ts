@@ -101,10 +101,7 @@ const previousEpisode = createAsyncThunk('watch/previousEpisode', async (arg, ap
 
 const watchEpisode = createAsyncThunk(
     'watch/watchEpisode',
-    async (anime: RecentAnimeData, { getState, dispatch }) => {
-        const state = getState()
-        const watching = state.watch.watching
-        if (watching?.name === anime?.name && watching?.episode === anime?.episode) return
+    async (anime: RecentAnimeData, { dispatch }) => {
         console.debug('WATCH:', anime)
         dispatch(watch.set(anime))
         const p = dispatch(watch.getAvailableVideos())

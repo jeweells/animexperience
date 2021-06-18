@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Modal, ModalProps } from 'rsuite'
 import styled from 'styled-components'
+import { topview } from '../../../redux/reducers/topview'
+import { useAppDispatch } from '../../../redux/store'
+import { TopView } from '../../types'
 import { useTopBarHeight } from '../Topbar'
 
 const SModal = styled(Modal)<{ topBarHeight: number; contrast?: boolean }>`
@@ -25,14 +28,40 @@ const SModal = styled(Modal)<{ topBarHeight: number; contrast?: boolean }>`
     }
 `
 
-export type FullModalProps = { contrast?: boolean } & ModalProps
+export type FullModalProps = {
+    contrast?: boolean
+    show: string | undefined
+    view: TopView
+} & Omit<ModalProps, 'show'>
 
 export const FullModal: React.FC<FullModalProps> = React.memo<FullModalProps>(
-    ({ children, ...rest }) => {
+    ({ view, children, show, ...rest }) => {
         const topBarHeight = useTopBarHeight()
+        const ref = useRef(null)
+        const dispatch = useAppDispatch()
 
+        // This tick will bring the modal top
+        useEffect(() => {
+            if (show) {
+                // @ts-ignore
+                const node = ref.current?.modalRef?.current?.modalNodeRef?.current
+                if (node) {
+                    console.debug('[HENTAI] SHOW CHANGED!', node)
+                    document.body.appendChild(node)
+                }
+                dispatch(topview.push(view))
+            } else {
+                dispatch(topview.pop(view))
+            }
+        }, [show])
         return (
-            <SModal topBarHeight={topBarHeight} full={true} {...rest}>
+            <SModal
+                ref={ref}
+                topBarHeight={topBarHeight}
+                full={true}
+                show={!!show}
+                {...rest}
+            >
                 {children}
             </SModal>
         )
