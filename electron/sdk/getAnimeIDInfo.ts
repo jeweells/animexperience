@@ -37,7 +37,7 @@ export const getAnimeIDInfo = async (link: string) => {
     )}-${episodeReplace}`
 
     console.debug('Getting anime info html...', link)
-    const animeHTML = await fetch(link).then((x) => x.text())
+    const animeHTML = await fetch(new URL(link)).then((x) => x.text())
     const $ = cheerio.load(animeHTML)
     const info: AnimeInfo = {
         episodeLink,
@@ -58,7 +58,23 @@ export const getAnimeIDInfo = async (link: string) => {
                 'Too many episodes require pagination; Fetching for first episodes',
             )
             const ascEps = await fetch(
-                `https://www.animeid.tv/ajax/caps?id=${id}&ord=ASC`,
+                new URL(`https://www.animeid.tv/ajax/caps?id=${id}&ord=ASC`),
+                {
+                    headers: {
+                        accept: 'application/json, text/javascript, */*; q=0.01',
+                        'accept-language': 'en,es;q=0.9,es-ES;q=0.8',
+                        'cache-control': 'no-cache',
+                        pragma: 'no-cache',
+                        'sec-ch-ua':
+                            '" Not A;Brand";v="99", "Chromium";v="90", "Google Chrome";v="90"',
+                        'sec-ch-ua-mobile': '?0',
+                        'sec-fetch-dest': 'empty',
+                        'sec-fetch-mode': 'cors',
+                        'sec-fetch-site': 'same-origin',
+                        'x-requested-with': 'XMLHttpRequest',
+                    },
+                    method: 'GET',
+                },
             ).then((x) => x.json())
             minRange = parseInt(ascEps.list[0].numero ?? '1')
         }

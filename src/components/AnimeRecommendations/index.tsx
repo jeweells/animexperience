@@ -8,6 +8,7 @@ import { AnimesCarousel } from '../AnimesCarousel'
 
 export type AnimeRecommendationsProps = {
     animeName: string
+    title?: string
 }
 
 const getRandomTitleBuilder = () => {
@@ -19,8 +20,11 @@ const getRandomTitleBuilder = () => {
 }
 
 export const AnimeRecommendations: React.FC<AnimeRecommendationsProps> = React.memo(
-    ({ animeName }) => {
-        const buildTitle = useMemo(() => getRandomTitleBuilder(), [])
+    ({ animeName, title }) => {
+        const buildTitle = useMemo(
+            () => (title && (() => title)) || getRandomTitleBuilder(),
+            [title],
+        )
         const dispatch = useAppDispatch()
         const _recommendations = useAppSelector((d) => d.recommendations[animeName])
         const parsedRecommendations = useMemo<AnimeDetails[]>(

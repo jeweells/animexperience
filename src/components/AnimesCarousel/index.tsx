@@ -45,6 +45,7 @@ export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(
             onSlidingComplete,
         } = useSliding(gap, count, navigationWidth)
         const duration = 400
+        if (!loading && count === 0) return null
         return (
             <Fragment>
                 {title && (

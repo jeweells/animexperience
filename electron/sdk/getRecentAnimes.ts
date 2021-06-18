@@ -3,7 +3,9 @@ import fetch from 'node-fetch'
 
 export const getRecentAnimes = async () => {
     console.debug('Getting recent animes...')
-    const animeIdHome = await fetch('https://www.animeid.tv').then((x) => x.text())
+    const animeIdHome = await fetch(new URL('https://www.animeid.tv')).then((x) =>
+        x.text(),
+    )
     console.debug('Getting episode html...')
     const $ = cheerio.load(animeIdHome)
     console.debug('Parsing html...')
@@ -24,7 +26,8 @@ export const getRecentAnimes = async () => {
                         date: dateStr,
                         name: img.attr('alt'),
                         episode: episode !== null ? parseInt(episode) : null,
-                        link: relLink ?? false ? 'https://www.animeid.tv' + relLink : null,
+                        link:
+                            relLink ?? false ? 'https://www.animeid.tv' + relLink : null,
                         img: img.attr('src'),
                     }
                 })

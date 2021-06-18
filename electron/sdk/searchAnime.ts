@@ -2,7 +2,7 @@ import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import { AnimeIDAnimeMatch, MalAnimeInfo } from '../../globals/types'
 import { AnimeIDSearchResponse, RecentAnimeData } from '../../src/types'
-import { cleanName } from '../utils'
+import { cleanName, similarity } from '../utils'
 import { getAnimeIDEpisodeVideos } from './getEpisodeVideos'
 
 export type JKAnimeSearchResult = Partial<{
@@ -13,7 +13,8 @@ export type JKAnimeSearchResults = JKAnimeSearchResult[]
 
 export const searchAnimeID = async (animeName: string) => {
     const url = new URL('https://www.animeid.tv/ajax/search')
-    url.searchParams.append('q', cleanName(animeName))
+    const cleanedAnimeName = cleanName(animeName)
+    url.searchParams.append('q', cleanedAnimeName)
     const animeResponse: AnimeIDSearchResponse = await fetch(url, {
         headers: {
             accept: 'application/json, text/javascript, */*; q=0.01',
@@ -33,17 +34,21 @@ export const searchAnimeID = async (animeName: string) => {
     if (Array.isArray(animeResponse)) {
         console.debug(
             'For',
-            animeName,
-            '. Found',
+            cleanedAnimeName,
+            `(${animeName})`,
+            '| Found',
             animeResponse.length,
             'matches',
-            animeResponse,
         )
-        return animeResponse.map((x) => ({
-            name: x.text,
-            link: x.link,
-            image: x.image,
-        })) as AnimeIDAnimeMatch[]
+        return animeResponse
+            .map((x) => ({
+                name: x.text,
+                link: x.link,
+                image: x.image,
+            }))
+            .sort((a, b) => {
+                return similarity(b.name, animeName) - similarity(a.name, animeName)
+            }) as AnimeIDAnimeMatch[]
     }
     console.debug('Unexpected output')
     return []
@@ -72,9 +77,9 @@ export const searchJKAnime = async (animeName: string) => {
         .join('_')
 
     console.debug('SearchingJKAnime:', animeName, '->', filteredName)
-    const body = await fetch(`https://jkanime.net/buscar/${filteredName}/1/`).then((x) =>
-        x.text(),
-    )
+    const body = await fetch(
+        new URL(`https://jkanime.net/buscar/${filteredName}/1/`),
+    ).then((x) => x.text())
     const $ = cheerio.load(body)
     return $('.anime__page__content > .row')
         .children()

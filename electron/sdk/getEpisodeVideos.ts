@@ -15,7 +15,7 @@ export const getJKAnimeEpisodeVideos = async (anime: string, episode: number) =>
             ? `${result.link}${episode}`
             : `${result.link}/${episode}`
         console.debug('Obtained:', episodeLink)
-        const body = await fetch(episodeLink).then((x) => x.text())
+        const body = await fetch(new URL(episodeLink)).then((x) => x.text())
         const $ = cheerio.load(body)
         const scripts = $('script:not([src])')
             .map((idx, elm) => $(elm).html())
@@ -55,7 +55,7 @@ export const getAnimeIDEpisodeVideos = async (episodeLink: string) => {
         return null
     }
     console.debug('Getting episode videos of...', episodeLink)
-    const body = await fetch(episodeLink).then((d) => d.text())
+    const body = await fetch(new URL(episodeLink)).then((d) => d.text())
     const $ = cheerio.load(body)
     console.debug('Parsing html...')
     const mirrors = $('ul#mirrors')
