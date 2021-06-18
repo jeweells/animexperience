@@ -10,6 +10,7 @@ import { AnimePeekTitle, AnimePeekType } from '../../atoms/Text'
 import AnimeRecommendations from '../AnimeRecommendations'
 import Episodes from './components/Episodes'
 import { ContentContext } from '../Topbar'
+import Image from './components/Image'
 
 const TitleRow = styled(FRow)`
     align-items: center;
@@ -65,10 +66,20 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
                     <FRowG16>
                         <ImageCol>
                             <div style={{ position: 'relative' }}>
-                                <img
-                                    src={info.image}
-                                    style={{ width: '100%', minHeight: 200 }}
-                                />
+                                {info.title && (
+                                    <Image
+                                        animeName={info.title}
+                                        src={info.image}
+                                        containerStyle={{
+                                            width: '100%',
+                                            minHeight: 200,
+                                        }}
+                                        style={{
+                                            width: '100%',
+                                            minHeight: 200,
+                                        }}
+                                    />
+                                )}
                                 <Button
                                     style={{
                                         pointerEvents: 'none',

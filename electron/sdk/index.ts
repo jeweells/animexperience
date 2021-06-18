@@ -1,5 +1,6 @@
 import { ipcMain } from 'electron'
 import { cached } from '../cache'
+import { getAnimeImage } from './getAnimeImage'
 import { getAnimeRecommendations } from './getAnimeRecommendations'
 import { getAnimeIDInfo } from './getAnimeIDInfo'
 import { getAnimeIDEpisodeVideos, getJKAnimeEpisodeVideos } from './getEpisodeVideos'
@@ -23,6 +24,7 @@ export const setupSdk = () => {
         searchMalAnime,
         searchAnimeID,
         getAnimeRecommendations,
+        getAnimeImage,
         // Allow the use of a cache for any result
     ] as Array<(...arg: any) => any>)
         .map((fn) => cached(fn))

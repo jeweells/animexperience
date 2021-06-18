@@ -2,6 +2,7 @@ import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import { AnimeIDAnimeMatch, MalAnimeInfo } from '../../globals/types'
 import { AnimeIDSearchResponse, RecentAnimeData } from '../../src/types'
+import { cached } from '../cache'
 import { cleanName, similarity } from '../utils'
 import { getAnimeIDEpisodeVideos } from './getEpisodeVideos'
 
@@ -94,7 +95,7 @@ export const searchJKAnime = async (animeName: string) => {
         .toArray()
 }
 
-export const searchMalAnime = async (name: string) => {
+export const searchMalAnime = cached(async (name: string) => {
     const url = new URL('https://myanimelist.net/search/prefix.json?type=anime&v=1')
     url.searchParams.append('keyword', cleanName(name))
     console.debug('Searching for', name, '->', url.toString())
@@ -107,5 +108,8 @@ export const searchMalAnime = async (name: string) => {
     // We already filter by category=anime
     if (!body) return []
 
-    return body.categories[0].items ?? []
-}
+    const result = body.categories[0].items ?? []
+    return result.sort((a, b) => {
+        return similarity(b.name, name) - similarity(a.name, name)
+    })
+})

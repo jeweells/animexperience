@@ -1,5 +1,10 @@
 import { v4 as uuidv4 } from 'uuid'
 
+interface CachedFn {
+    (...args: any): any
+    cached?: boolean
+}
+
 // Memory cache which self-invalidates after a specific amount of time
 export class TimedCache {
     cache: Record<string, any> = {}
@@ -28,7 +33,10 @@ export class TimedCache {
         return this.cache[key]
     }
 
-    cached<Fn extends (...args: any) => any>(fn: Fn): Fn {
+    cached<Fn extends CachedFn>(fn: Fn): Fn {
+        if (fn?.cached) {
+            return fn
+        }
         // Creates an identifier for this function
         const id = uuidv4()
         const wrappedFn = ((...args) => {
@@ -48,6 +56,7 @@ export class TimedCache {
             return result
         }) as Fn
         Object.defineProperty(wrappedFn, 'name', { value: fn.name })
+        Object.defineProperty(wrappedFn, 'cached', { value: true })
         return wrappedFn
     }
 }

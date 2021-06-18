@@ -12,7 +12,13 @@ export const getAnimeRecommendations = async (animeName: string) => {
     return []
 }
 
-const getImage = (srcset: string) => {
+export const malImageUrlToImage = (imgUrl: string) => {
+    const imageUrl = new URL(imgUrl)
+    imageUrl.search = ''
+    imageUrl.pathname = imageUrl.pathname.replace(/^\/r\/[0-9]+x[0-9]+\//, '/')
+    return imageUrl.toString()
+}
+const getMalImageFromSrcSet = (srcset: string) => {
     const images = srcset
         .split(' ')
         .map((x) => {
@@ -23,12 +29,7 @@ const getImage = (srcset: string) => {
         console.debug('No images found for', srcset)
         return ''
     }
-
-    const imageUrl = new URL(images[0])
-    console.debug(imageUrl)
-    imageUrl.search = ''
-    imageUrl.pathname = imageUrl.pathname.replace(/^\/r\/[0-9]+x[0-9]+\//, '/')
-    return imageUrl.toString()
+    return malImageUrlToImage(images[0])
 }
 
 export const getMalAnimeRecommendations = async (malUrl: string) => {
@@ -51,7 +52,7 @@ export const getMalAnimeRecommendations = async (malUrl: string) => {
                     return {
                         id: parseInt(id),
                         name: title,
-                        image: getImage(srcset),
+                        image: getMalImageFromSrcSet(srcset),
                     }
                 }
             }
