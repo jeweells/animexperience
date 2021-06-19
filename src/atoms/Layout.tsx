@@ -8,6 +8,9 @@ export const FRow = styled.div`
 export const FRowG16 = styled(FRow)`
     gap: 16px;
 `
+export const FRowG8 = styled(FRow)`
+    gap: 8px;
+`
 
 export const FCol = styled.div`
     display: flex;
@@ -15,6 +18,10 @@ export const FCol = styled.div`
 `
 export const FColG16 = styled(FCol)`
     gap: 16px;
+`
+
+export const FColG8 = styled(FCol)`
+    gap: 8px;
 `
 
 export const FColG32 = styled(FCol)`
