@@ -1,6 +1,6 @@
 import moment from 'moment'
 import React, { useRef } from 'react'
-import { Button, Icon, IconButton } from 'rsuite'
+import { Button, Divider, Icon, IconButton } from 'rsuite'
 import styled from 'styled-components'
 import { AnimeInfo } from '../../../globals/types'
 import { peek } from '../../../redux/reducers/peek'
@@ -12,6 +12,7 @@ import AnimeRecommendations from '../AnimeRecommendations'
 import Episodes from './components/Episodes'
 import { ContentContext } from '../Topbar'
 import Image from './components/Image'
+import Info from './components/Info'
 
 const TitleRow = styled(FRow)`
     align-items: center;
@@ -21,7 +22,12 @@ const TitleRow = styled(FRow)`
 const ImageCol = styled(FCol)`
     min-width: 300px;
     max-width: 300px;
-    gap: 16px;
+`
+
+const SDivider = styled(Divider)`
+    margin-left: 16px;
+    margin-right: 16px;
+    opacity: 0.5;
 `
 
 export type AnimePeekProps = {}
@@ -103,17 +109,23 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
                                     {info.status}
                                 </Button>
                             </div>
-                            <FRowG16
-                                style={{ flexWrap: 'wrap', justifyContent: 'center' }}
-                            >
+                            <SDivider />
+                            <FRowG16 style={{ flexWrap: 'wrap' }}>
                                 {info.tags?.map((tag) => {
                                     return <Button key={tag}>{tag}</Button>
                                 })}
                             </FRowG16>
+                            <SDivider />
                             {typeof info.emitted?.from === 'number' && (
-                                <div>{`Emitido: ${moment
-                                    .unix(info.emitted.from)
-                                    .format('DD/MM/YYYY')}`}</div>
+                                <React.Fragment>
+                                    <Info
+                                        icon={'calendar-o'}
+                                        title={'Emitido'}
+                                        value={`${moment
+                                            .unix(info.emitted.from)
+                                            .format('DD/MM/YYYY')}`}
+                                    />
+                                </React.Fragment>
                             )}
                         </ImageCol>
                         <FColG16 style={{ flex: 1 }}>
