@@ -29,6 +29,7 @@ export type AnimeInfo = Partial<{
     tags: string[]
     type: 'Serie'
     status: 'En emisión' | 'Finalizada'
+    emitted: Partial<{ from: number; to: number }>
 }> & {
     episodeLink: string
     episodeReplace: string

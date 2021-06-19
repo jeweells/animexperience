@@ -1,6 +1,7 @@
 import cheerio, { Cheerio, Element } from 'cheerio'
 import fetch from 'node-fetch'
 import { AnimeInfo } from '../../globals/types'
+import moment from 'moment'
 
 const getEpisodeNumber = (elm: Cheerio<Element>) => {
     if (elm.length > 0) {
@@ -100,5 +101,14 @@ export const getAnimeIDInfo = async (link: string) => {
     const data = $('div.status-left > div.cuerpo')
     info.type = parseType(data.find("strong:contains('Tipo') + span").text().trim())
     info.status = parseStatus(data.find("strong:contains('Estado') + span").text().trim())
+    const emitted = data.find("strong:contains('Emitido') + span").text().trim()
+
+    info.emitted = {}
+    const emittedDate = moment(emitted, 'DD MMM YYYY', true)
+    if (emittedDate.isValid()) {
+        info.emitted.from = emittedDate.unix()
+    } else {
+        console.error('Invalid date:', emitted)
+    }
     return info
 }

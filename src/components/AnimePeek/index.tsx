@@ -1,3 +1,4 @@
+import moment from 'moment'
 import React, { useRef } from 'react'
 import { Button, Icon, IconButton } from 'rsuite'
 import styled from 'styled-components'
@@ -19,6 +20,7 @@ const TitleRow = styled(FRow)`
 
 const ImageCol = styled(FCol)`
     min-width: 300px;
+    max-width: 300px;
     gap: 16px;
 `
 
@@ -72,11 +74,14 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
                                         src={info.image}
                                         containerStyle={{
                                             width: '100%',
-                                            minHeight: 200,
+                                            overflow: 'hidden',
+                                            borderRadius: 8,
+                                            height: 425,
                                         }}
                                         style={{
                                             width: '100%',
-                                            minHeight: 200,
+                                            height: 425,
+                                            objectFit: 'cover',
                                         }}
                                     />
                                 )}
@@ -105,8 +110,13 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
                                     return <Button key={tag}>{tag}</Button>
                                 })}
                             </FRowG16>
+                            {typeof info.emitted?.from === 'number' && (
+                                <div>{`Emitido: ${moment
+                                    .unix(info.emitted.from)
+                                    .format('DD/MM/YYYY')}`}</div>
+                            )}
                         </ImageCol>
-                        <FColG16>
+                        <FColG16 style={{ flex: 1 }}>
                             <div style={{ textAlign: 'justify' }}>{info.description}</div>
                             <Episodes info={info} />
                         </FColG16>
