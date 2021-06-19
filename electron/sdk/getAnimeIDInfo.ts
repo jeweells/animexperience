@@ -5,8 +5,8 @@ import moment from 'moment'
 
 const getEpisodeNumber = (elm: Cheerio<Element>) => {
     if (elm.length > 0) {
-        const epRegex = /[0-9]+$/
-        const episode = epRegex.exec(elm.attr('href') ?? '')?.[0]
+        const epRegex = /-([0-9]+)$/
+        const episode = epRegex.exec(elm.attr('href') ?? '')?.[1]
         if (episode) {
             return parseInt(episode)
         }
@@ -48,8 +48,12 @@ export const getAnimeIDInfo = async (link: string) => {
     const orderBtn = $('#ord[data-id]')
     if (orderBtn.length > 0) {
         const id = orderBtn.attr('data-id')
-        const lastEpLink = $('#listado > li:first-child > a')
-        const maxRange = getEpisodeNumber(lastEpLink) ?? 1
+        const liEpisodes = $('#listado > li > a')
+        let maxRange: number | null = null
+        for (let i = 0; i < liEpisodes.length && maxRange === null; i++) {
+            maxRange = getEpisodeNumber($(liEpisodes.get(i)))
+        }
+        maxRange = maxRange ?? 1
         let minRange = 0
         console.debug(`Obtained episodes info: id(${id}) maxRange(${maxRange})`)
         if ($('#paginas').children().length === 0) {
