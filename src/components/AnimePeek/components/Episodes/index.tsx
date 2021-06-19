@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react'
-import { Icon, IconButton } from 'rsuite'
+import { Divider, Icon, IconButton } from 'rsuite'
+import styled from 'styled-components'
 import { AnimeInfo } from '../../../../../globals/types'
 import { FColG16, FRow } from '../../../../atoms/Layout'
 import { Optional } from '../../../../types'
@@ -10,6 +11,13 @@ export type EpisodesProps = {
     info: Optional<AnimeInfo>
     groupSize?: number
 }
+
+const SDivider = styled(Divider)`
+    flex: 1;
+    margin: 0;
+    margin-right: 16px;
+    margin-left: 16px;
+`
 
 export const Episodes: React.FC<EpisodesProps> = React.memo(
     ({ info, groupSize = 30 }) => {
@@ -30,7 +38,14 @@ export const Episodes: React.FC<EpisodesProps> = React.memo(
         }, [episodes, groupSize, sort])
         return (
             <FColG16>
-                <FRow style={{ width: '100%', justifyContent: 'flex-end' }}>
+                <FRow
+                    style={{
+                        width: '100%',
+                        justifyContent: 'flex-end',
+                        alignItems: 'center',
+                    }}
+                >
+                    <SDivider />
                     <IconButton
                         icon={
                             <Icon

@@ -4,12 +4,14 @@ export const FRow = styled.div`
     display: flex;
     flex-direction: row;
 `
-
+export const FRowG8 = styled(FRow)`
+    gap: 8px;
+`
 export const FRowG16 = styled(FRow)`
     gap: 16px;
 `
-export const FRowG8 = styled(FRow)`
-    gap: 8px;
+export const FRowG32 = styled(FRow)`
+    gap: 32px;
 `
 
 export const FCol = styled.div`

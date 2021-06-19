@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { AnimeInfo } from '../../../globals/types'
 import { peek } from '../../../redux/reducers/peek'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
-import { FCol, FColG16, FRow, FRowG16 } from '../../atoms/Layout'
+import { FCol, FColG16, FColG32, FRow, FRowG16, FRowG32 } from '../../atoms/Layout'
 import { FExpand } from '../../atoms/Misc'
 import { AnimePeekTitle, AnimePeekType } from '../../atoms/Text'
 import AnimeRecommendations from '../AnimeRecommendations'
@@ -71,7 +71,7 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
                             <AnimePeekType>{info.otherTitles?.join(', ')}</AnimePeekType>
                         )}
                     </FCol>
-                    <FRowG16>
+                    <FRowG32>
                         <ImageCol>
                             <div style={{ position: 'relative' }}>
                                 {info.title && (
@@ -118,21 +118,25 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
                             <SDivider />
                             {typeof info.emitted?.from === 'number' && (
                                 <React.Fragment>
-                                    <Info
-                                        icon={'calendar-o'}
-                                        title={'Emitido'}
-                                        value={`${moment
+                                    <Info icon={'calendar-o'} title={'Emitido'}>
+                                        {`${moment
                                             .unix(info.emitted.from)
                                             .format('DD/MM/YYYY')}`}
-                                    />
+                                    </Info>
                                 </React.Fragment>
                             )}
                         </ImageCol>
-                        <FColG16 style={{ flex: 1 }}>
-                            <div style={{ textAlign: 'justify' }}>{info.description}</div>
-                            <Episodes info={info} />
-                        </FColG16>
-                    </FRowG16>
+                        <FColG32 style={{ flex: 1 }}>
+                            <Info icon={'align-justify'} title={'Sinopsis'}>
+                                <div style={{ textAlign: 'justify' }}>
+                                    {info.description}
+                                </div>
+                            </Info>
+                            <Info icon={'tv'} title={'Episodios'}>
+                                <Episodes info={info} />
+                            </Info>
+                        </FColG32>
+                    </FRowG32>
                 </FColG16>
                 {info.title && (
                     <div>
