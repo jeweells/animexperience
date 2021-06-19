@@ -9,6 +9,9 @@ import * as url from 'url'
 import { setupBlocker } from './blocker'
 import setupSdk from './sdk'
 import { setupStores } from './store'
+import moment from 'moment'
+import 'moment/locale/es'
+moment.locale('es')
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-var-requires

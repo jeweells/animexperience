@@ -57,8 +57,8 @@ export const Image: React.FC<ImageProps> = React.memo(
                             : 'rgba(200, 200, 200,0)',
                         backdropFilter: ['loading', 'idle'].includes(status)
                             ? 'blur(10px)'
-                            : 'none',
-                        transition: 'all 200ms',
+                            : 'blur(0)',
+                        transition: 'all 500ms',
                         position: 'absolute',
                         inset: 0,
                     }}

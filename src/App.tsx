@@ -16,7 +16,9 @@ import { VideoPlayerModal } from './components/VideoPlayerModal'
 import './index.less'
 import { GlobalStyle } from './styles/GlobalStyle'
 import { muiTheme } from './themes/mui'
-
+import moment from 'moment'
+import 'moment/locale/es'
+moment.locale('es')
 const mainElement = document.createElement('div')
 mainElement.setAttribute('id', 'root')
 document.body.appendChild(mainElement)
