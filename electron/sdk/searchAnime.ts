@@ -14,7 +14,7 @@ export type JKAnimeSearchResults = JKAnimeSearchResult[]
 
 export const searchAnimeID = async (animeName: string) => {
     const url = new URL('https://www.animeid.tv/ajax/search')
-    url.searchParams.append('q', animeName.replace(/\./g, ''))
+    url.searchParams.append('q', animeName.replace(/\./g, '').slice(0, 50))
     const animeResponse: AnimeIDSearchResponse = await fetch(url, {
         headers: {
             accept: 'application/json, text/javascript, */*; q=0.01',
