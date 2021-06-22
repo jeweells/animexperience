@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button } from 'rsuite'
 import { useAppSelector } from '../../../redux/store'
 import { Options, OptionsRow } from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import VideoPlayer, { VideoOption } from '../VideoPlayer'
+import OptionButton from './components/OptionButton'
 
 export type VideoPlayerWOptionsProps = {}
 
@@ -21,15 +21,14 @@ export const VideoPlayerWOptions: React.FC<VideoPlayerWOptionsProps> = React.mem
                 <OptionsRow className={'fade-in'}>
                     <Options>
                         {options?.map((x, idx) => (
-                            <Button
+                            <OptionButton
                                 disabled={currentOption?.name === x?.name}
                                 key={idx}
+                                option={x}
                                 onClick={() => {
                                     setCurrentOption(x)
                                 }}
-                            >
-                                {x.name}
-                            </Button>
+                            />
                         ))}
                     </Options>
                     {children}
