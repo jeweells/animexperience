@@ -17,6 +17,12 @@ export type EpisodeInfo = {
     at: number
 }
 
+export type RelatedAnime = {
+    name: string
+    link: string
+    type: 'Ova' | 'Serie' | 'Película' | 'Especial'
+}
+
 export type AnimeInfo = Partial<{
     episodesRange: {
         min: number
@@ -30,6 +36,7 @@ export type AnimeInfo = Partial<{
     type: 'Serie'
     status: 'En emisión' | 'Finalizada'
     emitted: Partial<{ from: number; to: number }>
+    related: Array<RelatedAnime>
 }> & {
     episodeLink: string
     episodeReplace: string

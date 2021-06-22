@@ -5,14 +5,23 @@ import styled from 'styled-components'
 import { AnimeInfo } from '../../../globals/types'
 import { peek } from '../../../redux/reducers/peek'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
-import { FCol, FColG16, FColG32, FRow, FRowG16, FRowG32 } from '../../atoms/Layout'
+import {
+    FCol,
+    FColG16,
+    FColG32,
+    FColG8,
+    FRow,
+    FRowG16,
+    FRowG32,
+} from '../../atoms/Layout'
 import { FExpand } from '../../atoms/Misc'
 import { AnimePeekTitle, AnimePeekType } from '../../atoms/Text'
 import AnimeRecommendations from '../AnimeRecommendations'
-import Episodes from './components/Episodes'
 import { ContentContext } from '../Topbar'
+import Episodes from './components/Episodes'
 import Image from './components/Image'
 import Info from './components/Info'
+import RelatedAnimeButton from './components/RelatedAnimeButton'
 
 const TitleRow = styled(FRow)`
     align-items: center;
@@ -122,6 +131,23 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
                                         {`${moment
                                             .unix(info.emitted.from)
                                             .format('DD/MM/YYYY')}`}
+                                    </Info>
+                                </React.Fragment>
+                            )}
+                            {Array.isArray(info.related) && info.related.length > 0 && (
+                                <React.Fragment>
+                                    <SDivider />
+                                    <Info icon={'sitemap'} title={'Relacionado'}>
+                                        <FColG8>
+                                            {info.related.map((related, idx) => {
+                                                return (
+                                                    <RelatedAnimeButton
+                                                        key={idx}
+                                                        related={related}
+                                                    />
+                                                )
+                                            })}
+                                        </FColG8>
                                     </Info>
                                 </React.Fragment>
                             )}
