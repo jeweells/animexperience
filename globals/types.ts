@@ -4,6 +4,7 @@ export enum Store {
     WATCHED = 'watched',
     RECENTLY_WATCHED = 'recently-watched',
     WATCH_HISTORY = 'watch-history',
+    PLAYER_OPTIONS = 'player-options',
 }
 
 export enum StoreMethod {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { useAppSelector } from '../../../redux/store'
 import { Options, OptionsRow } from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import VideoPlayer, { VideoOption } from '../VideoPlayer'
@@ -8,19 +8,35 @@ export type VideoPlayerWOptionsProps = {}
 
 export const VideoPlayerWOptions: React.FC<VideoPlayerWOptionsProps> = React.memo(
     ({ children }) => {
-        const options = useAppSelector((d) => d.watch.availableVideos)
-        const [currentOption, setCurrentOption] = React.useState<VideoOption | null>(null)
-        React.useLayoutEffect(() => {
-            if (!currentOption && options?.[0]) {
-                setCurrentOption(options[0])
+        const availableOptions = useAppSelector((d) => d.watch.availableVideos)
+        const usedOptions = useAppSelector((d) => d.playerOptions.options)
+        const [currentOption, setCurrentOption] = useState<VideoOption | null>(null)
+        const sortedOptions = useMemo(() => {
+            if (Array.isArray(usedOptions) && Array.isArray(availableOptions)) {
+                return availableOptions
+                    .map((a) => {
+                        return {
+                            ...a,
+                            score: usedOptions.find((u) => u.name === a.name)?.score ?? 0,
+                        }
+                    })
+                    .sort((a, b) => {
+                        return b.score - a.score
+                    })
             }
-        }, [options])
-        console.debug('Current option', currentOption)
+            return []
+        }, [availableOptions, usedOptions])
+
+        React.useLayoutEffect(() => {
+            if (sortedOptions.length > 0 && !currentOption) {
+                setCurrentOption(sortedOptions[0])
+            }
+        }, [sortedOptions, currentOption])
         return (
             <VideoPlayer option={currentOption}>
                 <OptionsRow className={'fade-in'}>
                     <Options>
-                        {options?.map((x, idx) => (
+                        {sortedOptions?.map((x, idx) => (
                             <OptionButton
                                 disabled={currentOption?.name === x?.name}
                                 key={idx}
