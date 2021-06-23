@@ -5,6 +5,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { Optional, FStatus } from '../src/types'
 import peek from './reducers/peek'
 import player from './reducers/player'
+import playerOptions from './reducers/playerOptions'
 import recommendations from './reducers/recommendations'
 import test from './reducers/test'
 import topview from './reducers/topview'
@@ -22,6 +23,7 @@ const store = configureStore({
         watchHistory,
         peek,
         topview,
+        playerOptions,
     },
 })
 

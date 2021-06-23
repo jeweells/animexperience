@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, ButtonGroup, Icon } from 'rsuite'
 import styled from 'styled-components'
 import { VideoOption } from '../../../VideoPlayer'
+import { usePlayerOption } from './hooks'
 
 export type OptionButtonProps = {
     onClick?(): void
@@ -21,14 +22,26 @@ const ActionButton = styled(Button)`
 `
 
 export const OptionButton: React.FC<OptionButtonProps> = React.memo(
-    ({ onClick, option, disabled }) => {
+    ({ option, disabled, onClick }) => {
+        const { prefer, option: optionInfo, use } = usePlayerOption(option?.name)
         if (!option) return null
         return (
             <ButtonGroup>
-                <StarButton>
-                    <Icon icon={'star-o'} />
+                <StarButton
+                    onClick={() => {
+                        console.debug('CLICKING PREFER', optionInfo)
+                        prefer(!optionInfo?.prefer)
+                    }}
+                >
+                    <Icon icon={optionInfo?.prefer ? 'star' : 'star-o'} />
                 </StarButton>
-                <ActionButton disabled={disabled} onClick={onClick}>
+                <ActionButton
+                    disabled={disabled}
+                    onClick={() => {
+                        use()
+                        onClick?.()
+                    }}
+                >
                     {option.name}
                 </ActionButton>
             </ButtonGroup>
