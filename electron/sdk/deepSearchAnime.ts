@@ -21,7 +21,7 @@ const deepSearchAnimeIdRaw = cached(async (animeName: string, page: number) => {
             const name = node.find('header').text()
             const link = node.find('a[href]').attr('href')
             const image = node.find('img[src]').attr('src')
-            if (!(name && link && image)) {
+            if (name && link && image) {
                 return {
                     name,
                     link: 'http://www.animeid.tv' + link,

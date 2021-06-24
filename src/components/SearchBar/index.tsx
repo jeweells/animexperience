@@ -1,6 +1,8 @@
 import React from 'react'
 import { InputGroup, Input, Icon } from 'rsuite'
 import styled from 'styled-components'
+import { animeSearch } from '../../../redux/reducers/animeSearch'
+import { useAppDispatch } from '../../../redux/store'
 
 export type SearchBarProps = {}
 
@@ -11,11 +13,32 @@ const Wrapper = styled.div`
 `
 
 export const SearchBar: React.FC<SearchBarProps> = React.memo(({}) => {
+    const [search, setSearch] = React.useState('')
+    const dispatch = useAppDispatch()
+    const handleSearch = () => {
+        dispatch(animeSearch.search(search))
+        dispatch(animeSearch.setSearching(true))
+    }
     return (
-        <Wrapper>
+        <Wrapper
+            as={'form'}
+            onSubmit={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                handleSearch()
+            }}
+        >
             <InputGroup>
-                <Input style={{ fontWeight: 200 }} spellCheck={false} />
-                <InputGroup.Button>
+                <Input
+                    onChange={(val) => {
+                        setSearch(val)
+                    }}
+                    value={search}
+                    placeholder={'Buscar anime...'}
+                    style={{ fontWeight: 200 }}
+                    spellCheck={false}
+                />
+                <InputGroup.Button onClick={handleSearch}>
                     <Icon icon='search' />
                 </InputGroup.Button>
             </InputGroup>

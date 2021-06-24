@@ -1,8 +1,9 @@
-import React, { useLayoutEffect, useMemo } from 'react'
+import React, { useCallback, useLayoutEffect, useMemo } from 'react'
 import { peek } from '../../../redux/reducers/peek'
 import { recommendations } from '../../../redux/reducers/recommendations'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { AnimeCarouselContent } from '../../placeholders/AnimeCarouselContent'
+import { Optional } from '../../types'
 import { AnimeDetails, AnimeDetailsEntry } from '../AnimeDetailsEntry'
 import { AnimesCarousel } from '../AnimesCarousel'
 
@@ -42,7 +43,14 @@ export const AnimeRecommendations: React.FC<AnimeRecommendationsProps> = React.m
         }, [])
         const status = _recommendations?.status
         const count = status !== 'succeeded' ? 1 : parsedRecommendations.length
-
+        const handleAnimePeek = useCallback(
+            (anime: Optional<AnimeDetails>) => {
+                if (!anime) return
+                dispatch(peek.peek(anime.name))
+                console.debug('CLICKED', anime)
+            },
+            [dispatch],
+        )
         return (
             <React.Fragment>
                 <AnimesCarousel
@@ -68,11 +76,7 @@ export const AnimeRecommendations: React.FC<AnimeRecommendationsProps> = React.m
                                 sliding={sliding}
                                 key={`${x.name}`}
                                 anime={x}
-                                onClick={(anime) => {
-                                    if (!anime) return
-                                    dispatch(peek.peek(anime.name))
-                                    console.debug('CLICKED', anime)
-                                }}
+                                onClick={handleAnimePeek}
                             />
                         )
                     }}
