@@ -23,7 +23,7 @@ const search = createAsyncThunk('animeSearch/search', async (name: string, api) 
     return result
 })
 
-const searchMore = createAsyncThunk('animeSearch/search', async (arg, api) => {
+const searchMore = createAsyncThunk('animeSearch/searchMore', async (arg, api) => {
     const current = api.getState().animeSearch.result
     if (
         !(
