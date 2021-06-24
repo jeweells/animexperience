@@ -32,7 +32,9 @@ const deepSearchAnimeIdRaw = cached(async (animeName: string, page: number) => {
         })
         .toArray()
         .filter((x) => !!x)
-    const lastPageHref = $('#result > #paginas > li:last-child > a[href]').attr('href')
+    const lastPageHref = $(
+        '#result > #paginas > ul.pagination > li:last-child > a[href]',
+    ).attr('href')
     const fResult: DeepAnimeIdSearchResult = {
         search: animeName,
         matches: result,
