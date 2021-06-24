@@ -2,6 +2,7 @@ import Fade from '@material-ui/core/Fade'
 import React, { useCallback, useRef } from 'react'
 import { Waypoint } from 'react-waypoint'
 import { Icon, IconButton } from 'rsuite'
+import styled from 'styled-components'
 import { animeSearch } from '../../../redux/reducers/animeSearch'
 import { peek } from '../../../redux/reducers/peek'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
@@ -16,6 +17,11 @@ import { ContentContext } from '../Topbar'
 export type AnimeSearchProps = {
     onClose?(): void
 }
+
+const Results = styled(FRowG16)`
+    flex-wrap: wrap;
+    justify-content: space-between;
+`
 
 export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) => {
     const resultStatus = useAppSelector((d) => d.animeSearch.status.result)
@@ -55,11 +61,7 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                             />
                         </FRowG16>
                         {resultStatus !== 'succeeded' && 'LOADING::::'}
-                        <FRowG16
-                            style={{
-                                flexWrap: 'wrap',
-                            }}
-                        >
+                        <Results>
                             {result?.matches.map((match, idx) => {
                                 return (
                                     <AnimeDetailsEntry
@@ -72,7 +74,7 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                                     />
                                 )
                             })}
-                        </FRowG16>
+                        </Results>
                         {['idle', 'succeeded'].includes(moreResultsStatus ?? 'idle') ? (
                             <Waypoint
                                 onEnter={() => {
