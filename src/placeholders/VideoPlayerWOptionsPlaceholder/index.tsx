@@ -25,61 +25,63 @@ export const OptionsRow = styled(FRow)`
     padding: 16px 16px 0 16px;
 `
 
-const FullScreenClip: React.FC<{ id: string; size: number }> = React.memo(({ id, size }) => {
-    const width = size * 0.1
-    const length = size * 0.3
-    const points = (arr: [number, number][]) => {
-        return arr.map((x) => x.map((x) => x).join(' ')).join(', ')
-    }
-    return (
-        <svg width={'0'} height={'0'} style={{ position: 'fixed', top: 0, left: 0 }}>
-            <defs>
-                <clipPath id={id}>
-                    <polygon
-                        points={points([
-                            [0, 0],
-                            [0, length],
-                            [width, length],
-                            [width, width],
-                            [length, width],
-                            [length, 0],
-                        ])}
-                    />
-                    <polygon
-                        points={points([
-                            [size, 0],
-                            [size, length],
-                            [size - width, length],
-                            [size - width, width],
-                            [size - length, width],
-                            [size - length, 0],
-                        ])}
-                    />
-                    <polygon
-                        points={points([
-                            [size, size],
-                            [size, size - length],
-                            [size - width, size - length],
-                            [size - width, size - width],
-                            [size - length, size - width],
-                            [size - length, size],
-                        ])}
-                    />
-                    <polygon
-                        points={points([
-                            [0, size],
-                            [0, size - length],
-                            [width, size - length],
-                            [width, size - width],
-                            [length, size - width],
-                            [length, size],
-                        ])}
-                    />
-                </clipPath>
-            </defs>
-        </svg>
-    )
-})
+const FullScreenClip: React.FC<{ id: string; size: number }> = React.memo(
+    ({ id, size }) => {
+        const width = size * 0.1
+        const length = size * 0.3
+        const points = (arr: [number, number][]) => {
+            return arr.map((x) => x.map((x) => x).join(' ')).join(', ')
+        }
+        return (
+            <svg width={'0'} height={'0'} style={{ position: 'fixed', top: 0, left: 0 }}>
+                <defs>
+                    <clipPath id={id}>
+                        <polygon
+                            points={points([
+                                [0, 0],
+                                [0, length],
+                                [width, length],
+                                [width, width],
+                                [length, width],
+                                [length, 0],
+                            ])}
+                        />
+                        <polygon
+                            points={points([
+                                [size, 0],
+                                [size, length],
+                                [size - width, length],
+                                [size - width, width],
+                                [size - length, width],
+                                [size - length, 0],
+                            ])}
+                        />
+                        <polygon
+                            points={points([
+                                [size, size],
+                                [size, size - length],
+                                [size - width, size - length],
+                                [size - width, size - width],
+                                [size - length, size - width],
+                                [size - length, size],
+                            ])}
+                        />
+                        <polygon
+                            points={points([
+                                [0, size],
+                                [0, size - length],
+                                [width, size - length],
+                                [width, size - width],
+                                [length, size - width],
+                                [length, size],
+                            ])}
+                        />
+                    </clipPath>
+                </defs>
+            </svg>
+        )
+    },
+)
 FullScreenClip.displayName = 'FullScreenClip'
 
 export type VideoPlayerWOptionsPlaceholderProps = {}
@@ -115,7 +117,11 @@ export const VideoPlayerWOptionsPlaceholder: React.FC<VideoPlayerWOptionsPlaceho
                         </Options>
                         {children}
                     </OptionsRow>
-                    <Skeleton animation={animation} variant={'rect'} style={{ flex: 1 }} />
+                    <Skeleton
+                        animation={animation}
+                        variant={'rect'}
+                        style={{ flex: 1 }}
+                    />
                     <div
                         style={{
                             alignItems: 'center',
