@@ -35,7 +35,7 @@ export const SearchBar: React.FC<SearchBarProps> = React.memo(({}) => {
                     }}
                     value={search}
                     placeholder={'Buscar anime...'}
-                    style={{ fontWeight: 200 }}
+                    style={{ fontWeight: 400 }}
                     spellCheck={false}
                 />
                 <InputGroup.Button onClick={handleSearch}>
