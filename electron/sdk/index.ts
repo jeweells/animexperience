@@ -1,5 +1,6 @@
 import { ipcMain } from 'electron'
 import { cached } from '../cache'
+import { deepSearchAnimeId, deepSearchAnimeIdByPage } from './deepSearchAnime'
 import { getAnimeImage } from './getAnimeImage'
 import { getAnimeRecommendations } from './getAnimeRecommendations'
 import { getAnimeIDInfo } from './getAnimeIDInfo'
@@ -25,6 +26,8 @@ export const setupSdk = () => {
         searchAnimeID,
         getAnimeRecommendations,
         getAnimeImage,
+        deepSearchAnimeId,
+        deepSearchAnimeIdByPage,
         // Allow the use of a cache for any result
     ] as Array<(...arg: any) => any>)
         .map((fn) => cached(fn))

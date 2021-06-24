@@ -85,3 +85,10 @@ export type AnimeIDAnimeMatch = {
     link: string
     image: string
 }
+
+export type DeepAnimeIdSearchResult = {
+    matches: AnimeIDAnimeMatch[]
+    search: string
+    nextPage?: number
+    maxPage?: number
+}
