@@ -1,10 +1,10 @@
+import { Fade } from '@material-ui/core'
 import moment from 'moment'
 import React, { useRef } from 'react'
 import { Button, Divider, Icon, IconButton } from 'rsuite'
 import styled from 'styled-components'
 import { AnimeInfo } from '../../../globals/types'
-import { peek } from '../../../redux/reducers/peek'
-import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { useAppSelector } from '../../../redux/store'
 import {
     FCol,
     FColG16,
@@ -23,12 +23,12 @@ import Image from './components/Image'
 import Info from './components/Info'
 import RelatedAnimeButton from './components/RelatedAnimeButton'
 
-const TitleRow = styled(FRow)`
+export const TitleRow = styled(FRow)`
     align-items: center;
     gap: 16px;
 `
 
-const ImageCol = styled(FCol)`
+export const ImageCol = styled(FCol)`
     min-width: 300px;
     max-width: 300px;
 `
@@ -39,140 +39,145 @@ const SDivider = styled(Divider)`
     opacity: 0.5;
 `
 
-export type AnimePeekProps = {}
+export const Wrapper = styled(FColG16)`
+    overflow-y: overlay;
+    padding-bottom: 32px;
+    height: 100%;
+    position: relative;
+`
 
-export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({}) => {
+export const Content = styled(FColG16)`
+    padding: 32px 64px;
+`
+
+export type AnimePeekProps = {
+    onClose?(): void
+}
+
+export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({ onClose }) => {
     const info = useAppSelector((d) => d.peek.info)
-    const dispatch = useAppDispatch()
     const contentRef = useRef<HTMLDivElement>(null)
     if (!info) return null
     return (
         <ContentContext.Provider value={contentRef}>
-            <FColG16
-                ref={contentRef}
-                style={{
-                    // @ts-ignore
-                    overflowY: 'overlay',
-                    paddingBottom: 32,
-                    height: '100%',
-                    position: 'relative',
-                }}
-            >
-                <FColG16
-                    style={{
-                        padding: '32px 64px',
-                    }}
-                >
-                    <FCol>
-                        <TitleRow>
-                            <AnimePeekTitle>{info.title}</AnimePeekTitle>
-                            <AnimePeekType>{info.type}</AnimePeekType>
-                            <FExpand />
-                            <IconButton
-                                onClick={() => {
-                                    dispatch(peek.setPeeking(undefined))
-                                }}
-                                icon={<Icon icon={'close'} size={'lg'} />}
-                                size={'lg'}
-                            />
-                        </TitleRow>
-                        {(info.otherTitles?.length ?? 0) > 0 && (
-                            <AnimePeekType>{info.otherTitles?.join(', ')}</AnimePeekType>
-                        )}
-                    </FCol>
-                    <FRowG32>
-                        <ImageCol>
-                            <div style={{ position: 'relative' }}>
-                                {info.title && (
-                                    <Image
-                                        animeName={info.title}
-                                        src={info.image}
-                                        containerStyle={{
-                                            width: '100%',
-                                            overflow: 'hidden',
-                                            borderRadius: 8,
-                                            height: 425,
-                                        }}
+            <Fade in={true} appear={true} timeout={1000}>
+                <Wrapper ref={contentRef}>
+                    <Content
+                        style={{
+                            padding: '32px 64px',
+                        }}
+                    >
+                        <FCol>
+                            <TitleRow>
+                                <AnimePeekTitle>{info.title}</AnimePeekTitle>
+                                <AnimePeekType>{info.type}</AnimePeekType>
+                                <FExpand />
+                                <IconButton
+                                    onClick={onClose}
+                                    icon={<Icon icon={'close'} size={'lg'} />}
+                                    size={'lg'}
+                                />
+                            </TitleRow>
+                            {(info.otherTitles?.length ?? 0) > 0 && (
+                                <AnimePeekType>
+                                    {info.otherTitles?.join(', ')}
+                                </AnimePeekType>
+                            )}
+                        </FCol>
+                        <FRowG32>
+                            <ImageCol>
+                                <div style={{ position: 'relative' }}>
+                                    {info.title && (
+                                        <Image
+                                            animeName={info.title}
+                                            src={info.image}
+                                            containerStyle={{
+                                                width: '100%',
+                                                overflow: 'hidden',
+                                                borderRadius: 8,
+                                                height: 425,
+                                            }}
+                                            style={{
+                                                width: '100%',
+                                                height: 425,
+                                                objectFit: 'cover',
+                                            }}
+                                        />
+                                    )}
+                                    <Button
                                         style={{
-                                            width: '100%',
-                                            height: 425,
-                                            objectFit: 'cover',
+                                            pointerEvents: 'none',
+                                            backgroundColor: ({
+                                                'En emisión': '#3d773d',
+                                                Finalizada: 'darkred',
+                                            } as Record<
+                                                Required<AnimeInfo>['status'],
+                                                string
+                                            >)[info.status ?? 'Finalizada'],
+                                            bottom: 16,
+                                            right: 16,
+                                            position: 'absolute',
                                         }}
-                                    />
-                                )}
-                                <Button
-                                    style={{
-                                        pointerEvents: 'none',
-                                        backgroundColor: ({
-                                            'En emisión': '#3d773d',
-                                            Finalizada: 'darkred',
-                                        } as Record<
-                                            Required<AnimeInfo>['status'],
-                                            string
-                                        >)[info.status ?? 'Finalizada'],
-                                        bottom: 16,
-                                        right: 16,
-                                        position: 'absolute',
-                                    }}
-                                >
-                                    {info.status}
-                                </Button>
-                            </div>
-                            <SDivider />
-                            <FRowG16 style={{ flexWrap: 'wrap' }}>
-                                {info.tags?.map((tag) => {
-                                    return <Button key={tag}>{tag}</Button>
-                                })}
-                            </FRowG16>
-                            <SDivider />
-                            {typeof info.emitted?.from === 'number' && (
-                                <React.Fragment>
-                                    <Info icon={'calendar-o'} title={'Emitido'}>
-                                        {`${moment
-                                            .unix(info.emitted.from)
-                                            .format('DD/MM/YYYY')}`}
-                                    </Info>
-                                </React.Fragment>
-                            )}
-                            {Array.isArray(info.related) && info.related.length > 0 && (
-                                <React.Fragment>
-                                    <SDivider />
-                                    <Info icon={'sitemap'} title={'Relacionado'}>
-                                        <FColG8>
-                                            {info.related.map((related, idx) => {
-                                                return (
-                                                    <RelatedAnimeButton
-                                                        key={idx}
-                                                        related={related}
-                                                    />
-                                                )
-                                            })}
-                                        </FColG8>
-                                    </Info>
-                                </React.Fragment>
-                            )}
-                        </ImageCol>
-                        <FColG32 style={{ flex: 1 }}>
-                            <Info icon={'align-justify'} title={'Sinopsis'}>
-                                <div style={{ textAlign: 'justify' }}>
-                                    {info.description}
+                                    >
+                                        {info.status}
+                                    </Button>
                                 </div>
-                            </Info>
-                            <Info icon={'tv'} title={'Episodios'}>
-                                <Episodes info={info} />
-                            </Info>
-                        </FColG32>
-                    </FRowG32>
-                </FColG16>
-                {info.title && (
-                    <div>
-                        <AnimeRecommendations
-                            animeName={info.title}
-                            title={'Similares a ' + info.title}
-                        />
-                    </div>
-                )}
-            </FColG16>
+                                <SDivider />
+                                <FRowG16 style={{ flexWrap: 'wrap' }}>
+                                    {info.tags?.map((tag) => {
+                                        return <Button key={tag}>{tag}</Button>
+                                    })}
+                                </FRowG16>
+                                <SDivider />
+                                {typeof info.emitted?.from === 'number' && (
+                                    <React.Fragment>
+                                        <Info icon={'calendar-o'} title={'Emitido'}>
+                                            {`${moment
+                                                .unix(info.emitted.from)
+                                                .format('DD/MM/YYYY')}`}
+                                        </Info>
+                                    </React.Fragment>
+                                )}
+                                {Array.isArray(info.related) && info.related.length > 0 && (
+                                    <React.Fragment>
+                                        <SDivider />
+                                        <Info icon={'sitemap'} title={'Relacionado'}>
+                                            <FColG8>
+                                                {info.related.map((related, idx) => {
+                                                    return (
+                                                        <RelatedAnimeButton
+                                                            key={idx}
+                                                            related={related}
+                                                        />
+                                                    )
+                                                })}
+                                            </FColG8>
+                                        </Info>
+                                    </React.Fragment>
+                                )}
+                            </ImageCol>
+                            <FColG32 style={{ flex: 1 }}>
+                                <Info icon={'align-justify'} title={'Sinopsis'}>
+                                    <div style={{ textAlign: 'justify' }}>
+                                        {info.description}
+                                    </div>
+                                </Info>
+                                <Info icon={'tv'} title={'Episodios'}>
+                                    <Episodes info={info} />
+                                </Info>
+                            </FColG32>
+                        </FRowG32>
+                    </Content>
+                    {info.title && (
+                        <div>
+                            <AnimeRecommendations
+                                animeName={info.title}
+                                title={'Similares a ' + info.title}
+                            />
+                        </div>
+                    )}
+                </Wrapper>
+            </Fade>
         </ContentContext.Provider>
     )
 })

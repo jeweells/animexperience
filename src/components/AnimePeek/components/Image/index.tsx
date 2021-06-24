@@ -52,13 +52,10 @@ export const Image: React.FC<ImageProps> = React.memo(
                 )}
                 <div
                     style={{
-                        background: ['loading', 'idle'].includes(status)
-                            ? 'rgba(200, 200, 200, 0.5)'
-                            : 'rgba(200, 200, 200,0)',
-                        backdropFilter: ['loading', 'idle'].includes(status)
-                            ? 'blur(10px)'
-                            : 'blur(0)',
-                        transition: 'all 500ms',
+                        background: 'rgba(200, 200, 200, 0.5)',
+                        opacity: ['loading', 'idle'].includes(status) ? 1 : 0,
+                        backdropFilter: 'blur(10px)',
+                        transition: 'all 1000ms ease-in-out',
                         position: 'absolute',
                         inset: 0,
                     }}
