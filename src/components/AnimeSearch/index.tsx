@@ -1,5 +1,8 @@
+import Fade from '@material-ui/core/Fade'
 import React, { useCallback, useRef } from 'react'
+import { Waypoint } from 'react-waypoint'
 import { Icon, IconButton } from 'rsuite'
+import { animeSearch } from '../../../redux/reducers/animeSearch'
 import { peek } from '../../../redux/reducers/peek'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { FRowG16 } from '../../atoms/Layout'
@@ -7,7 +10,6 @@ import { FExpand } from '../../atoms/Misc'
 import { CarouselTitle } from '../../atoms/Text'
 import { Optional } from '../../types'
 import { AnimeDetails, AnimeDetailsEntry } from '../AnimeDetailsEntry'
-import Fade from '@material-ui/core/Fade'
 import { Content, Wrapper } from '../AnimePeek'
 import { ContentContext } from '../Topbar'
 
@@ -71,7 +73,18 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                                 )
                             })}
                         </FRowG16>
-                        {moreResultsStatus === 'loading' && 'LOADING MOREE::::'}
+                        {['idle', 'succeeded'].includes(moreResultsStatus ?? 'idle') ? (
+                            <Waypoint
+                                onEnter={() => {
+                                    if (result?.hasNext) {
+                                        console.debug('Loading more....')
+                                        dispatch(animeSearch.searchMore())
+                                    }
+                                }}
+                            />
+                        ) : (
+                            <div>LOADING MOREE::::</div>
+                        )}
                     </Content>
                 </Wrapper>
             </Fade>
