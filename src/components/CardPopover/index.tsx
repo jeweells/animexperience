@@ -59,28 +59,37 @@ export type CardPopoverProps = {
     onClose?(): void
 }
 
+type Position = {
+    top: number
+    bottom: number
+    left: number
+    right: number
+}
+
+type MixedPosition = {
+    windowRelative: Position
+    relative: Position
+}
+
 export const CardPopover: React.FC<CardPopoverProps> = React.memo(
     ({ open, children, anchorEl, onClose }) => {
         const floatingContainerRef = React.useRef<HTMLDivElement>(null)
-        const [position, setPosition] = React.useState<DOMRect | null>(null)
+        const [position, setPosition] = React.useState<MixedPosition | null>(null)
         const { navigationWidth } = useSizes()
         const containerRef = useContentRef()
         const origin = React.useMemo(() => {
             if (position === null) return null
-            const { top, left, right, bottom } = position
-            let originY = 'top'
-            let originX = 'center'
-            if (top <= 0) {
-                originY = 'top'
-            }
-            if (bottom <= 0) {
-                originY = 'bottom'
-            }
-            if (left - navigationWidth - 1 <= 0) {
+            const { left, right } = position.windowRelative
+            const originY = 'center'
+            let originX: string
+            const wWidth = window.innerWidth
+            const threshold = 80
+            if (left - navigationWidth <= threshold) {
                 originX = 'left'
-            }
-            if (right - navigationWidth - 1 <= 0) {
+            } else if (wWidth - right - navigationWidth <= threshold) {
                 originX = 'right'
+            } else {
+                originX = 'center'
             }
             return `${originX} ${originY}`
         }, [position, navigationWidth])
@@ -105,23 +114,25 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(
 
                 if (anchorEl?.current) {
                     const cb = (cb: DOMRect) => {
-                        const cRefRect = containerRef?.current?.getBoundingClientRect()
-                        if (cRefRect) {
-                            const rect = cb.toJSON()
+                        const containerRect = containerRef?.current?.getBoundingClientRect()
+                        if (containerRect) {
+                            const ancElRect = cb.toJSON()
                             const scrollTop = containerRef?.current?.scrollTop ?? 0
-                            // Make it relative to its container
-                            rect.left -= cRefRect.left
-                            rect.top -= cRefRect.top - scrollTop
-                            rect.right -= cRefRect.left
-                            rect.bottom -= cRefRect.top - scrollTop
-                            rect.x -= cRefRect.x
-                            rect.y -= cRefRect.y - scrollTop
-                            const width = window.innerWidth
-                            const height = window.innerHeight
                             setPosition({
-                                ...rect,
-                                right: width - rect.right,
-                                bottom: height - rect.bottom,
+                                // Make it relative to its container
+                                relative: {
+                                    left: ancElRect.left - containerRect.left,
+                                    top: ancElRect.top - containerRect.top + scrollTop,
+                                    right: ancElRect.left - containerRect.left,
+                                    bottom:
+                                        ancElRect.bottom - containerRect.top + scrollTop,
+                                },
+                                windowRelative: {
+                                    left: ancElRect.left,
+                                    top: ancElRect.top,
+                                    right: ancElRect.right,
+                                    bottom: ancElRect.bottom,
+                                },
                             })
                         }
                     }
@@ -155,8 +166,8 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(
                                 style={{
                                     position: 'absolute',
                                     pointerEvents: 'all',
-                                    top: position.top,
-                                    left: position.left,
+                                    top: position.relative.top,
+                                    left: position.relative.left,
                                     zIndex: 10000,
                                 }}
                             >
