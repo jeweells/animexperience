@@ -11,10 +11,10 @@ export const getRecentAnimes = async () => {
     console.debug('Parsing html...')
     const episodeRegex = /[0-9]+$/m
     return $('section.main > section.lastcap > div.dia')
-        .map((_, b) => {
+        .map((idx, b) => {
             const node = $(b)
             const dateStr = node.before().find('span.right').text()
-            return node
+            const arr = node
                 .find('article')
                 .map((_, article) => {
                     const node = $(article)
@@ -32,6 +32,11 @@ export const getRecentAnimes = async () => {
                     }
                 })
                 .toArray()
+            if (idx === 0) {
+                // Last 4 of the first div.dia are movies
+                return arr.slice(0, -4)
+            }
+            return arr
         })
         .toArray()
 }
