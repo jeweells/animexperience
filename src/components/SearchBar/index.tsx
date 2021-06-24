@@ -1,12 +1,12 @@
 import React from 'react'
-import { InputGroup, Input, Icon } from 'rsuite'
+import { Icon, Input, InputGroup } from 'rsuite'
 import styled from 'styled-components'
 import { animeSearch } from '../../../redux/reducers/animeSearch'
 import { useAppDispatch } from '../../../redux/store'
 
 export type SearchBarProps = {}
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
     width: 250px;
     -webkit-app-region: no-drag;
     -webkit-user-select: all;
@@ -21,7 +21,6 @@ export const SearchBar: React.FC<SearchBarProps> = React.memo(({}) => {
     }
     return (
         <Wrapper
-            as={'form'}
             onSubmit={(e) => {
                 e.preventDefault()
                 e.stopPropagation()
