@@ -7,9 +7,6 @@ export const usePlayerOption = (name: Optional<string>) => {
     const opts = useAppSelector((d) => d.playerOptions.options)
     const dispatch = useAppDispatch()
     const option = useMemo(() => opts?.find((d) => d.name === name), [opts, name])
-    const __po = useAppSelector((d) => d.playerOptions)
-
-    console.debug('Displaying options:', __po)
     return {
         option,
         prefer: useCallback(

@@ -29,7 +29,6 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
         },
         [dispatch],
     )
-    console.debug('CARD POPOVER UPDATE ---- RENDERING')
     return (
         <ContentContext.Provider value={contentRef}>
             <Fade in={true} appear={true} timeout={1000}>

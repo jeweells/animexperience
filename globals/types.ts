@@ -91,4 +91,13 @@ export type DeepAnimeIdSearchResult = {
     search: string
     nextPage?: number
     maxPage?: number
+    hasNext: boolean
+}
+
+export type DeepAnimeIdSearchResultWithPages = Omit<
+    DeepAnimeIdSearchResult,
+    'maxPage' | 'nextPage'
+> & {
+    nextPage: number
+    maxPage: number
 }

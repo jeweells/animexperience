@@ -36,6 +36,7 @@ const deepSearchAnimeIdRaw = cached(async (animeName: string, page: number) => {
     const fResult: DeepAnimeIdSearchResult = {
         search: animeName,
         matches: result,
+        hasNext: false,
     }
     if (lastPageHref) {
         const regex = /pag=([0-9]+)$/
@@ -43,6 +44,7 @@ const deepSearchAnimeIdRaw = cached(async (animeName: string, page: number) => {
         if (lastPageStr) {
             fResult.nextPage = page + 1
             fResult.maxPage = parseInt(lastPageStr)
+            fResult.hasNext = true
         }
     }
     return fResult

@@ -46,7 +46,6 @@ export const FullModal: React.FC<FullModalProps> = React.memo<FullModalProps>(
                 // @ts-ignore
                 const node = ref.current?.modalRef?.current?.modalNodeRef?.current
                 if (node) {
-                    console.debug('[HENTAI] SHOW CHANGED!', node)
                     document.body.appendChild(node)
                 }
                 dispatch(topview.push(view))
