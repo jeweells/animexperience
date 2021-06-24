@@ -12,7 +12,7 @@ export type JKAnimeSearchResult = Partial<{
 }>
 export type JKAnimeSearchResults = JKAnimeSearchResult[]
 
-export const searchAnimeID = async (animeName: string) => {
+const searchAnimeIDRaw = cached(async (animeName: string) => {
     const url = new URL('https://www.animeid.tv/ajax/search')
     url.searchParams.append('q', animeName.replace(/\./g, '').slice(0, 50))
     const animeResponse: AnimeIDSearchResponse = await fetch(url, {
@@ -45,6 +45,10 @@ export const searchAnimeID = async (animeName: string) => {
     }
     console.debug('Unexpected output')
     return []
+})
+
+export const searchAnimeID = (animeName: string) => {
+    return searchAnimeIDRaw(animeName.replace(/\./g, '').slice(0, 50))
 }
 
 export const searchAIDFromMALEpisode = async (arg: RecentAnimeData) => {
