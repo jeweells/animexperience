@@ -101,11 +101,6 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(
                             // Some cases the popover takes so long to render that
                             // the anchor element is the one that has hover
                             if (!(anchorEl?.current?.matches(':hover') ?? false)) {
-                                console.debug(
-                                    'CLOSING SINCE NOT HOVERING',
-                                    anchorEl?.current,
-                                    floatingContainerRef?.current,
-                                )
                                 onClose?.()
                             }
                         }
