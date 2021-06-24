@@ -60,32 +60,39 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                                 size={'lg'}
                             />
                         </FRowG16>
-                        {resultStatus !== 'succeeded' && 'LOADING::::'}
-                        <Results>
-                            {result?.matches.map((match, idx) => {
-                                return (
-                                    <AnimeDetailsEntry
-                                        key={idx}
-                                        visible={true}
-                                        onClick={handleAnimePeek}
-                                        anime={match}
-                                        // This index manages opacity animation timeout
-                                        index={idx % 36}
+                        {resultStatus === 'succeeded' ? (
+                            <>
+                                <Results>
+                                    {result?.matches.map((match, idx) => {
+                                        return (
+                                            <AnimeDetailsEntry
+                                                key={idx}
+                                                visible={true}
+                                                onClick={handleAnimePeek}
+                                                anime={match}
+                                                // This index manages opacity animation timeout
+                                                index={idx % 36}
+                                            />
+                                        )
+                                    })}
+                                </Results>
+                                {['idle', 'succeeded'].includes(
+                                    moreResultsStatus ?? 'idle',
+                                ) ? (
+                                    <Waypoint
+                                        onEnter={() => {
+                                            if (result?.hasNext) {
+                                                console.debug('Loading more....')
+                                                dispatch(animeSearch.searchMore())
+                                            }
+                                        }}
                                     />
-                                )
-                            })}
-                        </Results>
-                        {['idle', 'succeeded'].includes(moreResultsStatus ?? 'idle') ? (
-                            <Waypoint
-                                onEnter={() => {
-                                    if (result?.hasNext) {
-                                        console.debug('Loading more....')
-                                        dispatch(animeSearch.searchMore())
-                                    }
-                                }}
-                            />
+                                ) : (
+                                    <div>LOADING MOREE::::</div>
+                                )}
+                            </>
                         ) : (
-                            <div>LOADING MOREE::::</div>
+                            <>LOADING::::</>
                         )}
                     </Content>
                 </Wrapper>
