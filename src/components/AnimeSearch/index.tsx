@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { FRowG16 } from '../../atoms/Layout'
 import { FExpand } from '../../atoms/Misc'
 import { CarouselTitle } from '../../atoms/Text'
+import AnimeSearchPlaceholder from '../../placeholders/AnimeSearchPlaceholder'
 import { Optional } from '../../types'
 import { AnimeDetails, AnimeDetailsEntry } from '../AnimeDetailsEntry'
 import { Content, Wrapper } from '../AnimePeek'
@@ -60,9 +61,9 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                                 size={'lg'}
                             />
                         </FRowG16>
-                        {resultStatus === 'succeeded' ? (
-                            <>
-                                <Results>
+                        <Results>
+                            {resultStatus === 'succeeded' ? (
+                                <>
                                     {result?.matches.map((match, idx) => {
                                         return (
                                             <AnimeDetailsEntry
@@ -75,25 +76,25 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                                             />
                                         )
                                     })}
-                                </Results>
-                                {['idle', 'succeeded'].includes(
-                                    moreResultsStatus ?? 'idle',
-                                ) ? (
-                                    <Waypoint
-                                        onEnter={() => {
-                                            if (result?.hasNext) {
-                                                console.debug('Loading more....')
-                                                dispatch(animeSearch.searchMore())
-                                            }
-                                        }}
-                                    />
-                                ) : (
-                                    <div>LOADING MOREE::::</div>
-                                )}
-                            </>
-                        ) : (
-                            <>LOADING::::</>
-                        )}
+                                    {['idle', 'succeeded'].includes(
+                                        moreResultsStatus ?? 'idle',
+                                    ) ? (
+                                        <Waypoint
+                                            onEnter={() => {
+                                                if (result?.hasNext) {
+                                                    console.debug('Loading more....')
+                                                    dispatch(animeSearch.searchMore())
+                                                }
+                                            }}
+                                        />
+                                    ) : (
+                                        <AnimeSearchPlaceholder count={12} />
+                                    )}
+                                </>
+                            ) : (
+                                <AnimeSearchPlaceholder count={36} />
+                            )}
+                        </Results>
                     </Content>
                 </Wrapper>
             </Fade>
