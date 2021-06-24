@@ -19,7 +19,7 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({}) => {
         if (anime.name && anime.episode) {
             dispatch(watch.watchEpisode(anime))
         } else {
-            console.error('No enough data to perform search')
+            console.error('No enough data to perform animeSearch')
         }
     }, [])
     return (

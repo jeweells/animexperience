@@ -25,7 +25,7 @@ export const ContinueWatching: React.FC<ContinueWatchingProps> = React.memo(({})
         if (anime.name && anime.episode) {
             dispatch(watch.watchEpisode(anime))
         } else {
-            console.error('No enough data to perform search')
+            console.error('No enough data to perform animeSearch')
         }
     }, [])
     if (status === 'succeeded' && filteredAnimes.length === 0) {
