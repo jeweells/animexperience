@@ -1,6 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ipcRenderer } from 'electron'
-import { DeepAnimeIdSearchResult } from '../../../globals/types'
+import {
+    DeepAnimeIdSearchResult,
+    DeepAnimeIdSearchResultWithPages,
+} from '../../../globals/types'
 import { FStatus, Optional } from '../../../src/types'
 import { addFetchFlow } from '../utils'
 import { v4 as uuidv4 } from 'uuid'
@@ -30,18 +33,21 @@ const search = createAsyncThunk('animeSearch/search', async (name: string, api) 
     return result
 })
 
+const resultHasPages = (
+    r: Optional<DeepAnimeIdSearchResult>,
+): r is DeepAnimeIdSearchResultWithPages => {
+    return !!(
+        r?.hasNext &&
+        typeof r.nextPage === 'number' &&
+        typeof r.maxPage === 'number'
+    )
+}
+
 const searchMore = createAsyncThunk('animeSearch/searchMore', async (arg, api) => {
     const current = api.getState().animeSearch.result
-    if (
-        !(
-            current &&
-            typeof current.nextPage === 'number' &&
-            typeof current.maxPage === 'number'
-        )
-    ) {
+    if (!resultHasPages(current)) {
         return
     }
-    if (current.nextPage >= current.maxPage) return
 
     const result: DeepAnimeIdSearchResult = await ipcRenderer.invoke(
         'deepSearchAnimeIdByPage',

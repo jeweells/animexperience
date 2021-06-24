@@ -53,7 +53,6 @@ export const useVideo = (
                     )
                 }
                 const video = deepFindVideos(contents)
-                console.debug('Trying to find video: ', video)
                 const targetVideo = video?.find((vid) => {
                     const jVid = $(vid)
                     if (jVid.attr('src')) {
