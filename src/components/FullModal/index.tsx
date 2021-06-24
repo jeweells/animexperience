@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { Modal, ModalProps } from 'rsuite'
 import styled from 'styled-components'
 import { topview } from '../../../redux/reducers/topview'
-import { useAppDispatch } from '../../../redux/store'
+import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { TopView } from '../../types'
 import { useTopBarHeight } from '../Topbar'
 
@@ -37,16 +37,20 @@ export type FullModalProps = {
 export const FullModal: React.FC<FullModalProps> = React.memo<FullModalProps>(
     ({ view, children, show, ...rest }) => {
         const topBarHeight = useTopBarHeight()
+        const currentTopview = useAppSelector((d) => d.topview.views[0])
         const ref = useRef(null)
         const dispatch = useAppDispatch()
 
         // This tick will bring the modal top
         useEffect(() => {
             if (show) {
-                // @ts-ignore
-                const node = ref.current?.modalRef?.current?.modalNodeRef?.current
-                if (node) {
-                    document.body.appendChild(node)
+                // Reopen only if it's not the current view
+                if (currentTopview !== view) {
+                    // @ts-ignore
+                    const node = ref.current?.modalRef?.current?.modalNodeRef?.current
+                    if (node) {
+                        document.body.appendChild(node)
+                    }
                 }
                 dispatch(topview.push(view))
             } else {
