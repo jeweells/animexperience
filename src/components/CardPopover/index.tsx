@@ -69,6 +69,7 @@ type Position = {
 type MixedPosition = {
     windowRelative: Position
     relative: Position
+    containerSize: { width: number; height: number }
 }
 
 export const CardPopover: React.FC<CardPopoverProps> = React.memo(
@@ -80,10 +81,18 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(
         const origin = React.useMemo(() => {
             if (position === null) return null
             const { left, right } = position.windowRelative
-            const originY = 'center'
+            const { top, bottom } = position.relative
+            let originY: string
             let originX: string
             const wWidth = window.innerWidth
             const threshold = 80
+            if (top <= threshold) {
+                originY = 'top'
+            } else if (position.containerSize.height - bottom <= threshold) {
+                originY = 'bottom'
+            } else {
+                originY = 'center'
+            }
             if (left - navigationWidth <= threshold) {
                 originX = 'left'
             } else if (wWidth - right - navigationWidth <= threshold) {
@@ -127,6 +136,10 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(
                                     top: ancElRect.top,
                                     right: ancElRect.right,
                                     bottom: ancElRect.bottom,
+                                },
+                                containerSize: {
+                                    width: containerRect.width,
+                                    height: containerRef?.current?.scrollHeight ?? 0,
                                 },
                             })
                         }
