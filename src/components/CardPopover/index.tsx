@@ -89,7 +89,16 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(
                 const shouldCloseHandle = () => {
                     if (floatingContainerRef.current) {
                         if (!floatingContainerRef.current.matches(':hover')) {
-                            onClose?.()
+                            // Some cases the popover takes so long to render that
+                            // the anchor element is the one that has hover
+                            if (!(anchorEl?.current?.matches(':hover') ?? false)) {
+                                console.debug(
+                                    'CLOSING SINCE NOT HOVERING',
+                                    anchorEl?.current,
+                                    floatingContainerRef?.current,
+                                )
+                                onClose?.()
+                            }
                         }
                     }
                 }
@@ -127,7 +136,7 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(
                 }
             }
         }, [open])
-
+        console.debug('CARD POPOVER UPDATE', open, position, containerRef?.current)
         return (
             <Portal container={containerRef?.current}>
                 <ScaleOnHover
@@ -149,6 +158,7 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(
                                     pointerEvents: 'all',
                                     top: position.top,
                                     left: position.left,
+                                    zIndex: 10000,
                                 }}
                             >
                                 <div

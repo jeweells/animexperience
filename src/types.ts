@@ -46,4 +46,5 @@ export type Optional<T> = T | undefined | null
 export enum TopView {
     PLAYER = 'player',
     PEEK = 'peek',
+    SEARCH = 'search',
 }

@@ -3,11 +3,13 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
+import { animeSearch } from '../redux/reducers/animeSearch'
 import { peek } from '../redux/reducers/peek'
 import { watch } from '../redux/reducers/watch'
 import store, { useAppDispatch } from '../redux/store'
 import { VSpace } from './atoms/Spacing'
 import AnimePeekModal from './components/AnimePeekModal'
+import AnimeSearchModal from './components/AnimeSearchModal'
 import ContinueWatching from './components/ContinueWatching'
 import RecentAnimes from './components/RecentAnimes'
 import RecentlyWatchedRecommendations from './components/RecentlyWatchedRecommendations'
@@ -43,6 +45,11 @@ const App = () => {
                 <AnimePeekModal
                     onExited={() => {
                         dispatch(peek.setInfo(null))
+                    }}
+                />
+                <AnimeSearchModal
+                    onExited={() => {
+                        dispatch(animeSearch.setSearching(false))
                     }}
                 />
             </Topbar>

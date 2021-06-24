@@ -3,10 +3,12 @@ import { ipcRenderer } from 'electron'
 import { DeepAnimeIdSearchResult } from '../../../globals/types'
 import { FStatus, Optional } from '../../../src/types'
 import { addFetchFlow } from '../utils'
+import { v4 as uuidv4 } from 'uuid'
 
 // Define a type for the slice state
 interface AnimeSearchState {
-    search?: string
+    // Boolean id
+    searching?: string
     result?: Optional<DeepAnimeIdSearchResult>
     status: Partial<{
         result: FStatus
@@ -19,7 +21,12 @@ const search = createAsyncThunk('animeSearch/search', async (name: string, api) 
         'deepSearchAnimeId',
         name,
     )
-    api.dispatch(animeSearch.setResult(result))
+    api.dispatch(
+        animeSearch.setResult({
+            ...result,
+            search: name,
+        }),
+    )
     return result
 })
 
@@ -63,6 +70,9 @@ export const slice = createSlice({
     reducers: {
         setResult(state, { payload }: PayloadAction<Optional<DeepAnimeIdSearchResult>>) {
             state.result = payload
+        },
+        setSearching(state, { payload }: PayloadAction<boolean>) {
+            state.searching = payload ? uuidv4() : undefined
         },
     },
     extraReducers: ({ addCase }) => {
