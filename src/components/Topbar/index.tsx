@@ -9,6 +9,7 @@ import React, {
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import styled from 'styled-components'
 import { useAppSelector } from '../../../redux/store'
+import SearchBar from '../SearchBar'
 import fade from './fade.module.less'
 const Wrapper = styled.div`
     background: #25282e;
@@ -22,9 +23,13 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-    padding: 16px 24px;
+    padding: 0 24px;
     font-size: 1rem;
     font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 `
 
 const Content = styled.div`
@@ -64,19 +69,20 @@ export const Topbar: React.FC<TopbarProps> = React.memo(({ children }) => {
                         height,
                     }}
                 >
-                    <Container>
-                        <SwitchTransition>
-                            <CSSTransition
-                                key={title}
-                                addEndListener={(node, done) =>
-                                    node.addEventListener('transitionend', done, false)
-                                }
-                                classNames={{ ...fade }}
-                            >
+                    <SwitchTransition>
+                        <CSSTransition
+                            key={title}
+                            addEndListener={(node, done) =>
+                                node.addEventListener('transitionend', done, false)
+                            }
+                            classNames={{ ...fade }}
+                        >
+                            <Container>
                                 <div>{title}</div>
-                            </CSSTransition>
-                        </SwitchTransition>
-                    </Container>
+                                {!watching && <SearchBar />}
+                            </Container>
+                        </CSSTransition>
+                    </SwitchTransition>
                 </Wrapper>
             )}
             <Content
