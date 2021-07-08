@@ -5,9 +5,12 @@ import fetch from 'node-fetch'
 export const getAnimeRecommendations = async (animeName: string) => {
     console.debug('Getting anime recommendations')
     const animes = await searchMalAnime(animeName)
-    console.debug(`Got recommendations for ${animeName}:`, animes.length)
+    console.debug(`Found ${animes.length} animes that matches ${animeName}`)
     if (animes.length > 0) {
-        return (await getMalAnimeRecommendations(animes[0].url)) ?? []
+        console.debug('Best match:', animes[0])
+        const recs = (await getMalAnimeRecommendations(animes[0].url)) ?? []
+        console.debug(`Got recommendations for ${animeName}:`, recs.length)
+        return recs
     }
     return []
 }
@@ -44,7 +47,8 @@ export const getMalAnimeRecommendations = async (malUrl: string) => {
             const node = $(elm)
             const link = node.attr('href')
             if (link) {
-                const id = /-([0-9]+)$/.exec(link)?.[1]
+                const id =
+                    /-([0-9]+)$/.exec(link)?.[1] ?? /anime\/([0-9]+)\//.exec(link)?.[1]
                 if (id) {
                     const srcset = node.find('img[data-srcset]').attr('data-srcset') ?? ''
 
@@ -54,7 +58,11 @@ export const getMalAnimeRecommendations = async (malUrl: string) => {
                         name: title,
                         image: getMalImageFromSrcSet(srcset),
                     }
+                } else {
+                    console.debug(`Not found id for link: "${link}"`)
                 }
+            } else {
+                console.debug('Not found link for node', idx)
             }
             return null
         })
