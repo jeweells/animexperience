@@ -19,9 +19,21 @@ export type AnimeSearchProps = {
     onClose?(): void
 }
 
-const Results = styled(FRowG16)`
-    flex-wrap: wrap;
+const Results = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 16px;
     justify-content: space-between;
+    width: 100%;
+    @media (max-width: 1000px) {
+        grid-template-columns: repeat(3, auto);
+    }
+    @media (max-width: 800px) {
+        grid-template-columns: repeat(2, auto);
+    }
+    @media (max-width: 500px) {
+        grid-template-columns: repeat(1, auto);
+    }
 `
 
 export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) => {
