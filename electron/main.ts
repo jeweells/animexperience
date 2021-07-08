@@ -1,5 +1,5 @@
 import '@babel/polyfill'
-import { app, BrowserWindow, session } from 'electron'
+import { app, BrowserWindow, ipcMain, session } from 'electron'
 import installExtension, {
     REACT_DEVELOPER_TOOLS,
     REDUX_DEVTOOLS,
@@ -104,6 +104,14 @@ app.on('ready', createWindow)
         }
     })
 
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') app.quit()
+})
+
 app.allowRendererProcessReuse = true
 setupSdk()
 setupStores()
+
+ipcMain.handle('closeApp', () => {
+    mainWindow?.close()
+})
