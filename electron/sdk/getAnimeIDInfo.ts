@@ -186,6 +186,7 @@ class AnimeIDInfo implements AnimeInfoBase {
         await this.setHeader()
         await this.setStatusLeft()
         await this.setStatusRight()
+        console.debug('INFO', this.info)
         return this.info
     }
 }

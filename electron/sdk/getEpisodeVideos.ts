@@ -75,7 +75,7 @@ export const getAnimeIDEpisodeVideos = async (episodeLink: string) => {
         .toArray()
         .filter((x): x is { name: string; data: string } => !!x.data)
         .map((x) => {
-            console.debug('Parsing JSON...')
+            console.debug('Parsing JSON (v data)...', x.data)
             return {
                 name: x.name,
                 html: JSON5.parse(x.data)?.v,
