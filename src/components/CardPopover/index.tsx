@@ -176,7 +176,7 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(
                                     pointerEvents: 'all',
                                     top: position.relative.top,
                                     left: position.relative.left,
-                                    zIndex: 10000,
+                                    zIndex: 100,
                                 }}
                             >
                                 <div
