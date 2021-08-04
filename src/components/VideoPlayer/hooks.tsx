@@ -188,7 +188,8 @@ export const useVideoImprovements = (
                         anime.name &&
                         typeof anime.episode === 'number' &&
                         // Save each 3 seconds
-                        Math.floor(video.currentTime) % 3 === 0
+                        Math.floor(video.currentTime) % 3 === 0 &&
+                        video.currentTime >= 3
                     ) {
                         dispatch(
                             watched.updateWatched({
