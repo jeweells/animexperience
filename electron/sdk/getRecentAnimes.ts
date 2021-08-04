@@ -32,10 +32,6 @@ export const getRecentAnimes = async () => {
                     }
                 })
                 .toArray()
-            if (idx === 0) {
-                // Last 4 of the first div.dia are movies
-                return arr.slice(0, -4)
-            }
             return arr
         })
         .toArray()
