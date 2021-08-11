@@ -4,7 +4,7 @@
   "description": "An Electron boilerplate including TypeScript, React, Jest and ESLint.",
   "main": "./dist/main.js",
   "scripts": {
-    "dev": "npm-run-all -p dev:react electron:serve",
+    "dev": "npm-run-all -p dev:react dev:electron",
     "dev:electron": "cross-env NODE_ENV=development webpack --config webpack/electron.webpack.js --mode development && npm run start:electron",
     "dev:react": "cross-env NODE_ENV=development webpack-dev-server --config webpack/react.webpack.js --mode development",
     "electron:serve": "wait-on http-get://localhost:4000/ && npm run dev:electron",
@@ -107,7 +107,6 @@
     "react-transition-group": "^4.4.1",
     "react-waypoint": "^10.1.0",
     "redux": "^4.1.0",
-    "robotjs": "^0.6.0",
     "rsuite": "^4.10.1",
     "sass": "^1.34.0",
     "sass-loader": "^11.1.1",
