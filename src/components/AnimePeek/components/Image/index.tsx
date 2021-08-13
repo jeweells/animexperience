@@ -1,6 +1,6 @@
 import React from 'react'
 import { FStatus, Optional } from '../../../../types'
-import { ipcRenderer } from 'electron'
+import { rendererInvoke } from '../../../../utils'
 
 export type ImageProps = {
     animeName: string
@@ -13,8 +13,7 @@ export const Image: React.FC<ImageProps> = React.memo(
         const [status, setStatus] = React.useState<FStatus>('idle')
         React.useLayoutEffect(() => {
             setStatus('loading')
-            ipcRenderer
-                .invoke('getAnimeImage', animeName)
+            rendererInvoke('getAnimeImage', animeName)
                 .then((x) => {
                     if (x) {
                         setRealUrl(x)

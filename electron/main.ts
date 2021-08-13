@@ -20,8 +20,12 @@ require('@electron/remote/main').initialize()
 // Comment in order to make the react dev tools work
 app.commandLine.appendSwitch('disable-site-isolation-trials')
 let mainWindow: Electron.BrowserWindow | null
-
+// eslint-disable-next-line no-console
+console.log('HI THERE')
+console.debug('HI THERE')
+console.error('HI THERE')
 async function createWindow() {
+    console.debug('Creating window')
     mainWindow = new BrowserWindow({
         width: 1100,
         height: 700,
@@ -38,6 +42,8 @@ async function createWindow() {
         process.env.NODE_ENV === 'development'
             ? 'http://localhost:4000'
             : path.join(__dirname, 'renderer')
+    console.debug('Public path:', publicPath)
+    console.debug('Setting open handler')
     mainWindow.webContents.setWindowOpenHandler((d) => {
         console.debug('Denied popup', d.url)
         return {
@@ -77,6 +83,7 @@ async function createWindow() {
 
         mainWindow.loadURL(publicPath)
     } else {
+        console.debug('OPENING', path.join(publicPath, 'index.html'))
         mainWindow.loadURL(
             url.format({
                 pathname: path.join(publicPath, 'index.html'),
@@ -94,6 +101,7 @@ async function createWindow() {
 app.on('ready', createWindow)
     .whenReady()
     .then(() => {
+        console.debug('App is ready')
         if (process.env.NODE_ENV === 'development') {
             installExtension(REACT_DEVELOPER_TOOLS)
                 .then((name) => console.debug(`Added Extension:  ${name}`))

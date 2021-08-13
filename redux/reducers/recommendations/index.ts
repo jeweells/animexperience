@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ipcRenderer } from 'electron'
 import { RecommendationInfo } from '../../../globals/types'
 import { FStatus } from '../../../src/types'
+import { rendererInvoke } from '../../../src/utils'
 
 // Define a type for the slice state
 interface RecommendationsState {
@@ -15,7 +15,7 @@ const fetchRecommendations = createAsyncThunk(
     'recommendations/fetchRecommendations',
     async (animeName: string, api) => {
         api.dispatch(recommendations.setStatus({ name: animeName, status: 'loading' }))
-        const recs = await ipcRenderer.invoke('getAnimeRecommendations', animeName)
+        const recs = await rendererInvoke('getAnimeRecommendations', animeName)
         if (Array.isArray(recs)) {
             api.dispatch(
                 recommendations.setRecommendations({

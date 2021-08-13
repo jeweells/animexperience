@@ -1,6 +1,6 @@
-import { ipcRenderer } from 'electron'
 import { EpisodeInfo } from '../../../globals/types'
 import { Optional } from '../../types'
+import { rendererInvoke } from '../../utils'
 import { VideoOption } from './index'
 import { $IframeContents } from './types'
 import { deepIframes } from './utils'
@@ -51,7 +51,7 @@ const simpleSendF = (
                     if (!document.fullscreenElement) {
                         beforeClick?.(elm)
                         console.debug('Pressing F key')
-                        await ipcRenderer.invoke('keyDown', 'f')
+                        await rendererInvoke('keyDown', 'f')
                     }
                 },
                 { once: true },

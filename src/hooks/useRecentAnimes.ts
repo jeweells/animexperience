@@ -1,6 +1,6 @@
 import React from 'react'
-
-const { ipcRenderer } = window.require('electron')
+import invokeNames from '../../electron/invokeNames'
+import { rendererInvoke } from '../utils'
 
 type Status = 'idle' | 'loading' | 'succeeded' | 'failed'
 export const useFetch = <T>(url: string) => {
@@ -25,12 +25,11 @@ export const useFetch = <T>(url: string) => {
     }
 }
 
-export const useInnerFetch = <T>(name: string) => {
+export const useInnerFetch = <T>(name: keyof typeof invokeNames) => {
     const [data, setData] = React.useState<T | null>(null)
     const [status, setStatus] = React.useState<Status>('idle')
     React.useLayoutEffect(() => {
-        ipcRenderer
-            .invoke(name)
+        rendererInvoke(name)
             .then((x) => {
                 setData(x)
                 setStatus('succeeded')
