@@ -15,6 +15,7 @@ export const stores: Record<TStore, Store> = Object.values(TStore).reduce(
 )
 
 export const setupStores = () => {
+    console.debug('Setting up stores')
     ipcMain.handle(StoreMethod.getStore, (event, store: TStore, key: string) => {
         return stores[store].get(key)
     })

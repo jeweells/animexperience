@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ipcRenderer } from 'electron'
+import { v4 as uuidv4 } from 'uuid'
 import { AnimeIDAnimeMatch, AnimeInfo } from '../../../globals/types'
 import { FStatus, Optional } from '../../../src/types'
+import { rendererInvoke } from '../../../src/utils'
 import { addFetchFlow } from '../utils'
-import { v4 as uuidv4 } from 'uuid'
 
 // Define a type for the slice state
 interface PeekState {
@@ -24,10 +24,10 @@ const _peek = createAsyncThunk('peek/peek', async (name: string, api) => {
     api.dispatch(peek.setPeeking(uuidv4()))
 
     const animes: AnimeIDAnimeMatch[] =
-        (await ipcRenderer.invoke('searchAnimeID', name)) ?? []
+        (await rendererInvoke('searchAnimeID', name)) ?? []
     const anime = animes?.[0]
     if (anime?.link) {
-        const info = await ipcRenderer.invoke('getAnimeIDInfo', anime.link)
+        const info = await rendererInvoke('getAnimeIDInfo', anime.link)
         api.dispatch(peek.setInfo(info))
         return info
     }

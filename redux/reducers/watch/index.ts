@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ipcRenderer } from 'electron'
 import { AnimeInfo } from '../../../globals/types'
 import { VideoOption } from '../../../src/components/VideoPlayer'
 import { RecentAnimeData } from '../../../src/hooks/useRecentAnimes'
 import { FStatus, Optional } from '../../../src/types'
+import { rendererInvoke } from '../../../src/utils'
 import { player } from '../player'
 import { addFetchFlow } from '../utils'
 
@@ -36,8 +36,8 @@ const getAvailableVideos = createAsyncThunk('watch/availableVideos', async (arg,
     }
     console.debug('Getting available videos of', anime)
     return await Promise.all([
-        ipcRenderer.invoke('getAnimeIDEpisodeVideos', anime.link),
-        ipcRenderer.invoke('getJKAnimeEpisodeVideos', anime.name, anime.episode),
+        rendererInvoke('getAnimeIDEpisodeVideos', anime.link),
+        rendererInvoke('getJKAnimeEpisodeVideos', anime.name, anime.episode),
     ]).then((x) =>
         (x.filter(Array.isArray).flat(1) as VideoOption[]).filter((x) => {
             const opt = x.name?.toLowerCase()
@@ -58,7 +58,7 @@ const getAnimeInfo = createAsyncThunk('watch/getAnimeInfo', async (arg, api) => 
         return api.rejectWithValue('Needs to be watching to request available videos')
     }
     console.debug('Getting anime INFO', anime)
-    return await ipcRenderer.invoke(
+    return await rendererInvoke(
         'getAnimeIDInfo',
         anime.link
             ?.replace('animeid.tv/v/', 'animeid.tv/')

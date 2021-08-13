@@ -55,7 +55,6 @@ export class TimedCache {
             this.set(key, result)
             return result
         }) as Fn
-        Object.defineProperty(wrappedFn, 'name', { value: fn.name })
         Object.defineProperty(wrappedFn, 'cached', { value: true })
         return wrappedFn
     }
