@@ -15,6 +15,7 @@ export const RecentlyWatchedRecommendations: React.FC<RecentlyWatchedRecommendat
         }, [])
         return (
             <React.Fragment>
+                {recently.length > 0 && <VSpace size={32} />}
                 {recently.map((r, idx) => (
                     <Fragment key={r.name}>
                         {!!idx && <VSpace size={32} />}

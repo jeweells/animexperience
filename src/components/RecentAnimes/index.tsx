@@ -1,6 +1,7 @@
 import React from 'react'
 import { watch } from '../../../redux/reducers/watch'
 import { useAppDispatch } from '../../../redux/store'
+import { VSpace } from '../../atoms/Spacing'
 import { RecentAnimeData, useRecentAnimes } from '../../hooks/useRecentAnimes'
 import { AnimeCarouselContent } from '../../placeholders/AnimeCarouselContent'
 import { AnimeEpisodeEntry } from '../AnimeEpisodeEntry'
@@ -24,6 +25,7 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({}) => {
     }, [])
     return (
         <React.Fragment>
+            <VSpace size={32} />
             <AnimesCarousel
                 title={'Recientes'}
                 count={count}

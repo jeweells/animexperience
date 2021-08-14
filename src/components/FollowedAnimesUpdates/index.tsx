@@ -2,6 +2,7 @@ import React, { useLayoutEffect } from 'react'
 import { followedAnimes } from '../../../redux/reducers/followedAnimes'
 import { watch } from '../../../redux/reducers/watch'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { VSpace } from '../../atoms/Spacing'
 import { RecentAnimeData } from '../../hooks/useRecentAnimes'
 import AnimeCarouselContent from '../../placeholders/AnimeCarouselContent'
 import { AnimesCarousel } from '../AnimesCarousel'
@@ -40,6 +41,7 @@ export const FollowedAnimesUpdates: React.FC<FollowedAnimesUpdatesProps> = React
 
         return (
             <React.Fragment>
+                <VSpace size={32} />
                 <AnimesCarousel
                     title={'Animes que sigues'}
                     count={carouselLoading ? 1 : filteredFollowed.length}

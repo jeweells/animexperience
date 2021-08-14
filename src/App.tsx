@@ -32,13 +32,9 @@ const App = () => {
         <React.Fragment>
             <GlobalStyle />
             <Topbar>
-                <VSpace size={32} />
                 <FollowedAnimesUpdates />
-                <VSpace size={32} />
                 <ContinueWatching />
-                <VSpace size={32} />
                 <RecentAnimes />
-                <VSpace size={32} />
                 <RecentlyWatchedRecommendations />
                 <VSpace size={32} />
                 <VideoPlayerModal
