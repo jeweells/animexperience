@@ -2,7 +2,11 @@ import { EpisodeInfo } from '../../../globals/types'
 import { Optional } from '../../types'
 import { BasicVideoInfo } from './types'
 
-export const handleSeek = (info: BasicVideoInfo, data: Optional<EpisodeInfo>, video: HTMLVideoElement) => {
+export const handleSeek = (
+    info: BasicVideoInfo,
+    data: Optional<EpisodeInfo>,
+    video: HTMLVideoElement,
+): void => {
     const opt = info.option?.name.toLowerCase()
 
     switch (opt) {

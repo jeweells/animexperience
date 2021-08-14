@@ -3,6 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { EpisodeInfo, Store } from '../../../globals/types'
+import { followedAnimes } from '../../../redux/reducers/followedAnimes'
 import { watch } from '../../../redux/reducers/watch'
 import { watched } from '../../../redux/reducers/watched'
 import store, { useAppDispatch, useAppSelector } from '../../../redux/store'
@@ -12,6 +13,7 @@ import { Optional } from '../../types'
 import NextEpisodeButton from '../NextEpisodeButton'
 import { handleSpecificOptions } from './autoPlayHandlers'
 import {
+    RATIO_TO_FOLLOW_AN_ANIME,
     SECONDS_LEFT_TO_NEXT_EPISODE,
     SECONDS_LEFT_TO_TRIGGER_NEXT_EPISODE,
     SECONDS_NEXT_BUTTON_DISPLAY,
@@ -147,11 +149,14 @@ export const useVideoImprovements = (
                 nextButtonShown?: boolean
                 nextBtnRef?: JQuery | null
                 watched?: boolean
+                followed?: boolean
             } = {}
             const handleTimeUpdate = (e: Event) => {
                 console.debug('TARGET', e.target, e.currentTarget)
                 if (isFinite(video.duration)) {
                     const { duration, currentTime } = video
+                    const currentTimeRatio = duration === 0 ? 0 : currentTime / duration
+
                     console.debug('VIDEO TIME', video.currentTime)
                     if (currentTime + SECONDS_LEFT_TO_NEXT_EPISODE >= duration) {
                         if (!refs.watched) {
@@ -201,6 +206,21 @@ export const useVideoImprovements = (
                                 },
                             }),
                         )
+                    }
+
+                    if (currentTimeRatio >= RATIO_TO_FOLLOW_AN_ANIME && !refs.followed) {
+                        console.debug('Able to follow this anime')
+                        const watchState = store.getState().watch
+                        if (watchState.info && watchState.watching) {
+                            refs.followed = true
+                            console.debug('Marking this anime as followed')
+                            dispatch(
+                                followedAnimes.follow({
+                                    anime: watchState.watching,
+                                    info: watchState.info,
+                                }),
+                            )
+                        }
                     }
                 }
             }

@@ -2,7 +2,6 @@ import React, { useLayoutEffect } from 'react'
 import { watch } from '../../../redux/reducers/watch'
 import { watchHistory } from '../../../redux/reducers/watchHistory'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
-import { VSpace } from '../../atoms/Spacing'
 import { RecentAnimeData } from '../../hooks/useRecentAnimes'
 import { AnimeCarouselContent } from '../../placeholders/AnimeCarouselContent'
 import { AnimeEpisodeEntry } from '../AnimeEpisodeEntry'
@@ -34,7 +33,6 @@ export const ContinueWatching: React.FC<ContinueWatchingProps> = React.memo(({})
 
     return (
         <React.Fragment>
-            <VSpace size={32} />
             <AnimesCarousel
                 title={'Sigue mirando'}
                 count={count}

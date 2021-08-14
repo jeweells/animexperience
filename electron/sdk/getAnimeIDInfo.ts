@@ -4,6 +4,7 @@ import fetch from 'node-fetch'
 import { AnimeInfo, RelatedAnime } from '../../globals/types'
 import moment from 'moment'
 import { Optional } from '../../src/types'
+import { AnimeLinkToEpisode } from '../linkBuilder'
 
 export interface AnimeInfoBase {
     info: Optional<AnimeInfo>
@@ -19,15 +20,9 @@ class AnimeIDInfo implements AnimeInfoBase {
     }
 
     setLinks(link: string) {
-        const episodeReplace = '<episode>'
-        const episodeLink = `${link.replace(
-            'animeid.tv/',
-            'animeid.tv/v/',
-        )}-${episodeReplace}`
         return {
-            episodeLink,
+            ...new AnimeLinkToEpisode(link, 'animeid').raw(),
             link,
-            episodeReplace,
         }
     }
 

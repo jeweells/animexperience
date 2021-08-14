@@ -11,6 +11,7 @@ import { VSpace } from './atoms/Spacing'
 import AnimePeekModal from './components/AnimePeekModal'
 import AnimeSearchModal from './components/AnimeSearchModal'
 import ContinueWatching from './components/ContinueWatching'
+import FollowedAnimesUpdates from './components/FollowedAnimesUpdates'
 import RecentAnimes from './components/RecentAnimes'
 import RecentlyWatchedRecommendations from './components/RecentlyWatchedRecommendations'
 import Topbar from './components/Topbar'
@@ -31,6 +32,9 @@ const App = () => {
         <React.Fragment>
             <GlobalStyle />
             <Topbar>
+                <VSpace size={32} />
+                <FollowedAnimesUpdates />
+                <VSpace size={32} />
                 <ContinueWatching />
                 <VSpace size={32} />
                 <RecentAnimes />

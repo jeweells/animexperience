@@ -21,9 +21,6 @@ require('@electron/remote/main').initialize()
 app.commandLine.appendSwitch('disable-site-isolation-trials')
 let mainWindow: Electron.BrowserWindow | null
 // eslint-disable-next-line no-console
-console.log('HI THERE')
-console.debug('HI THERE')
-console.error('HI THERE')
 async function createWindow() {
     console.debug('Creating window')
     mainWindow = new BrowserWindow({

@@ -4,6 +4,7 @@ import React from 'react'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { Optional, FStatus } from '../src/types'
 import animeSearch from './reducers/animeSearch'
+import followedAnimes from './reducers/followedAnimes'
 import peek from './reducers/peek'
 import player from './reducers/player'
 import playerOptions from './reducers/playerOptions'
@@ -26,6 +27,7 @@ const store = configureStore({
         topview,
         playerOptions,
         animeSearch,
+        followedAnimes,
     },
 })
 
@@ -53,6 +55,7 @@ export const useRelaySelector: TypedUseRelaySelectorHook<RootState> = (
 ) => {
     const data = useAppSelector(dataSelector, equalityFn)
     const status = useAppSelector(statusSelector)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ref = React.useRef<Promise<any>>()
     if (status === 'idle' || status === 'loading') {
         if (ref.current) {

@@ -59,7 +59,8 @@
     "space-before-function-paren": "off",
     "generator-star-spacing": "off",
     "@typescript-eslint/no-empty-interface": "off",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   },
   "settings": {
     "import/resolver": {
