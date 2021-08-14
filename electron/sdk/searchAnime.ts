@@ -89,6 +89,9 @@ export const searchJKAnime = async (animeName: string) => {
             }
         })
         .toArray()
+        .sort((a, b) => {
+            return similarity(b.name, animeName) - similarity(a.name, animeName)
+        })
 }
 
 export const searchMalAnime = cached(async (name: string) => {

@@ -5,6 +5,7 @@ export enum Store {
     RECENTLY_WATCHED = 'recently-watched',
     WATCH_HISTORY = 'watch-history',
     PLAYER_OPTIONS = 'player-options',
+    FOLLOWED = 'followed',
 }
 
 export enum StoreMethod {
@@ -100,4 +101,15 @@ export type DeepAnimeIdSearchResultWithPages = Omit<
 > & {
     nextPage: number
     maxPage: number
+}
+
+export type FollowedAnime = {
+    name: string
+    image: string
+    link: string
+    nextEpisodeToWatch: number
+    lastEpisodeWatched: number
+    lastCheckAt: number
+    nextCheckAt: number
+    lastSuccessAt: number
 }
