@@ -1,7 +1,7 @@
 {
-  "name": "electron-react-typescript",
+  "name": "AnimExperience",
   "version": "1.0.0",
-  "description": "An Electron boilerplate including TypeScript, React, Jest and ESLint.",
+  "description": "Watch anime easily",
   "main": "./dist/main.js",
   "scripts": {
     "dev": "npm-run-all -p dev:react dev:electron",
@@ -14,11 +14,11 @@
     "build:electron": "webpack --config webpack/electron.webpack.js",
     "build:react": "webpack --config webpack/react.webpack.js",
     "package": "npm-run-all build package:dist",
-    "package:dist": "electron-builder --dir",
+    "package:dist": "electron-builder -w portable",
     "test": "jest"
   },
   "keywords": [],
-  "author": "Diego Fernandes <diego.schell.f@gmail.com>",
+  "author": "Abraham Pacheco <abraham.pacheco6319@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.14.3",
@@ -115,7 +115,7 @@
     "uuid": "^8.3.2"
   },
   "build": {
-    "appId": "your.id",
+    "appId": "com.electron.animexperience",
     "mac": {
       "category": "public.app-category.video"
     },
