@@ -22,6 +22,7 @@ interface FollowedAnimesState {
         followed: FStatus
     }>
 }
+
 const nextCheck = (now: number): number => moment(now).add(1, 'day').valueOf()
 
 const fetchStore = createAsyncThunk('followedAnimes/fetchStore', async (arg, api) => {
@@ -68,16 +69,18 @@ const fetchStore = createAsyncThunk('followedAnimes/fetchStore', async (arg, api
                     }
                     const _now = moment.now()
                     const lastEpisode = info.episodesRange?.max ?? 0
-                    const hasNewEpisodeAvailable = lastEpisode > value.lastEpisodeWatched
+                    const hasNewEpisodeAvailable =
+                        lastEpisode > value.lastEpisodeWatched &&
+                        value.lastEpisodeWatched >= value.nextEpisodeToWatch
 
                     if (hasNewEpisodeAvailable) {
                         value.nextEpisodeToWatch = value.lastEpisodeWatched
                         value.nextEpisodeToWatch++
-                        console.debug('[Followed] 2')
+                        console.debug('[Followed] New episode found!')
                         value.lastSuccessAt = _now
                     }
                     value.lastCheckAt = _now
-                    value.nextCheckAt = nextCheck(_now)
+                    value.nextCheckAt = nextCheck(value.lastSuccessAt)
                     console.debug('Got info of', value.name, {
                         info,
                         lastEpisode,
