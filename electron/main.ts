@@ -68,7 +68,6 @@ async function createWindow() {
             callback({ cancel: false, requestHeaders: details.requestHeaders })
         },
     )
-    await setupBlocker()
 
     if (process.env.NODE_ENV === 'development') {
         const window = mainWindow
@@ -78,16 +77,18 @@ async function createWindow() {
             })
         })
 
-        mainWindow.loadURL(publicPath)
+        mainWindow.loadURL(publicPath).then(() => setupBlocker())
     } else {
         console.debug('OPENING', path.join(publicPath, 'index.html'))
-        mainWindow.loadURL(
-            url.format({
-                pathname: path.join(publicPath, 'index.html'),
-                protocol: 'file:',
-                slashes: true,
-            }),
-        )
+        mainWindow
+            .loadURL(
+                url.format({
+                    pathname: path.join(publicPath, 'index.html'),
+                    protocol: 'file:',
+                    slashes: true,
+                }),
+            )
+            .then(() => setupBlocker())
     }
 
     mainWindow.on('closed', () => {
