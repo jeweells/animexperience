@@ -2,6 +2,7 @@ import { Skeleton } from '@material-ui/lab'
 import React, { Fragment, useMemo } from 'react'
 import { Transition } from 'react-transition-group'
 import styled from 'styled-components'
+import { FadeInRL } from '../../atoms/FadeIn'
 import { CarouselTitle } from '../../atoms/Text'
 import { range } from '../../utils'
 import { NavigationButton } from './components/NavigationButton'
@@ -56,13 +57,15 @@ export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(
                         }}
                     >
                         {loading ? (
-                            <Skeleton
-                                animation={'pulse'}
-                                variant={'text'}
-                                style={{
-                                    width: titleSkeletonWidth,
-                                }}
-                            />
+                            <FadeInRL duration={1500}>
+                                <Skeleton
+                                    animation={'pulse'}
+                                    variant={'text'}
+                                    style={{
+                                        width: titleSkeletonWidth,
+                                    }}
+                                />
+                            </FadeInRL>
                         ) : (
                             title
                         )}
