@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, Icon } from 'rsuite'
+import { Icon } from 'rsuite'
 import styled from 'styled-components'
 import { useSizes } from '../../hooks'
+import { Button } from 'gatsby-theme-material-ui'
 
 const NavContainer = styled.div`
     position: absolute;
@@ -41,17 +42,22 @@ const SButton = styled(Button)<Pick<NavigationButtonProps, 'direction'>>`
 `
 
 export const NavigationButton = React.memo(
-    React.forwardRef<HTMLDivElement, NavigationButtonProps>(({ direction, onClick, disabled }, ref) => {
-        const { navigationWidth } = useSizes()
+    React.forwardRef<HTMLDivElement, NavigationButtonProps>(
+        ({ direction, onClick, disabled }, ref) => {
+            const { navigationWidth } = useSizes()
 
-        return (
-            <NavContainer ref={ref} style={{ [direction]: 0, width: navigationWidth }}>
-                <SButton direction={direction} disabled={disabled} onClick={onClick}>
-                    <Icon icon={`angle-${direction}` as any} size={'5x'} />
-                </SButton>
-            </NavContainer>
-        )
-    }),
+            return (
+                <NavContainer
+                    ref={ref}
+                    style={{ [direction]: 0, width: navigationWidth }}
+                >
+                    <SButton direction={direction} disabled={disabled} onClick={onClick}>
+                        <Icon icon={`angle-${direction}` as any} size={'5x'} />
+                    </SButton>
+                </NavContainer>
+            )
+        },
+    ),
 )
 
 NavigationButton.displayName = 'NavigationButton'

@@ -3,6 +3,7 @@ import { Icon, Input, InputGroup } from 'rsuite'
 import styled from 'styled-components'
 import { animeSearch } from '../../../redux/reducers/animeSearch'
 import { useAppDispatch } from '../../../redux/store'
+import { IconButton } from 'gatsby-theme-material-ui'
 
 export type SearchBarProps = {}
 
@@ -37,9 +38,9 @@ export const SearchBar: React.FC<SearchBarProps> = React.memo(({}) => {
                     style={{ fontWeight: 400 }}
                     spellCheck={false}
                 />
-                <InputGroup.Button onClick={handleSearch}>
+                <IconButton onClick={handleSearch}>
                     <Icon icon='search' />
-                </InputGroup.Button>
+                </IconButton>
             </InputGroup>
         </Wrapper>
     )

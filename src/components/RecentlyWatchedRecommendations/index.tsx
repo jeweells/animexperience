@@ -6,8 +6,8 @@ import AnimeRecommendations from '../AnimeRecommendations'
 
 export type RecentlyWatchedRecommendationsProps = {}
 
-export const RecentlyWatchedRecommendations: React.FC<RecentlyWatchedRecommendationsProps> = React.memo(
-    ({}) => {
+export const RecentlyWatchedRecommendations: React.FC<RecentlyWatchedRecommendationsProps> =
+    React.memo(({}) => {
         const recently = useAppSelector((d) => d.watched.recently) ?? []
         const dispatch = useAppDispatch()
         useLayoutEffect(() => {
@@ -24,8 +24,7 @@ export const RecentlyWatchedRecommendations: React.FC<RecentlyWatchedRecommendat
                 ))}
             </React.Fragment>
         )
-    },
-)
+    })
 
 RecentlyWatchedRecommendations.displayName = 'RecentlyWatchedRecommendations'
 

@@ -1,7 +1,8 @@
 import React, { useMemo, useState } from 'react'
-import { Divider, Icon, IconButton } from 'rsuite'
+import { Divider, Icon } from 'rsuite'
 import styled from 'styled-components'
 import { AnimeInfo } from '../../../../../globals/types'
+import ButtonWIcon from '../../../../atoms/ButtonWIcon'
 import { FColG16, FRow } from '../../../../atoms/Layout'
 import { Optional } from '../../../../types'
 import { range } from '../../../../utils'
@@ -14,9 +15,7 @@ export type EpisodesProps = {
 
 const SDivider = styled(Divider)`
     flex: 1;
-    margin: 0;
-    margin-right: 16px;
-    margin-left: 16px;
+    margin: 0 16px;
 `
 
 export const Episodes: React.FC<EpisodesProps> = React.memo(
@@ -36,6 +35,10 @@ export const Episodes: React.FC<EpisodesProps> = React.memo(
             }
             return _groups
         }, [episodes, groupSize, sort])
+
+        const toggleSort = () => {
+            setSort((s) => -s)
+        }
         return (
             <FColG16>
                 <FRow
@@ -46,17 +49,16 @@ export const Episodes: React.FC<EpisodesProps> = React.memo(
                     }}
                 >
                     <SDivider />
-                    <IconButton
+                    <ButtonWIcon
+                        onClick={toggleSort}
                         icon={
                             <Icon
                                 icon={sort > 0 ? 'sort-numeric-desc' : 'sort-numeric-asc'}
                             />
                         }
-                        placement={'left'}
-                        onClick={() => setSort((s) => -s)}
                     >
                         Ordenar
-                    </IconButton>
+                    </ButtonWIcon>
                 </FRow>
                 {groups.map((group) => {
                     return (

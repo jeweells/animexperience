@@ -3,7 +3,11 @@ import $ from 'jquery'
 import { Optional } from '../../types'
 import { $IframeContents } from './types'
 
-export function* deepIframes(target: $IframeContents, depth = 5, currDepth = 1): Generator<$IframeContents> {
+export function* deepIframes(
+    target: $IframeContents,
+    depth = 5,
+    currDepth = 1,
+): Generator<$IframeContents> {
     if (!target || target.length === 0 || currDepth >= depth) return
     if (currDepth === 1) {
         yield target
@@ -23,7 +27,10 @@ export function* deepIframes(target: $IframeContents, depth = 5, currDepth = 1):
 }
 
 // The array returned will always be of length greater than 0
-export const deepFindVideos = (target: $IframeContents, depth = 5): Optional<HTMLVideoElement[]> => {
+export const deepFindVideos = (
+    target: $IframeContents,
+    depth = 5,
+): Optional<HTMLVideoElement[]> => {
     for (const iframe of deepIframes(target, depth)) {
         const video = iframe.find('video')
         if (video.length > 0) {

@@ -1,7 +1,7 @@
 import { Fade } from '@material-ui/core'
 import { Skeleton, SkeletonProps } from '@material-ui/lab'
 import React from 'react'
-import { Icon, IconButton } from 'rsuite'
+import CloseButton from '../../atoms/CloseButton'
 import { FCol, FColG16, FColG32, FColG8, FRowG32 } from '../../atoms/Layout'
 import { FExpand } from '../../atoms/Misc'
 import { AnimePeekTitle } from '../../atoms/Text'
@@ -33,11 +33,7 @@ export const AnimePeekPlaceholder: React.FC<AnimePeekPlaceholderProps> = React.m
                                     />
                                 </AnimePeekTitle>
                                 <FExpand />
-                                <IconButton
-                                    onClick={onClose}
-                                    icon={<Icon icon={'close'} size={'lg'} />}
-                                    size={'lg'}
-                                />
+                                <CloseButton onClick={onClose} />
                             </TitleRow>
                             <div style={{ opacity: 0.5 }}>
                                 <Skeleton

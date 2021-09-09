@@ -1,10 +1,12 @@
 import { Fade } from '@material-ui/core'
+import { Button } from 'gatsby-theme-material-ui'
 import moment from 'moment'
 import React, { useRef } from 'react'
-import { Button, Divider, Icon, IconButton } from 'rsuite'
+import { Divider } from 'rsuite'
 import styled from 'styled-components'
 import { AnimeInfo } from '../../../globals/types'
 import { useAppSelector } from '../../../redux/store'
+import CloseButton from '../../atoms/CloseButton'
 import {
     FCol,
     FColG16,
@@ -72,11 +74,7 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({ onClose }) => {
                                 <AnimePeekTitle>{info.title}</AnimePeekTitle>
                                 <AnimePeekType>{info.type}</AnimePeekType>
                                 <FExpand />
-                                <IconButton
-                                    onClick={onClose}
-                                    icon={<Icon icon={'close'} size={'lg'} />}
-                                    size={'lg'}
-                                />
+                                <CloseButton onClick={onClose} />
                             </TitleRow>
                             {(info.otherTitles?.length ?? 0) > 0 && (
                                 <AnimePeekType>
@@ -107,13 +105,15 @@ export const AnimePeek: React.FC<AnimePeekProps> = React.memo(({ onClose }) => {
                                     <Button
                                         style={{
                                             pointerEvents: 'none',
-                                            backgroundColor: ({
-                                                'En emisión': '#3d773d',
-                                                Finalizada: 'darkred',
-                                            } as Record<
-                                                Required<AnimeInfo>['status'],
-                                                string
-                                            >)[info.status ?? 'Finalizada'],
+                                            backgroundColor: (
+                                                {
+                                                    'En emisión': '#3d773d',
+                                                    Finalizada: 'darkred',
+                                                } as Record<
+                                                    Required<AnimeInfo>['status'],
+                                                    string
+                                                >
+                                            )[info.status ?? 'Finalizada'],
                                             bottom: 16,
                                             right: 16,
                                             position: 'absolute',

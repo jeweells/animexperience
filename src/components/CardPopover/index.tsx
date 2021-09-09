@@ -118,7 +118,8 @@ export const CardPopover: React.FC<CardPopoverProps> = React.memo(
 
                 if (anchorEl?.current) {
                     const cb = (cb: DOMRect) => {
-                        const containerRect = containerRef?.current?.getBoundingClientRect()
+                        const containerRect =
+                            containerRef?.current?.getBoundingClientRect()
                         if (containerRect) {
                             const ancElRect = cb.toJSON()
                             const scrollTop = containerRef?.current?.scrollTop ?? 0

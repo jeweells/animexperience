@@ -29,9 +29,8 @@ export const useVideo = (
     ms = 300,
 ) => {
     const [video, setVideo] = React.useState<Optional<HTMLVideoElement>>(null)
-    const [detachedVideo, setDetachedVideo] = React.useState<Optional<HTMLVideoElement>>(
-        null,
-    )
+    const [detachedVideo, setDetachedVideo] =
+        React.useState<Optional<HTMLVideoElement>>(null)
     const watchEpisodeStatus = useAppSelector((d) => d.watch.status.watchEpisode)
     const dispatch = useAppDispatch()
     const episodeInfo = useWatched(info.anime)

@@ -12,10 +12,12 @@ export const handleFullScreen = (
 ) => {
     if (document.fullscreenElement) return true
 
-    const methods: Partial<Record<
-        string,
-        (contents: $IframeContents, episodeInfo?: Optional<EpisodeInfo>) => boolean
-    >> = {
+    const methods: Partial<
+        Record<
+            string,
+            (contents: $IframeContents, episodeInfo?: Optional<EpisodeInfo>) => boolean
+        >
+    > = {
         // Some might be repeated since they are handled the same way
         fembed: handleFembed,
         okru: handleOkru,

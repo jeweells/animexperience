@@ -1,22 +1,22 @@
-import '@babel/polyfill'
 import { app, BrowserWindow, ipcMain, session } from 'electron'
 import installExtension, {
     REACT_DEVELOPER_TOOLS,
     REDUX_DEVTOOLS,
 } from 'electron-devtools-installer'
-import * as path from 'path'
-import * as url from 'url'
 import { setupBlocker } from './blocker'
 import setupSdk from './sdk'
 import { setupStores } from './store'
 import moment from 'moment'
 import 'moment/locale/es'
+
+import serve from 'electron-serve'
 moment.locale('es')
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('@electron/remote/main').initialize()
 
+if (process.env.NODE_ENV !== 'development') serve({ directory: 'dist/renderer' })
 // Comment in order to make the react dev tools work
 app.commandLine.appendSwitch('disable-site-isolation-trials')
 let mainWindow: Electron.BrowserWindow | null
@@ -36,9 +36,7 @@ async function createWindow() {
         },
     })
     const publicPath =
-        process.env.NODE_ENV === 'development'
-            ? 'http://localhost:4000'
-            : path.join(__dirname, 'renderer')
+        process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : 'app://-'
     console.debug('Public path:', publicPath)
     console.debug('Setting open handler')
     mainWindow.webContents.setWindowOpenHandler((d) => {
@@ -76,20 +74,8 @@ async function createWindow() {
                 mode: 'detach',
             })
         })
-
-        mainWindow.loadURL(publicPath).then(() => setupBlocker())
-    } else {
-        console.debug('OPENING', path.join(publicPath, 'index.html'))
-        mainWindow
-            .loadURL(
-                url.format({
-                    pathname: path.join(publicPath, 'index.html'),
-                    protocol: 'file:',
-                    slashes: true,
-                }),
-            )
-            .then(() => setupBlocker())
     }
+    mainWindow.loadURL(publicPath).then(() => setupBlocker())
 
     mainWindow.on('closed', () => {
         mainWindow = null

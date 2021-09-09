@@ -1,8 +1,10 @@
 import React from 'react'
-import { Button, ButtonGroup, Icon } from 'rsuite'
+import { Icon } from 'rsuite'
 import styled from 'styled-components'
 import { VideoOption } from '../../../VideoPlayer'
 import { usePlayerOption } from './hooks'
+import { Button } from 'gatsby-theme-material-ui'
+import { ButtonGroup } from '@material-ui/core'
 
 export type OptionButtonProps = {
     onClick?(): void
@@ -11,13 +13,22 @@ export type OptionButtonProps = {
 }
 
 const StarButton = styled(Button)`
+    min-width: 0;
+    flex-shrink: 0;
     background: hsl(216deg 13% 28%);
+    padding: 5px 12px;
+    border: none;
 `
 
 const ActionButton = styled(Button)`
+    border: none;
     background: #343a43;
+    flex: 1;
     &:disabled {
         background: #343a43;
+    }
+    &.Mui-disabled {
+        color: #ffffff91;
     }
 `
 

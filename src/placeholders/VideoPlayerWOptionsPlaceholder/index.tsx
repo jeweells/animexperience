@@ -86,8 +86,8 @@ FullScreenClip.displayName = 'FullScreenClip'
 
 export type VideoPlayerWOptionsPlaceholderProps = {}
 
-export const VideoPlayerWOptionsPlaceholder: React.FC<VideoPlayerWOptionsPlaceholderProps> = React.memo(
-    ({ children }) => {
+export const VideoPlayerWOptionsPlaceholder: React.FC<VideoPlayerWOptionsPlaceholderProps> =
+    React.memo(({ children }) => {
         const animation: SkeletonProps['animation'] = 'pulse'
         return (
             <Fade in={true} timeout={1000}>
@@ -165,8 +165,7 @@ export const VideoPlayerWOptionsPlaceholder: React.FC<VideoPlayerWOptionsPlaceho
                 </Wrapper>
             </Fade>
         )
-    },
-)
+    })
 
 VideoPlayerWOptionsPlaceholder.displayName = 'VideoPlayerWOptionsPlaceholder'
 

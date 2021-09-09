@@ -1,5 +1,6 @@
+import { ButtonGroup } from '@material-ui/core'
+import { Button } from 'gatsby-theme-material-ui'
 import React from 'react'
-import { Button, ButtonGroup } from 'rsuite'
 import styled from 'styled-components'
 import { RelatedAnime } from '../../../../../globals/types'
 import { peek } from '../../../../../redux/reducers/peek'
@@ -15,15 +16,17 @@ const SGroup = styled(ButtonGroup)`
 `
 
 const TypeButton = styled(Button)<{
-    type: RelatedAnime['type']
+    btype: RelatedAnime['type']
 }>`
-    background-color: ${({ type }) =>
-        (({
-            Ova: '#612f2f',
-            Película: 'rgb(55 92 95)',
-            Especial: 'rgb(160 99 70)',
-            Serie: '#427cb3',
-        } as Record<RelatedAnime['type'], string>)[type])};
+    background-color: ${({ btype }) =>
+        ((
+            {
+                Ova: '#612f2f',
+                Película: 'rgb(55 92 95)',
+                Especial: 'rgb(160 99 70)',
+                Serie: '#427cb3',
+            } as Record<RelatedAnime['type'], string>
+        )[btype])};
     flex-shrink: 0;
 `
 
@@ -40,7 +43,7 @@ export const RelatedAnimeButton: React.FC<RelatedAnimeButtonProps> = React.memo(
         const dispatch = useAppDispatch()
         return (
             <SGroup>
-                <TypeButton type={related.type}>{related.type}</TypeButton>
+                <TypeButton btype={related.type}>{related.type}</TypeButton>
                 <NameButton
                     onClick={() => {
                         dispatch(peek.peek(related.name))
