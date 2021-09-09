@@ -135,41 +135,40 @@ type AnimeEntryPopoverProps = {
     onClose?(): void
 } & Pick<AnimeEntryProps, 'onClick' | 'index' | 'visible' | 'sliding' | 'render'>
 
-const AnimeEntryPopover: React.VFC<AnimeEntryPopoverProps> = React.memo<
-    AnimeEntryPopoverProps
->(
-    ({
-        open,
-        cardRef,
-        onClick,
-        onMouseOut,
-        onMouseOver,
-        onClose,
-        index,
-        visible,
-        sliding,
-        render,
-    }) => {
-        return (
-            <CardPopover
-                open={Boolean(!sliding && visible && open)}
-                anchorEl={cardRef}
-                onClose={onClose}
-            >
-                <AnimeEntry
-                    isPopover={true}
-                    onClick={onClick}
-                    onMouseOut={onMouseOut}
-                    onMouseOver={onMouseOver}
-                    index={index}
-                    visible={visible}
-                    sliding={sliding}
-                    render={render}
-                />
-            </CardPopover>
-        )
-    },
-)
+const AnimeEntryPopover: React.VFC<AnimeEntryPopoverProps> =
+    React.memo<AnimeEntryPopoverProps>(
+        ({
+            open,
+            cardRef,
+            onClick,
+            onMouseOut,
+            onMouseOver,
+            onClose,
+            index,
+            visible,
+            sliding,
+            render,
+        }) => {
+            return (
+                <CardPopover
+                    open={Boolean(!sliding && visible && open)}
+                    anchorEl={cardRef}
+                    onClose={onClose}
+                >
+                    <AnimeEntry
+                        isPopover={true}
+                        onClick={onClick}
+                        onMouseOut={onMouseOut}
+                        onMouseOver={onMouseOver}
+                        index={index}
+                        visible={visible}
+                        sliding={sliding}
+                        render={render}
+                    />
+                </CardPopover>
+            )
+        },
+    )
 
 AnimeEntryPopover.displayName = 'AnimeEntryPopover'
 

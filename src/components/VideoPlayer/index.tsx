@@ -43,9 +43,11 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = React.memo(
         const [ref, setRef] = React.useState<HTMLDivElement | null>(null)
         const freezed = useAppSelector((d) => d.player.freezed)
         const watching = useAppSelector((d) => d.watch.watching)
-        const { ref: containerRef, width = 1, height = 1 } = useResizeObserver<
-            HTMLDivElement
-        >()
+        const {
+            ref: containerRef,
+            width = 1,
+            height = 1,
+        } = useResizeObserver<HTMLDivElement>()
         React.useLayoutEffect(() => {
             if (!ref) return
             const iframe = $(ref).find('iframe')

@@ -72,7 +72,7 @@ declare module '@reduxjs/toolkit' {
         : SerializedError
     interface AsyncThunkOptions<
         ThunkArg = void,
-        ThunkApiConfig extends AsyncThunkConfig = {}
+        ThunkApiConfig extends AsyncThunkConfig = {},
     > {
         /**
          * A method to control whether the asyncThunk should be executed. Has access to the
@@ -100,7 +100,7 @@ declare module '@reduxjs/toolkit' {
         ThunkArg = void,
         ThunkApiConfig extends AsyncThunkConfig = {
             state: RootState
-        }
+        },
     >(
         typePrefix: string,
         payloadCreator: AsyncThunkPayloadCreator<Returned, ThunkArg, ThunkApiConfig>,

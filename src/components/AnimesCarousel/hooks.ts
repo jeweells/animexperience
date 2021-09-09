@@ -1,9 +1,15 @@
 import React, { useMemo, useState } from 'react'
 import useResizeObserver from 'use-resize-observer'
 
-export const useSliding = (gap: number, countElements: number, prevButtonWidth: number) => {
-    const { ref: containerRef, width: containerWidth = 1 } = useResizeObserver<HTMLDivElement>()
-    const { ref: scrollerRef, width: scrollerWidth = 1 } = useResizeObserver<HTMLDivElement>()
+export const useSliding = (
+    gap: number,
+    countElements: number,
+    prevButtonWidth: number,
+) => {
+    const { ref: containerRef, width: containerWidth = 1 } =
+        useResizeObserver<HTMLDivElement>()
+    const { ref: scrollerRef, width: scrollerWidth = 1 } =
+        useResizeObserver<HTMLDivElement>()
     const [viewed, setViewed] = useState(0)
     const availableScrollerWidth = scrollerWidth - prevButtonWidth
 
@@ -13,8 +19,13 @@ export const useSliding = (gap: number, countElements: number, prevButtonWidth: 
     const totalInViewport = useMemo(() => {
         const elementWidthWithGap = elementWidth + gap
 
-        let visibleElementsCount = Math.floor(availableScrollerWidth / elementWidthWithGap)
-        if (elementWidthWithGap * visibleElementsCount + elementWidth <= availableScrollerWidth) {
+        let visibleElementsCount = Math.floor(
+            availableScrollerWidth / elementWidthWithGap,
+        )
+        if (
+            elementWidthWithGap * visibleElementsCount + elementWidth <=
+            availableScrollerWidth
+        ) {
             visibleElementsCount++
         }
         return visibleElementsCount
@@ -23,13 +34,17 @@ export const useSliding = (gap: number, countElements: number, prevButtonWidth: 
     const [sliding, setSliding] = React.useState<boolean>(false)
     const handlePrev = () => {
         if (!sliding) {
-            setViewed((viewed) => Math.min(countElements, Math.max(viewed - totalInViewport, 0)))
+            setViewed((viewed) =>
+                Math.min(countElements, Math.max(viewed - totalInViewport, 0)),
+            )
         }
     }
 
     const handleNext = () => {
         if (!sliding) {
-            setViewed((viewed) => Math.min(countElements, Math.max(viewed + totalInViewport, 0)))
+            setViewed((viewed) =>
+                Math.min(countElements, Math.max(viewed + totalInViewport, 0)),
+            )
         }
     }
 

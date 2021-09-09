@@ -1,5 +1,6 @@
+import { IconButton } from 'gatsby-theme-material-ui'
 import React from 'react'
-import { Icon, IconButton } from 'rsuite'
+import { Icon } from 'rsuite'
 import { peek } from '../../../redux/reducers/peek'
 import { player } from '../../../redux/reducers/player'
 import { watch } from '../../../redux/reducers/watch'
@@ -33,23 +34,20 @@ export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({
             <IconButton
                 disabled={!hasMin}
                 onClick={() => dispatch(watch.previousEpisode())}
-                icon={<Icon icon={'angle-left'} size={'lg'} />}
-                size={'lg'}
-            />
+            >
+                <Icon icon={'angle-left'} />
+            </IconButton>
             <IconButton
                 onClick={() => {
                     if (!watching?.name) return
                     dispatch(peek.peek(watching.name))
                 }}
-                icon={<Icon icon={'bars'} size={'lg'} />}
-                size={'lg'}
-            />
-            <IconButton
-                disabled={!hasMax}
-                onClick={() => dispatch(watch.nextEpisode())}
-                icon={<Icon icon={'angle-right'} size={'lg'} />}
-                size={'lg'}
-            />
+            >
+                <Icon icon={'bars'} />
+            </IconButton>
+            <IconButton disabled={!hasMax} onClick={() => dispatch(watch.nextEpisode())}>
+                <Icon icon={'angle-right'} />
+            </IconButton>
         </React.Fragment>
     )
 })

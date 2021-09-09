@@ -1,11 +1,11 @@
 import Fade from '@material-ui/core/Fade'
 import React, { useCallback, useRef } from 'react'
 import { Waypoint } from 'react-waypoint'
-import { Icon, IconButton } from 'rsuite'
 import styled from 'styled-components'
 import { animeSearch } from '../../../redux/reducers/animeSearch'
 import { peek } from '../../../redux/reducers/peek'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import CloseButton from '../../atoms/CloseButton'
 import { FRowG16 } from '../../atoms/Layout'
 import { FExpand } from '../../atoms/Misc'
 import { CarouselTitle } from '../../atoms/Text'
@@ -67,11 +67,7 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                                 <span style={{ opacity: 0.8 }}>{result?.search}</span>
                             </CarouselTitle>
                             <FExpand />
-                            <IconButton
-                                onClick={onClose}
-                                icon={<Icon icon={'close'} size={'lg'} />}
-                                size={'lg'}
-                            />
+                            <CloseButton onClick={onClose} />
                         </FRowG16>
                         <Results>
                             {resultStatus === 'succeeded' ? (

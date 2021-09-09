@@ -10,7 +10,7 @@ const createPromise = (): UnmanagedPromise => {
         r.resolve = resolve
         r.reject = reject
     })
-    return (r as any) as UnmanagedPromise
+    return r as any as UnmanagedPromise
 }
 
 export const useAssertStatus = (status: Optional<FStatus>) => {

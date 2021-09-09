@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react'
-import { Button, Icon } from 'rsuite'
+import { Icon } from 'rsuite'
 import styled from 'styled-components'
 import { AnimeInfo } from '../../../../../globals/types'
 import { watch } from '../../../../../redux/reducers/watch'
@@ -7,10 +7,12 @@ import { useAppDispatch } from '../../../../../redux/store'
 import { FRowG16 } from '../../../../atoms/Layout'
 import { useWatched } from '../../../../hooks/useWatched'
 import WatchedRange from '../../../WatchedRange'
+import { Button } from 'gatsby-theme-material-ui'
 
 export const SEpisodeButton = styled(Button)`
     width: 100%;
     text-align: left;
+    justify-content: flex-start;
 `
 
 export type EpisodeButtonProps = {
@@ -21,6 +23,13 @@ export type EpisodeButtonProps = {
 const WatchedInfo = styled(FRowG16)`
     flex: 1;
     align-items: center;
+`
+
+const Content = styled(FRowG16)`
+    align-items: center;
+    width: 100%;
+    margin-right: 8px;
+    justify-content: space-between;
 `
 
 export const EpisodeButton: React.FC<EpisodeButtonProps> = React.memo(
@@ -41,7 +50,7 @@ export const EpisodeButton: React.FC<EpisodeButtonProps> = React.memo(
                     dispatch(watch.watchEpisode(epData))
                 }, [])}
             >
-                <FRowG16 style={{ alignItems: 'center' }}>
+                <Content>
                     <div>{`Episodio ${episode}`}</div>
                     <WatchedInfo>
                         {watched && (
@@ -53,7 +62,7 @@ export const EpisodeButton: React.FC<EpisodeButtonProps> = React.memo(
                         )}
                     </WatchedInfo>
                     <Icon icon={'caret-right'} />
-                </FRowG16>
+                </Content>
             </SEpisodeButton>
         )
     },

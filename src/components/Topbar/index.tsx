@@ -8,11 +8,11 @@ import React, {
     useState,
 } from 'react'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
-import { Icon, IconButton } from 'rsuite'
 import styled from 'styled-components'
 import { useAppSelector } from '../../../redux/store'
+import CloseButton from '../../atoms/CloseButton'
 import SearchBar from '../SearchBar'
-import fade from './fade.module.less'
+import * as fade from './fade.module.css'
 
 const Wrapper = styled.div`
     background: #25282e;
@@ -101,14 +101,14 @@ export const Topbar: React.FC<TopbarProps> = React.memo(({ children }) => {
                         </CSSTransition>
                     </SwitchTransition>
                     <Buttons>
-                        <IconButton
+                        <CloseButton
                             style={{
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                 // @ts-ignore
                                 WebkitAppRegion: 'no-drag',
                                 WebkitUserSelect: 'all',
                             }}
                             onClick={closeApp}
-                            icon={<Icon icon={'close'} />}
                         />
                     </Buttons>
                 </Wrapper>

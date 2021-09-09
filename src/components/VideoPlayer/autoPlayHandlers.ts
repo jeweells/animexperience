@@ -10,10 +10,12 @@ export const handleSpecificOptions = (
     contents: $IframeContents,
     episodeInfo: Optional<EpisodeInfo>,
 ): boolean => {
-    const methods: Partial<Record<
-        string,
-        (contents: $IframeContents, episodeInfo?: Optional<EpisodeInfo>) => boolean
-    >> = {
+    const methods: Partial<
+        Record<
+            string,
+            (contents: $IframeContents, episodeInfo?: Optional<EpisodeInfo>) => boolean
+        >
+    > = {
         fembed: handleFembedPlayer,
         okru: handleOkRuPlayer,
         mixdrop: handleMixDrop,

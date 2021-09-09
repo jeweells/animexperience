@@ -4,11 +4,14 @@ import { watch } from '../../../redux/reducers/watch'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import font from '../../fonts/Quicksand/Quicksand-Light.ttf'
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const currUrl = require('@electron/remote').getCurrentWindow().webContents.getURL()
+let currUrl = ''
+const updateUrl = () => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    currUrl = require('@electron/remote').getCurrentWindow().webContents.getURL()
+}
 // We need to form an absolute url since this element will be injected inside an iframe
 // and inside iframes, relatives url won't match ours
-export const quicksandCss = `
+export const quicksandCss = () => `
     @font-face {
         font-family: 'Quicksand';
         src: url('${new URL(font, currUrl).href}') format('truetype');
@@ -63,6 +66,7 @@ export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({
         dispatch(watch.setNextEpisodeButton(false))
         dispatch(watch.nextEpisode())
     }
+    React.useMemo(updateUrl, [])
 
     return (
         <Fade in={showNextButton} timeout={400}>
@@ -75,7 +79,7 @@ export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({
                 }}
             >
                 <style>
-                    {quicksandCss}
+                    {quicksandCss()}
                     {buttonCss}
                 </style>
                 <button
