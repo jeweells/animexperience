@@ -47,6 +47,7 @@ export const VideoPlayerWOptions: React.FC<VideoPlayerWOptionsProps> = React.mem
                 <OptionsRow className={'fade-in'}>
                     <STabs
                         variant={'scrollable'}
+                        style={{ flex: 1 }}
                         TabIndicatorProps={{
                             style: {
                                 display: 'none',
