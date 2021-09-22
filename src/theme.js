@@ -6,6 +6,7 @@ const theme = createTheme({
         fontFamily: ['Quicksand', 'sans-serif'].join(','),
     },
     palette: {
+        mode: 'dark',
         primary: {
             main: '#292d33',
             contrastText: '#e9ebf0',
