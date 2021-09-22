@@ -16,7 +16,8 @@
     "build:react": "gatsby build",
     "package": "npm-run-all build package:dist",
     "package:dist": "electron-builder -w portable",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx"
   },
   "keywords": [],
   "author": "Abraham Pacheco <abraham.pacheco6319@gmail.com>",
