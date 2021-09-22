@@ -1,8 +1,8 @@
-import { Fade } from '@material-ui/core'
 import React from 'react'
 import { watch } from '../../../redux/reducers/watch'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import font from '../../fonts/Quicksand/Quicksand-Light.ttf'
+import Fade from '@mui/material/Fade'
 
 let currUrl = ''
 const updateUrl = () => {

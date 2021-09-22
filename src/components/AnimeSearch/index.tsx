@@ -1,4 +1,3 @@
-import Fade from '@material-ui/core/Fade'
 import React, { useCallback, useRef } from 'react'
 import { Waypoint } from 'react-waypoint'
 import styled from 'styled-components'
@@ -14,6 +13,7 @@ import { Optional } from '../../types'
 import { AnimeDetails, AnimeDetailsEntry } from '../AnimeDetailsEntry'
 import { Content, Wrapper } from '../AnimePeek'
 import { ContentContext } from '../Topbar'
+import Fade from '@mui/material/Fade'
 
 export type AnimeSearchProps = {
     onClose?(): void

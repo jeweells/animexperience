@@ -1,5 +1,3 @@
-import { Fade } from '@material-ui/core'
-import { Skeleton, SkeletonProps } from '@material-ui/lab'
 import React from 'react'
 import CloseButton from '../../atoms/CloseButton'
 import { FCol, FColG16, FColG32, FColG8, FRowG32 } from '../../atoms/Layout'
@@ -10,6 +8,8 @@ import AnimesCarousel from '../../components/AnimesCarousel'
 import { range } from '../../utils'
 import AnimeCarouselContent from '../AnimeCarouselContent'
 import { GradientFadeIn } from '../GradientFadeIn'
+import Skeleton, { SkeletonProps } from '@mui/material/Skeleton'
+import Fade from '@mui/material/Fade'
 
 export type AnimePeekPlaceholderProps = {
     onClose?(): void
@@ -48,7 +48,7 @@ export const AnimePeekPlaceholder: React.FC<AnimePeekPlaceholderProps> = React.m
                                 <Skeleton
                                     animation={animation}
                                     height={425}
-                                    variant={'rect'}
+                                    variant={'rectangular'}
                                     width={'100%'}
                                     style={{
                                         borderRadius: 8,
@@ -112,7 +112,7 @@ export const AnimePeekPlaceholder: React.FC<AnimePeekPlaceholderProps> = React.m
                                                 <Skeleton
                                                     animation={animation}
                                                     height={40}
-                                                    variant={'rect'}
+                                                    variant={'rectangular'}
                                                     width={'100%'}
                                                     style={{
                                                         borderRadius: 8,

@@ -1,6 +1,6 @@
-import { Fade } from '@material-ui/core'
 import React from 'react'
 import { range } from '../../utils'
+import Fade from '@mui/material/Fade'
 
 export type GradientFadeInProps = {
     containerStyle?: React.CSSProperties

@@ -5,7 +5,10 @@ import { TopView } from '../../types'
 import AnimeSearch from '../AnimeSearch'
 import FullModal, { FullModalProps } from '../FullModal'
 
-export type AnimeSearchModalProps = {} & Omit<FullModalProps, 'show'>
+export type AnimeSearchModalProps = {} & Omit<
+    FullModalProps,
+    'show' | 'children' | 'view'
+>
 
 export const AnimeSearchModal: React.FC<AnimeSearchModalProps> = React.memo(
     ({ ...rest }) => {
@@ -16,7 +19,6 @@ export const AnimeSearchModal: React.FC<AnimeSearchModalProps> = React.memo(
                 <FullModal
                     view={TopView.SEARCH}
                     show={searching}
-                    full={false}
                     contrast={true}
                     {...rest}
                 >

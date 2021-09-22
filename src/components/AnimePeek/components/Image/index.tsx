@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFadeInStyles } from '../../../../globalMakeStyles/fadeIn'
 import { FStatus, Optional } from '../../../../types'
 import { rendererInvoke } from '../../../../utils'
 
@@ -9,6 +10,7 @@ export type ImageProps = {
 
 export const Image: React.FC<ImageProps> = React.memo(
     ({ animeName, containerStyle, ...rest }) => {
+        const { fadeIn } = useFadeInStyles()
         const [realUrl, setRealUrl] = React.useState<Optional<string>>(null)
         const [status, setStatus] = React.useState<FStatus>('idle')
         React.useLayoutEffect(() => {
@@ -40,7 +42,7 @@ export const Image: React.FC<ImageProps> = React.memo(
                         onLoad={() => {
                             setStatus('succeeded')
                         }}
-                        className={'fade-in'}
+                        className={fadeIn}
                         src={realUrl}
                         style={{
                             ...(rest.style || {}),

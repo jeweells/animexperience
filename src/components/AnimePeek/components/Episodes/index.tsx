@@ -1,5 +1,5 @@
+import Divider from '@mui/material/Divider'
 import React, { useMemo, useState } from 'react'
-import { Divider, Icon } from 'rsuite'
 import styled from 'styled-components'
 import { AnimeInfo } from '../../../../../globals/types'
 import ButtonWIcon from '../../../../atoms/ButtonWIcon'
@@ -7,6 +7,7 @@ import { FColG16, FRow } from '../../../../atoms/Layout'
 import { Optional } from '../../../../types'
 import { range } from '../../../../utils'
 import EpisodesGroup from '../EpisodesGroup'
+import SortIcon from '../SortIcon'
 
 export type EpisodesProps = {
     info: Optional<AnimeInfo>
@@ -51,11 +52,7 @@ export const Episodes: React.FC<EpisodesProps> = React.memo(
                     <SDivider />
                     <ButtonWIcon
                         onClick={toggleSort}
-                        icon={
-                            <Icon
-                                icon={sort > 0 ? 'sort-numeric-desc' : 'sort-numeric-asc'}
-                            />
-                        }
+                        icon={<SortIcon size={24} order={sort > 0 ? 'asc' : 'desc'} />}
                     >
                         Ordenar
                     </ButtonWIcon>

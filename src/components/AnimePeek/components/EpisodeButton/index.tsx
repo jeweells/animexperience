@@ -1,5 +1,4 @@
 import React, { useCallback, useMemo } from 'react'
-import { Icon } from 'rsuite'
 import styled from 'styled-components'
 import { AnimeInfo } from '../../../../../globals/types'
 import { watch } from '../../../../../redux/reducers/watch'
@@ -7,8 +6,8 @@ import { useAppDispatch } from '../../../../../redux/store'
 import { FRowG16 } from '../../../../atoms/Layout'
 import { useWatched } from '../../../../hooks/useWatched'
 import WatchedRange from '../../../WatchedRange'
-import { Button } from 'gatsby-theme-material-ui'
-
+import Button from '@mui/material/Button'
+import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded'
 export const SEpisodeButton = styled(Button)`
     width: 100%;
     text-align: left;
@@ -28,7 +27,6 @@ const WatchedInfo = styled(FRowG16)`
 const Content = styled(FRowG16)`
     align-items: center;
     width: 100%;
-    margin-right: 8px;
     justify-content: space-between;
 `
 
@@ -61,7 +59,9 @@ export const EpisodeButton: React.FC<EpisodeButtonProps> = React.memo(
                             />
                         )}
                     </WatchedInfo>
-                    <Icon icon={'caret-right'} />
+                    <PlayArrowRoundedIcon
+                        style={{ fontSize: '1.4rem', overflow: 'hidden' }}
+                    />
                 </Content>
             </SEpisodeButton>
         )

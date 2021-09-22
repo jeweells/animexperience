@@ -1,9 +1,9 @@
-import { Fade } from '@material-ui/core'
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { pixel } from '../../utils'
 import { useSizes } from '../AnimesCarousel/hooks'
 import CardPopover from '../CardPopover'
+import Fade from '@mui/material/Fade'
 
 export type AnimeEntryProps = {
     index: number

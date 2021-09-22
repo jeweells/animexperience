@@ -1,15 +1,16 @@
-import { Fade } from '@material-ui/core'
-import { Skeleton, SkeletonProps } from '@material-ui/lab'
 import React from 'react'
 import styled from 'styled-components'
 import { FCol, FRow } from '../../atoms/Layout'
 import { range } from '../../utils'
+import Skeleton, { SkeletonProps } from '@mui/material/Skeleton'
+import Fade from '@mui/material/Fade'
 
 export const Wrapper = styled(FCol)`
     position: relative;
     width: 100%;
     height: 100%;
     gap: 16px;
+    background-color: #292d33;
 `
 
 export const Options = styled(FRow)`
@@ -106,7 +107,7 @@ export const VideoPlayerWOptionsPlaceholder: React.FC<VideoPlayerWOptionsPlaceho
                                     <Skeleton
                                         animation={animation}
                                         height={'100%'}
-                                        variant={'rect'}
+                                        variant={'rectangular'}
                                         width={80}
                                         style={{
                                             borderRadius: 8,
@@ -119,7 +120,7 @@ export const VideoPlayerWOptionsPlaceholder: React.FC<VideoPlayerWOptionsPlaceho
                     </OptionsRow>
                     <Skeleton
                         animation={animation}
-                        variant={'rect'}
+                        variant={'rectangular'}
                         style={{ flex: 1 }}
                     />
                     <div
@@ -134,7 +135,7 @@ export const VideoPlayerWOptionsPlaceholder: React.FC<VideoPlayerWOptionsPlaceho
                     >
                         <Skeleton
                             animation={animation}
-                            variant={'rect'}
+                            variant={'rectangular'}
                             width={20}
                             height={20}
                             style={{
@@ -144,7 +145,7 @@ export const VideoPlayerWOptionsPlaceholder: React.FC<VideoPlayerWOptionsPlaceho
                         />
                         <Skeleton
                             animation={animation}
-                            variant={'rect'}
+                            variant={'rectangular'}
                             height={10}
                             style={{
                                 flex: 1,
@@ -154,7 +155,7 @@ export const VideoPlayerWOptionsPlaceholder: React.FC<VideoPlayerWOptionsPlaceho
                         <FullScreenClip size={24} id={'fullScreenClip'} />
                         <Skeleton
                             animation={animation}
-                            variant={'rect'}
+                            variant={'rectangular'}
                             width={24}
                             height={24}
                             style={{

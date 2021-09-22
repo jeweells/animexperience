@@ -1,10 +1,10 @@
-import { makeStyles } from '@material-ui/core'
-import Portal from '@material-ui/core/Portal'
-import { Theme as DefaultTheme } from '@material-ui/core/styles/createMuiTheme'
+import { makeStyles } from '@mui/styles'
+import { DefaultTheme } from '@mui/styles/defaultTheme'
 import React from 'react'
 import { Transition } from 'react-transition-group'
 import { useSizes } from '../AnimesCarousel/hooks'
 import { useContentRef } from '../Topbar'
+import Portal from '@mui/material/Portal'
 const useStyles = makeStyles<
     DefaultTheme,
     {

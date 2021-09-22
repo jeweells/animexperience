@@ -1,4 +1,3 @@
-import { Skeleton } from '@material-ui/lab'
 import React, { Fragment, useMemo } from 'react'
 import { Transition } from 'react-transition-group'
 import styled from 'styled-components'
@@ -7,6 +6,7 @@ import { CarouselTitle } from '../../atoms/Text'
 import { range } from '../../utils'
 import { NavigationButton } from './components/NavigationButton'
 import { useSizes, useSliding } from './hooks'
+import Skeleton from '@mui/material/Skeleton'
 
 const Scroller = styled.div`
     overflow-x: hidden;

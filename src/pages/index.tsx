@@ -13,10 +13,9 @@ import FollowedAnimesUpdates from '.././components/FollowedAnimesUpdates'
 import RecentAnimes from '.././components/RecentAnimes'
 import RecentlyWatchedRecommendations from '.././components/RecentlyWatchedRecommendations'
 import Topbar from '.././components/Topbar'
-import '.././index.less'
 import { VSpace } from '../atoms/Spacing'
 import { VideoPlayerModal } from '../components/VideoPlayerModal'
-
+import '../index.less'
 moment.locale('es')
 
 const App = () => {
@@ -30,18 +29,24 @@ const App = () => {
                 <RecentlyWatchedRecommendations />
                 <VSpace size={32} />
                 <VideoPlayerModal
-                    onExited={() => {
-                        dispatch(watch.reset())
+                    TransitionProps={{
+                        onExited: () => {
+                            dispatch(watch.reset())
+                        },
                     }}
                 />
                 <AnimePeekModal
-                    onExited={() => {
-                        dispatch(peek.setInfo(null))
+                    TransitionProps={{
+                        onExited: () => {
+                            dispatch(peek.setInfo(null))
+                        },
                     }}
                 />
                 <AnimeSearchModal
-                    onExited={() => {
-                        dispatch(animeSearch.setSearching(false))
+                    TransitionProps={{
+                        onExited: () => {
+                            dispatch(animeSearch.setSearching(false))
+                        },
                     }}
                 />
             </Topbar>

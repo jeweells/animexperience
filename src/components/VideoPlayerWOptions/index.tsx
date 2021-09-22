@@ -1,10 +1,11 @@
-import { Tabs } from '@material-ui/core'
 import React, { useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { useAppSelector } from '../../../redux/store'
+import { useFadeInStyles } from '../../globalMakeStyles/fadeIn'
 import { OptionsRow } from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import VideoPlayer, { VideoOption } from '../VideoPlayer'
 import OptionButton from './components/OptionButton'
+import Tabs from '@mui/material/Tabs'
 
 const STabs = styled(Tabs)`
     min-height: 0;
@@ -17,6 +18,7 @@ export type VideoPlayerWOptionsProps = {}
 
 export const VideoPlayerWOptions: React.FC<VideoPlayerWOptionsProps> = React.memo(
     ({ children }) => {
+        const { fadeIn } = useFadeInStyles()
         const availableOptions = useAppSelector((d) => d.watch.availableVideos)
         const usedOptions = useAppSelector((d) => d.playerOptions.options)
         const [currentOption, setCurrentOption] = useState<VideoOption | null>(null)
@@ -44,7 +46,7 @@ export const VideoPlayerWOptions: React.FC<VideoPlayerWOptionsProps> = React.mem
 
         return (
             <VideoPlayer option={currentOption}>
-                <OptionsRow className={'fade-in'}>
+                <OptionsRow className={fadeIn}>
                     <STabs
                         variant={'scrollable'}
                         style={{ flex: 1 }}

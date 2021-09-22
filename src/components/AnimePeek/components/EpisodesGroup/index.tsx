@@ -1,9 +1,9 @@
-import { Collapse } from '@material-ui/core'
 import React, { useMemo } from 'react'
 import { AnimeInfo } from '../../../../../globals/types'
 import { FCol, FColG16 } from '../../../../atoms/Layout'
 import { range } from '../../../../utils'
 import { EpisodeButton, SEpisodeButton } from '../EpisodeButton'
+import Collapse from '@mui/material/Collapse'
 
 export type EpisodesGroupProps = {
     size: number

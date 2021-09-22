@@ -1,12 +1,13 @@
-import { IconButton } from 'gatsby-theme-material-ui'
 import React from 'react'
-import { Icon } from 'rsuite'
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
 import { peek } from '../../../redux/reducers/peek'
 import { player } from '../../../redux/reducers/player'
 import { watch } from '../../../redux/reducers/watch'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { TopView } from '../../types'
-
+import IconButton from '@mui/material/IconButton'
+import KeyboardArrowLeftRoundedIcon from '@mui/icons-material/KeyboardArrowLeftRounded'
+import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded'
 export type EpisodeNavigationProps = {}
 
 export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({}) => {
@@ -35,7 +36,7 @@ export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({
                 disabled={!hasMin}
                 onClick={() => dispatch(watch.previousEpisode())}
             >
-                <Icon icon={'angle-left'} />
+                <KeyboardArrowLeftRoundedIcon />
             </IconButton>
             <IconButton
                 onClick={() => {
@@ -43,10 +44,10 @@ export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({
                     dispatch(peek.peek(watching.name))
                 }}
             >
-                <Icon icon={'bars'} />
+                <MenuRoundedIcon />
             </IconButton>
             <IconButton disabled={!hasMax} onClick={() => dispatch(watch.nextEpisode())}>
-                <Icon icon={'angle-right'} />
+                <KeyboardArrowRightRoundedIcon />
             </IconButton>
         </React.Fragment>
     )

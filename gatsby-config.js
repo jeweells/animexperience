@@ -38,27 +38,18 @@ module.exports = {
                 // ...
             },
         },
-        {
-            resolve: 'gatsby-plugin-material-ui',
-            options: {
-                stylesProvider: {
-                    injectFirst: true,
-                },
-            },
-        },
+        'gatsby-plugin-top-layout',
+        'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-plugin-less',
             options: {
                 lessOptions: {
                     javascriptEnabled: true,
-                    modifyVars: { '@base-color': '#f44336' },
                 },
                 cssLoaderOptions: {
                     modules: true,
                 },
             },
         },
-        'gatsby-theme-material-ui',
-        'gatsby-plugin-styled-components',
     ],
 }
