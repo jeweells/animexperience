@@ -1,30 +1,25 @@
-import React, { useEffect, useRef } from 'react'
-import { Modal, ModalProps } from 'rsuite'
+import Dialog, { DialogProps } from '@mui/material/Dialog'
+import Fade from '@mui/material/Fade'
+import React, { useLayoutEffect } from 'react'
 import styled from 'styled-components'
 import { topview } from '../../../redux/reducers/topview'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { TopView } from '../../types'
 import { useTopBarHeight } from '../Topbar'
 
-const SModal = styled(Modal)<{ topBarHeight: number; contrast?: boolean }>`
+const SModal = styled(Dialog)<{ topBarHeight: number; contrast?: boolean }>`
     margin: 0;
     width: 100vw;
     overflow: hidden;
     --modal-height: calc(100vh - ${(props) => props.topBarHeight}px);
     height: var(--modal-height);
-    top: ${(props) => props.topBarHeight}px;
-    .rs-modal {
-        &-dialog {
-            margin: 0;
-        }
-        &-content {
-            padding: 0;
-            width: 100vw;
-            height: var(--modal-height);
-            overflow: hidden;
-            border-radius: 0;
-            ${(props) => (props.contrast ? 'background-color: #0f131a;' : '')}
-        }
+    background-color: transparent;
+    .MuiDialog-container {
+        background-color: #0f131a;
+    }
+    top: ${(props) => props.topBarHeight}px !important;
+    .MuiPaper-root {
+        background-color: unset;
     }
 `
 
@@ -32,26 +27,16 @@ export type FullModalProps = {
     contrast?: boolean
     show: string | undefined
     view: TopView
-} & Omit<ModalProps, 'show'>
+} & Omit<DialogProps, 'open'>
 
 export const FullModal: React.FC<FullModalProps> = React.memo<FullModalProps>(
     ({ view, children, show, ...rest }) => {
         const topBarHeight = useTopBarHeight()
         const currentTopview = useAppSelector((d) => d.topview.views[0])
-        const ref = useRef(null)
         const dispatch = useAppDispatch()
 
-        // This tick will bring the modal top
-        useEffect(() => {
+        useLayoutEffect(() => {
             if (show) {
-                // Reopen only if it's not the current view
-                if (currentTopview !== view) {
-                    // @ts-ignore
-                    const node = ref.current?.modalRef?.current?.modalNodeRef?.current
-                    if (node) {
-                        document.body.appendChild(node)
-                    }
-                }
                 dispatch(topview.push(view))
             } else {
                 dispatch(topview.pop(view))
@@ -59,11 +44,27 @@ export const FullModal: React.FC<FullModalProps> = React.memo<FullModalProps>(
         }, [show])
         return (
             <SModal
-                ref={ref}
+                TransitionComponent={Fade}
+                fullScreen={true}
+                disableEnforceFocus={true}
                 topBarHeight={topBarHeight}
-                full={true}
-                show={!!show}
+                open={!!currentTopview && currentTopview === view}
                 {...rest}
+                TransitionProps={{
+                    appear: true,
+                    mountOnEnter: true,
+                    unmountOnExit: true,
+                    timeout: 300,
+                    ...rest.TransitionProps,
+                    onExited(...args) {
+                        // When show is valid the view is pushed into the topViews and the modal should not be
+                        // considered as closed
+                        // TODO: avoid calling the callbacks: onClose, onExiting
+                        if (!show) {
+                            rest.TransitionProps?.onExited?.(...args)
+                        }
+                    },
+                }}
             >
                 {children}
             </SModal>

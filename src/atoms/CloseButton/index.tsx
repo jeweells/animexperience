@@ -1,12 +1,11 @@
-import { IconButton } from 'gatsby-theme-material-ui'
 import React from 'react'
-import { Icon } from 'rsuite'
-import { IconButtonProps } from '@material-ui/core'
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
+import IconButton, { IconButtonProps } from '@mui/material/IconButton'
 
-export const CloseButton: React.FC<IconButtonProps> = React.memo((props) => {
+export const CloseButton = React.memo<IconButtonProps>((props) => {
     return (
         <IconButton {...props}>
-            <Icon icon={'close'} />
+            <CloseRoundedIcon />
         </IconButton>
     )
 })

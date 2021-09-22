@@ -1,5 +1,4 @@
 import React from 'react'
-import { ModalProps } from 'rsuite'
 import { player } from '../../../redux/reducers/player'
 import { playerOptions } from '../../../redux/reducers/playerOptions'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
@@ -7,10 +6,10 @@ import CloseButton from '../../atoms/CloseButton'
 import VideoPlayerWOptionsPlaceholder from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import { TopView } from '../../types'
 import EpisodeNavigation from '../EpisodeNavigation'
-import FullModal from '../FullModal'
+import FullModal, { FullModalProps } from '../FullModal'
 import VideoPlayerWOptions from '../VideoPlayerWOptions'
 
-export type VideoPlayerModalProps = Omit<ModalProps, 'show'>
+export type VideoPlayerModalProps = Omit<FullModalProps, 'show' | 'children' | 'view'>
 
 export const VideoPlayerModal: React.FC<VideoPlayerModalProps> =
     React.memo<VideoPlayerModalProps>(({ ...rest }) => {

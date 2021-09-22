@@ -3,6 +3,7 @@ import React from 'react'
 import useResizeObserver from 'use-resize-observer'
 import { useAppSelector } from '../../../redux/store'
 import { FCol } from '../../atoms/Layout'
+import { useFadeInStyles } from '../../globalMakeStyles/fadeIn'
 import { Wrapper } from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import NextEpisodeButton from '../NextEpisodeButton'
 import { useVideoImprovements } from './hooks'
@@ -19,10 +20,11 @@ const IFrame: React.FC<{
     html?: string
     updateRef?(r: HTMLDivElement | null): void
 }> = React.memo(({ html, updateRef, children }) => {
+    const { fadeIn } = useFadeInStyles()
     if (!html) return null
     return (
         <FCol
-            className={'fade-in'}
+            className={fadeIn}
             style={{ flex: 1, width: '100%', overflow: 'hidden', position: 'relative' }}
             ref={updateRef}
         >

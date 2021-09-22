@@ -1,10 +1,11 @@
 import React from 'react'
-import { Icon } from 'rsuite'
 import styled from 'styled-components'
 import { VideoOption } from '../../../VideoPlayer'
 import { usePlayerOption } from './hooks'
-import { Button } from 'gatsby-theme-material-ui'
-import { ButtonGroup } from '@material-ui/core'
+import ButtonGroup from '@mui/material/ButtonGroup'
+import Button from '@mui/material/Button'
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded'
+import StarRoundedIcon from '@mui/icons-material/StarRounded'
 
 export type OptionButtonProps = {
     onClick?(): void
@@ -44,7 +45,7 @@ export const OptionButton: React.FC<OptionButtonProps> = React.memo(
                         prefer(!optionInfo?.prefer)
                     }}
                 >
-                    <Icon icon={optionInfo?.prefer ? 'star' : 'star-o'} />
+                    {optionInfo?.prefer ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
                 </StarButton>
                 <ActionButton
                     disabled={disabled}

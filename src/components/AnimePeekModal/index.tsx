@@ -6,7 +6,7 @@ import { TopView } from '../../types'
 import AnimePeek from '../AnimePeek'
 import FullModal, { FullModalProps } from '../FullModal'
 
-export type AnimePeekModalProps = {} & Omit<FullModalProps, 'show'>
+export type AnimePeekModalProps = {} & Omit<FullModalProps, 'show' | 'children' | 'view'>
 
 export const AnimePeekModal: React.FC<AnimePeekModalProps> = React.memo(({ ...rest }) => {
     const peeking = useAppSelector((d) => d.peek.peeking)
@@ -18,13 +18,7 @@ export const AnimePeekModal: React.FC<AnimePeekModalProps> = React.memo(({ ...re
     }
 
     return (
-        <FullModal
-            view={TopView.PEEK}
-            show={peeking}
-            full={false}
-            contrast={true}
-            {...rest}
-        >
+        <FullModal view={TopView.PEEK} show={peeking} contrast={true} {...rest}>
             {status === 'succeeded' ? (
                 <AnimePeek onClose={handleClose} />
             ) : (

@@ -1,9 +1,10 @@
-import { ButtonProps, makeStyles, ButtonBase, lighten } from '@material-ui/core'
 import React from 'react'
+import { makeStyles } from '@mui/styles'
+import { lighten, Theme, ButtonProps, ButtonBase } from '@mui/material'
 
-const useStyles = makeStyles((theme) => {
-    const root = theme.overrides?.MuiButton?.root
-    const text = theme.overrides?.MuiButton?.text
+const useStyles = makeStyles<Theme>((theme) => {
+    const root: any = theme.components?.MuiButton?.styleOverrides?.root
+    const text: any = theme.components?.MuiButton?.styleOverrides?.text
     return {
         common: {
             transition: 'color 0.2s linear, background-color 0.3s linear',
@@ -18,6 +19,10 @@ const useStyles = makeStyles((theme) => {
             ...text,
             backgroundColor: theme.palette.secondary.main,
             borderRadius: 0,
+            display: 'flex',
+            flexDirection: 'row',
+            flex: 0,
+            alignItems: 'center',
         },
         wrapper: {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment

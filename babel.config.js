@@ -8,7 +8,6 @@ module.exports = {
     presets: [
         '@babel/preset-react',
         '@babel/preset-typescript',
-        ['rsuite', { style: true, theme: 'dark' }],
         [
             'babel-preset-gatsby',
             {

@@ -1,9 +1,9 @@
-import { Fade } from '@material-ui/core'
 import React from 'react'
 import { AnimeLinkToEpisode } from '../../../electron/linkBuilder'
 import { FollowedAnimeWStatus } from '../../../redux/reducers/followedAnimes'
 import AnimeEntryPlaceholder from '../../placeholders/AnimeEntryPlaceholder'
 import { AnimeEpisodeEntry, AnimeEpisodeEntryProps } from '../AnimeEpisodeEntry'
+import Fade from '@mui/material/Fade'
 
 export type FollowedAnimeEpisodeEntryProps = Omit<AnimeEpisodeEntryProps, 'anime'> & {
     followed: FollowedAnimeWStatus
