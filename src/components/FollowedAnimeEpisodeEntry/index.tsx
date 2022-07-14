@@ -15,7 +15,7 @@ export const FollowedAnimeEpisodeEntry: React.FC<FollowedAnimeEpisodeEntryProps>
             if (!followed) return {}
             return {
                 name: followed.name,
-                link: new AnimeLinkToEpisode(followed.link, 'animeid').withEpisode(
+                link: new AnimeLinkToEpisode(followed.link, 'animeflv').withEpisode(
                     followed.nextEpisodeToWatch,
                 ),
                 episode: followed.nextEpisodeToWatch,

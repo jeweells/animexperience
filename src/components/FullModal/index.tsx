@@ -19,7 +19,8 @@ const SModal = styled(Dialog)<{ topBarHeight: number; contrast?: boolean }>`
     }
     top: ${(props) => props.topBarHeight}px !important;
     .MuiPaper-root {
-        background-color: unset;
+        background-image: unset;
+        background-color: ${(props) => (props.contrast ? '#0f131a' : 'unset')};
     }
 `
 

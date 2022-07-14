@@ -1,15 +1,20 @@
 import cheerio from 'cheerio'
-import { searchMalAnime } from './searchAnime'
+import { Logger } from 'tslog'
 import fetch from 'node-fetch'
+import { searchMalAnime } from './searchAnime/searchMalAnime'
+
+const logger = new Logger({ name: 'getAnimeRecommendations' })
 
 export const getAnimeRecommendations = async (animeName: string) => {
-    console.debug('Getting anime recommendations')
+    // Maximum 100 characters
+    animeName = animeName.slice(0, 100)
+    logger.debug('Getting anime recommendations')
     const animes = await searchMalAnime(animeName)
-    console.debug(`Found ${animes.length} animes that matches ${animeName}`)
+    logger.debug(`Found ${animes.length} animes that matches ${animeName}`)
     if (animes.length > 0) {
-        console.debug('Best match:', animes[0])
+        logger.debug('Best match:', animes[0])
         const recs = (await getMalAnimeRecommendations(animes[0].url)) ?? []
-        console.debug(`Got recommendations for ${animeName}:`, recs.length)
+        logger.debug(`Got recommendations for ${animeName}:`, recs.length)
         return recs
     }
     return []
@@ -29,19 +34,19 @@ const getMalImageFromSrcSet = (srcset: string) => {
         })
         .filter((x) => !!x)
     if (images.length === 0) {
-        console.debug('No images found for', srcset)
+        logger.debug('No images found for', srcset)
         return ''
     }
     return malImageUrlToImage(images[0])
 }
 
 export const getMalAnimeRecommendations = async (malUrl: string) => {
-    console.debug('Fetching MalAnimeRecommendations')
+    logger.debug('Fetching MalAnimeRecommendations')
     const body = await fetch(new URL(malUrl)).then((x) => x.text())
-    console.debug('Parsing html')
+    logger.debug('Parsing html')
     const $ = cheerio.load(body)
     const items = $('#anime_recommendation li.btn-anime > a[href]')
-    console.debug('Found', items.length, 'items')
+    logger.debug('Found', items.length, 'items')
     return items
         .map((idx, elm) => {
             const node = $(elm)
@@ -59,10 +64,10 @@ export const getMalAnimeRecommendations = async (malUrl: string) => {
                         image: getMalImageFromSrcSet(srcset),
                     }
                 } else {
-                    console.debug(`Not found id for link: "${link}"`)
+                    logger.debug(`Not found id for link: "${link}"`)
                 }
             } else {
-                console.debug('Not found link for node', idx)
+                logger.debug('Not found link for node', idx)
             }
             return null
         })

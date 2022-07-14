@@ -1,6 +1,5 @@
 import React, { useCallback, useRef } from 'react'
 import { Waypoint } from 'react-waypoint'
-import styled from 'styled-components'
 import { animeSearch } from '../../../redux/reducers/animeSearch'
 import { peek } from '../../../redux/reducers/peek'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
@@ -14,27 +13,11 @@ import { AnimeDetails, AnimeDetailsEntry } from '../AnimeDetailsEntry'
 import { Content, Wrapper } from '../AnimePeek'
 import { ContentContext } from '../Topbar'
 import Fade from '@mui/material/Fade'
+import Grid from '@mui/material/Grid'
 
 export type AnimeSearchProps = {
     onClose?(): void
 }
-
-const Results = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    gap: 16px;
-    justify-content: space-between;
-    width: 100%;
-    @media (max-width: 1000px) {
-        grid-template-columns: repeat(3, auto);
-    }
-    @media (max-width: 800px) {
-        grid-template-columns: repeat(2, auto);
-    }
-    @media (max-width: 500px) {
-        grid-template-columns: repeat(1, auto);
-    }
-`
 
 export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) => {
     const resultStatus = useAppSelector((d) => d.animeSearch.status.result)
@@ -61,7 +44,10 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                     >
                         <FRowG16 style={{ alignItems: 'center' }}>
                             <CarouselTitle
-                                style={{ fontSize: '1.5rem', whiteSpace: 'pre' }}
+                                style={{
+                                    fontSize: '1.5rem',
+                                    whiteSpace: 'pre',
+                                }}
                             >
                                 Resultados de{' '}
                                 <span style={{ opacity: 0.8 }}>{result?.search}</span>
@@ -69,19 +55,27 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                             <FExpand />
                             <CloseButton onClick={onClose} />
                         </FRowG16>
-                        <Results>
+                        <Grid container spacing={2}>
                             {resultStatus === 'succeeded' ? (
                                 <>
                                     {result?.matches.map((match, idx) => {
                                         return (
-                                            <AnimeDetailsEntry
+                                            <Grid
+                                                item
                                                 key={idx}
-                                                visible={true}
-                                                onClick={handleAnimePeek}
-                                                anime={match}
-                                                // This index manages opacity animation timeout
-                                                index={idx % 36}
-                                            />
+                                                lg={3}
+                                                md={4}
+                                                sm={6}
+                                                xs={12}
+                                            >
+                                                <AnimeDetailsEntry
+                                                    visible={true}
+                                                    onClick={handleAnimePeek}
+                                                    anime={match}
+                                                    // This index manages opacity animation timeout
+                                                    index={idx % 36}
+                                                />
+                                            </Grid>
                                         )
                                     })}
                                     {['idle', 'succeeded'].includes(
@@ -102,7 +96,7 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                             ) : (
                                 <AnimeSearchPlaceholder count={36} />
                             )}
-                        </Results>
+                        </Grid>
                     </Content>
                 </Wrapper>
             </Fade>

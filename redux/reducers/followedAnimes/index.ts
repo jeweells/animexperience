@@ -54,7 +54,8 @@ const fetchStore = createAsyncThunk('followedAnimes/fetchStore', async (arg, api
                     }
                     console.debug('Getting anime info of', value.name)
                     const info: AnimeInfo = await rendererInvoke(
-                        'getAnimeIDInfo',
+                        'getAnimeFlvInfo',
+                        value.name,
                         value.link,
                     )
                     if (

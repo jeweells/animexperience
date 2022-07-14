@@ -20,6 +20,7 @@ export const handleSpecificOptions = (
         okru: handleOkRuPlayer,
         mixdrop: handleMixDrop,
         streamtape: handleStreamtape,
+        stape: handleStreamtape,
     }
     const handler = methods[option?.name?.toLowerCase() ?? '']
     if (handler) {

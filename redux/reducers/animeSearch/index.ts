@@ -21,7 +21,7 @@ interface AnimeSearchState {
 
 const search = createAsyncThunk('animeSearch/search', async (name: string, api) => {
     const result: DeepAnimeIdSearchResult = await rendererInvoke(
-        'deepSearchAnimeId',
+        'deepSearchAnimeFlv',
         name,
     )
     api.dispatch(
@@ -50,7 +50,7 @@ const searchMore = createAsyncThunk('animeSearch/searchMore', async (arg, api) =
     }
 
     const result: DeepAnimeIdSearchResult = await rendererInvoke(
-        'deepSearchAnimeIdByPage',
+        'deepSearchAnimeFlvByPage',
         current.search,
         current.nextPage,
     )

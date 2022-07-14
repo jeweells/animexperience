@@ -16,16 +16,16 @@ import watched from './reducers/watched'
 import watchHistory from './reducers/watchHistory'
 
 const store = configureStore({
-    reducer: {
-        test,
-        watch,
-        player,
-        watched,
-        recommendations,
-        watchHistory,
-        peek,
-        topview,
-        playerOptions,
+            reducer: {
+                test,
+                watch,
+                player,
+                watched,
+                recommendations,
+                watchHistory,
+                peek,
+                topview,
+                playerOptions,
         animeSearch,
         followedAnimes,
     },

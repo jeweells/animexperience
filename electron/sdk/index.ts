@@ -1,37 +1,55 @@
 import { ipcMain } from 'electron'
 import { cached } from '../cache'
 import invokeNames from '../invokeNames'
-import { deepSearchAnimeId, deepSearchAnimeIdByPage } from './deepSearchAnime'
+import { retry } from '../retry'
+import {
+    deepSearchAnimeFlv,
+    deepSearchAnimeFlvByPage,
+} from './deepSearchAnime/deepSearchAnimeFlv'
+import {
+    deepSearchAnimeId,
+    deepSearchAnimeIdByPage,
+} from './deepSearchAnime/deepSearchAnimeId'
+import { getAnimeFlvInfo } from './getAnimeInfo/getAnimeFlvInfo'
 import { getAnimeImage } from './getAnimeImage'
 import { getAnimeRecommendations } from './getAnimeRecommendations'
-import { getAnimeIDInfo } from './getAnimeIDInfo'
-import { getAnimeIDEpisodeVideos, getJKAnimeEpisodeVideos } from './getEpisodeVideos'
+import { getAnimeIDInfo } from './getAnimeInfo/getAnimeIDInfo'
+import { getAnimeFlvEpisodeVideos } from './getEpisodeVideos/getAnimeFlvEpisodeVideos'
+import { getAnimeIDEpisodeVideos } from './getEpisodeVideos/getAnimeIDEpisodeVideos'
+import { getJKAnimeEpisodeVideos } from './getEpisodeVideos/getJKAnimeEpisodeVideos'
 import { getRecentAnimes } from './getRecentAnimes'
 import { keyDown } from './inputEvents'
 import {
-    searchAIDFromMALEpisode,
-    searchAnimeID,
-    searchJKAnime,
-    searchMalAnime,
-} from './searchAnime'
+    searchAnimeFlv,
+    searchAnimeFlvFromMALEpisode,
+} from './searchAnime/searchAnimeFlv'
+import { searchAnimeID } from './searchAnime/searchAnimeId'
+import { searchJKAnime } from './searchAnime/searchJKAnime'
+import { searchMalAnime } from './searchAnime/searchMalAnime'
 
 export const setupSdk = () => {
     console.debug('Setting up sdk')
     for (const fn of [
         invokeNames.getRecentAnimes.link(getRecentAnimes),
         invokeNames.getAnimeIDInfo.link(getAnimeIDInfo),
+        invokeNames.getAnimeFlvInfo.link(getAnimeFlvInfo),
+        invokeNames.getAnimeFlvEpisodeVideos.link(getAnimeFlvEpisodeVideos),
         invokeNames.getAnimeIDEpisodeVideos.link(getAnimeIDEpisodeVideos),
         invokeNames.getJKAnimeEpisodeVideos.link(getJKAnimeEpisodeVideos),
-        invokeNames.searchAIDFromMALEpisode.link(searchAIDFromMALEpisode),
+        invokeNames.searchAIDFromMALEpisode.link(searchAnimeFlvFromMALEpisode),
         invokeNames.searchJKAnime.link(searchJKAnime),
         invokeNames.searchMalAnime.link(searchMalAnime),
         invokeNames.searchAnimeID.link(searchAnimeID),
+        invokeNames.searchAnimeFlv.link(searchAnimeFlv),
         invokeNames.getAnimeRecommendations.link(getAnimeRecommendations),
         invokeNames.getAnimeImage.link(getAnimeImage),
         invokeNames.deepSearchAnimeId.link(deepSearchAnimeId),
+        invokeNames.deepSearchAnimeFlv.link(deepSearchAnimeFlv),
         invokeNames.deepSearchAnimeIdByPage.link(deepSearchAnimeIdByPage),
+        invokeNames.deepSearchAnimeFlvByPage.link(deepSearchAnimeFlvByPage),
         // Allow the use of a cache for any result
     ]
+        .map(retry)
         .map((fn) => {
             if (fn.fn) {
                 fn.fn = cached(fn.fn)

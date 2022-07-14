@@ -23,6 +23,7 @@ export const handleFullScreen = (
         okru: handleOkru,
         mixdrop: handleMixDrop,
         streamtape: handleStreamtape,
+        stape: handleStreamtape,
         nozomi: handleNozomi,
         desu: handleNozomi,
         'xtreme s': handleXtremeS,

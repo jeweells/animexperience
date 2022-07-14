@@ -1,14 +1,21 @@
 import cheerio from 'cheerio'
 import fetch from 'node-fetch'
+import { Logger } from 'tslog'
+import { listRecentAnimes } from '../scanners/animeflv/fns/listRecentAnimes'
+import { BASE_ORIGIN, createAnimeFlvRequest } from '../scanners/animeflv/window'
+
+const logger = new Logger({ name: 'getRecentAnimes' })
 
 export const getRecentAnimes = async () => {
-    console.debug('Getting recent animes...')
+    logger.debug('Getting recent animes...')
+    return await createAnimeFlvRequest(BASE_ORIGIN, listRecentAnimes)
+
     const animeIdHome = await fetch(new URL('https://www.animeid.tv')).then((x) =>
         x.text(),
     )
-    console.debug('Getting episode html...')
+    logger.debug('Getting episode html...')
     const $ = cheerio.load(animeIdHome)
-    console.debug('Parsing html...')
+    logger.debug('Parsing html...')
     const episodeRegex = /[0-9]+$/m
     return $('section.main > section.lastcap > div.dia')
         .map((idx, b) => {

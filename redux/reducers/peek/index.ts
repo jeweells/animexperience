@@ -24,10 +24,10 @@ const _peek = createAsyncThunk('peek/peek', async (name: string, api) => {
     api.dispatch(peek.setPeeking(uuidv4()))
 
     const animes: AnimeIDAnimeMatch[] =
-        (await rendererInvoke('searchAnimeID', name)) ?? []
+        (await rendererInvoke('searchAnimeFlv', name)) ?? []
     const anime = animes?.[0]
     if (anime?.link) {
-        const info = await rendererInvoke('getAnimeIDInfo', anime.link)
+        const info = await rendererInvoke('getAnimeFlvInfo', anime.name, anime.link)
         api.dispatch(peek.setInfo(info))
         return info
     }
