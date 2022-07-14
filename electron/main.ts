@@ -3,13 +3,14 @@ import installExtension, {
     REACT_DEVELOPER_TOOLS,
     REDUX_DEVTOOLS,
 } from 'electron-devtools-installer'
+
+import serve from 'electron-serve'
+import moment from 'moment'
+import 'moment/locale/es'
 import { setupBlocker } from './blocker'
 import setupSdk from './sdk'
 import { setupStores } from './store'
-import moment from 'moment'
-import 'moment/locale/es'
 
-import serve from 'electron-serve'
 moment.locale('es')
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV !== 'development') serve({ directory: 'dist/renderer' }
 // Comment in order to make the react dev tools work
 app.commandLine.appendSwitch('disable-site-isolation-trials')
 let mainWindow: Electron.BrowserWindow | null
+
 // eslint-disable-next-line no-console
 async function createWindow() {
     console.debug('Creating window')
@@ -49,7 +51,11 @@ async function createWindow() {
     // Referrer needed to display some players in JKAnime.net
     session.defaultSession.webRequest.onBeforeSendHeaders(
         {
-            urls: ['https://jkanime.net/*'],
+            urls: [
+                'https://jkanime.net/*',
+                'https://www3.animeflv.net/*',
+                'https://animeflv.net/*',
+            ],
         },
         (details, callback) => {
             const url = new URL(details.url)

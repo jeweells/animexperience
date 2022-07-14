@@ -2,6 +2,15 @@ import { createTheme } from '@mui/material/styles'
 export const mainColor = 'rgb(105, 190, 213)'
 
 const theme = createTheme({
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 500,
+            md: 800,
+            lg: 1000,
+            xl: 1200,
+        },
+    },
     typography: {
         fontFamily: ['Quicksand', 'sans-serif'].join(','),
     },
@@ -97,12 +106,15 @@ const theme = createTheme({
             },
         },
         MuiSkeleton: {
+            defaultProps: {
+                animation: 'pulse',
+            },
             styleOverrides: {
                 root: {
                     backgroundColor: 'rgba(255, 255, 255, 0.11)',
                 },
                 pulse: {
-                    animation: 'MuiSkeleton-keyframes-pulse 3s ease-in 0.5s infinite',
+                    animationDuration: '1.5s 0.5s',
                 },
             },
         },

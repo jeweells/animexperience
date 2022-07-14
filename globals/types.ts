@@ -35,7 +35,7 @@ export type AnimeInfo = Partial<{
     description: string
     image: string
     tags: string[]
-    type: 'Serie'
+    type: 'Ova' | 'Serie' | 'Película' | 'Especial'
     status: 'En emisión' | 'Finalizada'
     emitted: Partial<{ from: number; to: number }>
     related: Array<RelatedAnime>

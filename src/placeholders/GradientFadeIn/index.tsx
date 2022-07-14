@@ -11,6 +11,7 @@ export type GradientFadeInProps = {
     minOpacity?: number
     mode?: 'lr' | 'rl' | 'random'
     render(index: number): React.ReactNode
+    renderWrapper?(props: any, children: React.ReactNode): React.ReactNode
 }
 
 export const GradientFadeIn: React.FC<GradientFadeInProps> = React.memo(
@@ -19,10 +20,13 @@ export const GradientFadeIn: React.FC<GradientFadeInProps> = React.memo(
         count,
         style,
         mode = 'lr',
-        minTimeout = 2000,
+        minTimeout = 200,
         minOpacity = 0.5,
         stepTimeout = 500,
         render,
+        renderWrapper = ((props, children) => (
+            <div {...props}>{children}</div>
+        )) as Required<GradientFadeInProps>['renderWrapper'],
     }) => {
         const getTimeout = (idx: number) => {
             switch (mode) {
@@ -49,18 +53,17 @@ export const GradientFadeIn: React.FC<GradientFadeInProps> = React.memo(
         return (
             <React.Fragment>
                 {range(count).map((idx) => {
-                    return (
-                        <div
-                            key={idx}
-                            style={{
+                    return renderWrapper(
+                        {
+                            key: idx,
+                            style: {
                                 ...(style || {}),
                                 opacity: getOpacity(idx),
-                            }}
-                        >
-                            <Fade in={true} appear={true} timeout={getTimeout(idx)}>
-                                <div style={containerStyle}>{render(idx)}</div>
-                            </Fade>
-                        </div>
+                            },
+                        },
+                        <Fade in={true} appear={true} timeout={getTimeout(idx)}>
+                            <div style={containerStyle}>{render(idx)}</div>
+                        </Fade>,
                     )
                 })}
             </React.Fragment>

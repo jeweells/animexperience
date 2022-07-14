@@ -1,5 +1,5 @@
 import { malImageUrlToImage } from './getAnimeRecommendations'
-import { searchMalAnime } from './searchAnime'
+import { searchMalAnime } from './searchAnime/searchMalAnime'
 
 export const getAnimeImage = (animeName: string) => {
     return getMalAnimeImage(animeName)

@@ -22,6 +22,17 @@ interface WatchState {
     autoFullScreen?: boolean
 }
 
+const changeWatchingEpisode = (state: WatchState, episode: number): RecentAnimeData => {
+    const { info, watching } = state
+    return {
+        date: watching?.date,
+        name: info?.title,
+        episode,
+        img: info?.image?.replace('/covers/', '/thumbs/') ?? watching?.img,
+        link: info?.episodeLink.replace(info?.episodeReplace ?? '', String(episode)),
+    }
+}
+
 // Define the initial state using that type
 const initialState: WatchState = {
     status: {},
@@ -35,20 +46,41 @@ const getAvailableVideos = createAsyncThunk('watch/availableVideos', async (arg,
         return api.rejectWithValue('Needs to be watching to request available videos')
     }
     console.debug('Getting available videos of', anime)
-    return await Promise.all([
-        rendererInvoke('getAnimeIDEpisodeVideos', anime.link),
-        rendererInvoke('getJKAnimeEpisodeVideos', anime.name, anime.episode),
-    ]).then((x) =>
-        (x.filter(Array.isArray).flat(1) as VideoOption[]).filter((x) => {
-            const opt = x.name?.toLowerCase()
-            switch (opt) {
-                // IOS: What a horrible option full of ads and annoying stuff
-                case 'ios':
-                    return false
-            }
-            return true
-        }),
-    )
+    const FEW_VIDEOS = 3
+
+    const filter = (x: VideoOption) => {
+        const opt = x.name?.toLowerCase()
+        switch (opt) {
+            // IOS: What a horrible option full of ads and annoying stuff
+            case 'ios':
+                return false
+        }
+        return true
+    }
+    const videos = [
+        (
+            await rendererInvoke(
+                'getAnimeFlvEpisodeVideos',
+                anime.name,
+                anime.episode,
+                anime.link,
+            )
+        ).filter(filter),
+    ]
+    if (videos[0].length <= FEW_VIDEOS) {
+        videos.concat(
+            await Promise.all([
+                rendererInvoke(
+                    'getAnimeIDEpisodeVideos',
+                    anime.name,
+                    anime.episode,
+                    anime.link,
+                ),
+                rendererInvoke('getJKAnimeEpisodeVideos', anime.name, anime.episode),
+            ]),
+        )
+    }
+    return (videos.filter(Array.isArray).flat(1) as VideoOption[]).filter(filter)
 })
 
 const getAnimeInfo = createAsyncThunk('watch/getAnimeInfo', async (arg, api) => {
@@ -59,9 +91,11 @@ const getAnimeInfo = createAsyncThunk('watch/getAnimeInfo', async (arg, api) => 
     }
     console.debug('Getting anime INFO', anime)
     return await rendererInvoke(
-        'getAnimeIDInfo',
+        'getAnimeFlvInfo',
+        anime.name,
         anime.link
             ?.replace('animeid.tv/v/', 'animeid.tv/')
+            .replace('animeflv.net/ver/', 'animeflv.net/anime/')
             .replace(new RegExp(`-${anime.episode}$`), ''),
     )
 })
@@ -78,14 +112,7 @@ const nextEpisode = createAsyncThunk('watch/nextEpisode', async (arg, api) => {
         console.debug('Called next episode, fullscreen:', !!document.fullscreenElement)
         // If the user is on fullscreen mode, the next video will be played on fullscreen mode
         api.dispatch(watch.setAutoFullScreen(!!document.fullscreenElement))
-        await api.dispatch(
-            watchEpisode({
-                ...watching,
-                episode: newEpisode,
-                // AnimeID link
-                link: watching.link?.replace(/[0-9]+$/, String(newEpisode)),
-            }),
-        )
+        await api.dispatch(watchEpisode(changeWatchingEpisode(state.watch, newEpisode)))
     }
 })
 
@@ -94,14 +121,7 @@ const previousEpisode = createAsyncThunk('watch/previousEpisode', async (arg, ap
     const watching = state.watch.watching
     if (watching && typeof watching.episode === 'number') {
         const newEpisode = watching.episode - 1
-        await api.dispatch(
-            watchEpisode({
-                ...watching,
-                episode: newEpisode,
-                // AnimeID link
-                link: watching.link?.replace(/[0-9]+$/, String(newEpisode)),
-            }),
-        )
+        await api.dispatch(watchEpisode(changeWatchingEpisode(state.watch, newEpisode)))
     }
 })
 

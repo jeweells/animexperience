@@ -95,14 +95,14 @@ export const useVideo = (
                     clearInterval(refs.fsHandle)
                 }
             }
-            refs.handle = setInterval(check, ms)
+            refs.handle = window.setInterval(check, ms)
             check()
             const autoFullScreen = store.getState().watch.autoFullScreen
             console.debug('Displaying with fullscreen:', autoFullScreen)
             if (autoFullScreen) {
                 // Disable auto fullscreen until the next episode is triggered
                 dispatch(watch.setAutoFullScreen(false))
-                refs.fsHandle = setInterval(checkFs, ms)
+                refs.fsHandle = window.setInterval(checkFs, ms)
                 checkFs()
             }
             return () => {
