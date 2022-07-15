@@ -72,5 +72,5 @@ export const getMalAnimeRecommendations = async (malUrl: string) => {
             return null
         })
         .toArray()
-        .filter((x) => !!x)
+        .filter((x) => !!x && Number.isFinite(x.id) && x.name && x.image)
 }
