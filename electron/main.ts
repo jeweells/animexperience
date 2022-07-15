@@ -10,6 +10,9 @@ import 'moment/locale/es'
 import { setupBlocker } from './blocker'
 import setupSdk from './sdk'
 import { setupStores } from './store'
+import { getMainWindow, setMainWindow } from './windows'
+import { setupOpenUrl } from './sdk/openUrl'
+import eventNames from './eventNames'
 
 moment.locale('es')
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -17,26 +20,31 @@ moment.locale('es')
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('@electron/remote/main').initialize()
 
+setupOpenUrl((invokedLink) => {
+    console.debug({ invokedLink })
+    getMainWindow()?.webContents.send(eventNames.linkInvoked, invokedLink)
+})
 if (process.env.NODE_ENV !== 'development') serve({ directory: 'dist/renderer' })
 // Comment in order to make the react dev tools work
 app.commandLine.appendSwitch('disable-site-isolation-trials')
-let mainWindow: Electron.BrowserWindow | null
 
 // eslint-disable-next-line no-console
 async function createWindow() {
     console.debug('Creating window')
-    mainWindow = new BrowserWindow({
-        width: 1100,
-        height: 700,
-        backgroundColor: '#191622',
-        frame: false,
-        webPreferences: {
-            nodeIntegration: true,
-            webSecurity: false,
-            contextIsolation: false,
-            enableRemoteModule: true,
-        },
-    })
+    const mainWindow = setMainWindow(
+        new BrowserWindow({
+            width: 1100,
+            height: 700,
+            backgroundColor: '#191622',
+            frame: false,
+            webPreferences: {
+                nodeIntegration: true,
+                webSecurity: false,
+                contextIsolation: false,
+                enableRemoteModule: true,
+            },
+        }),
+    )
     const publicPath =
         process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : 'app://-'
     console.debug('Public path:', publicPath)
@@ -84,7 +92,7 @@ async function createWindow() {
     mainWindow.loadURL(publicPath).then(() => setupBlocker())
 
     mainWindow.on('closed', () => {
-        mainWindow = null
+        setMainWindow(null)
     })
 }
 
@@ -111,5 +119,5 @@ setupSdk()
 setupStores()
 
 ipcMain.handle('closeApp', () => {
-    mainWindow?.close()
+    getMainWindow()?.close()
 })

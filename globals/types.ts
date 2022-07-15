@@ -34,6 +34,7 @@ export type AnimeInfo = Partial<{
     otherTitles: string[]
     description: string
     image: string
+    thumbnail: string
     tags: string[]
     type: 'Ova' | 'Serie' | 'Película' | 'Especial'
     status: 'En emisión' | 'Finalizada'

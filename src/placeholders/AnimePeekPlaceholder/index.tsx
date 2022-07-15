@@ -13,16 +13,17 @@ import Fade from '@mui/material/Fade'
 
 export type AnimePeekPlaceholderProps = {
     onClose?(): void
+    contentProps?: React.ComponentProps<typeof Content>
 }
 
 export const AnimePeekPlaceholder: React.FC<AnimePeekPlaceholderProps> = React.memo(
-    ({ onClose }) => {
+    ({ onClose, contentProps }) => {
         const animation: SkeletonProps['animation'] = 'pulse'
 
         return (
             <Fade in={true} appear={true} timeout={1000}>
                 <Wrapper>
-                    <Content>
+                    <Content {...contentProps}>
                         <FCol>
                             <TitleRow>
                                 <AnimePeekTitle style={{ width: '40%' }}>
@@ -33,7 +34,7 @@ export const AnimePeekPlaceholder: React.FC<AnimePeekPlaceholderProps> = React.m
                                     />
                                 </AnimePeekTitle>
                                 <FExpand />
-                                <CloseButton onClick={onClose} />
+                                {onClose && <CloseButton onClick={onClose} />}
                             </TitleRow>
                             <div style={{ opacity: 0.5 }}>
                                 <Skeleton

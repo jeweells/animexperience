@@ -47,4 +47,5 @@ export enum TopView {
     PLAYER = 'player',
     PEEK = 'peek',
     SEARCH = 'search',
+    INVOKED_LINK = 'invoked-link',
 }

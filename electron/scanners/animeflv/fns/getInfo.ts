@@ -9,6 +9,7 @@ const tags = [...document.querySelectorAll('nav.Nvgnrs > a')].map((tag) => {
 
 const type = document.querySelector('span.Type').innerText
 const status = document.querySelector('.AnmStts > .fa-tv').innerText
+const imageSrc = document.querySelector('.Image > figure > img').src
 return {
     episodesRange: {
         min: window.episodes.slice(-1)[0][0],
@@ -17,7 +18,8 @@ return {
     title: document.querySelector('.Container > h1.Title').innerText,
     otherTitles,
     description: document.querySelector('.Description > p').innerText,
-    image: document.querySelector('.Image > figure > img').src,
+    image: imageSrc,
+    thumbnail: imageSrc.replace('/covers/', '/thumbs/'),
     tags,
     type: {
         ANIME: 'Serie',
