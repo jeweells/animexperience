@@ -6,6 +6,7 @@ import ButtonGroup from '@mui/material/ButtonGroup'
 import Button from '@mui/material/Button'
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
+import Tooltip from '@mui/material/Tooltip'
 
 export type OptionButtonProps = {
     onClick?(): void
@@ -39,14 +40,27 @@ export const OptionButton: React.FC<OptionButtonProps> = React.memo(
         if (!option) return null
         return (
             <ButtonGroup>
-                <StarButton
-                    onClick={() => {
-                        console.debug('CLICKING PREFER', optionInfo)
-                        prefer(!optionInfo?.prefer)
-                    }}
+                <Tooltip
+                    title={
+                        !optionInfo?.prefer
+                            ? 'Preferir esta opción'
+                            : 'No preferir esta opción'
+                    }
+                    arrow
                 >
-                    {optionInfo?.prefer ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
-                </StarButton>
+                    <StarButton
+                        onClick={() => {
+                            console.debug('CLICKING PREFER', optionInfo)
+                            prefer(!optionInfo?.prefer)
+                        }}
+                    >
+                        {optionInfo?.prefer ? (
+                            <StarRoundedIcon />
+                        ) : (
+                            <StarBorderRoundedIcon />
+                        )}
+                    </StarButton>
+                </Tooltip>
                 <ActionButton
                     disabled={disabled}
                     onClick={() => {

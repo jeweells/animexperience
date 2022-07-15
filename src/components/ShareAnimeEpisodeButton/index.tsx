@@ -12,6 +12,7 @@ export const ShareAnimeEpisodeButton = React.memo<IconButtonProps>((props) => {
     return (
         <ShareButton
             {...props}
+            tooltip={'Compartir episodio'}
             disabled={!watching}
             onClick={() => {
                 if (!watching) return

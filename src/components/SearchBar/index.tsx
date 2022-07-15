@@ -5,6 +5,7 @@ import { animeSearch } from '../../../redux/reducers/animeSearch'
 import { useAppDispatch } from '../../../redux/store'
 import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search'
+import Tooltip from '@mui/material/Tooltip'
 
 const SInput = styled(InputBase)`
     margin-left: 0;
@@ -68,13 +69,15 @@ export const SearchBar: React.FC<SearchBarProps> = React.memo(({ ...props }) => 
                 value={search}
                 placeholder={'¿Buscando un anime?'}
             />
-            <IconButton
-                type='submit'
-                sx={{ p: '10px', borderRadius: 0 }}
-                aria-label='search'
-            >
-                <SearchIcon />
-            </IconButton>
+            <Tooltip title={'Buscar anime'} arrow>
+                <IconButton
+                    type='submit'
+                    sx={{ p: '10px', borderRadius: 0 }}
+                    aria-label='search'
+                >
+                    <SearchIcon />
+                </IconButton>
+            </Tooltip>
         </Wrapper>
     )
 })

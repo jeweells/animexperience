@@ -8,6 +8,7 @@ import { useWatched } from '../../../../hooks/useWatched'
 import WatchedRange from '../../../WatchedRange'
 import Button from '@mui/material/Button'
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded'
+import Tooltip from '@mui/material/Tooltip'
 export const SEpisodeButton = styled(Button)`
     width: 100%;
     text-align: left;
@@ -43,27 +44,29 @@ export const EpisodeButton: React.FC<EpisodeButtonProps> = React.memo(
         const watched = useWatched(epData)
         const dispatch = useAppDispatch()
         return (
-            <SEpisodeButton
-                onClick={useCallback(() => {
-                    dispatch(watch.watchEpisode(epData))
-                }, [])}
-            >
-                <Content>
-                    <div>{`Episodio ${episode}`}</div>
-                    <WatchedInfo>
-                        {watched && (
-                            <WatchedRange
-                                info={watched}
-                                showTime={true}
-                                hideBorder={true}
-                            />
-                        )}
-                    </WatchedInfo>
-                    <PlayArrowRoundedIcon
-                        style={{ fontSize: '1.4rem', overflow: 'hidden' }}
-                    />
-                </Content>
-            </SEpisodeButton>
+            <Tooltip title={'Ver episodio'} arrow placement={'right'}>
+                <SEpisodeButton
+                    onClick={useCallback(() => {
+                        dispatch(watch.watchEpisode(epData))
+                    }, [])}
+                >
+                    <Content>
+                        <div>{`Episodio ${episode}`}</div>
+                        <WatchedInfo>
+                            {watched && (
+                                <WatchedRange
+                                    info={watched}
+                                    showTime={true}
+                                    hideBorder={true}
+                                />
+                            )}
+                        </WatchedInfo>
+                        <PlayArrowRoundedIcon
+                            style={{ fontSize: '1.4rem', overflow: 'hidden' }}
+                        />
+                    </Content>
+                </SEpisodeButton>
+            </Tooltip>
         )
     },
 )
