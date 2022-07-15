@@ -14,20 +14,22 @@ import topview from './reducers/topview'
 import watch from './reducers/watch'
 import watched from './reducers/watched'
 import watchHistory from './reducers/watchHistory'
+import invokedLink from './reducers/invokedLink'
 
 const store = configureStore({
-            reducer: {
-                test,
-                watch,
-                player,
-                watched,
-                recommendations,
-                watchHistory,
-                peek,
-                topview,
-                playerOptions,
+    reducer: {
+        test,
+        watch,
+        player,
+        watched,
+        recommendations,
+        watchHistory,
+        peek,
+        topview,
+        playerOptions,
         animeSearch,
         followedAnimes,
+        invokedLink,
     },
 })
 

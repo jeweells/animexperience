@@ -16,10 +16,15 @@ import Topbar from '.././components/Topbar'
 import { VSpace } from '../atoms/Spacing'
 import { VideoPlayerModal } from '../components/VideoPlayerModal'
 import '../index.less'
+import { useInvokedLinks } from '../hooks/useInvokedLinks'
+import WatchInvokedLinkModal from '../components/WatchInvokedLinkModal'
 moment.locale('es')
 
 const App = () => {
     const dispatch = useAppDispatch()
+
+    useInvokedLinks()
+
     return (
         <React.Fragment>
             <Topbar>
@@ -49,6 +54,7 @@ const App = () => {
                         },
                     }}
                 />
+                <WatchInvokedLinkModal />
             </Topbar>
         </React.Fragment>
     )

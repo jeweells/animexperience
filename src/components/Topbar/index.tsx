@@ -13,6 +13,7 @@ import { useAppSelector } from '../../../redux/store'
 import CloseButton from '../../atoms/CloseButton'
 import SearchBar from '../SearchBar'
 import * as fade from './fade.module.css'
+import ShareAnimeEpisodeButton from '../ShareAnimeEpisodeButton'
 
 const Wrapper = styled.div`
     background: #25282e;
@@ -28,7 +29,7 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-    padding: 0 24px;
+    padding: 0 8px 0 24px;
     font-size: 1rem;
     font-weight: 700;
     display: flex;
@@ -96,7 +97,17 @@ export const Topbar: React.FC<TopbarProps> = React.memo(({ children }) => {
                         >
                             <Container>
                                 <div>{title}</div>
-                                {!watching && <SearchBar />}
+                                {!watching && <SearchBar style={{ marginRight: 16 }} />}
+                                {watching && (
+                                    <ShareAnimeEpisodeButton
+                                        style={{
+                                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                            // @ts-ignore
+                                            WebkitAppRegion: 'no-drag',
+                                            WebkitUserSelect: 'all',
+                                        }}
+                                    />
+                                )}
                             </Container>
                         </CSSTransition>
                     </SwitchTransition>

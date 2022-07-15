@@ -4,6 +4,8 @@ export default {
     getRecentAnimes: new LinkedFn(),
     getAnimeIDInfo: new LinkedFn(),
     getAnimeFlvInfo: new LinkedFn(),
+    getAnimeFlvInfoFromLink: new LinkedFn(),
+    getAnimeFlvInfoFromPartialLink: new LinkedFn(),
     getAnimeFlvEpisodeVideos: new LinkedFn(),
     getAnimeIDEpisodeVideos: new LinkedFn(),
     getJKAnimeEpisodeVideos: new LinkedFn(),
@@ -19,4 +21,5 @@ export default {
     deepSearchAnimeFlv: new LinkedFn(),
     deepSearchAnimeFlvByPage: new LinkedFn(),
     keyDown: new LinkedFn(),
+    getInvokedLink: new LinkedFn(),
 }

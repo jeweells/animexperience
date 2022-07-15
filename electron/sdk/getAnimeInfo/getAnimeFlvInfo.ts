@@ -2,7 +2,7 @@ import { Logger } from 'tslog'
 import invokeNames from '../../invokeNames'
 import { AnimeLinkToEpisode } from '../../linkBuilder'
 import { getInfo } from '../../scanners/animeflv/fns/getInfo'
-import { createAnimeFlvRequest } from '../../scanners/animeflv/window'
+import { BASE_ORIGIN, createAnimeFlvRequest } from '../../scanners/animeflv/window'
 
 const logger = new Logger({ name: 'getAnimeFlvInfo' })
 
@@ -30,6 +30,14 @@ export const getAnimeFlvInfo = async (anime: string, link?: string) => {
         logger.warn(`getAnimeFlvInfo: No link found for "${anime}"`)
         return null
     }
+    return await getAnimeFlvInfoFromLink(link)
+}
+
+export const getAnimeFlvInfoFromPartialLink = (partialLink: string) => {
+    return getAnimeFlvInfoFromLink(BASE_ORIGIN + '/anime/' + partialLink)
+}
+
+export const getAnimeFlvInfoFromLink = async (link: string) => {
     const info: any = await createAnimeFlvRequest(link, getInfo)
     return {
         ...info,

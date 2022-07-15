@@ -10,7 +10,11 @@ import {
     deepSearchAnimeId,
     deepSearchAnimeIdByPage,
 } from './deepSearchAnime/deepSearchAnimeId'
-import { getAnimeFlvInfo } from './getAnimeInfo/getAnimeFlvInfo'
+import {
+    getAnimeFlvInfo,
+    getAnimeFlvInfoFromLink,
+    getAnimeFlvInfoFromPartialLink,
+} from './getAnimeInfo/getAnimeFlvInfo'
 import { getAnimeImage } from './getAnimeImage'
 import { getAnimeRecommendations } from './getAnimeRecommendations'
 import { getAnimeIDInfo } from './getAnimeInfo/getAnimeIDInfo'
@@ -26,6 +30,7 @@ import {
 import { searchAnimeID } from './searchAnime/searchAnimeId'
 import { searchJKAnime } from './searchAnime/searchJKAnime'
 import { searchMalAnime } from './searchAnime/searchMalAnime'
+import { getInvokedLink } from './openUrl'
 
 export const setupSdk = () => {
     console.debug('Setting up sdk')
@@ -33,6 +38,8 @@ export const setupSdk = () => {
         invokeNames.getRecentAnimes.link(getRecentAnimes),
         invokeNames.getAnimeIDInfo.link(getAnimeIDInfo),
         invokeNames.getAnimeFlvInfo.link(getAnimeFlvInfo),
+        invokeNames.getAnimeFlvInfoFromLink.link(getAnimeFlvInfoFromLink),
+        invokeNames.getAnimeFlvInfoFromPartialLink.link(getAnimeFlvInfoFromPartialLink),
         invokeNames.getAnimeFlvEpisodeVideos.link(getAnimeFlvEpisodeVideos),
         invokeNames.getAnimeIDEpisodeVideos.link(getAnimeIDEpisodeVideos),
         invokeNames.getJKAnimeEpisodeVideos.link(getJKAnimeEpisodeVideos),
@@ -57,7 +64,10 @@ export const setupSdk = () => {
             return fn
         })
         // Non-cached functions
-        .concat(invokeNames.keyDown.link(keyDown))) {
+        .concat(
+            invokeNames.keyDown.link(keyDown),
+            invokeNames.getInvokedLink.link(getInvokedLink),
+        )) {
         ipcMain.handle(fn.name, async (event, ...args) => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore

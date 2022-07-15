@@ -6,8 +6,6 @@ import { useAppDispatch } from '../../../redux/store'
 import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search'
 
-export type SearchBarProps = {}
-
 const SInput = styled(InputBase)`
     margin-left: 0;
     input {
@@ -31,8 +29,9 @@ const Wrapper = styled.form`
     border: 1px solid;
     transition: border 300ms ease-in-out;
 `
+export type SearchBarProps = {} & React.ComponentProps<typeof Wrapper>
 
-export const SearchBar: React.FC<SearchBarProps> = React.memo(({}) => {
+export const SearchBar: React.FC<SearchBarProps> = React.memo(({ ...props }) => {
     const [search, setSearch] = React.useState('')
     const [focused, setFocused] = React.useState(false)
     const dispatch = useAppDispatch()
@@ -42,8 +41,10 @@ export const SearchBar: React.FC<SearchBarProps> = React.memo(({}) => {
     }
     return (
         <Wrapper
+            {...props}
             style={{
                 borderColor: `rgba(255, 255, 255, ${focused ? 0.4 : 0.1})`,
+                ...props.style,
             }}
             onSubmit={(e) => {
                 e.preventDefault()
