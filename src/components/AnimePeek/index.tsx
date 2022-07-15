@@ -29,6 +29,7 @@ import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import CalendarTodayRoundedIcon from '@mui/icons-material/CalendarTodayRounded'
 import { Optional } from '../../types'
+import ShareAnimeButton from '../ShareAnimeButton'
 export const TitleRow = styled(FRow)`
     align-items: center;
     gap: 16px;
@@ -113,6 +114,13 @@ export const UnhookedAnimePeek: React.FC<UnhookedAnimePeek> = React.memo(
                                                 }}
                                             />
                                         )}
+                                        <ShareAnimeButton
+                                            style={{
+                                                bottom: 16,
+                                                left: 16,
+                                                position: 'absolute',
+                                            }}
+                                        />
                                         <Button
                                             style={{
                                                 pointerEvents: 'none',
