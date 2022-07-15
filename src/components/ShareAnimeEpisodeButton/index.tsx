@@ -1,12 +1,14 @@
 import React from 'react'
 import { IconButtonProps } from '@mui/material/IconButton'
 import ShareButton from '../../atoms/ShareButton'
-import { useAppSelector } from '../../../redux/store'
+import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { APP_PROTOCOL } from '../../../electron/constants'
 import { clipboard } from 'electron'
+import { notifications } from '../../../redux/reducers/notifications'
 
 export const ShareAnimeEpisodeButton = React.memo<IconButtonProps>((props) => {
     const watching = useAppSelector((s) => s.watch.watching)
+    const dispatch = useAppDispatch()
     return (
         <ShareButton
             {...props}
@@ -32,6 +34,11 @@ export const ShareAnimeEpisodeButton = React.memo<IconButtonProps>((props) => {
                             'utf8',
                         ).toString('base64')
                     clipboard.writeText(link)
+                    dispatch(
+                        notifications.setMessage({
+                            message: 'Se ha copiado el enlace al portapapeles',
+                        }),
+                    )
                 } catch (e) {
                     console.error('[CLIPBOARD]', e)
                 }

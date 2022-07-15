@@ -18,6 +18,7 @@ import { VideoPlayerModal } from '../components/VideoPlayerModal'
 import '../index.less'
 import { useInvokedLinks } from '../hooks/useInvokedLinks'
 import WatchInvokedLinkModal from '../components/WatchInvokedLinkModal'
+import { Notifications } from '../components/Notifications'
 moment.locale('es')
 
 const App = () => {
@@ -55,6 +56,7 @@ const App = () => {
                     }}
                 />
                 <WatchInvokedLinkModal />
+                <Notifications />
             </Topbar>
         </React.Fragment>
     )
