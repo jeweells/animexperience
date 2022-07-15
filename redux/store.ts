@@ -15,6 +15,7 @@ import watch from './reducers/watch'
 import watched from './reducers/watched'
 import watchHistory from './reducers/watchHistory'
 import invokedLink from './reducers/invokedLink'
+import notifications from './reducers/notifications'
 
 const store = configureStore({
     reducer: {
@@ -30,6 +31,7 @@ const store = configureStore({
         animeSearch,
         followedAnimes,
         invokedLink,
+        notifications,
     },
 })
 
