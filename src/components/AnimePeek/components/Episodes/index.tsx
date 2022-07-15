@@ -8,6 +8,7 @@ import { Optional } from '../../../../types'
 import { range } from '../../../../utils'
 import EpisodesGroup from '../EpisodesGroup'
 import SortIcon from '../SortIcon'
+import Tooltip from '@mui/material/Tooltip'
 
 export type EpisodesProps = {
     info: Optional<AnimeInfo>
@@ -50,12 +51,27 @@ export const Episodes: React.FC<EpisodesProps> = React.memo(
                     }}
                 >
                     <SDivider />
-                    <ButtonWIcon
-                        onClick={toggleSort}
-                        icon={<SortIcon size={24} order={sort > 0 ? 'asc' : 'desc'} />}
+                    <Tooltip
+                        title={
+                            'Ordenar ' +
+                            (sort <= 0 ? 'ascendentemente' : 'descendentemente')
+                        }
+                        arrow
                     >
-                        Ordenar
-                    </ButtonWIcon>
+                        <div>
+                            <ButtonWIcon
+                                onClick={toggleSort}
+                                icon={
+                                    <SortIcon
+                                        size={24}
+                                        order={sort > 0 ? 'asc' : 'desc'}
+                                    />
+                                }
+                            >
+                                Ordenar
+                            </ButtonWIcon>
+                        </div>
+                    </Tooltip>
                 </FRow>
                 {groups.map((group) => {
                     return (

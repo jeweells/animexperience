@@ -8,6 +8,7 @@ import { TopView } from '../../types'
 import IconButton from '@mui/material/IconButton'
 import KeyboardArrowLeftRoundedIcon from '@mui/icons-material/KeyboardArrowLeftRounded'
 import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded'
+import Tooltip from '@mui/material/Tooltip'
 export type EpisodeNavigationProps = {}
 
 export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({}) => {
@@ -32,23 +33,32 @@ export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({
 
     return (
         <React.Fragment>
-            <IconButton
-                disabled={!hasMin}
-                onClick={() => dispatch(watch.previousEpisode())}
-            >
-                <KeyboardArrowLeftRoundedIcon />
-            </IconButton>
-            <IconButton
-                onClick={() => {
-                    if (!watching?.name) return
-                    dispatch(peek.peek(watching.name))
-                }}
-            >
-                <MenuRoundedIcon />
-            </IconButton>
-            <IconButton disabled={!hasMax} onClick={() => dispatch(watch.nextEpisode())}>
-                <KeyboardArrowRightRoundedIcon />
-            </IconButton>
+            <Tooltip title={'Episodio anterior'} arrow>
+                <IconButton
+                    disabled={!hasMin}
+                    onClick={() => dispatch(watch.previousEpisode())}
+                >
+                    <KeyboardArrowLeftRoundedIcon />
+                </IconButton>
+            </Tooltip>
+            <Tooltip title={'Ver anime'} arrow>
+                <IconButton
+                    onClick={() => {
+                        if (!watching?.name) return
+                        dispatch(peek.peek(watching.name))
+                    }}
+                >
+                    <MenuRoundedIcon />
+                </IconButton>
+            </Tooltip>
+            <Tooltip title={'Siguiente episodio'} arrow>
+                <IconButton
+                    disabled={!hasMax}
+                    onClick={() => dispatch(watch.nextEpisode())}
+                >
+                    <KeyboardArrowRightRoundedIcon />
+                </IconButton>
+            </Tooltip>
         </React.Fragment>
     )
 })
