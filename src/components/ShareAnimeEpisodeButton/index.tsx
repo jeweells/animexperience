@@ -2,9 +2,9 @@ import React from 'react'
 import { IconButtonProps } from '@mui/material/IconButton'
 import ShareButton from '../../atoms/ShareButton'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
-import { APP_PROTOCOL } from '../../../electron/constants'
 import { clipboard } from 'electron'
 import { notifications } from '../../../redux/reducers/notifications'
+import { PUBLIC_URL } from '../../constants'
 
 export const ShareAnimeEpisodeButton = React.memo<IconButtonProps>((props) => {
     const watching = useAppSelector((s) => s.watch.watching)
@@ -26,7 +26,7 @@ export const ShareAnimeEpisodeButton = React.memo<IconButtonProps>((props) => {
                         .replace(new RegExp(`-${watching.episode}$`), '')
                     if (!partialLink) return
                     const link =
-                        `${APP_PROTOCOL}://watch/?q=` +
+                        `${PUBLIC_URL}/watch?q=` +
                         Buffer.from(
                             JSON.stringify({
                                 ep: watching.episode,
