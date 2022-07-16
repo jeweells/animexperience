@@ -53,14 +53,15 @@
     "prefer-const": "error",
     "react/self-closing-comp": "error",
     "@typescript-eslint/ban-types": "off",
-    "@typescript-eslint/ban-ts-comment": "warn",
+    "@typescript-eslint/ban-ts-comment": "off",
     "indent": "off",
     "comma-dangle": "off",
     "space-before-function-paren": "off",
     "generator-star-spacing": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "prettier/prettier": "error",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   },
   "settings": {
     "import/resolver": {

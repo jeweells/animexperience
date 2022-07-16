@@ -13,6 +13,9 @@ import { setupStores } from './store'
 import { getMainWindow, setMainWindow } from './windows'
 import { setupOpenUrl } from './sdk/openUrl'
 import eventNames from './eventNames'
+import hotReload from './hotReload'
+
+hotReload(__dirname)
 
 moment.locale('es')
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -17,18 +17,19 @@ export const ShareAnimeButton = React.memo<IconButtonProps>((props) => {
             onClick={() => {
                 if (!info) return
                 try {
-                    if (!info.link) return
+                    if (!info.link) throw new Error('No link')
                     const splitWord = '/anime/'
                     const splitIndex = info.link.indexOf(splitWord)
-                    if (splitIndex < 0) return
+                    if (splitIndex < 0) throw new Error('No index')
                     const partialLink = info.link.substr(splitIndex + splitWord.length)
-                    if (!partialLink) return
+                    if (!partialLink) throw new Error('Invalid partial link')
                     const link =
                         `${PUBLIC_URL}/watch?q=` +
                         Buffer.from(
                             JSON.stringify({
                                 ep: info.episodesRange?.min ?? 1,
                                 u: partialLink,
+                                i: info.image?.split('/').slice(-1)[0],
                             }),
                             'utf8',
                         ).toString('base64')
