@@ -6,11 +6,36 @@ import { useWatched } from '../../hooks/useWatched'
 import { Optional } from '../../types'
 import AnimeEntry, { AnimeEntryProps } from '../AnimeEntry'
 import WatchedRange from '../WatchedRange'
+import Tooltip from '@mui/material/Tooltip'
+import ManageFollowButton from '../ManageFollowButton'
+
+export type ManagementVisibility = Partial<{
+    follow: boolean
+}>
 
 export type AnimeEpisodeEntryProps = {
     anime: Optional<RecentAnimeData>
+    // Whether it can follow or unfollow this anime
+    management?: ManagementVisibility
     onClick?(anime: Optional<RecentAnimeData>): void
 } & Omit<AnimeEntryProps, 'render' | 'onClick'>
+
+const ManageButtons = styled('div')`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.5) 20%,
+        rgba(0, 0, 0, 0) 90%
+    );
+    -webkit-backface-visibility: initial;
+`
 
 export const AnimeInfo = styled.div`
     position: absolute;
@@ -28,7 +53,15 @@ export const AnimeInfo = styled.div`
         rgba(0, 0, 0, 0) 40%
     );
     padding: 16px;
+    & ${ManageButtons} {
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+    }
+    &:hover ${ManageButtons} {
+        opacity: 1;
+    }
 `
+
 export const Img = styled.img`
     object-fit: cover;
     width: 100%;
@@ -36,7 +69,11 @@ export const Img = styled.img`
 `
 
 export const AnimeEpisodeEntry = React.memo<AnimeEpisodeEntryProps>(
-    ({ anime, onClick, ...rest }) => {
+    ({ anime, management = {}, onClick, ...rest }) => {
+        const isManagementVisible = React.useMemo(
+            () => Object.values(management).filter(Boolean).length > 0,
+            [management],
+        )
         const watched = useWatched(anime)
         if (!anime) return null
         const handleClick = () => {
@@ -49,7 +86,22 @@ export const AnimeEpisodeEntry = React.memo<AnimeEpisodeEntryProps>(
                         <Fragment>
                             <Img alt={anime.name} src={anime.img} />
                             <AnimeInfo>
-                                <AnimeTitle>{anime.name}</AnimeTitle>
+                                {isManagementVisible && (
+                                    <ManageButtons>
+                                        {management.follow && (
+                                            <ManageFollowButton anime={anime} />
+                                        )}
+                                    </ManageButtons>
+                                )}
+                                <Tooltip
+                                    enterDelay={1000}
+                                    enterNextDelay={1000}
+                                    enterTouchDelay={1000}
+                                    followCursor
+                                    title={anime.name || ''}
+                                >
+                                    <AnimeTitle>{anime.name}</AnimeTitle>
+                                </Tooltip>
                                 <AnimeDescription>{`Episodio ${anime.episode}`}</AnimeDescription>
                                 {watched && (
                                     <Fragment>

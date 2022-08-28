@@ -24,6 +24,11 @@ export const AnimeTitle = styled.h3`
     line-height: 1;
     text-shadow: 0 0 2px black, 0 0 6px black;
     margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 `
 
 export const AnimeDescription = styled.h6`

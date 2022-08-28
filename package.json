@@ -6,7 +6,7 @@
   "scripts": {
     "gserve": "gatsby serve",
     "dev": "concurrently \"npm run electron:serve\" \"npm run dev:react\"",
-    "dev:electron": "cross-env NODE_ENV=development concurrently \"webpack --config webpack/electron.webpack.js --mode development --watch\" \"npm run start:electron\"",
+    "dev:electron": "cross-env NODE_ENV=development webpack --config webpack/electron.webpack.js --mode development && npm run start:electron",
     "dev:react": "cross-env NODE_ENV=development gatsby develop",
     "electron:serve": "wait-on http://localhost:8000 && npm run dev:electron",
     "start:electron": "electron .",
