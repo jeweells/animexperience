@@ -21,7 +21,8 @@ moment.locale('es')
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-require('@electron/remote/main').initialize()
+const remoteMain = require('@electron/remote/main')
+remoteMain.initialize()
 
 setupOpenUrl((invokedLink) => {
     console.debug({ invokedLink })
@@ -48,6 +49,7 @@ async function createWindow() {
             },
         }),
     )
+    remoteMain.enable(mainWindow.webContents)
     const publicPath =
         process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : 'app://-'
     console.debug('Public path:', publicPath)
