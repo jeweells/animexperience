@@ -2,11 +2,19 @@ import React from 'react'
 import { AnimeLinkToEpisode } from '../../../electron/linkBuilder'
 import { FollowedAnimeWStatus } from '../../../redux/reducers/followedAnimes'
 import AnimeEntryPlaceholder from '../../placeholders/AnimeEntryPlaceholder'
-import { AnimeEpisodeEntry, AnimeEpisodeEntryProps } from '../AnimeEpisodeEntry'
+import {
+    AnimeEpisodeEntry,
+    AnimeEpisodeEntryProps,
+    ManagementVisibility,
+} from '../AnimeEpisodeEntry'
 import Fade from '@mui/material/Fade'
 
 export type FollowedAnimeEpisodeEntryProps = Omit<AnimeEpisodeEntryProps, 'anime'> & {
     followed: FollowedAnimeWStatus
+}
+
+const visibility: ManagementVisibility = {
+    follow: true,
 }
 
 export const FollowedAnimeEpisodeEntry: React.FC<FollowedAnimeEpisodeEntryProps> =
@@ -35,7 +43,7 @@ export const FollowedAnimeEpisodeEntry: React.FC<FollowedAnimeEpisodeEntryProps>
                 </Fade>
             )
         }
-        return <AnimeEpisodeEntry anime={anime} {...rest} />
+        return <AnimeEpisodeEntry anime={anime} management={visibility} {...rest} />
     })
 
 FollowedAnimeEpisodeEntry.displayName = 'FollowedAnimeEpisodeEntry'

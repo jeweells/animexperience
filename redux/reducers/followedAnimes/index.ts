@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, Draft, PayloadAction } from '@reduxjs/toolkit'
 import moment from 'moment'
 import { AnimeInfo, FollowedAnime, Store } from '../../../globals/types'
 import { RecentAnimeData } from '../../../src/hooks/useRecentAnimes'
@@ -17,6 +17,7 @@ export type FollowedAnimeWStatus = {
 
 // Define a type for the slice state
 interface FollowedAnimesState {
+    followedDict: Record<string, FollowedAnime>
     followed: FollowedAnimeWStatus[]
     status: Partial<{
         followed: FStatus
@@ -112,6 +113,7 @@ const fetchStore = createAsyncThunk('followedAnimes/fetchStore', async (arg, api
 // Define the initial state using that type
 const initialState: FollowedAnimesState = {
     followed: [],
+    followedDict: {},
     status: {},
 }
 
@@ -121,11 +123,39 @@ const sortFollowed = (arr: FollowedAnimeWStatus[]): FollowedAnimeWStatus[] => {
         .sort((a, b) => b.lastSuccessAt - a.lastSuccessAt)
         .concat(arr.filter((x) => x.status !== 'succeeded'))
 }
-const followedToDict = (arr: FollowedAnimeWStatus[]): Record<string, FollowedAnime> => {
-    return arr.reduce((acc: any, { status, ...rest }) => {
-        acc[rest.name] = rest
+const followedToDict = (
+    state: Draft<FollowedAnimesState>,
+    arr: FollowedAnimeWStatus[],
+): Record<string, FollowedAnime> => {
+    const result = arr.reduce((acc: any, { status, ...rest }) => {
+        const key = formatKeys([rest.name ?? ''])
+        if (!key) return acc
+        acc[key] = rest
         return acc
     }, {})
+    state.followedDict = result
+    return result
+}
+
+const set = (
+    state: Draft<FollowedAnimesState>,
+    {
+        payload,
+    }: PayloadAction<{
+        followed: (FollowedAnimeWStatus | null)[]
+        noUpdate?: boolean
+    }>,
+) => {
+    state.followed = sortFollowed(
+        payload.followed.filter((x): x is FollowedAnimeWStatus => !!x),
+    )
+    if (!payload.noUpdate) {
+        setStaticStore(
+            Store.FOLLOWED,
+            'followed',
+            followedToDict(state, state.followed),
+        ).catch(console.error)
+    }
 }
 
 export const slice = createSlice({
@@ -133,32 +163,22 @@ export const slice = createSlice({
     // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {
-        set(
-            state,
-            {
-                payload,
-            }: PayloadAction<{
-                followed: (FollowedAnimeWStatus | null)[]
-                noUpdate?: boolean
-            }>,
-        ) {
-            state.followed = sortFollowed(
-                payload.followed.filter((x): x is FollowedAnimeWStatus => !!x),
-            )
-            if (!payload.noUpdate) {
-                setStaticStore(
-                    Store.FOLLOWED,
-                    'followed',
-                    followedToDict(state.followed),
-                ).catch(console.error)
-            }
+        set,
+        unfollow(state, action: PayloadAction<{ name: string }>) {
+            return set(state, {
+                ...action,
+                payload: {
+                    followed: state.followed.filter(
+                        (x) => x.name !== action.payload.name,
+                    ),
+                },
+            })
         },
         follow(
             state,
             { payload }: PayloadAction<{ info: AnimeInfo; anime: RecentAnimeData }>,
         ) {
-            const key = formatKeys([payload.anime.name ?? ''])[0]
-            if (key && payload.anime.name && payload.info.link) {
+            if (payload.anime.name && payload.info.link) {
                 const now = moment.now()
                 const lastEpisode = payload.info.episodesRange?.max ?? 0
                 const episode = payload.anime.episode ?? 0
@@ -200,12 +220,11 @@ export const slice = createSlice({
                 setStaticStore(
                     Store.FOLLOWED,
                     'followed',
-                    followedToDict(state.followed),
+                    followedToDict(state, state.followed),
                 ).catch(console.error)
             } else {
                 console.debug(
                     'Invalid anime to follow',
-                    key,
                     payload.anime.name,
                     payload.info.link,
                 )

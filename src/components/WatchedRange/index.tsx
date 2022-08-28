@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { EpisodeInfo } from '../../../globals/types'
 import { Optional } from '../../types'
+import Tooltip from '@mui/material/Tooltip'
 
 export type WatchedRangeProps = {
     info: Optional<EpisodeInfo>
@@ -33,20 +34,31 @@ const hhmmss = (seconds: number) => {
 
 export const WatchedRange: React.FC<WatchedRangeProps> = React.memo<WatchedRangeProps>(
     ({ info, showTime, hideBorder }) => {
+        const fmtDuration = React.useMemo(
+            () => (info ? `${hhmmss(info.currentTime)} / ${hhmmss(info.duration)}` : ''),
+            [info?.currentTime, info?.duration],
+        )
         return (
             <React.Fragment>
-                <Back hideBorder={hideBorder}>
-                    <Progress
-                        progress={
-                            info && info.duration !== 0
-                                ? (info.currentTime / info.duration) * 100
-                                : 0
-                        }
-                    />
-                </Back>
-                {info && showTime && (
-                    <div>{`${hhmmss(info.currentTime)} / ${hhmmss(info.duration)}`}</div>
-                )}
+                <Tooltip
+                    open={showTime ? false : undefined}
+                    enterDelay={1000}
+                    enterNextDelay={1000}
+                    enterTouchDelay={1000}
+                    followCursor
+                    title={fmtDuration}
+                >
+                    <Back hideBorder={hideBorder}>
+                        <Progress
+                            progress={
+                                info && info.duration !== 0
+                                    ? (info.currentTime / info.duration) * 100
+                                    : 0
+                            }
+                        />
+                    </Back>
+                </Tooltip>
+                {info && showTime && <div>{fmtDuration}</div>}
             </React.Fragment>
         )
     },
