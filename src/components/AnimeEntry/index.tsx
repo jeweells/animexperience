@@ -4,7 +4,7 @@ import { pixel } from '../../utils'
 import { useSizes } from '../AnimesCarousel/hooks'
 import CardPopover from '../CardPopover'
 import Fade from '@mui/material/Fade'
-import { ANIME_ENTRY_SELECTORS } from '../../selectors/AnimeEntry'
+import { ANIME_ENTRY_SELECTORS } from '../../selectors'
 
 export type AnimeEntryProps = {
     index: number
@@ -89,6 +89,7 @@ export const AnimeEntry = React.memo<AnimeEntryProps>(
 
         return (
             <Fade
+                data-testid={ANIME_ENTRY_SELECTORS.WRAPPER}
                 in={true}
                 timeout={1000 + Math.min(5000, 500 * index)}
                 appear={!isPopover}

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AnimeDetailsEntry renders default 1`] = `
+exports[`AnimeEntry renders default 1`] = `
 <DocumentFragment>
   .c0 {
   position: relative;
@@ -45,6 +45,7 @@ exports[`AnimeDetailsEntry renders default 1`] = `
 }
 
 <div
+    data-testid="anime-entry-wrapper"
     style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
   >
     <div
@@ -59,7 +60,7 @@ exports[`AnimeDetailsEntry renders default 1`] = `
 </DocumentFragment>
 `;
 
-exports[`AnimeDetailsEntry renders when its a popover 1`] = `
+exports[`AnimeEntry renders when its a popover 1`] = `
 <DocumentFragment>
   .c0 {
   position: relative;
@@ -104,6 +105,7 @@ exports[`AnimeDetailsEntry renders when its a popover 1`] = `
 }
 
 <div
+    data-testid="anime-entry-wrapper"
     style="opacity: 1;"
   >
     <div
@@ -118,7 +120,7 @@ exports[`AnimeDetailsEntry renders when its a popover 1`] = `
 </DocumentFragment>
 `;
 
-exports[`AnimeDetailsEntry should take longer to appear as long as index (1) increases 1`] = `
+exports[`AnimeEntry should take longer to appear as long as index (1) increases 1`] = `
 <DocumentFragment>
   .c0 {
   position: relative;
@@ -163,6 +165,7 @@ exports[`AnimeDetailsEntry should take longer to appear as long as index (1) inc
 }
 
 <div
+    data-testid="anime-entry-wrapper"
     style="opacity: 1; webkit-transition: opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
   >
     <div
@@ -177,7 +180,7 @@ exports[`AnimeDetailsEntry should take longer to appear as long as index (1) inc
 </DocumentFragment>
 `;
 
-exports[`AnimeDetailsEntry should take longer to appear as long as index (2) increases 1`] = `
+exports[`AnimeEntry should take longer to appear as long as index (2) increases 1`] = `
 <DocumentFragment>
   .c0 {
   position: relative;
@@ -222,6 +225,7 @@ exports[`AnimeDetailsEntry should take longer to appear as long as index (2) inc
 }
 
 <div
+    data-testid="anime-entry-wrapper"
     style="opacity: 1; webkit-transition: opacity 2000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 2000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
   >
     <div

@@ -3,18 +3,19 @@ import { AnimeTitle } from '../../atoms/Text'
 import { Optional } from '../../types'
 import AnimeEntry, { AnimeEntryProps } from '../AnimeEntry'
 import { AnimeInfo, Img } from '../AnimeEpisodeEntry'
+import { ANIME_DETAILS_ENTRY } from '../../selectors'
 
 export type AnimeDetails = {
     name: string
     image: string
 }
 
-export type AnimeEpisodeEntryProps = {
+export type AnimeDetailsEntryProps = {
     anime: Optional<AnimeDetails>
     onClick?(anime: Optional<AnimeDetails>): void
 } & Omit<AnimeEntryProps, 'render' | 'onClick'>
 
-export const AnimeDetailsEntry = React.memo<AnimeEpisodeEntryProps>(
+export const AnimeDetailsEntry = React.memo<AnimeDetailsEntryProps>(
     ({ anime, onClick, ...rest }) => {
         if (!anime) return null
         const handleClick = () => {
@@ -26,7 +27,7 @@ export const AnimeDetailsEntry = React.memo<AnimeEpisodeEntryProps>(
                     return (
                         <Fragment>
                             <Img alt={anime.name} src={anime.image} />
-                            <AnimeInfo>
+                            <AnimeInfo data-testid={ANIME_DETAILS_ENTRY.ANIME_INFO}>
                                 <AnimeTitle>{anime.name}</AnimeTitle>
                             </AnimeInfo>
                         </Fragment>

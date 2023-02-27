@@ -2,7 +2,7 @@ import React from 'react'
 import { render, waitFor } from '@testing-library/react'
 import { AnimeEntry, AnimeEntryProps } from './index'
 
-describe('AnimeDetailsEntry', () => {
+describe('AnimeEntry', () => {
     const returnTestId = 'render-return'
     const props = {
         onClick: jest.fn(),
@@ -49,11 +49,15 @@ describe('AnimeDetailsEntry', () => {
         expect(wrapper.asFragment()).toMatchSnapshot()
     })
 
-    it('renders when its hovered', async () => {
+    it('renders when hovered', async () => {
         // TODO: Implement, popover should be visible
     })
 
-    it('renders when its hovered but sliding', async () => {
+    it('renders when hovered but sliding', async () => {
         // TODO: Implement, popover should be hidden
+    })
+
+    it('can click when hovered', async () => {
+        // TODO: Implement, popover should be clicked
     })
 })
