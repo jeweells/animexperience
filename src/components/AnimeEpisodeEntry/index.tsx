@@ -8,6 +8,7 @@ import AnimeEntry, { AnimeEntryProps } from '../AnimeEntry'
 import WatchedRange from '../WatchedRange'
 import Tooltip from '@mui/material/Tooltip'
 import ManageFollowButton from '../ManageFollowButton'
+import { ANIME_EPISODE_ENTRY } from '../../selectors'
 
 export type ManagementVisibility = Partial<{
     follow: boolean
@@ -85,7 +86,7 @@ export const AnimeEpisodeEntry = React.memo<AnimeEpisodeEntryProps>(
                     return (
                         <Fragment>
                             <Img alt={anime.name} src={anime.img} />
-                            <AnimeInfo>
+                            <AnimeInfo data-testid={ANIME_EPISODE_ENTRY.ANIME_INFO}>
                                 {isManagementVisible && (
                                     <ManageButtons>
                                         {management.follow && (

@@ -6,3 +6,7 @@ export const ANIME_ENTRY_SELECTORS = {
 export const ANIME_DETAILS_ENTRY = {
     ANIME_INFO: 'anime-details-entry-anime-info',
 }
+
+export const ANIME_EPISODE_ENTRY = {
+    ANIME_INFO: 'anime-episode-entry-anime-info',
+}
