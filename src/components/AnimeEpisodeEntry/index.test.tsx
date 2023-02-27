@@ -1,5 +1,4 @@
 import React from 'react'
-import { fireEvent, render, waitFor } from '@testing-library/react'
 import { AnimeEpisodeEntry, AnimeEpisodeEntryProps } from './index'
 import { ANIME_ENTRY_SELECTORS, ANIME_EPISODE_ENTRY } from '../../selectors'
 import { Provider } from 'react-redux'

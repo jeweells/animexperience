@@ -1,5 +1,4 @@
 import React from 'react'
-import { render, waitFor } from '@testing-library/react'
 import { AnimeEntry, AnimeEntryProps } from './index'
 
 describe('AnimeEntry', () => {

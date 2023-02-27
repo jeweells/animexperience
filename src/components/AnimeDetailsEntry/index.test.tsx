@@ -1,5 +1,4 @@
 import React from 'react'
-import { fireEvent, render, waitFor } from '@testing-library/react'
 import { AnimeDetailsEntry, AnimeDetailsEntryProps } from './index'
 import { ANIME_DETAILS_ENTRY, ANIME_ENTRY_SELECTORS } from '../../selectors'
 
