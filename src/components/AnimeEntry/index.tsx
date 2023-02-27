@@ -4,6 +4,7 @@ import { pixel } from '../../utils'
 import { useSizes } from '../AnimesCarousel/hooks'
 import CardPopover from '../CardPopover'
 import Fade from '@mui/material/Fade'
+import { ANIME_ENTRY_SELECTORS } from '../../selectors/AnimeEntry'
 
 export type AnimeEntryProps = {
     index: number
@@ -94,6 +95,7 @@ export const AnimeEntry = React.memo<AnimeEntryProps>(
             >
                 <div>
                     <Wrapper
+                        data-testid={ANIME_ENTRY_SELECTORS.HOVERABLE_AREA}
                         ref={cardRef}
                         onClick={onClick}
                         onMouseOver={handleMouseOver}

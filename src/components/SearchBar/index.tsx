@@ -1,5 +1,5 @@
 import { InputBase } from '@mui/material'
-import React from 'react'
+import React, { FormEvent } from 'react'
 import styled from 'styled-components'
 import { animeSearch } from '../../../redux/reducers/animeSearch'
 import { useAppDispatch } from '../../../redux/store'
@@ -47,7 +47,7 @@ export const SearchBar: React.FC<SearchBarProps> = React.memo(({ ...props }) => 
                 borderColor: `rgba(255, 255, 255, ${focused ? 0.4 : 0.1})`,
                 ...props.style,
             }}
-            onSubmit={(e) => {
+            onSubmit={(e: FormEvent<HTMLFormElement>) => {
                 e.preventDefault()
                 e.stopPropagation()
                 handleSearch()

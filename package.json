@@ -17,6 +17,7 @@
     "package": "npm-run-all build package:dist",
     "package:dist": "electron-builder -w portable",
     "test": "jest",
+    "test:o": "jest --watch",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "prepare": "husky install"
   },
@@ -66,7 +67,9 @@
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
     "husky": "^8.0.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^26.1.0",
+    "jest-styled-components": "^7.1.1",
     "lint-staged": "^10.2.11",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
