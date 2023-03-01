@@ -9,6 +9,7 @@ import WatchedRange from '../../../WatchedRange'
 import Button from '@mui/material/Button'
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded'
 import Tooltip from '@mui/material/Tooltip'
+import { EPISODE_BUTTON } from '../../../../selectors'
 export const SEpisodeButton = styled(Button)`
     width: 100%;
     text-align: left;
@@ -46,6 +47,7 @@ export const EpisodeButton: React.FC<EpisodeButtonProps> = React.memo(
         return (
             <Tooltip title={'Ver episodio'} arrow placement={'right'}>
                 <SEpisodeButton
+                    data-testid={EPISODE_BUTTON.WATCH_BUTTON}
                     onClick={useCallback(() => {
                         dispatch(watch.watchEpisode(epData))
                     }, [])}

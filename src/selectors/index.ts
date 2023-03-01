@@ -10,3 +10,7 @@ export const ANIME_DETAILS_ENTRY = {
 export const ANIME_EPISODE_ENTRY = {
     ANIME_INFO: 'anime-episode-entry-anime-info',
 }
+
+export const EPISODE_BUTTON = {
+    WATCH_BUTTON: 'episode-button-watch-button',
+}
