@@ -2,12 +2,11 @@ import $ from 'jquery'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { EpisodeInfo, Store } from '../../../globals/types'
-import { followedAnimes } from '../../../redux/reducers/followedAnimes'
-import { watch } from '../../../redux/reducers/watch'
-import { watched } from '../../../redux/reducers/watched'
+import { EpisodeInfo, Store } from '~/globals/types'
+import { followedAnimes, watch, watched } from '@reducers'
+
 import store from '../../../redux/store'
-import { useAppSelector, useAppDispatch } from '../../../redux/utils'
+import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { useStaticStore } from '../../hooks/useStaticStore'
 import { useWatched } from '../../hooks/useWatched'
 import { Optional } from '../../types'
@@ -141,7 +140,7 @@ export const useVideoImprovements = (
                 staticStore
                     .get(anime.name, anime.episode)
                     .then((data: Optional<EpisodeInfo>) => {
-                        // Try auto play the video at latest time stored
+                        // Try autoplay the video at latest time stored
                         handleSeek(info, data, video)
                     })
             }
@@ -170,7 +169,7 @@ export const useVideoImprovements = (
                                 (currentTime + SECONDS_LEFT_TO_TRIGGER_NEXT_EPISODE),
                         )
                         if (timeoutToNextEpisode === 0) {
-                            // With timeout -1 auto play next episode is disabled (user probable moved the mouse)
+                            // With timeout -1 autoplay next episode is disabled (user probable moved the mouse)
                             const _state = store.getState()
                             if (_state.watch.nextEpisodeTimeout !== -1) {
                                 dispatch(watch.nextEpisode())
@@ -234,7 +233,7 @@ export const useVideoImprovements = (
                 // the value of the property is null.
                 let targetElement: Optional<Element> = document.fullscreenElement
                 // The target fullscreen element changes depending on the iframe we're in
-                // It's needed to find an non iframe element to attach the button
+                // It's needed to find a non iframe element to attach the button
                 // so that its visible in fullscreen mode
                 while (
                     targetElement?.tagName.toLowerCase() === 'iframe' &&

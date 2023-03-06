@@ -6,6 +6,13 @@ const fs = require('fs')
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
     const config = getConfig()
     config.target = 'electron-renderer'
+    config.resolve.alias = {
+        ...config.resolve.alias,
+        '@components': path.resolve(__dirname, './src/components/'),
+        '@reducers': path.resolve(__dirname, './redux/reducers/'),
+        '@selectors': path.resolve(__dirname, './src/selectors/'),
+        '~': path.resolve(__dirname, './'),
+    }
     actions.replaceWebpackConfig(config)
 }
 

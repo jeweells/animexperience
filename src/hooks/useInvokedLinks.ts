@@ -1,10 +1,10 @@
 import { ipcRenderer } from 'electron'
 import eventNames from '../../electron/eventNames'
-import { InvokedLink } from '../../electron/sdk/openUrl'
+import { InvokedLink } from '~/electron/sdk/openUrl'
 import React from 'react'
-import { invokedLink } from '../../redux/reducers/invokedLink'
+import { invokedLink } from '@reducers'
 import { rendererInvoke } from '../utils'
-import { useAppDispatch } from '../../redux/utils'
+import { useAppDispatch } from '~/redux/utils'
 
 export const useInvokedLinks = () => {
     const dispatch = useAppDispatch()

@@ -1,8 +1,8 @@
 import moment from 'moment'
 import React, { useRef } from 'react'
 import styled from 'styled-components'
-import { AnimeInfo } from '../../../globals/types'
-import { useAppSelector } from '../../../redux/utils'
+import { AnimeInfo } from '~/globals/types'
+import { useAppSelector } from '~/redux/utils'
 import CloseButton from '../../atoms/CloseButton'
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
 import AccountTreeRoundedIcon from '@mui/icons-material/AccountTreeRounded'
@@ -30,6 +30,7 @@ import Divider from '@mui/material/Divider'
 import CalendarTodayRoundedIcon from '@mui/icons-material/CalendarTodayRounded'
 import { Optional } from '../../types'
 import ShareAnimeButton from '../ShareAnimeButton'
+
 export const TitleRow = styled(FRow)`
     align-items: center;
     gap: 16px;

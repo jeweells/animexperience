@@ -89,6 +89,12 @@ module.exports = {
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
     moduleNameMapper: {
         '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+        '^@components/(.*)$': '<rootDir>/src/components/$1',
+        '^@components$': '<rootDir>/src/components/',
+        '^@reducers$': '<rootDir>/redux/reducers/',
+        '^@selectors/(.*)$': '<rootDir>/src/selectors/$1',
+        '^@selectors$': '<rootDir>/src/selectors/',
+        '^~/(.*)$': '<rootDir>/$1',
     },
 
     // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

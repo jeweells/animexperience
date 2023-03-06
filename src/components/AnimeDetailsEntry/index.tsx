@@ -3,7 +3,7 @@ import { AnimeTitle } from '../../atoms/Text'
 import { Optional } from '../../types'
 import AnimeEntry, { AnimeEntryProps } from '../AnimeEntry'
 import { AnimeInfo, Img } from '../AnimeEpisodeEntry'
-import { ANIME_DETAILS_ENTRY } from '../../selectors'
+import { ANIME_DETAILS_ENTRY } from '@selectors'
 
 export type AnimeDetails = {
     name: string
@@ -41,3 +41,5 @@ export const AnimeDetailsEntry = React.memo<AnimeDetailsEntryProps>(
 )
 
 AnimeDetailsEntry.displayName = 'AnimeDetailsEntry'
+
+export default AnimeDetailsEntry

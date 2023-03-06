@@ -6,9 +6,9 @@ import styled from 'styled-components'
 import ButtonBase from '@mui/material/ButtonBase'
 import { Optional } from '../../types'
 import { RecentAnimeData } from '../../hooks/useRecentAnimes'
-import { useFollowedByName } from '../../../redux/reducers/followedAnimes/selectors'
-import { followedAnimes } from '../../../redux/reducers/followedAnimes'
-import { useAppDispatch } from '../../../redux/utils'
+import { useFollowedByName } from '~/redux/reducers/followedAnimes/selectors'
+import { followedAnimes } from '@reducers'
+import { useAppDispatch } from '~/redux/utils'
 
 const Button = styled(ButtonBase)`
     filter: drop-shadow(0px 0px 1px #000000aa);

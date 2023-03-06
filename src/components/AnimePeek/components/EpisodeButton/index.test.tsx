@@ -1,9 +1,9 @@
 import { Provider } from 'react-redux'
 import EpisodeButton, { EpisodeButtonProps } from './index'
-import { RootState } from '../../../../../redux/state'
+import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import React from 'react'
-import { EPISODE_BUTTON } from '../../../../selectors'
+import { EPISODE_BUTTON } from '@selectors'
 import { MockStoreEnhanced } from 'redux-mock-store'
 
 describe('EpisodeButton', () => {

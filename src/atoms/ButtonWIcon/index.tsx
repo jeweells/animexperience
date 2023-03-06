@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@mui/styles'
-import { lighten, Theme, ButtonProps, ButtonBase } from '@mui/material'
+import { ButtonBase, ButtonProps, lighten, Theme } from '@mui/material'
 
 const useStyles = makeStyles<Theme>((theme) => {
     const root: any = theme.components?.MuiButton?.styleOverrides?.root

@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import { EpisodeInfo } from '../../../globals/types'
+import { EpisodeInfo } from '~/globals/types'
 import { Optional } from '../../types'
 import { VideoOption } from './index'
 import { $IframeContents } from './types'
@@ -64,12 +64,11 @@ export const handleOkRuPlayer = (
         const video = iframe.find('video')
         if (video.length === 0) {
             // I need to inject the function that returns the current time of the video from the localStorage
-            // (On load time in the current source will be stored on a variable and it's useless to change the
+            // (On load time in the current source will be stored on a variable, and it's useless to change the
             // localStorage again) Okru will automatically handle playing it at the corresponding time
             if (episodeInfo && 'currentTime' in episodeInfo) {
                 // @ts-ignore
                 const targetWindow = iframe[0]?.defaultView
-                // @ts-ignore
                 const targetStorage = targetWindow?.OK?.VideoPlayer?.storage
                 const targetFn = targetStorage?.getMovieLastPlayingTime
                 const targetPlayer = iframe.find('div[data-module=OKVideo]')
@@ -82,7 +81,7 @@ export const handleOkRuPlayer = (
                         try {
                             const dataOptions = JSON.parse(dataOptionsStr)
                             if (dataOptions?.flashvars) {
-                                // By default is 0.85 so we wouldn't be able to automatically seek after that certain
+                                // By default, is 0.85, so we wouldn't be able to automatically seek after that certain
                                 // point of the video
                                 dataOptions.flashvars.notSavePositionAfter = 1
                                 console.debug(

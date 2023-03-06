@@ -10,7 +10,7 @@ import React, {
 } from 'react'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import styled from 'styled-components'
-import { useAppSelector } from '../../../redux/utils'
+import { useAppSelector } from '~/redux/utils'
 import CloseButton from '../../atoms/CloseButton'
 import SearchBar from '../SearchBar'
 import * as fade from './fade.module.css'

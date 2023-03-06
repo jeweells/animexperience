@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAppSelector } from '../../../redux/utils'
+import { useAppSelector } from '~/redux/utils'
 import WatchInvokedLink from '../WatchInvokedLink'
 import FullModal, { FullModalProps } from '../FullModal'
 import { TopView } from '../../types'

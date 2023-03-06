@@ -1,7 +1,7 @@
 import React from 'react'
-import { player } from '../../../redux/reducers/player'
-import { playerOptions } from '../../../redux/reducers/playerOptions'
-import { useAppSelector, useAppDispatch } from '../../../redux/utils'
+import { player, playerOptions } from '@reducers'
+
+import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import CloseButton from '../../atoms/CloseButton'
 import VideoPlayerWOptionsPlaceholder from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import { TopView } from '../../types'

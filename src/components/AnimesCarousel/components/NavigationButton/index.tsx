@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FCol } from '../../../../atoms/Layout'
+import { FCol } from '~/src/atoms/Layout'
 import { useSizes } from '../../hooks'
 import Button from '@mui/material/Button'
 import KeyboardArrowLeftRoundedIcon from '@mui/icons-material/KeyboardArrowLeftRounded'
 import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded'
+
 const NavContainer = styled(FCol)`
     position: absolute;
     top: 0;

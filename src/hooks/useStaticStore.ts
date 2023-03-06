@@ -1,6 +1,6 @@
 import { ipcRenderer } from 'electron'
 import { useMemo } from 'react'
-import { Store, StoreMethod } from '../../globals/types'
+import { Store, StoreMethod } from '~/globals/types'
 
 export const formatKeys = (keys: any[]): string => {
     return keys

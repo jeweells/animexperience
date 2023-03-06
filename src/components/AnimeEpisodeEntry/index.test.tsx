@@ -1,8 +1,8 @@
 import React from 'react'
 import { AnimeEpisodeEntry, AnimeEpisodeEntryProps } from './index'
-import { ANIME_ENTRY_SELECTORS, ANIME_EPISODE_ENTRY } from '../../selectors'
+import { ANIME_ENTRY_SELECTORS, ANIME_EPISODE_ENTRY } from '@selectors'
 import { Provider } from 'react-redux'
-import { RootState } from '../../../redux/state'
+import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 
 describe('AnimeEpisodeEntry', () => {

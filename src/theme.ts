@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material/styles'
-export const mainColor = 'rgb(105, 190, 213)'
 
 const theme = createTheme({
     breakpoints: {

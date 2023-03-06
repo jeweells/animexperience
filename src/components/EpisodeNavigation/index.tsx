@@ -1,9 +1,8 @@
 import React from 'react'
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
-import { peek } from '../../../redux/reducers/peek'
-import { player } from '../../../redux/reducers/player'
-import { watch } from '../../../redux/reducers/watch'
-import { useAppSelector, useAppDispatch } from '../../../redux/utils'
+import { peek, player, watch } from '@reducers'
+
+import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { TopView } from '../../types'
 import IconButton from '@mui/material/IconButton'
 import KeyboardArrowLeftRoundedIcon from '@mui/icons-material/KeyboardArrowLeftRounded'
@@ -28,7 +27,7 @@ export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({
     const dispatch = useAppDispatch()
     const topView = useAppSelector((d) => d.topView.views[0])
     React.useLayoutEffect(() => {
-        // Avoids the player to keep playing but does not closes the modal
+        // Avoids the player to keep playing but does not close the modal
         dispatch(player.freeze(topView !== TopView.PLAYER))
     }, [topView])
 

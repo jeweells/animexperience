@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useAppSelector, useAppDispatch } from '../../../redux/utils'
+import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import Button from '@mui/material/Button'
-import { watch } from '../../../redux/reducers/watch'
-import { invokedLink } from '../../../redux/reducers/invokedLink'
+import { watch, invokedLink } from '@reducers'
+
 import { FRowG16, FRowG8 } from '../../atoms/Layout'
 import { DialogActions } from '@mui/material'
 import { TitleRow, UnhookedAnimePeek } from '../AnimePeek'

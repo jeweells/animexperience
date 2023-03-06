@@ -1,7 +1,7 @@
 import moment from 'moment'
 import React from 'react'
 import styled from 'styled-components'
-import { EpisodeInfo } from '../../../globals/types'
+import { EpisodeInfo } from '~/globals/types'
 import { Optional } from '../../types'
 import Tooltip from '@mui/material/Tooltip'
 

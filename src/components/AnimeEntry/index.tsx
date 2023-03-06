@@ -4,7 +4,7 @@ import { pixel } from '../../utils'
 import { useSizes } from '../AnimesCarousel/hooks'
 import CardPopover from '../CardPopover'
 import Fade from '@mui/material/Fade'
-import { ANIME_ENTRY_SELECTORS } from '../../selectors'
+import { ANIME_ENTRY_SELECTORS } from '@selectors'
 
 export type AnimeEntryProps = {
     index: number

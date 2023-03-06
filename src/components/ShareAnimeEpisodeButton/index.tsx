@@ -1,9 +1,9 @@
 import React from 'react'
 import { IconButtonProps } from '@mui/material/IconButton'
 import ShareButton from '../../atoms/ShareButton'
-import { useAppSelector, useAppDispatch } from '../../../redux/utils'
+import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { clipboard } from 'electron'
-import { notifications } from '../../../redux/reducers/notifications'
+import { notifications } from '@reducers'
 import { PUBLIC_URL } from '../../constants'
 
 export const ShareAnimeEpisodeButton = React.memo<IconButtonProps>((props) => {

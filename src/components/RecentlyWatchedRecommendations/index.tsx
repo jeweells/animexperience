@@ -1,6 +1,6 @@
-import React, { useLayoutEffect, Fragment } from 'react'
-import { watched } from '../../../redux/reducers/watched'
-import { useAppSelector, useAppDispatch } from '../../../redux/utils'
+import React, { Fragment, useLayoutEffect } from 'react'
+import { watched } from '@reducers'
+import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { VSpace } from '../../atoms/Spacing'
 import AnimeRecommendations from '../AnimeRecommendations'
 

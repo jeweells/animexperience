@@ -1,9 +1,9 @@
 import { Provider } from 'react-redux'
 import Episodes, { EpisodesProps } from './index'
-import { RootState } from '../../../../../redux/state'
+import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import React from 'react'
-import { EPISODES } from '../../../../selectors'
+import { EPISODES } from '@selectors'
 import { MockStoreEnhanced } from 'redux-mock-store'
 import TopLayout from '../../../../../plugins/gatsby-plugin-top-layout/TopLayout'
 

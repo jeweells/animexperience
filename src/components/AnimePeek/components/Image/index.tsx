@@ -1,7 +1,7 @@
 import React from 'react'
-import { useFadeInStyles } from '../../../../globalMakeStyles/fadeIn'
-import { FStatus, Optional } from '../../../../types'
-import { rendererInvoke } from '../../../../utils'
+import { useFadeInStyles } from '~/src/globalMakeStyles/fadeIn'
+import { FStatus, Optional } from '~/src/types'
+import { rendererInvoke } from '~/src/utils'
 
 export type ImageProps = {
     animeName: string

@@ -2,24 +2,26 @@ import moment from 'moment'
 import 'moment/locale/es'
 import React from 'react'
 import { Provider } from 'react-redux'
-import { animeSearch } from '../../redux/reducers/animeSearch'
-import { peek } from '../../redux/reducers/peek'
-import { watch } from '../../redux/reducers/watch'
-import store from '../../redux/store'
-import AnimePeekModal from '.././components/AnimePeekModal'
-import AnimeSearchModal from '.././components/AnimeSearchModal'
-import ContinueWatching from '.././components/ContinueWatching'
-import FollowedAnimesUpdates from '.././components/FollowedAnimesUpdates'
-import RecentAnimes from '.././components/RecentAnimes'
-import RecentlyWatchedRecommendations from '.././components/RecentlyWatchedRecommendations'
-import Topbar from '.././components/Topbar'
+import { animeSearch, peek, watch } from '@reducers'
+
+import store from '~/redux/store'
+import {
+    AnimePeekModal,
+    AnimeSearchModal,
+    FollowedAnimesUpdates,
+    ContinueWatching,
+    RecentlyWatchedRecommendations,
+    RecentAnimes,
+    Topbar,
+    VideoPlayerModal,
+    WatchInvokedLinkModal,
+    Notifications,
+} from '@components'
 import { VSpace } from '../atoms/Spacing'
-import { VideoPlayerModal } from '../components/VideoPlayerModal'
 import '../index.less'
 import { useInvokedLinks } from '../hooks/useInvokedLinks'
-import WatchInvokedLinkModal from '../components/WatchInvokedLinkModal'
-import { Notifications } from '../components/Notifications'
-import { useAppDispatch } from '../../redux/utils'
+import { useAppDispatch } from '~/redux/utils'
+
 moment.locale('es')
 
 const App = () => {

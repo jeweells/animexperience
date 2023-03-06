@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
-import { AnimeInfo } from '../../../../../globals/types'
-import { FCol, FColG16 } from '../../../../atoms/Layout'
-import { range } from '../../../../utils'
+import { AnimeInfo } from '~/globals/types'
+import { FCol, FColG16 } from '~/src/atoms/Layout'
+import { range } from '~/src/utils'
 import { EpisodeButton, SEpisodeButton } from '../EpisodeButton'
 import Collapse from '@mui/material/Collapse'
 

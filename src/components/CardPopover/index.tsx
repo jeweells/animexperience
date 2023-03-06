@@ -5,6 +5,7 @@ import { Transition } from 'react-transition-group'
 import { useSizes } from '../AnimesCarousel/hooks'
 import { useContentRef } from '../Topbar'
 import Portal from '@mui/material/Portal'
+
 const useStyles = makeStyles<
     DefaultTheme,
     {

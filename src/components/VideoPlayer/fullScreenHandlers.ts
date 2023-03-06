@@ -1,4 +1,4 @@
-import { EpisodeInfo } from '../../../globals/types'
+import { EpisodeInfo } from '~/globals/types'
 import { Optional } from '../../types'
 import { rendererInvoke } from '../../utils'
 import { VideoOption } from './index'

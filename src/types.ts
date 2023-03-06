@@ -25,10 +25,6 @@ export type RecentAnimeData = {
     episodes: RecentAnimeEpisode[]
 }
 
-export type RecentAnimesResult = {
-    data: RecentAnimeData[]
-}
-
 export type AnimeIDSearchItem = {
     id: string
     text: string

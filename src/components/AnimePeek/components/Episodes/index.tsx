@@ -1,15 +1,15 @@
 import Divider from '@mui/material/Divider'
 import React, { useMemo, useState } from 'react'
 import styled from 'styled-components'
-import { AnimeInfo } from '../../../../../globals/types'
+import { AnimeInfo } from '~/globals/types'
 import ButtonWIcon from '../../../../atoms/ButtonWIcon'
-import { FColG16, FRow } from '../../../../atoms/Layout'
-import { Optional } from '../../../../types'
-import { range } from '../../../../utils'
+import { FColG16, FRow } from '~/src/atoms/Layout'
+import { Optional } from '~/src/types'
+import { range } from '~/src/utils'
 import EpisodesGroup from '../EpisodesGroup'
 import SortIcon from '../SortIcon'
 import Tooltip from '@mui/material/Tooltip'
-import { EPISODES } from '../../../../selectors'
+import { EPISODES } from '@selectors'
 
 export type EpisodesProps = {
     info: Optional<AnimeInfo>

@@ -1,6 +1,6 @@
 import React from 'react'
-import { peek } from '../../../redux/reducers/peek'
-import { useAppSelector, useAppDispatch } from '../../../redux/utils'
+import { peek } from '@reducers'
+import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import AnimePeekPlaceholder from '../../placeholders/AnimePeekPlaceholder'
 import { TopView } from '../../types'
 import AnimePeek from '../AnimePeek'

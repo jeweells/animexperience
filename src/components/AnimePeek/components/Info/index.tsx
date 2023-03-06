@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
-import { FColG16, FRowG8 } from '../../../../atoms/Layout'
+import { FColG16, FRowG8 } from '~/src/atoms/Layout'
 
 export type InfoProps = PropsWithChildren<{
     icon?: React.ReactNode

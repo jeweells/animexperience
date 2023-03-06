@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react'
-import { followedAnimes } from '../../../redux/reducers/followedAnimes'
-import { watch } from '../../../redux/reducers/watch'
-import { useAppSelector, useAppDispatch } from '../../../redux/utils'
+import { followedAnimes, watch } from '@reducers'
+
+import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { VSpace } from '../../atoms/Spacing'
 import { RecentAnimeData } from '../../hooks/useRecentAnimes'
 import AnimeCarouselContent from '../../placeholders/AnimeCarouselContent'

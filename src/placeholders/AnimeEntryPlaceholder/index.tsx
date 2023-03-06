@@ -1,6 +1,6 @@
 import React from 'react'
-import { Wrapper } from '../../components/AnimeEntry'
-import { useSizes } from '../../components/AnimesCarousel/hooks'
+import { Wrapper } from '@components/AnimeEntry'
+import { useSizes } from '@components/AnimesCarousel/hooks'
 import Skeleton, { SkeletonProps } from '@mui/material/Skeleton'
 
 export type AnimeEntryPlaceholderProps = {} & React.ComponentProps<typeof Wrapper>

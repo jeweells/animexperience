@@ -2,10 +2,10 @@ import { lighten, Typography } from '@mui/material'
 import ButtonBase from '@mui/material/ButtonBase'
 import React from 'react'
 import styled from 'styled-components'
-import { RelatedAnime } from '../../../../../globals/types'
-import { peek } from '../../../../../redux/reducers/peek'
-import { FRow } from '../../../../atoms/Layout'
-import { useAppDispatch } from '../../../../../redux/utils'
+import { RelatedAnime } from '~/globals/types'
+import { peek } from '@reducers'
+import { FRow } from '~/src/atoms/Layout'
+import { useAppDispatch } from '~/redux/utils'
 
 export type RelatedAnimeButtonProps = {
     related: RelatedAnime

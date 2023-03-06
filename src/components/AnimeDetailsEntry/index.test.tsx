@@ -1,6 +1,6 @@
 import React from 'react'
 import { AnimeDetailsEntry, AnimeDetailsEntryProps } from './index'
-import { ANIME_DETAILS_ENTRY, ANIME_ENTRY_SELECTORS } from '../../selectors'
+import { ANIME_DETAILS_ENTRY, ANIME_ENTRY_SELECTORS } from '@selectors'
 
 describe('AnimeDetailsEntry', () => {
     const returnTestId = ANIME_DETAILS_ENTRY.ANIME_INFO

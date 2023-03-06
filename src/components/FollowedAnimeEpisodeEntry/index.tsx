@@ -1,6 +1,6 @@
 import React from 'react'
-import { AnimeLinkToEpisode } from '../../../electron/linkBuilder'
-import { FollowedAnimeWStatus } from '../../../redux/reducers/followedAnimes'
+import { AnimeLinkToEpisode } from '~/electron/linkBuilder'
+import { FollowedAnimeWStatus } from '~/redux/reducers/followedAnimes'
 import AnimeEntryPlaceholder from '../../placeholders/AnimeEntryPlaceholder'
 import {
     AnimeEpisodeEntry,
