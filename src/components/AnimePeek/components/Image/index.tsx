@@ -12,8 +12,8 @@ export const Image: React.FC<ImageProps> = React.memo(
     ({ animeName, containerStyle, ...rest }) => {
         const { fadeIn } = useFadeInStyles()
         const [realUrl, setRealUrl] = React.useState<Optional<string>>(null)
-        const [status, setStatus] = React.useState<FStatus>('idle')
-        React.useLayoutEffect(() => {
+        const [status, setStatus] = React.useState<FStatus>('loading')
+        React.useEffect(() => {
             setStatus('loading')
             rendererInvoke('getAnimeImage', animeName)
                 .then((x) => {

@@ -7,7 +7,8 @@ type Status = 'idle' | 'loading' | 'succeeded' | 'failed'
 export const useInnerFetch = <T>(name: keyof typeof invokeNames) => {
     const [data, setData] = React.useState<T | null>(null)
     const [status, setStatus] = React.useState<Status>('idle')
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
+        // TODO: Refetching is not implemented yet since it has no use for now
         rendererInvoke(name)
             .then((x) => {
                 setData(x)
