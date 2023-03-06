@@ -9,5 +9,4 @@ declare global {
     var render: typeof testingLibrary.render
     var fireEvent: typeof testingLibrary.fireEvent
     var waitFor: typeof testingLibrary.waitFor
-    var act: typeof testingLibrary.act
 }
