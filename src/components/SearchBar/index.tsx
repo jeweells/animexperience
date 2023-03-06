@@ -2,10 +2,10 @@ import { InputBase } from '@mui/material'
 import React, { FormEvent } from 'react'
 import styled from 'styled-components'
 import { animeSearch } from '../../../redux/reducers/animeSearch'
-import { useAppDispatch } from '../../../redux/store'
 import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search'
 import Tooltip from '@mui/material/Tooltip'
+import { useAppDispatch } from '../../../redux/utils'
 
 const SInput = styled(InputBase)`
     margin-left: 0;

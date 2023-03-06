@@ -1,26 +1,13 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { PayloadAction } from '@reduxjs/toolkit'
 import { AnimeInfo } from '../../../globals/types'
 import { VideoOption } from '../../../src/components/VideoPlayer'
 import { RecentAnimeData } from '../../../src/hooks/useRecentAnimes'
-import { FStatus, Optional } from '../../../src/types'
+import { Optional } from '../../../src/types'
 import { rendererInvoke } from '../../../src/utils'
 import { player } from '../player'
-import { addFetchFlow } from '../utils'
-
-// Define a type for the slice state
-interface WatchState {
-    watching?: Optional<RecentAnimeData>
-    availableVideos?: Optional<VideoOption[]>
-    status: {
-        availableVideos?: FStatus
-        info?: FStatus
-        watchEpisode?: FStatus
-    }
-    info?: Optional<AnimeInfo>
-    showNextEpisodeButton?: boolean
-    nextEpisodeTimeout: number
-    autoFullScreen?: boolean
-}
+import { addFetchFlow, asyncAction, createSlice } from '../utils'
+import { WatchState } from '../../state/types'
+import { initialState } from '../../state'
 
 const changeWatchingEpisode = (state: WatchState, episode: number): RecentAnimeData => {
     const { info, watching } = state
@@ -33,13 +20,7 @@ const changeWatchingEpisode = (state: WatchState, episode: number): RecentAnimeD
     }
 }
 
-// Define the initial state using that type
-const initialState: WatchState = {
-    status: {},
-    nextEpisodeTimeout: -1,
-}
-
-const getAvailableVideos = createAsyncThunk('watch/availableVideos', async (arg, api) => {
+const getAvailableVideos = asyncAction('watch/availableVideos', async (arg, api) => {
     const state = api.getState()
     const anime = state.watch.watching
     if (!anime) {
@@ -83,7 +64,7 @@ const getAvailableVideos = createAsyncThunk('watch/availableVideos', async (arg,
     return (videos.filter(Array.isArray).flat(1) as VideoOption[]).filter(filter)
 })
 
-const getAnimeInfo = createAsyncThunk('watch/getAnimeInfo', async (arg, api) => {
+const getAnimeInfo = asyncAction('watch/getAnimeInfo', async (arg, api) => {
     const state = api.getState()
     const anime = state.watch.watching
     if (!anime) {
@@ -100,7 +81,7 @@ const getAnimeInfo = createAsyncThunk('watch/getAnimeInfo', async (arg, api) => 
     )
 })
 
-const nextEpisode = createAsyncThunk('watch/nextEpisode', async (arg, api) => {
+const nextEpisode = asyncAction('watch/nextEpisode', async (arg, api) => {
     const state = api.getState()
     const currentEpisode = state.watch.watching?.episode ?? 0
     const maxEpisode = state.watch.info?.episodesRange?.max ?? 0
@@ -116,7 +97,7 @@ const nextEpisode = createAsyncThunk('watch/nextEpisode', async (arg, api) => {
     }
 })
 
-const previousEpisode = createAsyncThunk('watch/previousEpisode', async (arg, api) => {
+const previousEpisode = asyncAction('watch/previousEpisode', async (arg, api) => {
     const state = api.getState()
     const watching = state.watch.watching
     if (watching && typeof watching.episode === 'number') {
@@ -125,10 +106,9 @@ const previousEpisode = createAsyncThunk('watch/previousEpisode', async (arg, ap
     }
 })
 
-const watchEpisode = createAsyncThunk(
+const watchEpisode = asyncAction(
     'watch/watchEpisode',
     async (anime: RecentAnimeData, { dispatch }) => {
-        console.debug('WATCH:', anime)
         dispatch(watch.set(anime))
         const p = dispatch(watch.getAvailableVideos())
         const info = dispatch(watch.getAnimeInfo())
@@ -139,14 +119,12 @@ const watchEpisode = createAsyncThunk(
 
 export const slice = createSlice({
     name: 'watch',
-    // `createSlice` will infer the state type from the `initialState` argument
-    initialState,
     reducers: {
         set(state, { payload }: PayloadAction<Optional<RecentAnimeData>>) {
             state.watching = payload
         },
         reset() {
-            return initialState
+            return initialState.watch
         },
         setNextEpisodeButton(state, { payload }: PayloadAction<boolean>) {
             state.showNextEpisodeButton = payload

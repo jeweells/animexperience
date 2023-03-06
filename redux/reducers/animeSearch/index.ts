@@ -1,25 +1,14 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { PayloadAction } from '@reduxjs/toolkit'
 import {
     DeepAnimeIdSearchResult,
     DeepAnimeIdSearchResultWithPages,
 } from '../../../globals/types'
-import { FStatus, Optional } from '../../../src/types'
+import { Optional } from '../../../src/types'
 import { rendererInvoke } from '../../../src/utils'
-import { addFetchFlow } from '../utils'
+import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { v4 as uuidv4 } from 'uuid'
 
-// Define a type for the slice state
-interface AnimeSearchState {
-    // Boolean id
-    searching?: string
-    result?: Optional<DeepAnimeIdSearchResult>
-    status: Partial<{
-        result: FStatus
-        moreResults: FStatus
-    }>
-}
-
-const search = createAsyncThunk('animeSearch/search', async (name: string, api) => {
+const search = asyncAction('animeSearch/search', async (name: string, api) => {
     const result: DeepAnimeIdSearchResult = await rendererInvoke(
         'deepSearchAnimeFlv',
         name,
@@ -43,7 +32,7 @@ const resultHasPages = (
     )
 }
 
-const searchMore = createAsyncThunk('animeSearch/searchMore', async (arg, api) => {
+const searchMore = asyncAction('animeSearch/searchMore', async (arg, api) => {
     const current = api.getState().animeSearch.result
     if (!resultHasPages(current)) {
         return
@@ -64,15 +53,8 @@ const searchMore = createAsyncThunk('animeSearch/searchMore', async (arg, api) =
     return result
 })
 
-// Define the initial state using that type
-const initialState: AnimeSearchState = {
-    status: {},
-}
-
 export const slice = createSlice({
     name: 'animeSearch',
-    // `createSlice` will infer the state type from the `initialState` argument
-    initialState,
     reducers: {
         setResult(state, { payload }: PayloadAction<Optional<DeepAnimeIdSearchResult>>) {
             state.result = payload

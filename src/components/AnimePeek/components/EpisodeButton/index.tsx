@@ -2,7 +2,6 @@ import React, { useCallback, useMemo } from 'react'
 import styled from 'styled-components'
 import { AnimeInfo } from '../../../../../globals/types'
 import { watch } from '../../../../../redux/reducers/watch'
-import { useAppDispatch } from '../../../../../redux/store'
 import { FRowG16 } from '../../../../atoms/Layout'
 import { useWatched } from '../../../../hooks/useWatched'
 import WatchedRange from '../../../WatchedRange'
@@ -10,6 +9,7 @@ import Button from '@mui/material/Button'
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded'
 import Tooltip from '@mui/material/Tooltip'
 import { EPISODE_BUTTON } from '../../../../selectors'
+import { useAppDispatch } from '../../../../../redux/utils'
 export const SEpisodeButton = styled(Button)`
     width: 100%;
     text-align: left;

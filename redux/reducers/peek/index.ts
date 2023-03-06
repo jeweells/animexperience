@@ -1,26 +1,11 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { PayloadAction } from '@reduxjs/toolkit'
 import { v4 as uuidv4 } from 'uuid'
 import { AnimeIDAnimeMatch, AnimeInfo } from '../../../globals/types'
-import { FStatus, Optional } from '../../../src/types'
+import { Optional } from '../../../src/types'
 import { rendererInvoke } from '../../../src/utils'
-import { addFetchFlow } from '../utils'
+import { addFetchFlow, asyncAction, createSlice } from '../utils'
 
-// Define a type for the slice state
-interface PeekState {
-    name?: string
-    status: Partial<{
-        info: FStatus
-    }>
-    info?: Optional<AnimeInfo>
-    peeking?: string
-}
-
-// Define the initial state using that type
-const initialState: PeekState = {
-    status: {},
-}
-
-const _peek = createAsyncThunk('peek/peek', async (name: string, api) => {
+const _peek = asyncAction('peek/peek', async (name: string, api) => {
     api.dispatch(peek.setPeeking(uuidv4()))
 
     const animes: AnimeIDAnimeMatch[] =
@@ -36,8 +21,6 @@ const _peek = createAsyncThunk('peek/peek', async (name: string, api) => {
 
 export const slice = createSlice({
     name: 'peek',
-    // `createSlice` will infer the state type from the `initialState` argument
-    initialState,
     reducers: {
         setInfo(state, { payload }: PayloadAction<Optional<AnimeInfo>>) {
             state.info = payload

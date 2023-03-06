@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, Draft, PayloadAction } from '@reduxjs/toolkit'
+import { Draft, PayloadAction } from '@reduxjs/toolkit'
 import moment from 'moment'
 import { AnimeInfo, FollowedAnime, Store } from '../../../globals/types'
 import { RecentAnimeData } from '../../../src/hooks/useRecentAnimes'
@@ -9,24 +9,16 @@ import {
 } from '../../../src/hooks/useStaticStore'
 import { FStatus } from '../../../src/types'
 import { rendererInvoke } from '../../../src/utils'
-import { addFetchFlow } from '../utils'
+import { addFetchFlow, asyncAction, createSlice } from '../utils'
+import { FollowedAnimesState } from '../../state/types'
 
 export type FollowedAnimeWStatus = {
     status: FStatus
 } & FollowedAnime
 
-// Define a type for the slice state
-interface FollowedAnimesState {
-    followedDict: Record<string, FollowedAnime>
-    followed: FollowedAnimeWStatus[]
-    status: Partial<{
-        followed: FStatus
-    }>
-}
-
 const nextCheck = (now: number): number => moment(now).add(1, 'day').valueOf()
 
-const fetchStore = createAsyncThunk('followedAnimes/fetchStore', async (arg, api) => {
+const fetchStore = asyncAction('followedAnimes/fetchStore', async (arg, api) => {
     const followed: FollowedAnime[] = await getStaticStore(
         Store.FOLLOWED,
         'followed',
@@ -111,11 +103,6 @@ const fetchStore = createAsyncThunk('followedAnimes/fetchStore', async (arg, api
 })
 
 // Define the initial state using that type
-const initialState: FollowedAnimesState = {
-    followed: [],
-    followedDict: {},
-    status: {},
-}
 
 const sortFollowed = (arr: FollowedAnimeWStatus[]): FollowedAnimeWStatus[] => {
     return arr
@@ -160,8 +147,6 @@ const set = (
 
 export const slice = createSlice({
     name: 'followedAnimes',
-    // `createSlice` will infer the state type from the `initialState` argument
-    initialState,
     reducers: {
         set,
         unfollow(state, action: PayloadAction<{ name: string }>) {

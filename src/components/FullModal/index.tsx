@@ -2,8 +2,8 @@ import Dialog, { DialogProps } from '@mui/material/Dialog'
 import Fade from '@mui/material/Fade'
 import React, { useLayoutEffect } from 'react'
 import styled from 'styled-components'
-import { topview } from '../../../redux/reducers/topview'
-import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { topView } from '../../../redux/reducers/topView'
+import { useAppSelector, useAppDispatch } from '../../../redux/utils'
 import { TopView } from '../../types'
 import { useTopBarHeight } from '../Topbar'
 
@@ -33,14 +33,14 @@ export type FullModalProps = {
 export const FullModal: React.FC<FullModalProps> = React.memo<FullModalProps>(
     ({ view, children, show, ...rest }) => {
         const topBarHeight = useTopBarHeight()
-        const currentTopview = useAppSelector((d) => d.topview.views[0])
+        const currentTopview = useAppSelector((d) => d.topView.views[0])
         const dispatch = useAppDispatch()
 
         useLayoutEffect(() => {
             if (show) {
-                dispatch(topview.push(view))
+                dispatch(topView.push(view))
             } else {
-                dispatch(topview.pop(view))
+                dispatch(topView.pop(view))
             }
         }, [show])
         return (

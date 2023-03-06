@@ -1,33 +1,14 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { PayloadAction } from '@reduxjs/toolkit'
 import { AnimeInfo } from '../../../globals/types'
-import { FStatus } from '../../../src/types'
-import { addFetchFlow } from '../utils'
+import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { WatchInvokedLink } from '../../../electron/sdk/openUrl'
 import { rendererInvoke } from '../../../src/utils'
 import { v4 as uuidv4 } from 'uuid'
+import { InvokedLinkState } from '../../state/types'
 
 export type PreAllowWatch = { data: AnimeInfo | null; request: WatchInvokedLink }
 
-// Define a type for the slice state
-interface InvokedLinkState {
-    open: {
-        watch?: string
-    }
-    preAllow: Partial<{
-        watch: PreAllowWatch
-    }>
-    status: {
-        watch?: FStatus
-    }
-}
-
-// Define the initial state using that type
-const initialState: InvokedLinkState = {
-    open: {},
-    preAllow: {},
-    status: {},
-}
-const watchInvokeLink = createAsyncThunk(
+const watchInvokeLink = asyncAction(
     'invokedLink/watchInvokeLink',
     async (info: WatchInvokedLink, api): Promise<PreAllowWatch> => {
         api.dispatch(invokedLink.setWatchRequest(info))
@@ -43,7 +24,6 @@ const watchInvokeLink = createAsyncThunk(
 
 export const slice = createSlice({
     name: 'invokedLink',
-    initialState,
     reducers: {
         setWatchRequest(state, { payload }: PayloadAction<WatchInvokedLink>) {
             state.preAllow.watch = { data: null, request: payload }

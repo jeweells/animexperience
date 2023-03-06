@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { animeSearch } from '../../redux/reducers/animeSearch'
 import { peek } from '../../redux/reducers/peek'
 import { watch } from '../../redux/reducers/watch'
-import store, { useAppDispatch } from '../../redux/store'
+import store from '../../redux/store'
 import AnimePeekModal from '.././components/AnimePeekModal'
 import AnimeSearchModal from '.././components/AnimeSearchModal'
 import ContinueWatching from '.././components/ContinueWatching'
@@ -19,6 +19,7 @@ import '../index.less'
 import { useInvokedLinks } from '../hooks/useInvokedLinks'
 import WatchInvokedLinkModal from '../components/WatchInvokedLinkModal'
 import { Notifications } from '../components/Notifications'
+import { useAppDispatch } from '../../redux/utils'
 moment.locale('es')
 
 const App = () => {

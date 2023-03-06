@@ -1,7 +1,7 @@
 import React from 'react'
 import { IconButtonProps } from '@mui/material/IconButton'
 import ShareButton from '../../atoms/ShareButton'
-import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { useAppSelector, useAppDispatch } from '../../../redux/utils'
 import { clipboard } from 'electron'
 import { notifications } from '../../../redux/reducers/notifications'
 import { PUBLIC_URL } from '../../constants'

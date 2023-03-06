@@ -1,20 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { PayloadAction } from '@reduxjs/toolkit'
 import { TopView } from '../../../src/types'
-
-// Define a type for the slice state
-interface TopviewState {
-    views: TopView[]
-}
-
-// Define the initial state using that type
-const initialState: TopviewState = {
-    views: [],
-}
+import { createSlice } from '../utils'
 
 export const slice = createSlice({
-    name: 'topview',
-    // `createSlice` will infer the state type from the `initialState` argument
-    initialState,
+    name: 'topView',
     reducers: {
         push(state, { payload }: PayloadAction<TopView>) {
             const idx = state.views.indexOf(payload)
@@ -34,7 +23,7 @@ export const slice = createSlice({
     },
 })
 
-export const topview = {
+export const topView = {
     ...slice.actions,
 }
 export default slice.reducer

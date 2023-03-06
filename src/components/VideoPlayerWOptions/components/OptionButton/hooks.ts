@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react'
 import { playerOptions } from '../../../../../redux/reducers/playerOptions'
-import { useAppDispatch, useAppSelector } from '../../../../../redux/store'
+import { useAppSelector, useAppDispatch } from '../../../../../redux/utils'
 import { Optional } from '../../../../types'
 
 export const usePlayerOption = (name: Optional<string>) => {

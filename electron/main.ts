@@ -45,7 +45,6 @@ async function createWindow() {
                 nodeIntegration: true,
                 webSecurity: false,
                 contextIsolation: false,
-                enableRemoteModule: true,
             },
         }),
     )
@@ -119,7 +118,6 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
 })
 
-app.allowRendererProcessReuse = true
 setupSdk()
 setupStores()
 

@@ -2,9 +2,9 @@ import { ipcRenderer } from 'electron'
 import eventNames from '../../electron/eventNames'
 import { InvokedLink } from '../../electron/sdk/openUrl'
 import React from 'react'
-import { useAppDispatch } from '../../redux/store'
 import { invokedLink } from '../../redux/reducers/invokedLink'
 import { rendererInvoke } from '../utils'
+import { useAppDispatch } from '../../redux/utils'
 
 export const useInvokedLinks = () => {
     const dispatch = useAppDispatch()
@@ -27,7 +27,7 @@ export const useInvokedLinks = () => {
         })
         ipcRenderer.on(eventNames.linkInvoked, fn)
         return () => {
-            ipcRenderer.off(eventNames.linkInvoked, fn)
+            ipcRenderer.removeListener(eventNames.linkInvoked, fn)
         }
     }, [])
 }

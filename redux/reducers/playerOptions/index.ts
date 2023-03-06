@@ -1,27 +1,12 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { PayloadAction } from '@reduxjs/toolkit'
 import { Store } from '../../../globals/types'
 import { getStaticStore, setStaticStore } from '../../../src/hooks/useStaticStore'
-import { FStatus } from '../../../src/types'
-import { addFetchFlow } from '../utils'
-
-export type OptionInfo = {
-    name: string
-    prefer?: boolean
-    score: number
-}
-// Define a type for the slice state
-interface PlayerOptionsState {
-    options?: OptionInfo[]
-    history?: string[]
-    preferred?: string[]
-    status: Partial<{
-        options: FStatus
-    }>
-}
+import { addFetchFlow, asyncAction, createSlice } from '../utils'
+import { OptionInfo } from '../../state/types'
 
 const OPTIONS_HISTORY_SIZE = 30
 
-const fetchStore = createAsyncThunk('playerOptions/fetchStore', async (arg, api) => {
+const fetchStore = asyncAction('playerOptions/fetchStore', async (arg, api) => {
     const history: Array<string> = await getStaticStore(
         Store.PLAYER_OPTIONS,
         'history',
@@ -36,8 +21,8 @@ const fetchStore = createAsyncThunk('playerOptions/fetchStore', async (arg, api)
     return { history, preferred }
 })
 
-const use = createAsyncThunk('playerOptions/use', async (optName: string, api) => {
-    const history = [optName, ...api.getState().playerOptions.history].slice(
+const use = asyncAction('playerOptions/use', async (optName: string, api) => {
+    const history = [optName, ...(api.getState().playerOptions.history ?? [])].slice(
         0,
         OPTIONS_HISTORY_SIZE,
     )
@@ -47,7 +32,7 @@ const use = createAsyncThunk('playerOptions/use', async (optName: string, api) =
     await setStaticStore(Store.PLAYER_OPTIONS, 'history', history)
 })
 
-const prefer = createAsyncThunk(
+const prefer = asyncAction(
     'playerOptions/prefer',
     async (
         opts: {
@@ -70,15 +55,9 @@ const prefer = createAsyncThunk(
     },
 )
 
-// Define the initial state using that type
-const initialState: PlayerOptionsState = {
-    status: {},
-}
-
 export const slice = createSlice({
     name: 'playerOptions',
     // `createSlice` will infer the state type from the `initialState` argument
-    initialState,
     reducers: {
         setHistory(state, { payload }: PayloadAction<string[]>) {
             state.history = payload ?? []

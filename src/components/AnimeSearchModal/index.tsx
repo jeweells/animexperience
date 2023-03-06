@@ -1,6 +1,6 @@
 import React from 'react'
 import { animeSearch } from '../../../redux/reducers/animeSearch'
-import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { useAppSelector, useAppDispatch } from '../../../redux/utils'
 import { TopView } from '../../types'
 import AnimeSearch from '../AnimeSearch'
 import FullModal, { FullModalProps } from '../FullModal'

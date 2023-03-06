@@ -1,17 +1,10 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { PayloadAction } from '@reduxjs/toolkit'
 import { RecommendationInfo } from '../../../globals/types'
 import { FStatus } from '../../../src/types'
 import { rendererInvoke } from '../../../src/utils'
+import { asyncAction, createSlice } from '../utils'
 
-// Define a type for the slice state
-interface RecommendationsState {
-    [name: string]: Partial<{
-        status: FStatus
-        recommendations: RecommendationInfo[]
-    }>
-}
-
-const fetchRecommendations = createAsyncThunk(
+const fetchRecommendations = asyncAction(
     'recommendations/fetchRecommendations',
     async (animeName: string, api) => {
         api.dispatch(recommendations.setStatus({ name: animeName, status: 'loading' }))
@@ -32,13 +25,8 @@ const fetchRecommendations = createAsyncThunk(
     },
 )
 
-// Define the initial state using that type
-const initialState: RecommendationsState = {}
-
 export const slice = createSlice({
     name: 'recommendations',
-    // `createSlice` will infer the state type from the `initialState` argument
-    initialState,
     reducers: {
         setStatus(state, { payload }: PayloadAction<{ name: string; status: FStatus }>) {
             if (!state[payload.name]) {

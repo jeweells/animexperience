@@ -2,6 +2,7 @@ import { ipcRenderer } from 'electron'
 import React, {
     createContext,
     Fragment,
+    PropsWithChildren,
     useContext,
     useLayoutEffect,
     useRef,
@@ -9,7 +10,7 @@ import React, {
 } from 'react'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import styled from 'styled-components'
-import { useAppSelector } from '../../../redux/store'
+import { useAppSelector } from '../../../redux/utils'
 import CloseButton from '../../atoms/CloseButton'
 import SearchBar from '../SearchBar'
 import * as fade from './fade.module.css'
@@ -53,7 +54,7 @@ const Content = styled.div`
 
 export const useTopBarHeight = () => 56
 
-export type TopbarProps = {}
+export type TopbarProps = PropsWithChildren<{}>
 
 export const ContentContext = createContext<React.RefObject<HTMLDivElement> | null>(null)
 export const useContentRef = () => useContext(ContentContext)

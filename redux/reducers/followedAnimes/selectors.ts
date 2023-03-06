@@ -1,4 +1,4 @@
-import { useAppSelector } from '../../store'
+import { useAppSelector } from '../../utils'
 import { formatKeys } from '../../../src/hooks/useStaticStore'
 
 export const useFollowedByName = (name: string) =>

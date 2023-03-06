@@ -1,9 +1,4 @@
-import {
-    createAsyncThunk,
-    createSlice,
-    PayloadAction,
-    unwrapResult,
-} from '@reduxjs/toolkit'
+import { PayloadAction, unwrapResult } from '@reduxjs/toolkit'
 import { EpisodeInfo, RecentAnimeInfo, Store } from '../../../globals/types'
 import { RecentAnimeData } from '../../../src/hooks/useRecentAnimes'
 import {
@@ -11,29 +6,11 @@ import {
     getStaticStore,
     setStaticStore,
 } from '../../../src/hooks/useStaticStore'
-import { FStatus, Optional } from '../../../src/types'
-import { addFetchFlow } from '../utils'
+import { Optional } from '../../../src/types'
+import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { watchHistory } from '../watchHistory'
 
-// Define a type for the slice state
-interface WatchedState {
-    episodes: {
-        [name: string]: EpisodeInfo
-    }
-    recently?: RecentAnimeInfo[]
-    status: {
-        episodes?: FStatus
-        recently?: FStatus
-    }
-}
-
-// Define the initial state using that type
-const initialState: WatchedState = {
-    episodes: {},
-    status: {},
-}
-
-const fetchStore = createAsyncThunk(
+const fetchStore = asyncAction(
     'watched/fetchStore',
     async (arg: RecentAnimeData, { dispatch }) => {
         return await getStaticStore(Store.WATCHED, arg?.name, arg?.episode)
@@ -49,7 +26,7 @@ const fetchStore = createAsyncThunk(
     },
 )
 
-const fetchRecentlyStore = createAsyncThunk(
+const fetchRecentlyStore = asyncAction(
     'watched/fetchRecentlyStore',
     async (arg, { dispatch }) => {
         return await getStaticStore(Store.RECENTLY_WATCHED, 'sorted')
@@ -66,7 +43,7 @@ const fetchRecentlyStore = createAsyncThunk(
     },
 )
 
-const updateRecentlyWatched = createAsyncThunk(
+const updateRecentlyWatched = asyncAction(
     'watched/updateRecentlyWatched',
     async (anime: Optional<RecentAnimeData>, api) => {
         if (!(anime?.name && typeof anime.episode === 'number')) return
@@ -99,7 +76,7 @@ const updateRecentlyWatched = createAsyncThunk(
     },
 )
 
-const updateWatched = createAsyncThunk(
+const updateWatched = asyncAction(
     'watched/updateWatched',
     async (
         payload: {
@@ -127,8 +104,6 @@ const updateWatched = createAsyncThunk(
 
 export const slice = createSlice({
     name: 'watched',
-    // `createSlice` will infer the state type from the `initialState` argument
-    initialState,
     reducers: {
         // Do not call this directly, use updateWatched instead if you wish to update the static stores
         set(

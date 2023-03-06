@@ -1,28 +1,9 @@
-import {
-    createAsyncThunk,
-    createSlice,
-    PayloadAction,
-    unwrapResult,
-} from '@reduxjs/toolkit'
+import { PayloadAction, unwrapResult } from '@reduxjs/toolkit'
 import { Store, WatchHistoryItem } from '../../../globals/types'
 import { getStaticStore, setStaticStore } from '../../../src/hooks/useStaticStore'
-import { FStatus } from '../../../src/types'
-import { addFetchFlow } from '../utils'
+import { addFetchFlow, asyncAction, createSlice } from '../utils'
 
-// Define a type for the slice state
-interface WatchHistoryState {
-    sorted?: WatchHistoryItem[]
-    status: {
-        sorted?: FStatus
-    }
-}
-
-// Define the initial state using that type
-const initialState: WatchHistoryState = {
-    status: {},
-}
-
-const fetchStore = createAsyncThunk('watchHistory/fetchStore', async (arg, api) => {
+const fetchStore = asyncAction('watchHistory/fetchStore', async (arg, api) => {
     const history: WatchHistoryItem[] = await getStaticStore(
         Store.WATCH_HISTORY,
         'sorted',
@@ -36,7 +17,7 @@ const fetchStore = createAsyncThunk('watchHistory/fetchStore', async (arg, api) 
     return history
 })
 
-const push = createAsyncThunk('watchHistory/push', async (arg: WatchHistoryItem, api) => {
+const push = asyncAction('watchHistory/push', async (arg: WatchHistoryItem, api) => {
     const history =
         api.getState().watchHistory.sorted?.slice() ??
         (await api.dispatch(watchHistory.fetchStore()).then(unwrapResult)) ??
@@ -53,7 +34,7 @@ const push = createAsyncThunk('watchHistory/push', async (arg: WatchHistoryItem,
     )
 })
 
-const remove = createAsyncThunk(
+const remove = asyncAction(
     'watchHistory/remove',
     async (name: WatchHistoryItem['info']['name'], api) => {
         const history =
@@ -74,8 +55,6 @@ const remove = createAsyncThunk(
 
 export const slice = createSlice({
     name: 'watchHistory',
-    // `createSlice` will infer the state type from the `initialState` argument
-    initialState,
     reducers: {
         set(
             state,

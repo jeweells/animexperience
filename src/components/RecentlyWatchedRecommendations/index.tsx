@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, Fragment } from 'react'
 import { watched } from '../../../redux/reducers/watched'
-import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { useAppSelector, useAppDispatch } from '../../../redux/utils'
 import { VSpace } from '../../atoms/Spacing'
 import AnimeRecommendations from '../AnimeRecommendations'
 

@@ -1,20 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { PayloadAction } from '@reduxjs/toolkit'
 import { v4 as uuidv4 } from 'uuid'
-
-interface InvokedLinkState {
-    message: string | null
-    key: string
-}
-
-// Define the initial state using that type
-const initialState: InvokedLinkState = {
-    message: null,
-    key: '_',
-}
+import { createSlice } from '../utils'
 
 export const slice = createSlice({
     name: 'notifications',
-    initialState,
     reducers: {
         clear(state) {
             state.message = null

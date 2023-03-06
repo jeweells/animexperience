@@ -4,8 +4,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { RelatedAnime } from '../../../../../globals/types'
 import { peek } from '../../../../../redux/reducers/peek'
-import { useAppDispatch } from '../../../../../redux/store'
 import { FRow } from '../../../../atoms/Layout'
+import { useAppDispatch } from '../../../../../redux/utils'
 
 export type RelatedAnimeButtonProps = {
     related: RelatedAnime

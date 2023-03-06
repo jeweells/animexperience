@@ -1,7 +1,7 @@
 import React, { useCallback, useLayoutEffect, useMemo } from 'react'
 import { peek } from '../../../redux/reducers/peek'
 import { recommendations } from '../../../redux/reducers/recommendations'
-import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { useAppSelector, useAppDispatch } from '../../../redux/utils'
 import { AnimeCarouselContent } from '../../placeholders/AnimeCarouselContent'
 import { Optional } from '../../types'
 import { AnimeDetails, AnimeDetailsEntry } from '../AnimeDetailsEntry'

@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import { FColG16, FRowG8 } from '../../../../atoms/Layout'
 
-export type InfoProps = {
+export type InfoProps = PropsWithChildren<{
     icon?: React.ReactNode
     title: string
-}
+}>
 const Title = styled(FRowG8)`
     gap: 8px;
     align-items: center;

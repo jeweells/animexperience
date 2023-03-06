@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import React from 'react'
 import useResizeObserver from 'use-resize-observer'
-import { useAppSelector } from '../../../redux/store'
+import { useAppSelector } from '../../../redux/utils'
 import { FCol } from '../../atoms/Layout'
 import { useFadeInStyles } from '../../globalMakeStyles/fadeIn'
 import { Wrapper } from '../../placeholders/VideoPlayerWOptionsPlaceholder'

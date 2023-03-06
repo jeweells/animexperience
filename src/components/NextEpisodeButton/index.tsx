@@ -1,6 +1,6 @@
 import React from 'react'
 import { watch } from '../../../redux/reducers/watch'
-import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { useAppSelector, useAppDispatch } from '../../../redux/utils'
 import font from '../../fonts/Quicksand/Quicksand-Light.ttf'
 import Fade from '@mui/material/Fade'
 

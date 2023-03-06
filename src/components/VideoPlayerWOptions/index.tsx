@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import styled from 'styled-components'
-import { useAppSelector } from '../../../redux/store'
+import { useAppSelector } from '../../../redux/utils'
 import { useFadeInStyles } from '../../globalMakeStyles/fadeIn'
 import { OptionsRow } from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import VideoPlayer, { VideoOption } from '../VideoPlayer'

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { EpisodeInfo } from '../../globals/types'
 import { watched } from '../../redux/reducers/watched'
-import { useAppDispatch, useAppSelector } from '../../redux/store'
+import { useAppSelector, useAppDispatch } from '../../redux/utils'
 import { Optional } from '../types'
 import { RecentAnimeData } from './useRecentAnimes'
 import { formatKeys } from './useStaticStore'

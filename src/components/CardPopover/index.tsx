@@ -1,6 +1,6 @@
 import { makeStyles } from '@mui/styles'
 import { DefaultTheme } from '@mui/styles/defaultTheme'
-import React from 'react'
+import React, { PropsWithChildren, ReactNode } from 'react'
 import { Transition } from 'react-transition-group'
 import { useSizes } from '../AnimesCarousel/hooks'
 import { useContentRef } from '../Topbar'
@@ -21,7 +21,7 @@ const useStyles = makeStyles<
 })
 type ScaleOnHoverProps = {
     in: boolean
-    children: (className: string) => React.ReactNode
+    children?(className: string): ReactNode
     onExited?(): void
     onEnter?(): void
 }
@@ -47,17 +47,17 @@ const ScaleOnHover: React.VFC<ScaleOnHoverProps> = ({
             appear={true}
         >
             {() => {
-                return children(classes.item) ?? null
+                return children?.(classes.item) ?? null
             }}
         </Transition>
     )
 }
 
-export type CardPopoverProps = {
+export type CardPopoverProps = PropsWithChildren<{
     open: boolean
     anchorEl?: React.RefObject<HTMLElement>
     onClose?(): void
-}
+}>
 
 type Position = {
     top: number

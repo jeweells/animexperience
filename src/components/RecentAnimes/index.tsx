@@ -1,11 +1,11 @@
 import React from 'react'
 import { watch } from '../../../redux/reducers/watch'
-import { useAppDispatch } from '../../../redux/store'
 import { VSpace } from '../../atoms/Spacing'
 import { RecentAnimeData, useRecentAnimes } from '../../hooks/useRecentAnimes'
 import { AnimeCarouselContent } from '../../placeholders/AnimeCarouselContent'
 import { AnimeEpisodeEntry } from '../AnimeEpisodeEntry'
 import { AnimesCarousel } from '../AnimesCarousel'
+import { useAppDispatch } from '../../../redux/utils'
 
 export type RecentAnimesProps = {}
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { useAppSelector, useAppDispatch } from '../../../redux/utils'
 import Button from '@mui/material/Button'
 import { watch } from '../../../redux/reducers/watch'
 import { invokedLink } from '../../../redux/reducers/invokedLink'
@@ -13,6 +13,7 @@ import CloseButton from '../../atoms/CloseButton'
 import ShareIcon from '@mui/icons-material/Share'
 import AnimePeekPlaceholder from '../../placeholders/AnimePeekPlaceholder'
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded'
+
 const SomeButton = styled(Button)``
 
 const Actions = styled(DialogActions)`
