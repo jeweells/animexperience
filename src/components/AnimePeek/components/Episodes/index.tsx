@@ -9,6 +9,7 @@ import { range } from '../../../../utils'
 import EpisodesGroup from '../EpisodesGroup'
 import SortIcon from '../SortIcon'
 import Tooltip from '@mui/material/Tooltip'
+import { EPISODES } from '../../../../selectors'
 
 export type EpisodesProps = {
     info: Optional<AnimeInfo>
@@ -60,6 +61,7 @@ export const Episodes: React.FC<EpisodesProps> = React.memo(
                     >
                         <div>
                             <ButtonWIcon
+                                data-testid={EPISODES.SORT_BUTTON}
                                 onClick={toggleSort}
                                 icon={
                                     <SortIcon

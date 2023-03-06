@@ -14,3 +14,7 @@ export const ANIME_EPISODE_ENTRY = {
 export const EPISODE_BUTTON = {
     WATCH_BUTTON: 'episode-button-watch-button',
 }
+
+export const EPISODES = {
+    SORT_BUTTON: 'episodes-sort-button',
+}
