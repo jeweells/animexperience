@@ -31,9 +31,11 @@ jobs:
         run: yarn package
 
       - name: Create zip archive
-        run: |
-          cd packages/win-unpacked
-          zip -r ../release.zip ./
+        uses: thedoctor0/zip-release@0.7.1
+        with:
+          type: 'zip'
+          filename: 'release.zip'
+          directory: 'packages/win-unpacked/'
 
       - name: Create release
         id: create_release
