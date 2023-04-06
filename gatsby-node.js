@@ -25,5 +25,9 @@ exports.onPreInit = () => {
 }
 
 exports.onPostBuild = () => {
+    const folders = targetDir.split(path.sep)
+    folders.forEach((folder) => {
+        if (!fs.existsSync(folder)) fs.mkdirSync(folder)
+    })
     fs.renameSync(path.join(__dirname, 'public'), path.join(__dirname, targetDir))
 }
