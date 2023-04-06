@@ -25,6 +25,9 @@ jobs:
         id: version
         run: echo version=$(jq -r '.version' package.json) >> $GITHUB_OUTPUT
       
+      - name: Check version number
+        run: echo "${{ steps.version.outputs.version }}"
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
