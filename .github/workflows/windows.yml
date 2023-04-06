@@ -42,7 +42,6 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
           name: Release v${{ steps.info.outputs.version }}
           tag: v${{ steps.info.outputs.version }}
           artifacts: ./AnimExperience-v${{ steps.info.outputs.version }}-win-x64.zip,./packages/AnimExperience ${{ steps.info.outputs.version }}.exe
