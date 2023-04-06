@@ -39,9 +39,9 @@ jobs:
           directory: packages/win-unpacked/
 
       - name: Create release
-        uses: "marvinpinto/action-automatic-releases@latest"
+        uses: ncipollo/release-action@v1
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           name: Release v${{ steps.info.outputs.version }}
           tag: v${{ steps.info.outputs.version }}
