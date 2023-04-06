@@ -27,7 +27,7 @@ jobs:
         run: echo ::set-output name=version::$(jq -r '.version' package.json)
 
       - name: Build application
-        run: npm run build
+        run: npm run package
 
       - name: Create zip archive
         run: |
