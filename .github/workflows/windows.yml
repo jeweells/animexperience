@@ -20,13 +20,13 @@ jobs:
         with:
           node-version: '14.18.0'
           cache: 'yarn'
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
+      
       - name: Get version number
         id: version
-        run: echo ::set-output name=version::$(jq -r '.version' package.json)
+        run: echo version=$(jq -r '.version' package.json) >> $GITHUB_OUTPUT
+      
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
       - name: Build application
         run: yarn package
@@ -42,8 +42,8 @@ jobs:
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: v${{ steps.version.outputs.version }}
-          title: Release v${{ steps.version.outputs.version }}
-          files: |
-            ./AnimExperience-v${{ steps.version.outputs.version }}-win-x64.zip
-            ./packages/AnimExperience ${{ steps.version.outputs.version }}.exe
+          automatic_release_tag: "latest"
+          name: Release v${{ steps.version.outputs.version }}
+          tag: v${{ steps.version.outputs.version }}
+          artifacts: ./AnimExperience-v${{ steps.version.outputs.version }}-win-x64.zip,./packages/AnimExperience ${{ steps.version.outputs.version }}.exe
+          allowUpdates: true
