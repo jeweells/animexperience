@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image renders default 1`] = `
+<DocumentFragment>
+  <div
+    style="position: relative;"
+  >
+    <img
+      data-testid="image-bg-image"
+      src="old_image_url.png"
+    />
+    <img
+      class="makeStyles-fadeIn-2"
+      data-testid="image-image"
+      src="fake_image_url.png"
+      style="position: absolute; inset: 0;"
+    />
+    <div
+      data-testid="image-blur"
+      style="background: rgba(200, 200, 200, 0.5); opacity: 0; transition: all 1000ms ease-in-out; position: absolute; inset: 0;"
+    />
+  </div>
+</DocumentFragment>
+`;

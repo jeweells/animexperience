@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFadeInStyles } from '~/src/globalMakeStyles/fadeIn'
+import { IMAGE } from '@selectors'
 import { FStatus, Optional } from '~/src/types'
 import { rendererInvoke } from '~/src/utils'
 
@@ -35,9 +36,14 @@ export const Image: React.FC<ImageProps> = React.memo(
                     ...(containerStyle || {}),
                 }}
             >
-                <img {...rest} />
+                {/*
+                    This image is an immediate url with a low quality image
+                    that will be blurred by the <div> below until we fetch the high quality image url
+                */}
+                <img data-testid={IMAGE.BG_IMAGE} {...rest} />
                 {realUrl && (
                     <img
+                        data-testid={IMAGE.IMAGE}
                         {...rest}
                         onLoad={() => {
                             setStatus('succeeded')
@@ -52,6 +58,7 @@ export const Image: React.FC<ImageProps> = React.memo(
                     />
                 )}
                 <div
+                    data-testid={IMAGE.BLUR}
                     style={{
                         background: 'rgba(200, 200, 200, 0.5)',
                         opacity: ['loading', 'idle'].includes(status) ? 1 : 0,

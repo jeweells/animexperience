@@ -18,3 +18,9 @@ export const EPISODE_BUTTON = {
 export const EPISODES = {
     SORT_BUTTON: 'episodes-sort-button',
 }
+
+export const IMAGE = {
+    IMAGE: 'image-image',
+    BG_IMAGE: 'image-bg-image',
+    BLUR: 'image-blur',
+}
