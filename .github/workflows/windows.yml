@@ -43,7 +43,4 @@ jobs:
         with:
           name: Release v${{ steps.version.outputs.version }}
           tag: v${{ steps.version.outputs.version }}
-          artifacts: [
-            ./AnimExperience-v${{ steps.version.outputs.version }}-win-x64.zip, 
-            ./packages/AnimExperience ${{ steps.version.outputs.version }}.exe
-          ]
+          artifacts: ./AnimExperience-v${{ steps.version.outputs.version }}-win-x64.zip,./packages/AnimExperience ${{ steps.version.outputs.version }}.exe
