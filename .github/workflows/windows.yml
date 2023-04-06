@@ -39,8 +39,11 @@ jobs:
           directory: packages/win-unpacked/
 
       - name: Create release
-        uses: ncipollo/release-action@v1
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          name: Release v${{ steps.version.outputs.version }}
-          tag: v${{ steps.version.outputs.version }}
-          artifacts: ./AnimExperience-v${{ steps.version.outputs.version }}-win-x64.zip,./packages/AnimExperience ${{ steps.version.outputs.version }}.exe
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: v${{ steps.version.outputs.version }}
+          title: Release v${{ steps.version.outputs.version }}
+          files: |
+            ./AnimExperience-v${{ steps.version.outputs.version }}-win-x64.zip
+            ./packages/AnimExperience ${{ steps.version.outputs.version }}.exe
