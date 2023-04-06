@@ -13,7 +13,7 @@
     "dev:react": "cross-env NODE_ENV=development gatsby develop",
     "electron:serve": "wait-on http://localhost:8000 && yarn dev:electron",
     "start:electron": "electron .",
-    "build": "npm-run-all build:electron build:react",
+    "build": "npm-run-all build:react build:electron",
     "build:run": "npm-run-all build start:electron",
     "build:electron": "webpack --config webpack/electron.webpack.js",
     "build:react": "gatsby build",
