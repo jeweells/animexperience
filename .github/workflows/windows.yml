@@ -21,12 +21,9 @@ jobs:
           node-version: '14.18.0'
           cache: 'yarn'
       
-      - name: Get version number
-        id: version
-        run: echo version=$(jq -r '.version' package.json) >> $GITHUB_OUTPUT
-      
-      - name: Check version number
-        run: echo "${{ steps.version.outputs.version }}"
+      - name: Get package.json info
+        id: info
+        uses: jaywcjlove/github-action-package@main
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -38,7 +35,7 @@ jobs:
         uses: thedoctor0/zip-release@0.7.1
         with:
           type: zip
-          filename: AnimExperience-v${{ steps.version.outputs.version }}-win-x64.zip
+          filename: AnimExperience-v${{ steps.info.outputs.version }}-win-x64.zip
           directory: packages/win-unpacked/
 
       - name: Create release
@@ -46,7 +43,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
-          name: Release v${{ steps.version.outputs.version }}
-          tag: v${{ steps.version.outputs.version }}
-          artifacts: ./AnimExperience-v${{ steps.version.outputs.version }}-win-x64.zip,./packages/AnimExperience ${{ steps.version.outputs.version }}.exe
+          name: Release v${{ steps.info.outputs.version }}
+          tag: v${{ steps.info.outputs.version }}
+          artifacts: ./AnimExperience-v${{ steps.info.outputs.version }}-win-x64.zip,./packages/AnimExperience ${{ steps.info.outputs.version }}.exe
           allowUpdates: true
