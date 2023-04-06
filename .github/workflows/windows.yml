@@ -35,7 +35,7 @@ jobs:
         uses: thedoctor0/zip-release@0.7.1
         with:
           type: zip
-          filename: AnimExperience-v${{ steps.info.outputs.version }}-win-x64.zip
+          filename: ../../AnimExperience-v${{ steps.info.outputs.version }}-win-x64.zip
           directory: packages/win-unpacked/
 
       - name: Create release
