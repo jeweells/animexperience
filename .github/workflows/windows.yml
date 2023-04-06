@@ -10,7 +10,8 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
 
@@ -33,41 +34,15 @@ jobs:
       - name: Create zip archive
         uses: thedoctor0/zip-release@0.7.1
         with:
-          type: 'zip'
-          filename: 'release.zip'
-          directory: 'packages/win-unpacked/'
+          type: zip
+          filename: AnimExperience-v${{ steps.version.outputs.version }}-win-x64.zip
+          directory: packages/win-unpacked/
 
       - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: v${{ steps.version.outputs.version }}
-          release_name: Release v${{ steps.version.outputs.version }}
-          body: Release description goes here.
-
-      - name: Upload release assets
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-
-      - name: Upload zip archive
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          asset_path: ./release.zip
-          asset_name: AnimExperience-v${{ steps.version.outputs.version }}-win-x64.zip
-          asset_content_type: application/zip
-
-      - name: Upload executable file
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          asset_path: ./packages/AnimExperience ${{ steps.version.outputs.version }}.exe
-          asset_name: AnimExperience-v${{ steps.version.outputs.version }}.exe
-          asset_content_type: application/octet-stream
+          name: Release v${{ steps.version.outputs.version }}
+          tag: v${{ steps.version.outputs.version }}
+          artifacts:
+            - ./AnimExperience-v${{ steps.version.outputs.version }}-win-x64.zip
+            - ./packages/AnimExperience ${{ steps.version.outputs.version }}.exe
