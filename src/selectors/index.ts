@@ -28,3 +28,7 @@ export const IMAGE = {
 export const RELATED_ANIME_BUTTON = {
     BUTTON: 'related-anime-button-button',
 }
+
+export const ANIME_PEEK = {
+    CLOSE_BUTTON: 'anime-peek-close-button',
+}

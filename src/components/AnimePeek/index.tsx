@@ -30,6 +30,7 @@ import Divider from '@mui/material/Divider'
 import CalendarTodayRoundedIcon from '@mui/icons-material/CalendarTodayRounded'
 import { Optional } from '../../types'
 import ShareAnimeButton from '../ShareAnimeButton'
+import { ANIME_PEEK } from '@selectors'
 
 export const TitleRow = styled(FRow)`
     align-items: center;
@@ -87,7 +88,12 @@ export const UnhookedAnimePeek: React.FC<UnhookedAnimePeek> = React.memo(
                                     <AnimePeekTitle>{info.title}</AnimePeekTitle>
                                     <AnimePeekType>{info.type}</AnimePeekType>
                                     <FExpand />
-                                    {onClose && <CloseButton onClick={onClose} />}
+                                    {onClose && (
+                                        <CloseButton
+                                            data-testid={ANIME_PEEK.CLOSE_BUTTON}
+                                            onClick={onClose}
+                                        />
+                                    )}
                                 </TitleRow>
                                 {(info.otherTitles?.length ?? 0) > 0 && (
                                     <AnimePeekType>
