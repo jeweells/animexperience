@@ -147,10 +147,8 @@
   "build": {
     "win": {
       "target": [
-        "portable",
         "msi",
-        "nsis",
-        "zip"
+        "nsis"
       ]
     },
     "appId": "com.electron.animexperience",
