@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - v*
+  workflow_dispatch:
 
 jobs:
   build:
@@ -29,18 +30,14 @@ jobs:
       - name: Build application
         run: yarn package
 
-      - name: Create zip archive
-        uses: thedoctor0/zip-release@0.7.1
-        with:
-          type: zip
-          filename: ../../AnimExperience-v${{ steps.info.outputs.version }}-win-x64.zip
-          directory: packages/win-unpacked/
-
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           name: Release v${{ steps.info.outputs.version }}
           tag: v${{ steps.info.outputs.version }}
-          artifacts: ./AnimExperience-v${{ steps.info.outputs.version }}-win-x64.zip,./packages/AnimExperience ${{ steps.info.outputs.version }}.exe
+          artifacts: |
+            ./packages/AnimExperience Setup ${{ steps.info.outputs.version }}.exe
+            ./packages/AnimExperience ${{ steps.info.outputs.version }}.msi
+
           allowUpdates: true
