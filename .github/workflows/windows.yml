@@ -28,6 +28,8 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build application
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn package
 
       - name: Create release
@@ -39,5 +41,4 @@ jobs:
           artifacts: |
             ./packages/AnimExperience Setup ${{ steps.info.outputs.version }}.exe
             ./packages/AnimExperience ${{ steps.info.outputs.version }}.msi
-
           allowUpdates: true
