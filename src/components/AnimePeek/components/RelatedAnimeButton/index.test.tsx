@@ -8,7 +8,7 @@ import TopLayout from '../../../../../plugins/gatsby-plugin-top-layout/TopLayout
 import { RelatedAnime } from '~/globals/types'
 import { RELATED_ANIME_BUTTON } from '@selectors'
 
-describe('EpisodesGroup', () => {
+describe('RelatedAnimeButton', () => {
     let initialState: DeepPartial<RootState>
     let props: RelatedAnimeButtonProps
     let store: MockStoreEnhanced
