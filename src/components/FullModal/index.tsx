@@ -7,7 +7,11 @@ import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { TopView } from '../../types'
 import { useTopBarHeight } from '../Topbar'
 
-const SModal = styled(Dialog)<{ topBarHeight: number; contrast?: boolean }>`
+type SModalProps = { topBarHeight: number; contrast?: boolean } & DialogProps
+
+const SModal = styled(({ contrast, topBarHeight, ...props }: SModalProps) => {
+    return <Dialog {...props} />
+})<SModalProps>`
     margin: 0;
     width: 100vw;
     overflow: hidden;
