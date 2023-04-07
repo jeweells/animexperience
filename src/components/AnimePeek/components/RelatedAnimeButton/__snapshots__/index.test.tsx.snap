@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EpisodesGroup renders default type=Especial 1`] = `
+exports[`RelatedAnimeButton renders default type=Especial 1`] = `
 <DocumentFragment>
   .c9 {
   overflow: hidden;
@@ -187,7 +187,7 @@ exports[`EpisodesGroup renders default type=Especial 1`] = `
 </DocumentFragment>
 `;
 
-exports[`EpisodesGroup renders default type=Ova 1`] = `
+exports[`RelatedAnimeButton renders default type=Ova 1`] = `
 <DocumentFragment>
   .c9 {
   overflow: hidden;
@@ -374,7 +374,7 @@ exports[`EpisodesGroup renders default type=Ova 1`] = `
 </DocumentFragment>
 `;
 
-exports[`EpisodesGroup renders default type=Película 1`] = `
+exports[`RelatedAnimeButton renders default type=Película 1`] = `
 <DocumentFragment>
   .c9 {
   overflow: hidden;
@@ -561,7 +561,7 @@ exports[`EpisodesGroup renders default type=Película 1`] = `
 </DocumentFragment>
 `;
 
-exports[`EpisodesGroup renders default type=Serie 1`] = `
+exports[`RelatedAnimeButton renders default type=Serie 1`] = `
 <DocumentFragment>
   .c9 {
   overflow: hidden;
