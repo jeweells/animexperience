@@ -1,28 +1,34 @@
-import Info, { InfoProps } from './index'
+import SortIcon, { SortIconProps } from './index'
 import React from 'react'
 import TopLayout from '../../../../../plugins/gatsby-plugin-top-layout/TopLayout'
 
-describe('Info', () => {
-    let props: InfoProps
+const orders: Array<SortIconProps['order']> = ['asc', 'desc']
 
-    const getComponent = (override: Partial<InfoProps> = {}) => {
+describe('SortIcon', () => {
+    let props: SortIconProps
+
+    const getComponent = (override: Partial<SortIconProps> = {}) => {
         return (
             <TopLayout>
-                <Info {...props} {...override} />
+                <SortIcon {...props} {...override} />
             </TopLayout>
         )
     }
 
     beforeEach(() => {
         props = {
-            title: 'Sample title',
-            icon: <div>Sample icon inside div</div>,
-            children: <div>Sample children inside div</div>,
+            order: 'asc',
+            size: 30,
         }
     })
 
-    it('renders default', async () => {
-        const wrapper = render(getComponent())
-        expect(wrapper.asFragment()).toMatchSnapshot()
-    })
+    it.each(orders.map((order) => [order]))(
+        'renders default with order=%s',
+        async (order) => {
+            const wrapper = render(
+                getComponent({ order: order as SortIconProps['order'] }),
+            )
+            expect(wrapper.asFragment()).toMatchSnapshot()
+        },
+    )
 })
