@@ -18,7 +18,7 @@
     "build:electron": "webpack --config webpack/electron.webpack.js",
     "build:react": "gatsby build",
     "package": "npm-run-all build package:dist",
-    "package:dist": "electron-builder -w portable",
+    "package:dist": "electron-builder",
     "test": "jest",
     "test:o": "jest --watch",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
@@ -57,7 +57,7 @@
     "css-loader": "^5.2.6",
     "cz-conventional-changelog": "3.2.0",
     "electron": "^20.1.0",
-    "electron-builder": "^22.7.0",
+    "electron-builder": "23.6.0",
     "electron-devtools-installer": "^3.2.0",
     "electron-rebuild": "^2.3.5",
     "eslint": "^7.32.0",
@@ -145,6 +145,14 @@
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@^5.0.0"
   },
   "build": {
+    "win": {
+      "target": [
+        "portable",
+        "msi",
+        "nsis",
+        "zip"
+      ]
+    },
     "appId": "com.electron.animexperience",
     "mac": {
       "category": "public.app-category.video"
