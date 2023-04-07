@@ -24,3 +24,7 @@ export const IMAGE = {
     BG_IMAGE: 'image-bg-image',
     BLUR: 'image-blur',
 }
+
+export const RELATED_ANIME_BUTTON = {
+    BUTTON: 'related-anime-button-button',
+}

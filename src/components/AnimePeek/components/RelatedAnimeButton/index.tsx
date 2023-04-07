@@ -6,12 +6,13 @@ import { RelatedAnime } from '~/globals/types'
 import { peek } from '@reducers'
 import { FRow } from '~/src/atoms/Layout'
 import { useAppDispatch } from '~/redux/utils'
+import { RELATED_ANIME_BUTTON } from '@selectors'
 
 export type RelatedAnimeButtonProps = {
     related: RelatedAnime
 }
 
-const types = Object.keys({
+export const types = Object.keys({
     Ova: null,
     Película: null,
     Especial: null,
@@ -84,6 +85,7 @@ export const RelatedAnimeButton: React.FC<RelatedAnimeButtonProps> = React.memo(
         const dispatch = useAppDispatch()
         return (
             <SGroup
+                data-testid={RELATED_ANIME_BUTTON.BUTTON}
                 title={related.name}
                 btype={related.type}
                 onClick={() => {

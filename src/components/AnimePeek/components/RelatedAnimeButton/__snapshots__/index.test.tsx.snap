@@ -1,0 +1,749 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EpisodesGroup renders default type=Especial 1`] = `
+<DocumentFragment>
+  .c9 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+}
+
+.c0::-moz-focus-inner {
+  border-style: none;
+}
+
+.c0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.c7 {
+  margin: 0;
+  font-family: Quicksand,sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c4 {
+  padding: 0 12px;
+  font-size: 0.85rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 9ch;
+}
+
+.c6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+  padding: 0 12px;
+}
+
+.c8 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+  height: 36px;
+}
+
+.c1 .c2 {
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  background-color: rgb(160 99 70);
+}
+
+.c1 .c5 {
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  background-color: #292d33;
+}
+
+.c1:hover .c2 {
+  background-color: rgb(179,NaN,NaN);
+}
+
+.c1:hover .c5 {
+  background-color: #3c3f43;
+}
+
+@media print {
+  .c0 {
+    color-adjust: exact;
+  }
+}
+
+<button
+    btype="Especial"
+    class="c0 MuiButtonBase-root c1"
+    data-testid="related-anime-button-button"
+    tabindex="0"
+    title="Related Anime Name"
+    type="button"
+  >
+    <div
+      class="c2 c3 c4"
+    >
+      Especial
+    </div>
+    <div
+      class="c5 c3 c6"
+    >
+      <p
+        class="c7 MuiTypography-root MuiTypography-body1 c8"
+      >
+        Related Anime Name
+      </p>
+    </div>
+    <span
+      class="c9 MuiTouchRipple-root"
+    />
+  </button>
+</DocumentFragment>
+`;
+
+exports[`EpisodesGroup renders default type=Ova 1`] = `
+<DocumentFragment>
+  .c9 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+}
+
+.c0::-moz-focus-inner {
+  border-style: none;
+}
+
+.c0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.c7 {
+  margin: 0;
+  font-family: Quicksand,sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c4 {
+  padding: 0 12px;
+  font-size: 0.85rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 9ch;
+}
+
+.c6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+  padding: 0 12px;
+}
+
+.c8 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+  height: 36px;
+}
+
+.c1 .c2 {
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  background-color: #612f2f;
+}
+
+.c1 .c5 {
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  background-color: #292d33;
+}
+
+.c1:hover .c2 {
+  background-color: rgb(128,88,88);
+}
+
+.c1:hover .c5 {
+  background-color: #3c3f43;
+}
+
+@media print {
+  .c0 {
+    color-adjust: exact;
+  }
+}
+
+<button
+    btype="Ova"
+    class="c0 MuiButtonBase-root c1"
+    data-testid="related-anime-button-button"
+    tabindex="0"
+    title="Related Anime Name"
+    type="button"
+  >
+    <div
+      class="c2 c3 c4"
+    >
+      Ova
+    </div>
+    <div
+      class="c5 c3 c6"
+    >
+      <p
+        class="c7 MuiTypography-root MuiTypography-body1 c8"
+      >
+        Related Anime Name
+      </p>
+    </div>
+    <span
+      class="c9 MuiTouchRipple-root"
+    />
+  </button>
+</DocumentFragment>
+`;
+
+exports[`EpisodesGroup renders default type=Película 1`] = `
+<DocumentFragment>
+  .c9 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+}
+
+.c0::-moz-focus-inner {
+  border-style: none;
+}
+
+.c0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.c7 {
+  margin: 0;
+  font-family: Quicksand,sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c4 {
+  padding: 0 12px;
+  font-size: 0.85rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 9ch;
+}
+
+.c6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+  padding: 0 12px;
+}
+
+.c8 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+  height: 36px;
+}
+
+.c1 .c2 {
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  background-color: rgb(55 92 95);
+}
+
+.c1 .c5 {
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  background-color: #292d33;
+}
+
+.c1:hover .c2 {
+  background-color: rgb(95,NaN,NaN);
+}
+
+.c1:hover .c5 {
+  background-color: #3c3f43;
+}
+
+@media print {
+  .c0 {
+    color-adjust: exact;
+  }
+}
+
+<button
+    btype="Película"
+    class="c0 MuiButtonBase-root c1"
+    data-testid="related-anime-button-button"
+    tabindex="0"
+    title="Related Anime Name"
+    type="button"
+  >
+    <div
+      class="c2 c3 c4"
+    >
+      Película
+    </div>
+    <div
+      class="c5 c3 c6"
+    >
+      <p
+        class="c7 MuiTypography-root MuiTypography-body1 c8"
+      >
+        Related Anime Name
+      </p>
+    </div>
+    <span
+      class="c9 MuiTouchRipple-root"
+    />
+  </button>
+</DocumentFragment>
+`;
+
+exports[`EpisodesGroup renders default type=Serie 1`] = `
+<DocumentFragment>
+  .c9 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+}
+
+.c0::-moz-focus-inner {
+  border-style: none;
+}
+
+.c0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.c7 {
+  margin: 0;
+  font-family: Quicksand,sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c4 {
+  padding: 0 12px;
+  font-size: 0.85rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 9ch;
+}
+
+.c6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+  padding: 0 12px;
+}
+
+.c8 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+  height: 36px;
+}
+
+.c1 .c2 {
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  background-color: #427cb3;
+}
+
+.c1 .c5 {
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  background-color: #292d33;
+}
+
+.c1:hover .c2 {
+  background-color: rgb(103,150,194);
+}
+
+.c1:hover .c5 {
+  background-color: #3c3f43;
+}
+
+@media print {
+  .c0 {
+    color-adjust: exact;
+  }
+}
+
+<button
+    btype="Serie"
+    class="c0 MuiButtonBase-root c1"
+    data-testid="related-anime-button-button"
+    tabindex="0"
+    title="Related Anime Name"
+    type="button"
+  >
+    <div
+      class="c2 c3 c4"
+    >
+      Serie
+    </div>
+    <div
+      class="c5 c3 c6"
+    >
+      <p
+        class="c7 MuiTypography-root MuiTypography-body1 c8"
+      >
+        Related Anime Name
+      </p>
+    </div>
+    <span
+      class="c9 MuiTouchRipple-root"
+    />
+  </button>
+</DocumentFragment>
+`;
