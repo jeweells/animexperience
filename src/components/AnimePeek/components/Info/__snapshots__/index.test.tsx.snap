@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Info renders default 1`] = `
+<DocumentFragment>
+  .c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c3 {
+  gap: 8px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 {
+  gap: 16px;
+}
+
+.c4 {
+  gap: 8px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.c5 {
+  color: rgba(233,235,240,0.8);
+  font-size: 0.9rem;
+}
+
+<div
+    class="c0 c1"
+  >
+    <h5
+      class="c2 c3 c4"
+    >
+      <div>
+        Sample icon inside div
+      </div>
+      Sample title
+    </h5>
+    <div
+      class="c5"
+    >
+      <div>
+        Sample children inside div
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
