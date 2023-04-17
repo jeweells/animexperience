@@ -49,6 +49,7 @@ export const FullModal: React.FC<FullModalProps> = React.memo<FullModalProps>(
         }, [show])
         return (
             <SModal
+                aria-labelledby={'full-modal'}
                 TransitionComponent={Fade}
                 fullScreen={true}
                 disableEnforceFocus={true}

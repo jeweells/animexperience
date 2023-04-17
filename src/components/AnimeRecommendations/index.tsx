@@ -5,6 +5,7 @@ import { AnimeCarouselContent } from '../../placeholders/AnimeCarouselContent'
 import { Optional } from '../../types'
 import { AnimeDetails, AnimeDetailsEntry } from '../AnimeDetailsEntry'
 import { AnimesCarousel } from '../AnimesCarousel'
+import { random } from '~/src/utils'
 
 export type AnimeRecommendationsProps = {
     animeName: string
@@ -16,7 +17,7 @@ const getRandomTitleBuilder = () => {
         (name) => 'Porque viste ' + name,
         (name) => 'Similares a ' + name,
     ]
-    return messages[Math.floor(Math.random() * messages.length)]
+    return messages[Math.floor(random() * messages.length)]
 }
 
 export const AnimeRecommendations: React.FC<AnimeRecommendationsProps> = React.memo(
