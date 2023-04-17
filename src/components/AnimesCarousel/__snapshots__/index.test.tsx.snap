@@ -1,0 +1,649 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnimesCarousel renders default when false 1`] = `
+.c0 {
+  font-weight: 700;
+  color: #e7e7e7;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-shadow: 0 0 2px black,0 0 6px black;
+  margin-bottom: 4px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c10 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.c4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+}
+
+.c4::-moz-focus-inner {
+  border-style: none;
+}
+
+.c4.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.c5 {
+  font-family: Quicksand,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  color: #292d33;
+  color: #e9ebf0;
+  background-color: #292d33;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  outline: 0 !important;
+  white-space: nowrap;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-transform: unset;
+  border-radius: 6px;
+  height: 36px;
+  color: #e9ebf0;
+  text-transform: none;
+  padding: 8px 12px;
+}
+
+.c5:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(41,45,51,0.08);
+}
+
+.c5.Mui-disabled {
+  color: rgba(255,255,255,0.3);
+}
+
+.c5:hover {
+  outline: none;
+  border: none;
+  background-color: #3c3f43;
+}
+
+.c7 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.c6 {
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent !important;
+  opacity: 0 !important;
+  background-image: linear-gradient( to left, rgba(0,0,0,0), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) );
+  font-size: 3.5rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 0 24px;
+}
+
+.c6:hover {
+  opacity: 0 !important;
+  background-image: linear-gradient( to left, rgba(0,0,0,0), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) );
+}
+
+.c9 {
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent !important;
+  opacity: 0.7 !important;
+  background-image: linear-gradient( to right, rgba(0,0,0,0), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) );
+  font-size: 3.5rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 0 24px;
+}
+
+.c9:hover {
+  opacity: 1 !important;
+  background-image: linear-gradient( to right, rgba(0,0,0,0), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) );
+}
+
+.c1 {
+  overflow-x: hidden;
+  position: relative;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  gap: 16px;
+}
+
+@media print {
+  .c4 {
+    color-adjust: exact;
+  }
+}
+
+@media (hover:none) {
+  .c5:hover {
+    background-color: transparent;
+  }
+}
+
+<body>
+  <div>
+    <h2
+      class="c0"
+      style="margin-left: 72px; margin-bottom: 8px;"
+    >
+      Sample title
+    </h2>
+    <div
+      class="c1"
+      style="width: 100vw;"
+    >
+      <div
+        class="c2 c3"
+        style="left: 0px; width: 72px;"
+      >
+        <button
+          class="c4 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c5 c6"
+          data-testid="navigation-button-button"
+          direction="left"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c7 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            data-testid="KeyboardArrowLeftRoundedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14.71 15.88 10.83 12l3.88-3.88c.39-.39.39-1.02 0-1.41a.9959.9959 0 0 0-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="c8"
+        style="transition: all 400ms; transform: translate3d(72px, 0, 0); pointer-events: all;"
+      >
+        <div>
+          {
+  "index": 0,
+  "visible": true,
+  "sliding": false
+}
+        </div>
+        <div>
+          {
+  "index": 1,
+  "visible": false,
+  "sliding": false
+}
+        </div>
+        <div>
+          {
+  "index": 2,
+  "visible": false,
+  "sliding": false
+}
+        </div>
+        <div>
+          {
+  "index": 3,
+  "visible": false,
+  "sliding": false
+}
+        </div>
+        <div>
+          {
+  "index": 4,
+  "visible": false,
+  "sliding": false
+}
+        </div>
+      </div>
+      <div
+        class="c2 c3"
+        style="right: 0px; width: 72px;"
+      >
+        <button
+          class="c4 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c5 c9"
+          data-testid="navigation-button-button"
+          direction="right"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c7 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            data-testid="KeyboardArrowRightRoundedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M9.29 15.88 13.17 12 9.29 8.12a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"
+            />
+          </svg>
+          <span
+            class="c10 MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`AnimesCarousel renders default when true 1`] = `
+.c1 {
+  -webkit-animation: fNPkvL 1500ms;
+  animation: fNPkvL 1500ms;
+}
+
+.c0 {
+  font-weight: 700;
+  color: #e7e7e7;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-shadow: 0 0 2px black,0 0 6px black;
+  margin-bottom: 4px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+}
+
+.c5::-moz-focus-inner {
+  border-style: none;
+}
+
+.c5.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.c6 {
+  font-family: Quicksand,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  color: #292d33;
+  color: #e9ebf0;
+  background-color: #292d33;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  outline: 0 !important;
+  white-space: nowrap;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-transform: unset;
+  border-radius: 6px;
+  height: 36px;
+  color: #e9ebf0;
+  text-transform: none;
+  padding: 8px 12px;
+}
+
+.c6:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(41,45,51,0.08);
+}
+
+.c6.Mui-disabled {
+  color: rgba(255,255,255,0.3);
+}
+
+.c6:hover {
+  outline: none;
+  border: none;
+  background-color: #3c3f43;
+}
+
+.c8 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
+}
+
+.c4 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.c7 {
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent !important;
+  opacity: 0 !important;
+  background-image: linear-gradient( to left, rgba(0,0,0,0), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) );
+  font-size: 3.5rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 0 24px;
+}
+
+.c7:hover {
+  opacity: 0 !important;
+  background-image: linear-gradient( to left, rgba(0,0,0,0), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) );
+}
+
+.c10 {
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent !important;
+  opacity: 0 !important;
+  background-image: linear-gradient( to right, rgba(0,0,0,0), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) );
+  font-size: 3.5rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 0 24px;
+}
+
+.c10:hover {
+  opacity: 0 !important;
+  background-image: linear-gradient( to right, rgba(0,0,0,0), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) );
+}
+
+.c2 {
+  overflow-x: hidden;
+  position: relative;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  gap: 16px;
+}
+
+@media print {
+  .c5 {
+    color-adjust: exact;
+  }
+}
+
+@media (hover:none) {
+  .c6:hover {
+    background-color: transparent;
+  }
+}
+
+<body>
+  <div>
+    <h2
+      class="c0"
+      style="margin-left: 72px; margin-bottom: 8px;"
+    >
+      <div
+        class="c1"
+      >
+        <div
+          animation="pulse"
+          variant="text"
+        >
+          Skeleton:Mock
+        </div>
+      </div>
+    </h2>
+    <div
+      class="c2"
+      style="width: 100vw;"
+    >
+      <div
+        class="c3 c4"
+        style="left: 0px; width: 72px;"
+      >
+        <button
+          class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c7"
+          data-testid="navigation-button-button"
+          direction="left"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c8 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            data-testid="KeyboardArrowLeftRoundedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14.71 15.88 10.83 12l3.88-3.88c.39-.39.39-1.02 0-1.41a.9959.9959 0 0 0-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="c9"
+        style="transition: all 400ms; transform: translate3d(72px, 0, 0); pointer-events: all;"
+      >
+        <div>
+          {
+  "index": 0,
+  "visible": true,
+  "sliding": false
+}
+        </div>
+        <div>
+          {
+  "index": 1,
+  "visible": false,
+  "sliding": false
+}
+        </div>
+        <div>
+          {
+  "index": 2,
+  "visible": false,
+  "sliding": false
+}
+        </div>
+        <div>
+          {
+  "index": 3,
+  "visible": false,
+  "sliding": false
+}
+        </div>
+        <div>
+          {
+  "index": 4,
+  "visible": false,
+  "sliding": false
+}
+        </div>
+      </div>
+      <div
+        class="c3 c4"
+        style="right: 0px; width: 72px;"
+      >
+        <button
+          class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c10"
+          data-testid="navigation-button-button"
+          direction="right"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="c8 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            data-testid="KeyboardArrowRightRoundedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M9.29 15.88 13.17 12 9.29 8.12a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;

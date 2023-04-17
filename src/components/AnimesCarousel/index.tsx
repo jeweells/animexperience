@@ -3,9 +3,10 @@ import { Transition } from 'react-transition-group'
 import styled from 'styled-components'
 import { FadeInRL } from '../../atoms/FadeIn'
 import { CarouselTitle } from '../../atoms/Text'
-import { range } from '../../utils'
+import { range, random } from '../../utils'
 import { NavigationButton } from './components/NavigationButton'
 import { useSizes, useSliding } from './hooks'
+
 import Skeleton from '@mui/material/Skeleton'
 
 const Scroller = styled.div`
@@ -29,7 +30,7 @@ export type AnimesCarouselProps = {
 export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(
     ({ count, loading, title, render }) => {
         const titleSkeletonWidth = useMemo(() => {
-            return 15 + Math.random() * 20 + '%'
+            return 15 + random() * 20 + '%'
         }, [])
         const { gap, navigationWidth, containerWidth } = useSizes()
         const {
