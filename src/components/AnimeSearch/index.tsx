@@ -14,6 +14,7 @@ import { Content, Wrapper } from '../AnimePeek'
 import { ContentContext } from '../Topbar'
 import Fade from '@mui/material/Fade'
 import Grid from '@mui/material/Grid'
+import { ANIME_SEARCH } from '@selectors'
 
 export type AnimeSearchProps = {
     onClose?(): void
@@ -29,7 +30,6 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
         (anime: Optional<AnimeDetails>) => {
             if (!anime) return
             dispatch(peek.peek(anime.name))
-            console.debug('CLICKED', anime)
         },
         [dispatch],
     )
@@ -49,11 +49,27 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                                     whiteSpace: 'pre',
                                 }}
                             >
-                                Resultados de{' '}
-                                <span style={{ opacity: 0.8 }}>{result?.search}</span>
+                                {result?.matches.length !== 0 ? (
+                                    <>
+                                        Resultados de{' '}
+                                        <span style={{ opacity: 0.8 }}>
+                                            &quot;{result?.search}&quot;
+                                        </span>
+                                    </>
+                                ) : (
+                                    <>
+                                        No hay resultados para{' '}
+                                        <span style={{ opacity: 0.8 }}>
+                                            &quot;{result?.search}&quot;
+                                        </span>
+                                    </>
+                                )}
                             </CarouselTitle>
                             <FExpand />
-                            <CloseButton onClick={onClose} />
+                            <CloseButton
+                                data-testid={ANIME_SEARCH.CLOSE_BUTTON}
+                                onClick={onClose}
+                            />
                         </FRowG16>
                         <Grid container spacing={2}>
                             {resultStatus === 'succeeded' ? (
@@ -84,7 +100,6 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                                         <Waypoint
                                             onEnter={() => {
                                                 if (result?.hasNext) {
-                                                    console.debug('Loading more....')
                                                     dispatch(animeSearch.searchMore())
                                                 }
                                             }}

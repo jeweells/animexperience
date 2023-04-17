@@ -36,3 +36,11 @@ export const ANIME_PEEK = {
 export const NAVIGATION_BUTTON = {
     BUTTON: 'navigation-button-button',
 }
+
+export const ANIME_SEARCH = {
+    CLOSE_BUTTON: 'anime-search-close-button',
+}
+
+export const WAYPOINT = {
+    DIV: 'waypoint-div',
+}

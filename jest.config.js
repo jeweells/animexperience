@@ -145,6 +145,7 @@ module.exports = {
     setupFilesAfterEnv: [
         './tests/setupTests.ts',
         './tests/__mocks__/electron.ts',
+        './tests/__mocks__/react-waypoint.tsx',
         './tests/__mocks__/use-resize-observer.ts',
         './tests/__mocks__/src/utils.ts',
         './tests/__mocks__/mui/material/Skeleton.tsx',
