@@ -1119,6 +1119,7 @@ exports[`AnimePeekModal renders default when failed 1`] = `
               >
                 <button
                   class="c16 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c26 c27"
+                  data-testid="navigation-button-button"
                   direction="left"
                   disabled=""
                   tabindex="-1"
@@ -1223,6 +1224,7 @@ exports[`AnimePeekModal renders default when failed 1`] = `
               >
                 <button
                   class="c16 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c26 c35"
+                  data-testid="navigation-button-button"
                   direction="right"
                   disabled=""
                   tabindex="-1"
@@ -2373,6 +2375,7 @@ exports[`AnimePeekModal renders default when idle 1`] = `
               >
                 <button
                   class="c16 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c26 c27"
+                  data-testid="navigation-button-button"
                   direction="left"
                   disabled=""
                   tabindex="-1"
@@ -2477,6 +2480,7 @@ exports[`AnimePeekModal renders default when idle 1`] = `
               >
                 <button
                   class="c16 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c26 c35"
+                  data-testid="navigation-button-button"
                   direction="right"
                   disabled=""
                   tabindex="-1"
@@ -3627,6 +3631,7 @@ exports[`AnimePeekModal renders default when loading 1`] = `
               >
                 <button
                   class="c16 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c26 c27"
+                  data-testid="navigation-button-button"
                   direction="left"
                   disabled=""
                   tabindex="-1"
@@ -3731,6 +3736,7 @@ exports[`AnimePeekModal renders default when loading 1`] = `
               >
                 <button
                   class="c16 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c26 c35"
+                  data-testid="navigation-button-button"
                   direction="right"
                   disabled=""
                   tabindex="-1"
@@ -5411,6 +5417,7 @@ exports[`AnimePeekModal renders default when succeeded 1`] = `
               >
                 <button
                   class="c17 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c23 c50"
+                  data-testid="navigation-button-button"
                   direction="left"
                   disabled=""
                   tabindex="-1"
@@ -5515,6 +5522,7 @@ exports[`AnimePeekModal renders default when succeeded 1`] = `
               >
                 <button
                   class="c17 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c23 c57"
+                  data-testid="navigation-button-button"
                   direction="right"
                   disabled=""
                   tabindex="-1"

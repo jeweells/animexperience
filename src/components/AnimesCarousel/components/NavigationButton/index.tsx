@@ -5,6 +5,7 @@ import { useSizes } from '../../hooks'
 import Button from '@mui/material/Button'
 import KeyboardArrowLeftRoundedIcon from '@mui/icons-material/KeyboardArrowLeftRounded'
 import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded'
+import { NAVIGATION_BUTTON } from '@selectors'
 
 const NavContainer = styled(FCol)`
     position: absolute;
@@ -59,7 +60,12 @@ export const NavigationButton = React.memo(
                     ref={ref}
                     style={{ [direction]: 0, width: navigationWidth }}
                 >
-                    <SButton direction={direction} disabled={disabled} onClick={onClick}>
+                    <SButton
+                        direction={direction}
+                        disabled={disabled}
+                        data-testid={NAVIGATION_BUTTON.BUTTON}
+                        onClick={onClick}
+                    >
                         <Icon />
                     </SButton>
                 </NavContainer>

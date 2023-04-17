@@ -297,6 +297,7 @@ exports[`AnimeRecommendations (random: 0) renders default when failed 1`] = `
       >
         <button
           class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c7"
+          data-testid="navigation-button-button"
           direction="left"
           disabled=""
           tabindex="-1"
@@ -401,6 +402,7 @@ exports[`AnimeRecommendations (random: 0) renders default when failed 1`] = `
       >
         <button
           class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c15"
+          data-testid="navigation-button-button"
           direction="right"
           disabled=""
           tabindex="-1"
@@ -721,6 +723,7 @@ exports[`AnimeRecommendations (random: 0) renders default when idle 1`] = `
       >
         <button
           class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c7"
+          data-testid="navigation-button-button"
           direction="left"
           disabled=""
           tabindex="-1"
@@ -825,6 +828,7 @@ exports[`AnimeRecommendations (random: 0) renders default when idle 1`] = `
       >
         <button
           class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c15"
+          data-testid="navigation-button-button"
           direction="right"
           disabled=""
           tabindex="-1"
@@ -1145,6 +1149,7 @@ exports[`AnimeRecommendations (random: 0) renders default when loading 1`] = `
       >
         <button
           class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c7"
+          data-testid="navigation-button-button"
           direction="left"
           disabled=""
           tabindex="-1"
@@ -1249,6 +1254,7 @@ exports[`AnimeRecommendations (random: 0) renders default when loading 1`] = `
       >
         <button
           class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c15"
+          data-testid="navigation-button-button"
           direction="right"
           disabled=""
           tabindex="-1"
@@ -1588,6 +1594,7 @@ exports[`AnimeRecommendations (random: 0) renders default when succeeded 1`] = `
       >
         <button
           class="c4 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c5 c6"
+          data-testid="navigation-button-button"
           direction="left"
           disabled=""
           tabindex="-1"
@@ -1642,6 +1649,7 @@ exports[`AnimeRecommendations (random: 0) renders default when succeeded 1`] = `
       >
         <button
           class="c4 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c5 c13"
+          data-testid="navigation-button-button"
           direction="right"
           tabindex="0"
           type="button"
@@ -1964,6 +1972,7 @@ exports[`AnimeRecommendations (random: 0.5) renders default when failed 1`] = `
       >
         <button
           class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c7"
+          data-testid="navigation-button-button"
           direction="left"
           disabled=""
           tabindex="-1"
@@ -2068,6 +2077,7 @@ exports[`AnimeRecommendations (random: 0.5) renders default when failed 1`] = `
       >
         <button
           class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c15"
+          data-testid="navigation-button-button"
           direction="right"
           disabled=""
           tabindex="-1"
@@ -2388,6 +2398,7 @@ exports[`AnimeRecommendations (random: 0.5) renders default when idle 1`] = `
       >
         <button
           class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c7"
+          data-testid="navigation-button-button"
           direction="left"
           disabled=""
           tabindex="-1"
@@ -2492,6 +2503,7 @@ exports[`AnimeRecommendations (random: 0.5) renders default when idle 1`] = `
       >
         <button
           class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c15"
+          data-testid="navigation-button-button"
           direction="right"
           disabled=""
           tabindex="-1"
@@ -2812,6 +2824,7 @@ exports[`AnimeRecommendations (random: 0.5) renders default when loading 1`] = `
       >
         <button
           class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c7"
+          data-testid="navigation-button-button"
           direction="left"
           disabled=""
           tabindex="-1"
@@ -2916,6 +2929,7 @@ exports[`AnimeRecommendations (random: 0.5) renders default when loading 1`] = `
       >
         <button
           class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c15"
+          data-testid="navigation-button-button"
           direction="right"
           disabled=""
           tabindex="-1"
@@ -3255,6 +3269,7 @@ exports[`AnimeRecommendations (random: 0.5) renders default when succeeded 1`] =
       >
         <button
           class="c4 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c5 c6"
+          data-testid="navigation-button-button"
           direction="left"
           disabled=""
           tabindex="-1"
@@ -3309,6 +3324,7 @@ exports[`AnimeRecommendations (random: 0.5) renders default when succeeded 1`] =
       >
         <button
           class="c4 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c5 c13"
+          data-testid="navigation-button-button"
           direction="right"
           tabindex="0"
           type="button"

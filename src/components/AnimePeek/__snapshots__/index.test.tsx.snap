@@ -1498,6 +1498,7 @@ exports[`AnimePeek renders default 1`] = `
         >
           <button
             class="c9 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c15 c42"
+            data-testid="navigation-button-button"
             direction="left"
             disabled=""
             tabindex="-1"
@@ -1602,6 +1603,7 @@ exports[`AnimePeek renders default 1`] = `
         >
           <button
             class="c9 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c15 c49"
+            data-testid="navigation-button-button"
             direction="right"
             disabled=""
             tabindex="-1"
@@ -3101,6 +3103,7 @@ exports[`AnimePeek renders default without onClose button 1`] = `
         >
           <button
             class="c11 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c15 c42"
+            data-testid="navigation-button-button"
             direction="left"
             disabled=""
             tabindex="-1"
@@ -3205,6 +3208,7 @@ exports[`AnimePeek renders default without onClose button 1`] = `
         >
           <button
             class="c11 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c15 c49"
+            data-testid="navigation-button-button"
             direction="right"
             disabled=""
             tabindex="-1"
