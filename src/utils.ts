@@ -20,3 +20,5 @@ export const rendererInvoke = (
 ): Promise<any> => {
     return ipcRenderer.invoke(invokeNames[name].name, ...args)
 }
+
+export const random = () => Math.random()

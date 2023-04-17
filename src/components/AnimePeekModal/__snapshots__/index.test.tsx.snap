@@ -546,7 +546,7 @@ exports[`AnimePeekModal renders default when failed 1`] = `
       tabindex="-1"
     >
       <div
-        aria-labelledby="mui-559060421"
+        aria-labelledby="full-modal"
         class="c6 MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 c7 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullScreen"
         role="dialog"
       >
@@ -1800,7 +1800,7 @@ exports[`AnimePeekModal renders default when idle 1`] = `
       tabindex="-1"
     >
       <div
-        aria-labelledby="mui-590681376"
+        aria-labelledby="full-modal"
         class="c6 MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 c7 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullScreen"
         role="dialog"
       >
@@ -3054,7 +3054,7 @@ exports[`AnimePeekModal renders default when loading 1`] = `
       tabindex="-1"
     >
       <div
-        aria-labelledby="mui-370786194"
+        aria-labelledby="full-modal"
         class="c6 MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 c7 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullScreen"
         role="dialog"
       >
@@ -4594,7 +4594,7 @@ exports[`AnimePeekModal renders default when succeeded 1`] = `
       tabindex="-1"
     >
       <div
-        aria-labelledby="mui-155811607"
+        aria-labelledby="full-modal"
         class="c6 MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 c7 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullScreen"
         role="dialog"
       >

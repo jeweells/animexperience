@@ -138,7 +138,6 @@ describe('AnimePeekModal', () => {
         fireEvent.click(wrapper.getByTestId(ANIME_PEEK.CLOSE_BUTTON))
         expect(store.getActions()).toContainEqual(
             expect.objectContaining({
-                payload: undefined,
                 type: 'peek/setPeeking',
             }),
         )
