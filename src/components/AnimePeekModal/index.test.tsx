@@ -122,7 +122,7 @@ describe('AnimePeekModal', () => {
         },
     )
 
-    it('should not render when is not the corresponding top view', async () => {
+    it('should not render when is not the corresponding top view', () => {
         initialState.topView!.views = []
         const wrapper = render(getComponent())
         // asFragment() won't work since the modal is outside the react root element

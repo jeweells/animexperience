@@ -23,14 +23,14 @@ describe.each([['right'], ['left']])('NavigationButton (%s)', (direction) => {
         onClick.mockReset()
     })
 
-    it('renders default', async () => {
+    it('renders default', () => {
         const wrapper = render(getComponent())
         fireEvent.click(wrapper.getByTestId(NAVIGATION_BUTTON.BUTTON))
         expect(onClick).toHaveBeenCalledTimes(1)
         expect(wrapper.baseElement).toMatchSnapshot()
     })
 
-    it('renders default when disabled', async () => {
+    it('renders default when disabled', () => {
         const wrapper = render(getComponent({ disabled: true }))
         fireEvent.click(wrapper.getByTestId(NAVIGATION_BUTTON.BUTTON))
         expect(onClick).toHaveBeenCalledTimes(0)

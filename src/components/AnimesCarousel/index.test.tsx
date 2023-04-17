@@ -30,7 +30,7 @@ describe('AnimesCarousel', () => {
         invokeMock.mockResolvedValue(imageUrl)
     })
 
-    it.each([[false], [true]])('renders default when %s', async (loading) => {
+    it.each([[false], [true]])('renders default when %s', (loading) => {
         const wrapper = render(getComponent({ loading }))
         expect(wrapper.baseElement).toMatchSnapshot()
     })

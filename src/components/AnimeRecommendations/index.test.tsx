@@ -66,14 +66,14 @@ describe.each([[0], [0.5]])('AnimeRecommendations (random: %s)', (randomValue) =
 
     Object.entries(defaultRecommendations || {}).forEach(
         ([animeName, recommendation]) => {
-            it('renders default when ' + recommendation!.status, async () => {
+            it('renders default when ' + recommendation!.status, () => {
                 const wrapper = render(getComponent({ animeName }))
                 expect(wrapper.baseElement).toMatchSnapshot()
             })
         },
     )
 
-    it('fetches recommendations when mounted', async () => {
+    it('fetches recommendations when mounted', () => {
         render(getComponent({ animeName: 'anime name 4' }))
         expect(store.getActions()).toContainEqual(
             expect.objectContaining({

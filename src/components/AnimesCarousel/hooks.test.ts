@@ -32,12 +32,12 @@ describe('AnimesCarousel > useSliding', () => {
         useResizeObserverMock.mockReturnValue({ ref: jest.fn(), width: 100, height: 100 })
     })
 
-    it('renders default', async () => {
+    it('renders default', () => {
         const { result } = renderHook(getHook())
         snapshot({ hook: result.current })
     })
 
-    it('renders when clicking next/prev', async () => {
+    it('renders when clicking next/prev', () => {
         const { result } = renderHook(getHook())
 
         act(() => {
