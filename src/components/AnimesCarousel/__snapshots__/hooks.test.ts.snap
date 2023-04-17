@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnimesCarousel > useSliding renders default 1`] = `
+Object {
+  "hasNext": true,
+  "hasPrev": false,
+  "slideProps": Object {
+    "style": Object {
+      "pointerEvents": "all",
+      "transform": "translate3d(50px, 0, 0)",
+    },
+  },
+  "sliding": false,
+  "totalInViewport": 2,
+  "viewed": 0,
+}
+`;
+
+exports[`AnimesCarousel > useSliding renders when clicking next/prev: Clicked next 1`] = `
+Object {
+  "hasNext": false,
+  "hasPrev": true,
+  "slideProps": Object {
+    "style": Object {
+      "pointerEvents": "none",
+      "transform": "translate3d(-10px, 0, 0)",
+    },
+  },
+  "sliding": true,
+  "totalInViewport": 2,
+  "viewed": 2,
+}
+`;
+
+exports[`AnimesCarousel > useSliding renders when clicking next/prev: Clicked prev 1`] = `
+Object {
+  "hasNext": true,
+  "hasPrev": false,
+  "slideProps": Object {
+    "style": Object {
+      "pointerEvents": "none",
+      "transform": "translate3d(50px, 0, 0)",
+    },
+  },
+  "sliding": true,
+  "totalInViewport": 2,
+  "viewed": 0,
+}
+`;
+
+exports[`AnimesCarousel > useSliding renders when clicking next/prev: Finished sliding next 1`] = `
+Object {
+  "hasNext": false,
+  "hasPrev": true,
+  "slideProps": Object {
+    "style": Object {
+      "pointerEvents": "all",
+      "transform": "translate3d(-10px, 0, 0)",
+    },
+  },
+  "sliding": false,
+  "totalInViewport": 2,
+  "viewed": 2,
+}
+`;
+
+exports[`AnimesCarousel > useSliding renders when clicking next/prev: Finished sliding prev 1`] = `
+Object {
+  "hasNext": true,
+  "hasPrev": false,
+  "slideProps": Object {
+    "style": Object {
+      "pointerEvents": "all",
+      "transform": "translate3d(50px, 0, 0)",
+    },
+  },
+  "sliding": false,
+  "totalInViewport": 2,
+  "viewed": 0,
+}
+`;
