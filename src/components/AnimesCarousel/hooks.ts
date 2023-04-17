@@ -87,7 +87,6 @@ export const useSliding = (
         viewed,
         totalInViewport,
         onSlidingComplete: () => {
-            console.debug('Sliding finished')
             setSliding(false)
         },
     }
