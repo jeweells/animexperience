@@ -88,6 +88,7 @@ module.exports = {
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
     moduleNameMapper: {
+        '\\.(ttf)$': '<rootDir>/tests/__mocks__/fonts.ts',
         '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
         '^@components/(.*)$': '<rootDir>/src/components/$1',
         '^@components$': '<rootDir>/src/components/',
@@ -149,6 +150,7 @@ module.exports = {
         './tests/__mocks__/use-resize-observer.ts',
         './tests/__mocks__/src/utils.ts',
         './tests/__mocks__/mui/material/Skeleton.tsx',
+        './tests/__mocks__/@electron/remote/index.ts',
     ],
 
     // A list of paths to snapshot serializer modules Jest should use for snapshot testing

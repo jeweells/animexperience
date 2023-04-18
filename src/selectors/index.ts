@@ -54,3 +54,7 @@ export const EPISODE_NAVIGATION = {
 export const MANAGE_FOLLOW_BUTTON = {
     BUTTON: 'manage-follow-button-button',
 }
+
+export const NEXT_EPISODE_BUTTON = {
+    BUTTON: 'next-episode-button-nbutton',
+}
