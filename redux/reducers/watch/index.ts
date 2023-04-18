@@ -26,7 +26,6 @@ const getAvailableVideos = asyncAction('watch/availableVideos', async (arg, api)
     if (!anime) {
         return api.rejectWithValue('Needs to be watching to request available videos')
     }
-    console.debug('Getting available videos of', anime)
     const FEW_VIDEOS = 3
 
     const filter = (x: VideoOption) => {
@@ -70,7 +69,6 @@ const getAnimeInfo = asyncAction('watch/getAnimeInfo', async (arg, api) => {
     if (!anime) {
         return api.rejectWithValue('Needs to be watching to request available videos')
     }
-    console.debug('Getting anime INFO', anime)
     return await rendererInvoke(
         'getAnimeFlvInfo',
         anime.name,
@@ -90,7 +88,6 @@ const nextEpisode = asyncAction('watch/nextEpisode', async (arg, api) => {
     const watching = state.watch.watching
     if (watching && typeof watching.episode === 'number') {
         const newEpisode = watching.episode + 1
-        console.debug('Called next episode, fullscreen:', !!document.fullscreenElement)
         // If the user is on fullscreen mode, the next video will be played on fullscreen mode
         api.dispatch(watch.setAutoFullScreen(!!document.fullscreenElement))
         await api.dispatch(watchEpisode(changeWatchingEpisode(state.watch, newEpisode)))

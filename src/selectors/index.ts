@@ -44,3 +44,9 @@ export const ANIME_SEARCH = {
 export const WAYPOINT = {
     DIV: 'waypoint-div',
 }
+
+export const EPISODE_NAVIGATION = {
+    PREVIOUS_EPISODE_BUTTON: 'episode-navigation-previous-episode-button',
+    ANIME_DETAILS_BUTTON: 'episode-navigation-anime-details-button',
+    NEXT_EPISODE_BUTTON: 'episode-navigation-next-episode-button',
+}
