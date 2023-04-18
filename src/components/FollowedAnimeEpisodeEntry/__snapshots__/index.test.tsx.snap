@@ -232,6 +232,7 @@ exports[`FollowedAnimeEpisodeEntry renders default when failed 1`] = `
               aria-label="Seguir"
               class="c5 MuiButtonBase-root c6"
               data-mui-internal-clone-element="true"
+              data-testid="manage-follow-button-button"
               tabindex="0"
               type="button"
             >
@@ -502,6 +503,7 @@ exports[`FollowedAnimeEpisodeEntry renders default when idle 1`] = `
               aria-label="Seguir"
               class="c5 MuiButtonBase-root c6"
               data-mui-internal-clone-element="true"
+              data-testid="manage-follow-button-button"
               tabindex="0"
               type="button"
             >
@@ -772,6 +774,7 @@ exports[`FollowedAnimeEpisodeEntry renders default when loading 1`] = `
               aria-label="Seguir"
               class="c5 MuiButtonBase-root c6"
               data-mui-internal-clone-element="true"
+              data-testid="manage-follow-button-button"
               tabindex="0"
               type="button"
             >
@@ -1042,6 +1045,7 @@ exports[`FollowedAnimeEpisodeEntry renders default when succeeded 1`] = `
               aria-label="Seguir"
               class="c5 MuiButtonBase-root c6"
               data-mui-internal-clone-element="true"
+              data-testid="manage-follow-button-button"
               tabindex="0"
               type="button"
             >

@@ -417,6 +417,7 @@ exports[`FollowedAnimesUpdates renders default 1`] = `
                   aria-label="Seguir"
                   class="c5 MuiButtonBase-root c15"
                   data-mui-internal-clone-element="true"
+                  data-testid="manage-follow-button-button"
                   tabindex="0"
                   type="button"
                 >
@@ -475,6 +476,7 @@ exports[`FollowedAnimesUpdates renders default 1`] = `
                   aria-label="Seguir"
                   class="c5 MuiButtonBase-root c15"
                   data-mui-internal-clone-element="true"
+                  data-testid="manage-follow-button-button"
                   tabindex="0"
                   type="button"
                 >
@@ -533,6 +535,7 @@ exports[`FollowedAnimesUpdates renders default 1`] = `
                   aria-label="Seguir"
                   class="c5 MuiButtonBase-root c15"
                   data-mui-internal-clone-element="true"
+                  data-testid="manage-follow-button-button"
                   tabindex="0"
                   type="button"
                 >
@@ -1406,6 +1409,7 @@ exports[`FollowedAnimesUpdates renders when loading 1`] = `
                   aria-label="Seguir"
                   class="c5 MuiButtonBase-root c15"
                   data-mui-internal-clone-element="true"
+                  data-testid="manage-follow-button-button"
                   tabindex="0"
                   type="button"
                 >
@@ -1464,6 +1468,7 @@ exports[`FollowedAnimesUpdates renders when loading 1`] = `
                   aria-label="Seguir"
                   class="c5 MuiButtonBase-root c15"
                   data-mui-internal-clone-element="true"
+                  data-testid="manage-follow-button-button"
                   tabindex="0"
                   type="button"
                 >
@@ -1522,6 +1527,7 @@ exports[`FollowedAnimesUpdates renders when loading 1`] = `
                   aria-label="Seguir"
                   class="c5 MuiButtonBase-root c15"
                   data-mui-internal-clone-element="true"
+                  data-testid="manage-follow-button-button"
                   tabindex="0"
                   type="button"
                 >
@@ -2006,6 +2012,7 @@ exports[`FollowedAnimesUpdates renders when some animes are loading 1`] = `
                   aria-label="Seguir"
                   class="c5 MuiButtonBase-root c15"
                   data-mui-internal-clone-element="true"
+                  data-testid="manage-follow-button-button"
                   tabindex="0"
                   type="button"
                 >
@@ -2079,6 +2086,7 @@ exports[`FollowedAnimesUpdates renders when some animes are loading 1`] = `
                   aria-label="Seguir"
                   class="c5 MuiButtonBase-root c15"
                   data-mui-internal-clone-element="true"
+                  data-testid="manage-follow-button-button"
                   tabindex="0"
                   type="button"
                 >
