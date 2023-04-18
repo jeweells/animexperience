@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NextEpisodeButton renders default 1`] = `
+<body>
+  <div>
+    <div
+      style="opacity: 1; position: absolute; top: 16px; right: 16px; z-index: 2147483647; webkit-transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    >
+      <style>
+        
+    @font-face {
+        font-family: 'Quicksand';
+        src: url('http://127.0.0.1:3000/mocked-font.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+    }
+
+        
+   
+    button.raex-button-injected {
+        font-family: 'Quicksand';
+        color: #292d33;
+        background: #e9ebf0;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        outline: 0 !important;
+        white-space: nowrap;
+        border: none;
+        user-select: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 6px;
+        position: relative;
+        transition: color 0.2s linear, background-color 0.3s linear;
+        margin: 0;
+        overflow: hidden;
+        text-decoration: none;
+    }
+    button.raex-button-injected:hover, button.raex-button-injected:focus {
+        color: #3c3f43;
+        background-color: #e9ebf0;
+        
+    }
+
+      </style>
+      <button
+        class="raex-button-injected"
+        data-testid="next-episode-button-nbutton"
+      >
+        <span
+          style="position: relative; z-index: 2;"
+        >
+          Siguiente episodio
+        </span>
+        <div
+          style="position: absolute; z-index: 1; top: 0px; left: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.1); width: 100%; transition: all 5s;"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`NextEpisodeButton renders default when not shown 1`] = `
+<body>
+  <div>
+    <div
+      style="opacity: 0; visibility: hidden; position: absolute; top: 16px; right: 16px; z-index: 2147483647;"
+    >
+      <style>
+        
+    @font-face {
+        font-family: 'Quicksand';
+        src: url('http://127.0.0.1:3000/mocked-font.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+    }
+
+        
+   
+    button.raex-button-injected {
+        font-family: 'Quicksand';
+        color: #292d33;
+        background: #e9ebf0;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        outline: 0 !important;
+        white-space: nowrap;
+        border: none;
+        user-select: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 6px;
+        position: relative;
+        transition: color 0.2s linear, background-color 0.3s linear;
+        margin: 0;
+        overflow: hidden;
+        text-decoration: none;
+    }
+    button.raex-button-injected:hover, button.raex-button-injected:focus {
+        color: #3c3f43;
+        background-color: #e9ebf0;
+        
+    }
+
+      </style>
+      <button
+        class="raex-button-injected"
+        data-testid="next-episode-button-nbutton"
+      >
+        <span
+          style="position: relative; z-index: 2;"
+        >
+          Siguiente episodio
+        </span>
+        <div
+          style="position: absolute; z-index: 1; top: 0px; left: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.1); width: 0px; transition: all 5s;"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`NextEpisodeButton renders default when timedout 1`] = `
+<body>
+  <div>
+    <div
+      style="opacity: 1; position: absolute; top: 16px; right: 16px; z-index: 2147483647; webkit-transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    >
+      <style>
+        
+    @font-face {
+        font-family: 'Quicksand';
+        src: url('http://127.0.0.1:3000/mocked-font.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+    }
+
+        
+   
+    button.raex-button-injected {
+        font-family: 'Quicksand';
+        color: #292d33;
+        background: #e9ebf0;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        outline: 0 !important;
+        white-space: nowrap;
+        border: none;
+        user-select: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 6px;
+        position: relative;
+        transition: color 0.2s linear, background-color 0.3s linear;
+        margin: 0;
+        overflow: hidden;
+        text-decoration: none;
+    }
+    button.raex-button-injected:hover, button.raex-button-injected:focus {
+        color: #3c3f43;
+        background-color: #e9ebf0;
+        
+    }
+
+      </style>
+      <button
+        class="raex-button-injected"
+        data-testid="next-episode-button-nbutton"
+      >
+        <span
+          style="position: relative; z-index: 2;"
+        >
+          Siguiente episodio
+        </span>
+        <div
+          style="position: absolute; z-index: 1; top: 0px; left: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.1); width: 0px; transition: none;"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`NextEpisodeButton renders when the episode is the last one 1`] = `
+<body>
+  <div>
+    <div
+      style="opacity: 0; visibility: hidden; position: absolute; top: 16px; right: 16px; z-index: 2147483647;"
+    >
+      <style>
+        
+    @font-face {
+        font-family: 'Quicksand';
+        src: url('http://127.0.0.1:3000/mocked-font.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+    }
+
+        
+   
+    button.raex-button-injected {
+        font-family: 'Quicksand';
+        color: #292d33;
+        background: #e9ebf0;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        outline: 0 !important;
+        white-space: nowrap;
+        border: none;
+        user-select: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 6px;
+        position: relative;
+        transition: color 0.2s linear, background-color 0.3s linear;
+        margin: 0;
+        overflow: hidden;
+        text-decoration: none;
+    }
+    button.raex-button-injected:hover, button.raex-button-injected:focus {
+        color: #3c3f43;
+        background-color: #e9ebf0;
+        
+    }
+
+      </style>
+      <button
+        class="raex-button-injected"
+        data-testid="next-episode-button-nbutton"
+      >
+        <span
+          style="position: relative; z-index: 2;"
+        >
+          Siguiente episodio
+        </span>
+        <div
+          style="position: absolute; z-index: 1; top: 0px; left: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.1); width: 0px; transition: all 5s;"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;

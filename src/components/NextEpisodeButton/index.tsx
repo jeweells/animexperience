@@ -3,6 +3,7 @@ import { watch } from '@reducers'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import font from '../../fonts/Quicksand/Quicksand-Light.ttf'
 import Fade from '@mui/material/Fade'
+import { NEXT_EPISODE_BUTTON } from '@selectors'
 
 let currUrl = ''
 const updateUrl = () => {
@@ -24,8 +25,8 @@ export const buttonCss = `
    
     button.raex-button-injected {
         font-family: 'Quicksand';
-        color: #e9ebf0;
-        background: #292d33;
+        color: #292d33;
+        background: #e9ebf0;
         display: inline-block;
         margin-bottom: 0;
         font-weight: normal;
@@ -47,8 +48,8 @@ export const buttonCss = `
         text-decoration: none;
     }
     button.raex-button-injected:hover, button.raex-button-injected:focus {
-        color: #e9ebf0;
-        background-color: #3c3f43;
+        color: #3c3f43;
+        background-color: #e9ebf0;
         
     }
 `
@@ -67,7 +68,6 @@ export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({
         dispatch(watch.nextEpisode())
     }
     React.useMemo(updateUrl, [])
-
     return (
         <Fade in={showNextButton} timeout={400}>
             <div
@@ -83,6 +83,7 @@ export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({
                     {buttonCss}
                 </style>
                 <button
+                    data-testid={NEXT_EPISODE_BUTTON.BUTTON}
                     className={'raex-button-injected'}
                     onClick={() => {
                         handleNext()
@@ -98,7 +99,7 @@ export const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = React.memo(({
                             top: 0,
                             left: 0,
                             bottom: 0,
-                            backgroundColor: 'rgba(255,255,255,0.1)',
+                            backgroundColor: 'rgba(0,0,0,0.1)',
                             width: timeout !== -1 && showNextButton ? '100%' : '0',
                             transition: timeout === -1 ? 'none' : `all ${timeout}s`,
                         }}
