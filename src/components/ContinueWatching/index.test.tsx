@@ -11,7 +11,9 @@ import { range } from '~/src/utils'
 import { EpisodeInfo } from '~/globals/types'
 import { FStatus } from '~/src/types'
 import { ANIME_ENTRY_SELECTORS } from '@selectors'
+
 const statusTypes: FStatus[] = ['idle', 'loading', 'succeeded', 'failed']
+
 describe('ContinueWatching', () => {
     let props: ContinueWatchingProps
     let initialState: DeepPartial<RootState>

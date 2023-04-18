@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton'
 import KeyboardArrowLeftRoundedIcon from '@mui/icons-material/KeyboardArrowLeftRounded'
 import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded'
 import Tooltip from '@mui/material/Tooltip'
+import { EPISODE_NAVIGATION } from '@selectors'
 
 export type EpisodeNavigationProps = {}
 
@@ -35,6 +36,7 @@ export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({
         <React.Fragment>
             <Tooltip title={'Episodio anterior'} arrow>
                 <IconButton
+                    data-testid={EPISODE_NAVIGATION.PREVIOUS_EPISODE_BUTTON}
                     disabled={!hasMin}
                     onClick={() => dispatch(watch.previousEpisode())}
                 >
@@ -43,6 +45,7 @@ export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({
             </Tooltip>
             <Tooltip title={'Ver anime'} arrow>
                 <IconButton
+                    data-testid={EPISODE_NAVIGATION.ANIME_DETAILS_BUTTON}
                     onClick={() => {
                         if (!watching?.name) return
                         dispatch(peek.peek(watching.name))
@@ -53,6 +56,7 @@ export const EpisodeNavigation: React.FC<EpisodeNavigationProps> = React.memo(({
             </Tooltip>
             <Tooltip title={'Siguiente episodio'} arrow>
                 <IconButton
+                    data-testid={EPISODE_NAVIGATION.NEXT_EPISODE_BUTTON}
                     disabled={!hasMax}
                     onClick={() => dispatch(watch.nextEpisode())}
                 >
