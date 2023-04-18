@@ -50,3 +50,7 @@ export const EPISODE_NAVIGATION = {
     ANIME_DETAILS_BUTTON: 'episode-navigation-anime-details-button',
     NEXT_EPISODE_BUTTON: 'episode-navigation-next-episode-button',
 }
+
+export const MANAGE_FOLLOW_BUTTON = {
+    BUTTON: 'manage-follow-button-button',
+}

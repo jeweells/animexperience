@@ -361,6 +361,7 @@ exports[`AnimeEpisodeEntry renders when has follow management 1`] = `
               aria-label="Seguir"
               class="c5 MuiButtonBase-root c6"
               data-mui-internal-clone-element="true"
+              data-testid="manage-follow-button-button"
               tabindex="0"
               type="button"
             >
