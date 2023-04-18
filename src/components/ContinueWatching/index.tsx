@@ -22,7 +22,7 @@ export const ContinueWatching: React.FC<ContinueWatchingProps> = React.memo(({})
 
     const count = status !== 'succeeded' ? 1 : filteredAnimes?.length ?? 1
     const handleCardClick = React.useCallback((anime: RecentAnimeData) => {
-        if (anime.name && anime.episode) {
+        if (anime.name && typeof anime.episode === 'number') {
             dispatch(watch.watchEpisode(anime))
         } else {
             console.error('No enough data to perform animeSearch')
