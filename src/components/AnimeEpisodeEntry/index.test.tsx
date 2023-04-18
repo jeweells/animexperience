@@ -4,6 +4,7 @@ import { ANIME_ENTRY_SELECTORS, ANIME_EPISODE_ENTRY } from '@selectors'
 import { Provider } from 'react-redux'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
+import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
 
 describe('AnimeEpisodeEntry', () => {
     const returnTestId = ANIME_EPISODE_ENTRY.ANIME_INFO
@@ -60,9 +61,11 @@ describe('AnimeEpisodeEntry', () => {
 
     const getComponent = (override: Partial<AnimeEpisodeEntryProps> = {}) => {
         return (
-            <Provider store={mockStore(initialState)}>
-                <AnimeEpisodeEntry {...props} {...override} />
-            </Provider>
+            <TopLayout>
+                <Provider store={mockStore(initialState)}>
+                    <AnimeEpisodeEntry {...props} {...override} />
+                </Provider>
+            </TopLayout>
         )
     }
 
@@ -71,7 +74,7 @@ describe('AnimeEpisodeEntry', () => {
         await waitFor(() => expect(wrapper.getByTestId(returnTestId)).toBeInTheDocument())
         // Since most tests depends on this component, make sure it's there
         expect(wrapper.getByTestId(ANIME_ENTRY_SELECTORS.WRAPPER)).toBeInTheDocument()
-        expect(wrapper.asFragment()).toMatchSnapshot()
+        expect(wrapper.baseElement).toMatchSnapshot()
     })
 
     it('renders when has follow management', async () => {
@@ -81,12 +84,12 @@ describe('AnimeEpisodeEntry', () => {
         await waitFor(() => expect(wrapper.getByTestId(returnTestId)).toBeInTheDocument())
         // Since most tests depends on this component, make sure it's there
         expect(wrapper.getByTestId(ANIME_ENTRY_SELECTORS.WRAPPER)).toBeInTheDocument()
-        expect(wrapper.asFragment()).toMatchSnapshot()
+        expect(wrapper.baseElement).toMatchSnapshot()
     })
 
     it('renders without anime', async () => {
         const wrapper = render(getComponent({ anime: null }))
-        expect(wrapper.asFragment()).toMatchSnapshot()
+        expect(wrapper.baseElement).toMatchSnapshot()
     })
 
     it('should pass anime on click', async () => {

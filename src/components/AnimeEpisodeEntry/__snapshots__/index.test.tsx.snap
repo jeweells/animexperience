@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnimeEpisodeEntry renders default 1`] = `
-<DocumentFragment>
-  .c3 {
+.c3 {
   font-weight: 700;
   color: white;
   font-size: 1rem;
@@ -92,44 +91,46 @@ exports[`AnimeEpisodeEntry renders default 1`] = `
   }
 }
 
-<div
-    data-testid="anime-entry-wrapper"
-    style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-  >
+<body>
+  <div>
     <div
-      class="c0"
-      data-testid="anime-entry-background"
+      data-testid="anime-entry-wrapper"
+      style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
-      <img
-        alt="Here goes the anime name"
-        class="c1"
-        src="Here goes the anime image url"
-      />
       <div
-        class="c2"
-        data-testid="anime-episode-entry-anime-info"
+        class="c0"
+        data-testid="anime-entry-background"
       >
-        <h3
-          aria-label="Here goes the anime name"
-          class="c3"
-          data-mui-internal-clone-element="true"
+        <img
+          alt="Here goes the anime name"
+          class="c1"
+          src="Here goes the anime image url"
+        />
+        <div
+          class="c2"
+          data-testid="anime-episode-entry-anime-info"
         >
-          Here goes the anime name
-        </h3>
-        <h6
-          class="c4"
-        >
-          Episodio 69
-        </h6>
+          <h3
+            aria-label="Here goes the anime name"
+            class="c3"
+            data-mui-internal-clone-element="true"
+          >
+            Here goes the anime name
+          </h3>
+          <h6
+            class="c4"
+          >
+            Episodio 69
+          </h6>
+        </div>
       </div>
     </div>
   </div>
-</DocumentFragment>
+</body>
 `;
 
 exports[`AnimeEpisodeEntry renders when has follow management 1`] = `
-<DocumentFragment>
-  .c9 {
+.c9 {
   font-weight: 700;
   color: white;
   font-size: 1rem;
@@ -165,6 +166,7 @@ exports[`AnimeEpisodeEntry renders when has follow management 1`] = `
   -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
   transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
   font-size: 1.5rem;
+  font-size: inherit;
 }
 
 .c8 {
@@ -212,6 +214,7 @@ exports[`AnimeEpisodeEntry renders when has follow management 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
+  text-transform: unset;
 }
 
 .c5::-moz-focus-inner {
@@ -332,65 +335,72 @@ exports[`AnimeEpisodeEntry renders when has follow management 1`] = `
   }
 }
 
-<div
-    data-testid="anime-entry-wrapper"
-    style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-  >
+<body>
+  <div>
     <div
-      class="c0"
-      data-testid="anime-entry-background"
+      data-testid="anime-entry-wrapper"
+      style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
-      <img
-        alt="Here goes the anime name"
-        class="c1"
-        src="Here goes the anime image url"
-      />
       <div
-        class="c2"
-        data-testid="anime-episode-entry-anime-info"
+        class="c0"
+        data-testid="anime-entry-background"
       >
+        <img
+          alt="Here goes the anime name"
+          class="c1"
+          src="Here goes the anime image url"
+        />
         <div
-          class="c3 c4"
+          class="c2"
+          data-testid="anime-episode-entry-anime-info"
         >
-          <button
-            aria-label="Seguir"
-            class="c5 MuiButtonBase-root c6"
-            data-mui-internal-clone-element="true"
-            tabindex="0"
-            type="button"
+          <div
+            class="c3 c4"
           >
-            <svg
-              aria-hidden="true"
-              class="c7 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
-              data-testid="FavoriteBorderRoundedIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
+            <button
+              aria-label="Seguir"
+              class="c5 MuiButtonBase-root c6"
+              data-mui-internal-clone-element="true"
+              tabindex="0"
+              type="button"
             >
-              <path
-                d="M19.66 3.99c-2.64-1.8-5.9-.96-7.66 1.1-1.76-2.06-5.02-2.91-7.66-1.1-1.4.96-2.28 2.58-2.34 4.29-.14 3.88 3.3 6.99 8.55 11.76l.1.09c.76.69 1.93.69 2.69-.01l.11-.1c5.25-4.76 8.68-7.87 8.55-11.75-.06-1.7-.94-3.32-2.34-4.28zM12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"
+              <svg
+                aria-hidden="true"
+                class="c7 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+                data-testid="FavoriteBorderRoundedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19.66 3.99c-2.64-1.8-5.9-.96-7.66 1.1-1.76-2.06-5.02-2.91-7.66-1.1-1.4.96-2.28 2.58-2.34 4.29-.14 3.88 3.3 6.99 8.55 11.76l.1.09c.76.69 1.93.69 2.69-.01l.11-.1c5.25-4.76 8.68-7.87 8.55-11.75-.06-1.7-.94-3.32-2.34-4.28zM12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"
+                />
+              </svg>
+              <span
+                class="c8 MuiTouchRipple-root"
               />
-            </svg>
-            <span
-              class="c8 MuiTouchRipple-root"
-            />
-          </button>
+            </button>
+          </div>
+          <h3
+            aria-label="Here goes the anime name"
+            class="c9"
+            data-mui-internal-clone-element="true"
+          >
+            Here goes the anime name
+          </h3>
+          <h6
+            class="c10"
+          >
+            Episodio 69
+          </h6>
         </div>
-        <h3
-          aria-label="Here goes the anime name"
-          class="c9"
-          data-mui-internal-clone-element="true"
-        >
-          Here goes the anime name
-        </h3>
-        <h6
-          class="c10"
-        >
-          Episodio 69
-        </h6>
       </div>
     </div>
   </div>
-</DocumentFragment>
+</body>
 `;
 
-exports[`AnimeEpisodeEntry renders without anime 1`] = `<DocumentFragment />`;
+exports[`AnimeEpisodeEntry renders without anime 1`] = `
+<body>
+  <div />
+</body>
+`;
