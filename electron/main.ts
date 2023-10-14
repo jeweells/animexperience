@@ -122,5 +122,5 @@ setupSdk()
 setupStores()
 
 ipcMain.handle('closeApp', () => {
-    getMainWindow()?.close()
+    app.quit()
 })
