@@ -5,3 +5,4 @@ packages
 .cache
 public
 *.log
+actions-runner
