@@ -1,6 +1,6 @@
 {
   "name": "AnimExperience",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Watch anime easily",
   "main": "./dist/main.js",
   "engines": {
