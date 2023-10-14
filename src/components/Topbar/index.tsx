@@ -17,7 +17,7 @@ import * as fade from './fade.module.css'
 import ShareAnimeEpisodeButton from '../ShareAnimeEpisodeButton'
 
 const Wrapper = styled.div`
-    background: #25282e;
+    background: rgba(37, 40, 46, 0.26);
     position: fixed;
     top: 0;
     left: 0;
