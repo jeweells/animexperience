@@ -4,6 +4,8 @@ import { Optional } from '../../types'
 import AnimeEntry, { AnimeEntryProps } from '../AnimeEntry'
 import { AnimeInfo, Img } from '../AnimeEpisodeEntry'
 import { ANIME_DETAILS_ENTRY } from '@selectors'
+import { useEnsureAnimeImage } from '~/src/hooks/useEnsureAnimeImage'
+import Tooltip from '@mui/material/Tooltip'
 
 export type AnimeDetails = {
     name: string
@@ -17,6 +19,8 @@ export type AnimeDetailsEntryProps = {
 
 export const AnimeDetailsEntry = React.memo<AnimeDetailsEntryProps>(
     ({ anime, onClick, ...rest }) => {
+        const { src: imgSrc, onError } = useEnsureAnimeImage(anime?.image)
+
         if (!anime) return null
         const handleClick = () => {
             onClick?.(anime)
@@ -26,9 +30,17 @@ export const AnimeDetailsEntry = React.memo<AnimeDetailsEntryProps>(
                 render={() => {
                     return (
                         <Fragment>
-                            <Img alt={anime.name} src={anime.image} />
+                            <Img alt={anime.name} src={imgSrc} onError={onError} />
                             <AnimeInfo data-testid={ANIME_DETAILS_ENTRY.ANIME_INFO}>
-                                <AnimeTitle>{anime.name}</AnimeTitle>
+                                <Tooltip
+                                    enterDelay={1000}
+                                    enterNextDelay={1000}
+                                    enterTouchDelay={1000}
+                                    followCursor
+                                    title={anime.name || ''}
+                                >
+                                    <AnimeTitle>{anime.name}</AnimeTitle>
+                                </Tooltip>
                             </AnimeInfo>
                         </Fragment>
                     )

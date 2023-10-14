@@ -7,3 +7,5 @@ public
 .cache
 packages
 functions
+actions-runner
+ffmpeg

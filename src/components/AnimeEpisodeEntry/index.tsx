@@ -9,6 +9,7 @@ import WatchedRange from '../WatchedRange'
 import Tooltip from '@mui/material/Tooltip'
 import ManageFollowButton from '../ManageFollowButton'
 import { ANIME_EPISODE_ENTRY } from '@selectors'
+import { useEnsureAnimeImage } from '~/src/hooks/useEnsureAnimeImage'
 
 export type ManagementVisibility = Partial<{
     follow: boolean
@@ -75,6 +76,7 @@ export const AnimeEpisodeEntry = React.memo<AnimeEpisodeEntryProps>(
             () => Object.values(management).filter(Boolean).length > 0,
             [management],
         )
+        const { src: imgSrc, onError } = useEnsureAnimeImage(anime?.img)
         const watched = useWatched(anime)
         if (!anime) return null
         const handleClick = () => {
@@ -85,7 +87,7 @@ export const AnimeEpisodeEntry = React.memo<AnimeEpisodeEntryProps>(
                 render={() => {
                     return (
                         <Fragment>
-                            <Img alt={anime.name} src={anime.img} />
+                            <Img alt={anime.name} src={imgSrc} onError={onError} />
                             <AnimeInfo data-testid={ANIME_EPISODE_ENTRY.ANIME_INFO}>
                                 {isManagementVisible && (
                                     <ManageButtons>

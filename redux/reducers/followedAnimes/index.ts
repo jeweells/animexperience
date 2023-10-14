@@ -16,7 +16,7 @@ export type FollowedAnimeWStatus = {
     status: FStatus
 } & FollowedAnime
 
-const nextCheck = (now: number): number => moment(now).add(1, 'day').valueOf()
+const nextCheck = (now: number): number => now
 
 const fetchStore = asyncAction('followedAnimes/fetchStore', async (arg, api) => {
     const followed: FollowedAnime[] = await getStaticStore(
@@ -46,11 +46,16 @@ const fetchStore = asyncAction('followedAnimes/fetchStore', async (arg, api) => 
                         return value
                     }
                     console.debug('Getting anime info of', value.name)
-                    const info: AnimeInfo = await rendererInvoke(
+                    const info: AnimeInfo | null = await rendererInvoke(
                         'getAnimeFlvInfo',
                         value.name,
                         value.link,
-                    )
+                    ).catch((err) => {
+                        console.error('FAILED TO FETCH', err)
+                        return null
+                    })
+                    if (!info) return value
+
                     if (
                         info.status === 'Finalizada' &&
                         info.episodesRange?.max === value.lastEpisodeWatched
@@ -88,18 +93,22 @@ const fetchStore = asyncAction('followedAnimes/fetchStore', async (arg, api) => 
                     }
                     console.debug('[FollowedAnimes] Succeding fetching:', value)
                     followedCpy[index] = value
-                    api.dispatch(
-                        followedAnimes.set({
-                            followed: followedCpy,
-                        }),
-                    )
                     return value
                 })
         }),
-    ).catch((err) => {
-        console.error('[Followed] ERROR', err)
-        throw err
-    })
+    )
+        .then((values) => {
+            api.dispatch(
+                followedAnimes.set({
+                    followed: followedCpy,
+                }),
+            )
+            return values
+        })
+        .catch((err) => {
+            console.error('[Followed] ERROR', err)
+            throw err
+        })
 })
 
 // Define the initial state using that type

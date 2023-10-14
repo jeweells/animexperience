@@ -33,4 +33,5 @@
     "**/*.ts",
     "**/*.tsx"
   ],
+  "exclude": ["public", "packages", "node_modules", "ffmpeg", "dist", "actions-runner", ".cache"]
 }
