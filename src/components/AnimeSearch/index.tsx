@@ -13,7 +13,6 @@ import { AnimeDetails, AnimeDetailsEntry } from '../AnimeDetailsEntry'
 import { Content, Wrapper } from '../AnimePeek'
 import { ContentContext } from '../Topbar'
 import Fade from '@mui/material/Fade'
-import Grid from '@mui/material/Grid'
 import { ANIME_SEARCH } from '@selectors'
 
 export type AnimeSearchProps = {
@@ -39,7 +38,7 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                 <Wrapper ref={contentRef}>
                     <Content
                         style={{
-                            padding: '32px 64px',
+                            padding: '32px 72px',
                         }}
                     >
                         <FRowG16 style={{ alignItems: 'center' }}>
@@ -71,19 +70,20 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                                 onClick={onClose}
                             />
                         </FRowG16>
-                        <Grid container spacing={2}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                rowGap: 24,
+                                columnGap: 4,
+                                flexWrap: 'wrap',
+                                overflow: 'hidden',
+                            }}
+                        >
                             {resultStatus === 'succeeded' ? (
                                 <>
                                     {result?.matches.map((match, idx) => {
                                         return (
-                                            <Grid
-                                                item
-                                                key={idx}
-                                                lg={3}
-                                                md={4}
-                                                sm={6}
-                                                xs={12}
-                                            >
+                                            <div key={idx}>
                                                 <AnimeDetailsEntry
                                                     visible={true}
                                                     onClick={handleAnimePeek}
@@ -91,7 +91,7 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                                                     // This index manages opacity animation timeout
                                                     index={idx % 36}
                                                 />
-                                            </Grid>
+                                            </div>
                                         )
                                     })}
                                     {['idle', 'succeeded'].includes(
@@ -111,7 +111,7 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                             ) : (
                                 <AnimeSearchPlaceholder count={36} />
                             )}
-                        </Grid>
+                        </div>
                     </Content>
                 </Wrapper>
             </Fade>

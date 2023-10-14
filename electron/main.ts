@@ -29,7 +29,7 @@ setupOpenUrl((invokedLink) => {
     getMainWindow()?.webContents.send(eventNames.linkInvoked, invokedLink)
 })
 if (process.env.NODE_ENV !== 'development') serve({ directory: 'dist/renderer' })
-// Comment in order to make the react dev tools work
+// Comment in order to make the React dev tools work
 app.commandLine.appendSwitch('disable-site-isolation-trials')
 
 // eslint-disable-next-line no-console
@@ -39,6 +39,7 @@ async function createWindow() {
         new BrowserWindow({
             width: 1100,
             height: 700,
+            show: false,
             backgroundColor: '#191622',
             frame: false,
             webPreferences: {
@@ -48,6 +49,8 @@ async function createWindow() {
             },
         }),
     )
+    mainWindow.maximize()
+    mainWindow.show()
     remoteMain.enable(mainWindow.webContents)
     const publicPath =
         process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : 'app://-'

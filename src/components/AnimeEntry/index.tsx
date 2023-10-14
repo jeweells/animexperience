@@ -30,25 +30,42 @@ const wrapperSize = (nElements: number, props: WrapperProps) => {
                         ${pixel(props.gap)} - 2 * ${pixel(props.navigationWidth)}
                 ) / ${nElements}
         );
-        --height: calc(var(--width) * 0.64);
+        --height: calc(var(--width) * 0.54);
     `
+}
+
+// We need this since we need to be able to compute this only with CSS
+const createMediaQueriesUntil = (
+    props: WrapperProps,
+    targetImageSize = { width: 300, height: 200 },
+    maxMediaWidth = 7680,
+) => {
+    const queries = []
+
+    for (let n = 1; ; n++) {
+        const mediaWidth =
+            targetImageSize.width * n + (n - 1) * props.gap + 2 * props.navigationWidth
+
+        if (mediaWidth > maxMediaWidth) break
+        queries.push(css`
+            @media (max-width: ${mediaWidth}px) {
+                ${wrapperSize(n, props)}
+                ${n === 2
+                    ? css`
+                          --height: calc(var(--width) * 0.84);
+                      `
+                    : ''}
+            }
+        `)
+    }
+    return queries.reverse()
 }
 
 export const Wrapper = styled.div<WrapperProps>`
     position: relative;
     border-radius: 4px;
     overflow: hidden;
-    ${(props) => wrapperSize(4, props)};
-    @media (max-width: 1000px) {
-        ${(props) => wrapperSize(3, props)};
-    }
-    @media (max-width: 800px) {
-        ${(props) => wrapperSize(2, props)};
-        --height: calc(var(--width) * 0.84);
-    }
-    @media (max-width: 500px) {
-        ${(props) => wrapperSize(1, props)};
-    }
+    ${(props) => createMediaQueriesUntil(props)}
     width: var(--width);
     height: var(--height);
     flex: 0 0 auto;

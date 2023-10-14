@@ -93,7 +93,7 @@ export const useSliding = (
 }
 
 const defaultSizes = {
-    gap: 16,
+    gap: 4,
     containerWidth: '100vw',
     navigationWidth: 72,
 }
