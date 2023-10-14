@@ -36,6 +36,12 @@ To generate a project package run `package`
 npm run package
 ```
 
+## Deploying with local runner
+
+```PS
+cd actions-runner; ./run.cmd
+git push --tags origin
+```
 
 
 ## Contributing
