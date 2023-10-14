@@ -45,6 +45,18 @@ const fetchStore = asyncAction('followedAnimes/fetchStore', async (arg, api) => 
                         )
                         return value
                     }
+                    if (value.lastEpisodeWatched < value.nextEpisodeToWatch) {
+                        console.debug(
+                            'For',
+                            value.name,
+                            'already has episodes to watch',
+                            value.lastEpisodeWatched,
+                            '<',
+                            value.nextEpisodeToWatch,
+                        )
+                        // We already have a new episode to watch, so we skip fetching new info
+                        return value
+                    }
                     console.debug('Getting anime info of', value.name)
                     const info: AnimeInfo | null = await rendererInvoke(
                         'getAnimeFlvInfo',
