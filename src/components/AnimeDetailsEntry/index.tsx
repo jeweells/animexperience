@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { AnimeTitle } from '../../atoms/Text'
 import { Optional } from '../../types'
 import AnimeEntry, { AnimeEntryProps } from '../AnimeEntry'
-import { AnimeInfo, Img } from '../AnimeEpisodeEntry'
+import { AnimeInfo, Img, ImgWrapper } from '../AnimeEpisodeEntry'
 import { ANIME_DETAILS_ENTRY } from '@selectors'
 import { useEnsureAnimeImage } from '~/src/hooks/useEnsureAnimeImage'
 import Tooltip from '@mui/material/Tooltip'
@@ -30,7 +30,9 @@ export const AnimeDetailsEntry = React.memo<AnimeDetailsEntryProps>(
                 render={() => {
                     return (
                         <Fragment>
-                            <Img alt={anime.name} src={imgSrc} onError={onError} />
+                            <ImgWrapper>
+                                <Img alt={anime.name} src={imgSrc} onError={onError} />
+                            </ImgWrapper>
                             <AnimeInfo data-testid={ANIME_DETAILS_ENTRY.ANIME_INFO}>
                                 <Tooltip
                                     enterDelay={1000}

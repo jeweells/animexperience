@@ -24,7 +24,7 @@ const CarouselTitleWithLoading: FC<CarouselTitleWithLoadingProps> = ({
         <CarouselTitle
             style={{
                 marginLeft: navigationWidth,
-                marginBottom: 8,
+                marginBottom: 24,
             }}
         >
             {loading ? (

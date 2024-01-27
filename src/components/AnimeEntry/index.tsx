@@ -30,7 +30,7 @@ const wrapperSize = (nElements: number, props: WrapperProps) => {
                         ${pixel(props.gap)} - 2 * ${pixel(props.navigationWidth)}
                 ) / ${nElements}
         );
-        --height: calc(var(--width) * 0.54);
+        --height: calc(var(--width) * 0.94);
     `
 }
 
@@ -71,6 +71,8 @@ export const Wrapper = styled.div<WrapperProps>`
     flex: 0 0 auto;
     cursor: pointer;
     transition: all 300ms ease-in-out;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
         //transform: scale(1.1);

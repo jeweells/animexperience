@@ -40,21 +40,12 @@ const ManageButtons = styled('div')`
 `
 
 export const AnimeInfo = styled.div`
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background-image: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 0.5) 20%,
-        rgba(0, 0, 0, 0) 40%
-    );
+    background-color: ${(props) => props.theme.palette.primary.main};
     padding: 16px;
+    flex-shrink: 0;
     & ${ManageButtons} {
         opacity: 0;
         transition: opacity 300ms ease-in-out;
@@ -68,6 +59,11 @@ export const Img = styled.img`
     object-fit: cover;
     width: 100%;
     height: 100%;
+`
+
+export const ImgWrapper = styled.div`
+    flex: 1;
+    overflow: hidden;
 `
 
 export const AnimeEpisodeEntry = React.memo<AnimeEpisodeEntryProps>(
@@ -87,7 +83,9 @@ export const AnimeEpisodeEntry = React.memo<AnimeEpisodeEntryProps>(
                 render={() => {
                     return (
                         <Fragment>
-                            <Img alt={anime.name} src={imgSrc} onError={onError} />
+                            <ImgWrapper>
+                                <Img alt={anime.name} src={imgSrc} onError={onError} />
+                            </ImgWrapper>
                             <AnimeInfo data-testid={ANIME_EPISODE_ENTRY.ANIME_INFO}>
                                 {isManagementVisible && (
                                     <ManageButtons>

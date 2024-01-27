@@ -11,7 +11,7 @@ const theme = createTheme({
         },
     },
     typography: {
-        fontFamily: ['Quicksand', 'sans-serif'].join(','),
+        fontFamily: ['OpenSans', 'Quicksand', 'sans-serif'].join(','),
     },
     palette: {
         mode: 'dark',

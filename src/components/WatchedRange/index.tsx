@@ -14,14 +14,12 @@ export type WatchedRangeProps = {
 const Back = styled.div<{ hideBorder?: boolean }>`
     width: 100%;
     background: rgba(154, 154, 154, 0.2);
-    border: ${(props) => (props.hideBorder ? 'none' : '1px solid #dcdcdc')};
-    border-radius: 4px;
 `
 
 const Progress = styled.div<{ progress: number }>`
     width: ${(props) => props.progress}%;
     height: 4px;
-    background: #dcdcdc;
+    background: rgba(220, 220, 220, 0.64);
     transition: all 400ms;
 `
 const hhmmss = (seconds: number) => {
