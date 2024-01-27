@@ -1,13 +1,11 @@
-import React, { Fragment, useMemo } from 'react'
+import React, { Fragment } from 'react'
 import { Transition } from 'react-transition-group'
 import styled from 'styled-components'
-import { FadeInRL } from '../../atoms/FadeIn'
-import { CarouselTitle } from '../../atoms/Text'
-import { range, random } from '../../utils'
+import { range } from '../../utils'
 import { NavigationButton } from './components/NavigationButton'
 import { useSizes, useSliding } from './hooks'
 
-import Skeleton from '@mui/material/Skeleton'
+import { CarouselTitleWithLoading } from '~/src/components'
 
 const Scroller = styled.div`
     overflow-x: hidden;
@@ -29,9 +27,6 @@ export type AnimesCarouselProps = {
 
 export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(
     ({ count, loading, title, render }) => {
-        const titleSkeletonWidth = useMemo(() => {
-            return 15 + random() * 20 + '%'
-        }, [])
         const { gap, navigationWidth, containerWidth } = useSizes()
         const {
             containerRef,
@@ -50,28 +45,7 @@ export const AnimesCarousel: React.VFC<AnimesCarouselProps> = React.memo(
         if (!loading && count === 0) return null
         return (
             <Fragment>
-                {title && (
-                    <CarouselTitle
-                        style={{
-                            marginLeft: navigationWidth,
-                            marginBottom: 8,
-                        }}
-                    >
-                        {loading ? (
-                            <FadeInRL duration={1500}>
-                                <Skeleton
-                                    animation={'pulse'}
-                                    variant={'text'}
-                                    style={{
-                                        width: titleSkeletonWidth,
-                                    }}
-                                />
-                            </FadeInRL>
-                        ) : (
-                            title
-                        )}
-                    </CarouselTitle>
-                )}
+                <CarouselTitleWithLoading title={title} loading={loading} />
                 <Scroller ref={scrollerRef} style={{ width: containerWidth }}>
                     <NavigationButton
                         onClick={handlePrev}

@@ -14,6 +14,7 @@ import { Content, Wrapper } from '../AnimePeek'
 import { ContentContext } from '../Topbar'
 import Fade from '@mui/material/Fade'
 import { ANIME_SEARCH } from '@selectors'
+import AnimesGrid from '@components/AnimesGrid'
 
 export type AnimeSearchProps = {
     onClose?(): void
@@ -70,48 +71,43 @@ export const AnimeSearch: React.FC<AnimeSearchProps> = React.memo(({ onClose }) 
                                 onClick={onClose}
                             />
                         </FRowG16>
-                        <div
-                            style={{
-                                display: 'flex',
-                                rowGap: 24,
-                                columnGap: 4,
-                                flexWrap: 'wrap',
-                                overflow: 'hidden',
+                        <AnimesGrid
+                            count={
+                                resultStatus === 'succeeded'
+                                    ? result?.matches.length ?? 0
+                                    : 0
+                            }
+                            render={({ index }) => {
+                                const match = result!.matches[index]
+                                return (
+                                    <AnimeDetailsEntry
+                                        visible={true}
+                                        onClick={handleAnimePeek}
+                                        anime={match}
+                                        // This index manages opacity animation timeout
+                                        index={index % 36}
+                                    />
+                                )
                             }}
                         >
                             {resultStatus === 'succeeded' ? (
-                                <>
-                                    {result?.matches.map((match, idx) => {
-                                        return (
-                                            <div key={idx}>
-                                                <AnimeDetailsEntry
-                                                    visible={true}
-                                                    onClick={handleAnimePeek}
-                                                    anime={match}
-                                                    // This index manages opacity animation timeout
-                                                    index={idx % 36}
-                                                />
-                                            </div>
-                                        )
-                                    })}
-                                    {['idle', 'succeeded'].includes(
-                                        moreResultsStatus ?? 'idle',
-                                    ) ? (
-                                        <Waypoint
-                                            onEnter={() => {
-                                                if (result?.hasNext) {
-                                                    dispatch(animeSearch.searchMore())
-                                                }
-                                            }}
-                                        />
-                                    ) : (
-                                        <AnimeSearchPlaceholder count={12} />
-                                    )}
-                                </>
+                                ['idle', 'succeeded'].includes(
+                                    moreResultsStatus ?? 'idle',
+                                ) ? (
+                                    <Waypoint
+                                        onEnter={() => {
+                                            if (result?.hasNext) {
+                                                dispatch(animeSearch.searchMore())
+                                            }
+                                        }}
+                                    />
+                                ) : (
+                                    <AnimeSearchPlaceholder count={12} />
+                                )
                             ) : (
                                 <AnimeSearchPlaceholder count={36} />
                             )}
-                        </div>
+                        </AnimesGrid>
                     </Content>
                 </Wrapper>
             </Fade>

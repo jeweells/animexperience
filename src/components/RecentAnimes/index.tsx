@@ -2,10 +2,12 @@ import React from 'react'
 import { watch } from '@reducers'
 import { VSpace } from '../../atoms/Spacing'
 import { RecentAnimeData, useRecentAnimes } from '../../hooks/useRecentAnimes'
-import { AnimeCarouselContent } from '../../placeholders/AnimeCarouselContent'
 import { AnimeEpisodeEntry } from '../AnimeEpisodeEntry'
-import { AnimesCarousel } from '../AnimesCarousel'
 import { useAppDispatch } from '~/redux/utils'
+import { CarouselTitleWithLoading } from '~/src/components'
+import AnimeSearchPlaceholder from '~/src/placeholders/AnimeSearchPlaceholder'
+import AnimesGrid from '@components/AnimesGrid'
+import { useSizes } from '@components/AnimesCarousel/hooks'
 
 export type RecentAnimesProps = {}
 
@@ -13,9 +15,10 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({}) => {
     const { data: recentAnimes, status } = useRecentAnimes()
     const dispatch = useAppDispatch()
 
+    const { navigationWidth } = useSizes()
     const filteredAnimes = recentAnimes?.flat(1).filter((x): x is RecentAnimeData => !!x)
 
-    const count = status !== 'succeeded' ? 1 : filteredAnimes?.length ?? 1
+    const count = status !== 'succeeded' ? 0 : filteredAnimes?.length ?? 0
     const handleCardClick = React.useCallback((anime: RecentAnimeData) => {
         if (anime.name && anime.episode) {
             dispatch(watch.watchEpisode(anime))
@@ -26,30 +29,30 @@ export const RecentAnimes: React.FC<RecentAnimesProps> = React.memo(({}) => {
     return (
         <React.Fragment>
             <VSpace size={32} />
-            <AnimesCarousel
+            <CarouselTitleWithLoading
                 title={'Recientes'}
-                count={count}
                 loading={status !== 'succeeded'}
-                render={({ index, visible, sliding }) => {
-                    if (status !== 'succeeded') {
-                        return (
-                            <AnimeCarouselContent key={'placeholder' + index} count={5} />
-                        )
-                    }
-                    if (!filteredAnimes) return null
-                    const x = filteredAnimes[index]
-                    return (
-                        <AnimeEpisodeEntry
-                            index={index}
-                            visible={visible}
-                            sliding={sliding}
-                            key={`${x.name} ${x.episode}`}
-                            anime={x}
-                            onClick={handleCardClick}
-                        />
-                    )
-                }}
             />
+            <div style={{ marginLeft: navigationWidth }}>
+                <AnimesGrid
+                    count={count}
+                    render={({ index }) => {
+                        const anime = filteredAnimes![index]
+                        if (!anime) return null
+                        return (
+                            <AnimeEpisodeEntry
+                                index={index}
+                                visible={true}
+                                sliding={false}
+                                anime={anime}
+                                onClick={handleCardClick}
+                            />
+                        )
+                    }}
+                >
+                    {status !== 'succeeded' && <AnimeSearchPlaceholder count={36} />}
+                </AnimesGrid>
+            </div>
         </React.Fragment>
     )
 })
