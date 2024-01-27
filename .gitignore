@@ -1,8 +1,5 @@
 node_modules
 dist
-packages
-.idea
-.cache
-public
-*.log
-actions-runner
+out
+.DS_Store
+*.log*

@@ -1,11 +1,4 @@
-*/.js
 node_modules
 dist
-webpack/*.js
-public
-.husky
-.cache
-packages
-functions
-actions-runner
-ffmpeg
+out
+.gitignore

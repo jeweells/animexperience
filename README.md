@@ -1,53 +1,34 @@
-## Electron + TypeScript + React
-Boilerplate for a project using Electron, React and Typescript
+# animexperience
 
-## Installation
+An Electron application with React and TypeScript
 
-Use a package manager of your choice (npm, yarn, etc.) in order to install all dependencies
+## Recommended IDE Setup
 
-```bash
-npm install
-```
+- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-```bash
-yarn install
-```
+## Project Setup
 
-## Usage
-In order to run this project 2 scripts will need to be executed `dev:react` and `dev:electron`, run each one in a different terminal and always run `dev:react` before `dev:electron`, or `dev` to run them in order automatically
+### Install
 
 ```bash
-npm run dev:react
-```
-```bash
-npm run dev:electron
+$ yarn
 ```
 
-or
+### Development
 
 ```bash
-npm run dev
+$ yarn dev
 ```
 
-## Packaging
-To generate a project package run `package`
+### Build
 
 ```bash
-npm run package
+# For windows
+$ yarn build:win
+
+# For macOS
+$ yarn build:mac
+
+# For Linux
+$ yarn build:linux
 ```
-
-## Deploying with local runner
-
-```PS
-cd actions-runner; ./run.cmd
-git push --tags origin
-```
-
-
-## Contributing
-
-Pull requests are always welcome 😃.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
