@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-    padding: 0 8px 0 24px;
+    padding: 0 0 0 24px;
     font-size: 1rem;
     font-weight: 700;
     display: flex;
@@ -43,7 +43,6 @@ const Buttons = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
-    padding-right: 16px;
     height: 100%;
 `
 
@@ -98,7 +97,7 @@ export const Topbar: React.FC<TopbarProps> = React.memo(({ children }) => {
                         >
                             <Container>
                                 <div>{title}</div>
-                                {!watching && <SearchBar style={{ marginRight: 16 }} />}
+                                {!watching && <SearchBar style={{ marginRight: 8 }} />}
                                 {watching && (
                                     <ShareAnimeEpisodeButton
                                         style={{
@@ -119,6 +118,11 @@ export const Topbar: React.FC<TopbarProps> = React.memo(({ children }) => {
                                 // @ts-ignore
                                 WebkitAppRegion: 'no-drag',
                                 WebkitUserSelect: 'all',
+                                borderRadius: 0,
+                                height: '100%',
+                                width: 48,
+
+                                background: 'rgb(0,0,0,0)',
                             }}
                             onClick={closeApp}
                         />
