@@ -10,7 +10,6 @@ import {
     AnimeSearchModal,
     FollowedAnimesUpdates,
     ContinueWatching,
-    RecentlyWatchedRecommendations,
     RecentAnimes,
     Topbar,
     VideoPlayerModal,
@@ -35,7 +34,6 @@ const App = () => {
                 <FollowedAnimesUpdates />
                 <ContinueWatching />
                 <RecentAnimes />
-                <RecentlyWatchedRecommendations />
                 <VSpace size={32} />
                 <VideoPlayerModal
                     TransitionProps={{
