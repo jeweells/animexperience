@@ -10,7 +10,7 @@ import { eventNames } from '@shared/constants'
 import { electronApp, is, optimizer } from '@electron-toolkit/utils'
 import { join } from 'path'
 import icon from '../../resources/icon.png?asset'
-import { VideoURLFailed } from '../shared/types'
+import { handleFailedVideoUrls } from './handleFailedVideoUrls'
 
 moment.locale('es')
 
@@ -84,18 +84,8 @@ async function createWindow(): Promise<void> {
     }
   )
 
-  session.defaultSession.webRequest.onCompleted(
-    {
-      urls: ['https://streamtape.com/*'],
-      types: ['xhr']
-    },
-    (a) => {
-      mainWindow.webContents.send(eventNames.videoUrlFailed, {
-        option: 'streamtape',
-        url: a.url
-      } as VideoURLFailed)
-    }
-  )
+  handleFailedVideoUrls(session.defaultSession.webRequest)
+
   if (is.dev) {
     const window = mainWindow
     mainWindow.webContents.on('did-frame-finish-load', () => {

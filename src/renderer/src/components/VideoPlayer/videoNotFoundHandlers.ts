@@ -49,8 +49,7 @@ const stape: OptionFn = (iframe) => {
 }
 
 const isDocument = (iframe: $IframeContents[number]): iframe is Document => {
-  if ('location' in iframe) return true
-  return false
+  return 'location' in iframe
 }
 
 const streamtape: OptionFn = () => {
