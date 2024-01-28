@@ -11,8 +11,14 @@ import { electronApp, is, optimizer } from '@electron-toolkit/utils'
 import { join } from 'path'
 import icon from '../../resources/icon.png?asset'
 import { handleFailedVideoUrls } from './handleFailedVideoUrls'
+import { autoUpdater } from 'electron-updater'
 
 moment.locale('es')
+
+if (app.isPackaged) {
+  autoUpdater.autoDownload = false
+  autoUpdater.autoInstallOnAppQuit = true
+}
 
 setupOpenUrl((invokedLink) => {
   console.debug({ invokedLink })
@@ -134,6 +140,12 @@ app.whenReady().then(async () => {
       .then((name) => console.debug(`Added Extension:  ${name}`))
       .catch((err) => console.debug('An error occurred: ', err))
   }
+
+  if (app.isPackaged) {
+    autoUpdater.checkForUpdates().then((result) => {
+      console.debug('Updates available!', result)
+    })
+  }
 })
 
 app.on('window-all-closed', () => {
@@ -146,3 +158,11 @@ setupStores()
 ipcMain.handle('closeApp', () => {
   app.quit()
 })
+
+if (app.isPackaged) {
+  autoUpdater.on('update-available', () => {
+    autoUpdater.downloadUpdate().then((info) => {
+      console.debug('Updated downloaded!', info)
+    })
+  })
+}
