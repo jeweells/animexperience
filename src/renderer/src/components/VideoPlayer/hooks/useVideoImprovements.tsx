@@ -73,7 +73,7 @@ const canTrackUpdatesOfThisAnime = (video: HTMLVideoElement) => {
 }
 
 const handleFollow = (refs: Refs, video: HTMLVideoElement) => {
-  if (!canTrackUpdatesOfThisAnime(video) && !refs.followed) return
+  if (refs.followed || !canTrackUpdatesOfThisAnime(video)) return
   const watchState = store.getState().watch
   if (!(watchState.info && watchState.watching)) return
   console.debug('Marking this anime as followed')
@@ -132,8 +132,11 @@ const handleAutoNavigation = (
     if (canAutomaticallyGoToNextEpisode) {
       if (autoGoToNextEpisode()) {
         refs.nextButtonShown = false
+        return
       }
-    } else if (!refs.nextButtonShown) {
+    }
+
+    if (!refs.nextButtonShown) {
       refs.nextButtonShown = true
       dispatch(watch.setNextEpisodeButton(true))
       dispatch(watch.setNextEpisodeTimeout(SECONDS_NEXT_BUTTON_DISPLAY))
