@@ -8,4 +8,13 @@ export type BasicVideoInfo = {
   anime?: Optional<RecentAnimeData>
 }
 
-export type KnownOption = 'fembed' | 'okru' | 'mixdrop' | 'streamtape' | 'stape'
+export type KnownOption =
+  | 'mega'
+  | 'fembed'
+  | 'okru'
+  | 'mixdrop'
+  | 'streamtape'
+  | 'stape'
+  | 'maru'
+  | 'sw'
+  | 'yourupload'

@@ -2,6 +2,7 @@ import { Optional } from '@shared/types'
 import { VideoOption } from '@components/VideoPlayer/index'
 import { $IframeContents, KnownOption } from '@components/VideoPlayer/types'
 import { deepIframes } from '@components/VideoPlayer/utils'
+import $ from 'jquery'
 import { urlHasFailed } from '~/src/hooks/useVideoURLFailed'
 
 type OptionFn = (contents: $IframeContents) => boolean
@@ -15,7 +16,11 @@ export const optionNotLongerAvailable = (
     okru,
     mixdrop,
     streamtape,
-    stape
+    stape,
+    maru,
+    mega,
+    sw,
+    yourupload
   }
   const handler = methods[option?.name?.toLowerCase() ?? '']
   if (!handler) return false
@@ -27,12 +32,16 @@ export const optionNotLongerAvailable = (
   return false
 }
 
-const fembed: OptionFn = () => {
-  return false
+const fembed: OptionFn = (iframe) => {
+  return _checkText(iframe, 'Fembed', 'could not be found')
 }
 
-const okru: OptionFn = () => {
-  return false
+const maru: OptionFn = (iframe) => {
+  return _checkText(iframe, 'Maru', 'not available')
+}
+
+const okru: OptionFn = (iframe) => {
+  return _checkText(iframe, 'Okru', 'not been found')
 }
 const mixdrop: OptionFn = () => {
   return false
@@ -43,9 +52,7 @@ const stape: OptionFn = (iframe) => {
     console.debug('Stape skipped since URL failed')
     return true
   }
-  const hasFailedText = iframe.find(':contains("server error occurred")').length > 0
-  if (hasFailedText) console.debug('Stape skipped since text is shown')
-  return hasFailedText
+  return _checkText(iframe, 'Streamtape', 'server error occurred')
 }
 
 const isDocument = (iframe: $IframeContents[number]): iframe is Document => {
@@ -54,4 +61,24 @@ const isDocument = (iframe: $IframeContents[number]): iframe is Document => {
 
 const streamtape: OptionFn = () => {
   return false
+}
+
+const mega: OptionFn = (iframe) => {
+  return _checkText(iframe, 'Mega', 'no longer accessible')
+}
+const sw: OptionFn = (iframe) => {
+  return _checkText(iframe, 'SW', 'Not Found')
+}
+
+const yourupload: OptionFn = (iframe) => {
+  return _checkText(iframe, 'YourUpload', 'File not found')
+}
+
+const _checkText = (iframe: $IframeContents, optionName: string, text: string) => {
+  const hasFailedText =
+    iframe.filter(function () {
+      return new RegExp(text, 'i').test($(this).text())
+    }).length > 0
+  if (hasFailedText) console.debug(`${optionName} skipped since text is shown`)
+  return hasFailedText
 }

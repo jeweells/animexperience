@@ -53,6 +53,11 @@ async function createWindow(): Promise<void> {
   mainWindow.on('ready-to-show', () => {
     mainWindow.maximize()
     mainWindow.show()
+    if (is.dev) {
+      mainWindow.webContents.openDevTools({
+        mode: 'detach'
+      })
+    }
   })
 
   // HMR for renderer base on electron-vite cli.
@@ -85,15 +90,6 @@ async function createWindow(): Promise<void> {
   )
 
   handleFailedVideoUrls(session.defaultSession.webRequest)
-
-  if (is.dev) {
-    const window = mainWindow
-    mainWindow.webContents.on('did-frame-finish-load', () => {
-      window.webContents.openDevTools({
-        mode: 'detach'
-      })
-    })
-  }
 
   mainWindow.on('closed', () => {
     setMainWindow(null)
