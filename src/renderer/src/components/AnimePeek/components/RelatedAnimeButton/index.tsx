@@ -7,6 +7,7 @@ import { peek } from '@reducers'
 import { FRow } from '~/src/atoms/Layout'
 import { useAppDispatch } from '~/redux/utils'
 import { RELATED_ANIME_BUTTON } from '@selectors'
+import { ForcedAny } from '@shared/types'
 
 export type RelatedAnimeButtonProps = {
   related: RelatedAnime
@@ -17,7 +18,7 @@ export const types = Object.keys({
   Película: null,
   Especial: null,
   Serie: null
-} as Record<RelatedAnime['type'], any>)
+} as Record<RelatedAnime['type'], ForcedAny>)
 
 const TypeButton = styled(FRow, { target: 'TypeButton' })`
   padding: 0 12px;

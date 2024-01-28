@@ -3,7 +3,8 @@ import { ANIME_ENTRY_SELECTORS, ANIME_EPISODE_ENTRY } from '@selectors'
 import { Provider } from 'react-redux'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
-import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
+import { ThemeProvider } from '@mui/material'
+import theme from '../../theme'
 
 describe('AnimeEpisodeEntry', () => {
   const returnTestId = ANIME_EPISODE_ENTRY.ANIME_INFO
@@ -60,11 +61,11 @@ describe('AnimeEpisodeEntry', () => {
 
   const getComponent = (override: Partial<AnimeEpisodeEntryProps> = {}) => {
     return (
-      <TopLayout>
-        <Provider store={mockStore(initialState)}>
+      <Provider store={mockStore(initialState)}>
+        <ThemeProvider theme={theme}>
           <AnimeEpisodeEntry {...props} {...override} />
-        </Provider>
-      </TopLayout>
+        </ThemeProvider>
+      </Provider>
     )
   }
 

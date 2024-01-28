@@ -1,6 +1,6 @@
 import { ElectronAPI } from '@electron-toolkit/preload'
 import { clipboard } from 'electron'
-import invokeNames from "../main/invokeNames";
+import invokeNames from '../main/invokeNames'
 
 declare global {
   interface Window {

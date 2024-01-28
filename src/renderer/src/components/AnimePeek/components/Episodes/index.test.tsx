@@ -4,7 +4,8 @@ import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import { EPISODES } from '@selectors'
 import { MockStoreEnhanced } from 'redux-mock-store'
-import TopLayout from '../../../../../plugins/gatsby-plugin-top-layout/TopLayout'
+import theme from '../../../../theme'
+import { ThemeProvider } from '@mui/material'
 
 describe('Episodes', () => {
   let initialState: DeepPartial<RootState>
@@ -14,11 +15,11 @@ describe('Episodes', () => {
   const getComponent = (override: Partial<EpisodesProps> = {}) => {
     store = mockStore(initialState)
     return (
-      <TopLayout>
-        <Provider store={store}>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
           <Episodes {...props} {...override} />
-        </Provider>
-      </TopLayout>
+        </ThemeProvider>
+      </Provider>
     )
   }
 

@@ -1,37 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AnimeSearch renders default 1`] = `
-.c10 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  font-size: 1.5rem;
-  font-size: inherit;
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  padding-bottom: 32px;
+  height: 100%;
+  position: relative;
 }
 
-.c11 {
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: inherit;
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 64px;
 }
 
-.c8 {
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.emotion-3 {
+  font-weight: 500;
+  color: #e7e7e7;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-shadow: 0 0 2px black,0 0 6px black;
+  margin-bottom: 24px;
+}
+
+.emotion-4 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -41,8 +64,8 @@ exports[`AnimeSearch renders default 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -65,18 +88,6 @@ exports[`AnimeSearch renders default 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
-}
-
-.c8::-moz-focus-inner {
-  border-style: none;
-}
-
-.c8.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c9 {
   text-align: center;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -86,8 +97,8 @@ exports[`AnimeSearch renders default 1`] = `
   border-radius: 50%;
   overflow: visible;
   color: #fff;
-  -webkit-transition: background-color 150ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 150ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -100,7 +111,7 @@ exports[`AnimeSearch renders default 1`] = `
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
-  outline: 0 !important;
+  outline: 0!important;
   white-space: nowrap;
   border: none;
   -webkit-user-select: none;
@@ -112,128 +123,94 @@ exports[`AnimeSearch renders default 1`] = `
   border-radius: 6px;
 }
 
-.c9:hover {
-  background-color: rgba(255,255,255,0.08);
+.emotion-5::-moz-focus-inner {
+  border-style: none;
 }
 
-.c9.Mui-disabled {
+.emotion-5.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-5:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+@media (hover: none) {
+  .emotion-5:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-5.Mui-disabled {
   background-color: transparent;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255, 255, 255, 0.3);
 }
 
-.c9:hover {
+.emotion-5:hover {
   background-color: #3c3f43;
 }
 
-.c9.Mui-disabled {
+.emotion-5.Mui-disabled {
   color: rgb(255 255 255 / 25%);
 }
 
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+.emotion-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
 }
 
-.c5 {
-  gap: 16px;
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 {
-  gap: 16px;
-}
-
-.c7 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.c6 {
-  font-weight: 700;
-  color: #e7e7e7;
-  font-size: 1.2rem;
-  line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
-  margin-bottom: 4px;
-}
-
-.c17 {
-  font-weight: 700;
-  color: white;
-  font-size: 1rem;
-  line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
-  margin-bottom: 4px;
+.emotion-7 {
   overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
 }
 
-.c12 {
-  box-sizing: border-box;
+.emotion-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  row-gap: 24px;
+  -webkit-column-gap: 4px;
+  column-gap: 4px;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  width: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  margin-top: -16px;
-  width: calc(100% + 16px);
-  margin-left: -16px;
+  overflow: hidden;
 }
 
-.c12 > .MuiGrid-item {
-  padding-top: 16px;
-}
-
-.c12 > .MuiGrid-item {
-  padding-left: 16px;
-}
-
-.c13 {
-  box-sizing: border-box;
-  margin: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-basis: 100%;
-  -ms-flex-preferred-size: 100%;
-  flex-basis: 100%;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  max-width: 100%;
-}
-
-.c14 {
+.emotion-9 {
   position: relative;
   border-radius: 4px;
   overflow: hidden;
-  --width: calc( ( 100vw - 3 * 16px - 2 * 72px ) / 4 );
-  --height: calc(var(--width) * 0.64);
   width: var(--width);
   height: var(--height);
   -webkit-flex: 0 0 auto;
@@ -242,18 +219,320 @@ exports[`AnimeSearch renders default 1`] = `
   cursor: pointer;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.c14:hover {
+@media (max-width: 7396px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 22 * 16px - 2 *
+                72px
+            ) / 23
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 7080px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 21 * 16px - 2 *
+                72px
+            ) / 22
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6764px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 20 * 16px - 2 *
+                72px
+            ) / 21
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6448px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 19 * 16px - 2 *
+                72px
+            ) / 20
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6132px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 18 * 16px - 2 *
+                72px
+            ) / 19
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5816px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 17 * 16px - 2 *
+                72px
+            ) / 18
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5500px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 16 * 16px - 2 *
+                72px
+            ) / 17
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5184px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 15 * 16px - 2 *
+                72px
+            ) / 16
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4868px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 14 * 16px - 2 *
+                72px
+            ) / 15
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4552px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 13 * 16px - 2 *
+                72px
+            ) / 14
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4236px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 12 * 16px - 2 *
+                72px
+            ) / 13
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3920px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 11 * 16px - 2 *
+                72px
+            ) / 12
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3604px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 10 * 16px - 2 *
+                72px
+            ) / 11
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3288px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 9 * 16px - 2 *
+                72px
+            ) / 10
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2972px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 8 * 16px - 2 *
+                72px
+            ) / 9
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2656px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 7 * 16px - 2 *
+                72px
+            ) / 8
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2340px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 6 * 16px - 2 *
+                72px
+            ) / 7
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2024px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 5 * 16px - 2 *
+                72px
+            ) / 6
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1708px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 4 * 16px - 2 *
+                72px
+            ) / 5
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1392px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 3 * 16px - 2 *
+                72px
+            ) / 4
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1076px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 2 * 16px - 2 *
+                72px
+            ) / 3
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 760px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 1 * 16px - 2 *
+                72px
+            ) / 2
+        );
+    --height: calc(var(--width) * 0.94);
+    --height: calc(var(--width) * 0.84);
+  }
+}
+
+@media (max-width: 444px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 0 * 16px - 2 *
+                72px
+            ) / 1
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+.emotion-9 .ManageButtons {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.emotion-9:hover {
   z-index: 10;
 }
 
-.c16 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.emotion-9:hover .ManageButtons {
+  opacity: 1;
+}
+
+.emotion-10 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+}
+
+.emotion-11 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.emotion-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -262,123 +541,48 @@ exports[`AnimeSearch renders default 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
   justify-content: flex-end;
-  background-image: linear-gradient( to top, rgba(0,0,0,0.7), rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 40% );
+  background-color: #292d33;
   padding: 16px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
-.c15 {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-.c2 {
-  overflow-y: overlay;
-  padding-bottom: 32px;
-  height: 100%;
-  position: relative;
-}
-
-.c3 {
-  padding: 32px 64px;
-}
-
-@media print {
-  .c8 {
-    color-adjust: exact;
-  }
-}
-
-@media (hover:none) {
-  .c9:hover {
-    background-color: transparent;
-  }
-}
-
-@media (min-width:500px) {
-  .c13 {
-    -webkit-flex-basis: 50%;
-    -ms-flex-preferred-size: 50%;
-    flex-basis: 50%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 50%;
-  }
-}
-
-@media (min-width:800px) {
-  .c13 {
-    -webkit-flex-basis: 33.333333%;
-    -ms-flex-preferred-size: 33.333333%;
-    flex-basis: 33.333333%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 33.333333%;
-  }
-}
-
-@media (min-width:1000px) {
-  .c13 {
-    -webkit-flex-basis: 25%;
-    -ms-flex-preferred-size: 25%;
-    flex-basis: 25%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 25%;
-  }
-}
-
-@media (max-width:1000px) {
-  .c14 {
-    --width: calc( ( 100vw - 2 * 16px - 2 * 72px ) / 3 );
-    --height: calc(var(--width) * 0.64);
-  }
-}
-
-@media (max-width:800px) {
-  .c14 {
-    --width: calc( ( 100vw - 1 * 16px - 2 * 72px ) / 2 );
-    --height: calc(var(--width) * 0.64);
-    --height: calc(var(--width) * 0.84);
-  }
-}
-
-@media (max-width:500px) {
-  .c14 {
-    --width: calc( ( 100vw - 0 * 16px - 2 * 72px ) / 1 );
-    --height: calc(var(--width) * 0.64);
-  }
+.emotion-13 {
+  font-weight: 400;
+  color: white;
+  font-size: 1rem;
+  line-height: 1;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 <body>
   <div>
     <div
-      class="c0 c1 c2"
+      class="emotion-0"
       style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="c0 c1 c3"
-        style="padding: 32px 64px;"
+        class="emotion-1"
+        style="padding: 32px 72px;"
       >
         <div
-          class="c4 c5"
+          class="emotion-2"
           style="align-items: center;"
         >
           <h2
-            class="c6"
+            class="emotion-3"
             style="font-size: 1.5rem; white-space: pre;"
           >
-            Resultados de
-             
+            Resultados de 
             <span
               style="opacity: 0.8;"
             >
@@ -388,11 +592,11 @@ exports[`AnimeSearch renders default 1`] = `
             </span>
           </h2>
           <div
-            class="c7"
+            class="emotion-4"
           />
           <button
             aria-label="Cerrar"
-            class="c8 MuiButtonBase-root c9 MuiIconButton-root MuiIconButton-sizeMedium"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-5"
             data-mui-internal-clone-element="true"
             data-testid="anime-search-close-button"
             tabindex="0"
@@ -400,45 +604,50 @@ exports[`AnimeSearch renders default 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c10 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
               data-testid="CloseRoundedIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
               <path
-                d="M18.3 5.71a.9959.9959 0 0 0-1.41 0L12 10.59 7.11 5.7a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+                d="M18.3 5.71a.9959.9959 0 0 0-1.41 0L12 10.59 7.11 5.7a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4"
               />
             </svg>
             <span
-              class="c11 MuiTouchRipple-root"
+              class="MuiTouchRipple-root emotion-7"
             />
           </button>
         </div>
         <div
-          class="c12 MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+          class="emotion-8"
+          style="column-gap: 16px;"
         >
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 0"
-                  class="c15"
-                  src="image url 0"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 0"
+                    class="emotion-11"
+                    src="image url 0"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 0"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 0
                   </h3>
@@ -446,28 +655,32 @@ exports[`AnimeSearch renders default 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 1"
-                  class="c15"
-                  src="image url 1"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 1"
+                    class="emotion-11"
+                    src="image url 1"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 1"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 1
                   </h3>
@@ -475,28 +688,32 @@ exports[`AnimeSearch renders default 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 2000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 2000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 2"
-                  class="c15"
-                  src="image url 2"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 2"
+                    class="emotion-11"
+                    src="image url 2"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 2"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 2
                   </h3>
@@ -504,28 +721,32 @@ exports[`AnimeSearch renders default 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 3"
-                  class="c15"
-                  src="image url 3"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 3"
+                    class="emotion-11"
+                    src="image url 3"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 3"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 3
                   </h3>
@@ -533,28 +754,32 @@ exports[`AnimeSearch renders default 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 3000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 3000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 4"
-                  class="c15"
-                  src="image url 4"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 4"
+                    class="emotion-11"
+                    src="image url 4"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 4"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 4
                   </h3>
@@ -562,28 +787,32 @@ exports[`AnimeSearch renders default 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 3500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 3500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 5"
-                  class="c15"
-                  src="image url 5"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 5"
+                    class="emotion-11"
+                    src="image url 5"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 5"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 5
                   </h3>
@@ -591,28 +820,32 @@ exports[`AnimeSearch renders default 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 4000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 4000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 6"
-                  class="c15"
-                  src="image url 6"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 6"
+                    class="emotion-11"
+                    src="image url 6"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 6"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 6
                   </h3>
@@ -620,28 +853,32 @@ exports[`AnimeSearch renders default 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 4500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 4500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 7"
-                  class="c15"
-                  src="image url 7"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 7"
+                    class="emotion-11"
+                    src="image url 7"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 7"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 7
                   </h3>
@@ -649,28 +886,32 @@ exports[`AnimeSearch renders default 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 5000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 5000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 8"
-                  class="c15"
-                  src="image url 8"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 8"
+                    class="emotion-11"
+                    src="image url 8"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 8"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 8
                   </h3>
@@ -678,28 +919,32 @@ exports[`AnimeSearch renders default 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 5500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 5500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 9"
-                  class="c15"
-                  src="image url 9"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 9"
+                    class="emotion-11"
+                    src="image url 9"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 9"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 9
                   </h3>
@@ -707,28 +952,32 @@ exports[`AnimeSearch renders default 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 6000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 6000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 10"
-                  class="c15"
-                  src="image url 10"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 10"
+                    class="emotion-11"
+                    src="image url 10"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 10"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 10
                   </h3>
@@ -736,28 +985,32 @@ exports[`AnimeSearch renders default 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 6000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 6000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 11"
-                  class="c15"
-                  src="image url 11"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 11"
+                    class="emotion-11"
+                    src="image url 11"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 11"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 11
                   </h3>
@@ -778,37 +1031,60 @@ exports[`AnimeSearch renders default 1`] = `
 `;
 
 exports[`AnimeSearch renders default when loading 1`] = `
-.c10 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  font-size: 1.5rem;
-  font-size: inherit;
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  padding-bottom: 32px;
+  height: 100%;
+  position: relative;
 }
 
-.c11 {
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: inherit;
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 64px;
 }
 
-.c8 {
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.emotion-3 {
+  font-weight: 500;
+  color: #e7e7e7;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-shadow: 0 0 2px black,0 0 6px black;
+  margin-bottom: 24px;
+}
+
+.emotion-4 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -818,8 +1094,8 @@ exports[`AnimeSearch renders default when loading 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -842,18 +1118,6 @@ exports[`AnimeSearch renders default when loading 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
-}
-
-.c8::-moz-focus-inner {
-  border-style: none;
-}
-
-.c8.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c9 {
   text-align: center;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -863,8 +1127,8 @@ exports[`AnimeSearch renders default when loading 1`] = `
   border-radius: 50%;
   overflow: visible;
   color: #fff;
-  -webkit-transition: background-color 150ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 150ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -877,7 +1141,7 @@ exports[`AnimeSearch renders default when loading 1`] = `
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
-  outline: 0 !important;
+  outline: 0!important;
   white-space: nowrap;
   border: none;
   -webkit-user-select: none;
@@ -889,38 +1153,102 @@ exports[`AnimeSearch renders default when loading 1`] = `
   border-radius: 6px;
 }
 
-.c9:hover {
-  background-color: rgba(255,255,255,0.08);
+.emotion-5::-moz-focus-inner {
+  border-style: none;
 }
 
-.c9.Mui-disabled {
+.emotion-5.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-5:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+@media (hover: none) {
+  .emotion-5:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-5.Mui-disabled {
   background-color: transparent;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255, 255, 255, 0.3);
 }
 
-.c9:hover {
+.emotion-5:hover {
   background-color: #3c3f43;
 }
 
-.c9.Mui-disabled {
+.emotion-5.Mui-disabled {
   color: rgb(255 255 255 / 25%);
 }
 
-.c4 {
+.emotion-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
+}
+
+.emotion-7 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.emotion-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  row-gap: 24px;
+  -webkit-column-gap: 4px;
+  column-gap: 4px;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 
-.c5 {
-  gap: 16px;
-}
-
-.c0 {
+.emotion-9 {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: var(--width);
+  height: var(--height);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -930,191 +1258,316 @@ exports[`AnimeSearch renders default when loading 1`] = `
   flex-direction: column;
 }
 
-.c1 {
-  gap: 16px;
-}
-
-.c7 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.c6 {
-  font-weight: 700;
-  color: #e7e7e7;
-  font-size: 1.2rem;
-  line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
-  margin-bottom: 4px;
-}
-
-.c12 {
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  margin-top: -16px;
-  width: calc(100% + 16px);
-  margin-left: -16px;
-}
-
-.c12 > .MuiGrid-item {
-  padding-top: 16px;
-}
-
-.c12 > .MuiGrid-item {
-  padding-left: 16px;
-}
-
-.c13 {
-  box-sizing: border-box;
-  margin: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-basis: 100%;
-  -ms-flex-preferred-size: 100%;
-  flex-basis: 100%;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  max-width: 100%;
-}
-
-.c14 {
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-  --width: calc( ( 100vw - 3 * 16px - 2 * 72px ) / 4 );
-  --height: calc(var(--width) * 0.64);
-  width: var(--width);
-  height: var(--height);
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  cursor: pointer;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-}
-
-.c14:hover {
-  z-index: 10;
-}
-
-.c2 {
-  overflow-y: overlay;
-  padding-bottom: 32px;
-  height: 100%;
-  position: relative;
-}
-
-.c3 {
-  padding: 32px 64px;
-}
-
-@media print {
-  .c8 {
-    color-adjust: exact;
+@media (max-width: 7396px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 22 * 16px - 2 *
+                72px
+            ) / 23
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (hover:none) {
-  .c9:hover {
-    background-color: transparent;
+@media (max-width: 7080px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 21 * 16px - 2 *
+                72px
+            ) / 22
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (min-width:500px) {
-  .c13 {
-    -webkit-flex-basis: 50%;
-    -ms-flex-preferred-size: 50%;
-    flex-basis: 50%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 50%;
+@media (max-width: 6764px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 20 * 16px - 2 *
+                72px
+            ) / 21
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (min-width:800px) {
-  .c13 {
-    -webkit-flex-basis: 33.333333%;
-    -ms-flex-preferred-size: 33.333333%;
-    flex-basis: 33.333333%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 33.333333%;
+@media (max-width: 6448px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 19 * 16px - 2 *
+                72px
+            ) / 20
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (min-width:1000px) {
-  .c13 {
-    -webkit-flex-basis: 25%;
-    -ms-flex-preferred-size: 25%;
-    flex-basis: 25%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 25%;
+@media (max-width: 6132px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 18 * 16px - 2 *
+                72px
+            ) / 19
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (max-width:1000px) {
-  .c14 {
-    --width: calc( ( 100vw - 2 * 16px - 2 * 72px ) / 3 );
-    --height: calc(var(--width) * 0.64);
+@media (max-width: 5816px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 17 * 16px - 2 *
+                72px
+            ) / 18
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (max-width:800px) {
-  .c14 {
-    --width: calc( ( 100vw - 1 * 16px - 2 * 72px ) / 2 );
-    --height: calc(var(--width) * 0.64);
+@media (max-width: 5500px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 16 * 16px - 2 *
+                72px
+            ) / 17
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5184px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 15 * 16px - 2 *
+                72px
+            ) / 16
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4868px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 14 * 16px - 2 *
+                72px
+            ) / 15
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4552px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 13 * 16px - 2 *
+                72px
+            ) / 14
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4236px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 12 * 16px - 2 *
+                72px
+            ) / 13
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3920px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 11 * 16px - 2 *
+                72px
+            ) / 12
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3604px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 10 * 16px - 2 *
+                72px
+            ) / 11
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3288px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 9 * 16px - 2 *
+                72px
+            ) / 10
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2972px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 8 * 16px - 2 *
+                72px
+            ) / 9
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2656px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 7 * 16px - 2 *
+                72px
+            ) / 8
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2340px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 6 * 16px - 2 *
+                72px
+            ) / 7
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2024px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 5 * 16px - 2 *
+                72px
+            ) / 6
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1708px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 4 * 16px - 2 *
+                72px
+            ) / 5
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1392px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 3 * 16px - 2 *
+                72px
+            ) / 4
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1076px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 2 * 16px - 2 *
+                72px
+            ) / 3
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 760px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 1 * 16px - 2 *
+                72px
+            ) / 2
+        );
+    --height: calc(var(--width) * 0.94);
     --height: calc(var(--width) * 0.84);
   }
 }
 
-@media (max-width:500px) {
-  .c14 {
-    --width: calc( ( 100vw - 0 * 16px - 2 * 72px ) / 1 );
-    --height: calc(var(--width) * 0.64);
+@media (max-width: 444px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 0 * 16px - 2 *
+                72px
+            ) / 1
+        );
+    --height: calc(var(--width) * 0.94);
   }
+}
+
+.emotion-9 .ManageButtons {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.emotion-9:hover {
+  z-index: 10;
+}
+
+.emotion-9:hover .ManageButtons {
+  opacity: 1;
 }
 
 <body>
   <div>
     <div
-      class="c0 c1 c2"
+      class="emotion-0"
       style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="c0 c1 c3"
-        style="padding: 32px 64px;"
+        class="emotion-1"
+        style="padding: 32px 72px;"
       >
         <div
-          class="c4 c5"
+          class="emotion-2"
           style="align-items: center;"
         >
           <h2
-            class="c6"
+            class="emotion-3"
             style="font-size: 1.5rem; white-space: pre;"
           >
-            Resultados de
-             
+            Resultados de 
             <span
               style="opacity: 0.8;"
             >
@@ -1124,11 +1577,11 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </span>
           </h2>
           <div
-            class="c7"
+            class="emotion-4"
           />
           <button
             aria-label="Cerrar"
-            class="c8 MuiButtonBase-root c9 MuiIconButton-root MuiIconButton-sizeMedium"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-5"
             data-mui-internal-clone-element="true"
             data-testid="anime-search-close-button"
             tabindex="0"
@@ -1136,32 +1589,32 @@ exports[`AnimeSearch renders default when loading 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c10 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
               data-testid="CloseRoundedIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
               <path
-                d="M18.3 5.71a.9959.9959 0 0 0-1.41 0L12 10.59 7.11 5.7a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+                d="M18.3 5.71a.9959.9959 0 0 0-1.41 0L12 10.59 7.11 5.7a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4"
               />
             </svg>
             <span
-              class="c11 MuiTouchRipple-root"
+              class="MuiTouchRipple-root emotion-7"
             />
           </button>
         </div>
         <div
-          class="c12 MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+          class="emotion-8"
+          style="column-gap: 16px;"
         >
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 1;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1174,14 +1627,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.9857142857142858;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1194,14 +1646,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.9714285714285714;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 1200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1214,14 +1665,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.9571428571428571;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 1700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1234,14 +1684,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.9428571428571428;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 2200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 2200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1254,14 +1703,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.9285714285714286;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 2700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 2700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1274,14 +1722,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.9142857142857143;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 3200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 3200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1294,14 +1741,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.9;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 3700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 3700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1314,14 +1760,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.8857142857142857;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 4200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 4200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1334,14 +1779,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.8714285714285714;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 4700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 4700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1354,14 +1798,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.8571428571428572;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 5200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 5200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1374,14 +1817,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.8428571428571429;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 5700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 5700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1394,14 +1836,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.8285714285714285;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 6200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 6200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1414,14 +1855,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.8142857142857143;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 6700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 6700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1434,14 +1874,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.8;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 7200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 7200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1454,14 +1893,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.7857142857142857;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 7700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 7700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1474,14 +1912,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.7714285714285715;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 8200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 8200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1494,14 +1931,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.7571428571428571;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 8700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 8700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1514,14 +1950,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.7428571428571429;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 9200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 9200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1534,14 +1969,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.7285714285714286;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 9700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 9700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1554,14 +1988,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.7142857142857143;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 10200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 10200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1574,14 +2007,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.7;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 10700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 10700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1594,14 +2026,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.6857142857142857;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 11200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 11200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1614,14 +2045,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.6714285714285715;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 11700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 11700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1634,14 +2064,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.6571428571428571;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 12200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 12200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1654,14 +2083,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.6428571428571428;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 12700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 12700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1674,14 +2102,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.6285714285714286;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 13200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 13200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1694,14 +2121,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.6142857142857143;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 13700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 13700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1714,14 +2140,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.6;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 14200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 14200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1734,14 +2159,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.5857142857142856;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 14700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 14700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1754,14 +2178,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.5714285714285714;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 15200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 15200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1774,14 +2197,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.5571428571428572;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 15700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 15700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1794,14 +2216,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.5428571428571429;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 16200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 16200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1814,14 +2235,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.5285714285714286;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 16700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 16700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1834,14 +2254,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.5142857142857142;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 17200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 17200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1854,14 +2273,13 @@ exports[`AnimeSearch renders default when loading 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.5;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 17700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 17700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -1881,37 +2299,60 @@ exports[`AnimeSearch renders default when loading 1`] = `
 `;
 
 exports[`AnimeSearch renders default when loading more 1`] = `
-.c10 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  font-size: 1.5rem;
-  font-size: inherit;
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  padding-bottom: 32px;
+  height: 100%;
+  position: relative;
 }
 
-.c11 {
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: inherit;
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 64px;
 }
 
-.c8 {
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.emotion-3 {
+  font-weight: 500;
+  color: #e7e7e7;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-shadow: 0 0 2px black,0 0 6px black;
+  margin-bottom: 24px;
+}
+
+.emotion-4 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1921,8 +2362,8 @@ exports[`AnimeSearch renders default when loading more 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -1945,18 +2386,6 @@ exports[`AnimeSearch renders default when loading more 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
-}
-
-.c8::-moz-focus-inner {
-  border-style: none;
-}
-
-.c8.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c9 {
   text-align: center;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -1966,8 +2395,8 @@ exports[`AnimeSearch renders default when loading more 1`] = `
   border-radius: 50%;
   overflow: visible;
   color: #fff;
-  -webkit-transition: background-color 150ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 150ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -1980,7 +2409,7 @@ exports[`AnimeSearch renders default when loading more 1`] = `
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
-  outline: 0 !important;
+  outline: 0!important;
   white-space: nowrap;
   border: none;
   -webkit-user-select: none;
@@ -1992,128 +2421,94 @@ exports[`AnimeSearch renders default when loading more 1`] = `
   border-radius: 6px;
 }
 
-.c9:hover {
-  background-color: rgba(255,255,255,0.08);
+.emotion-5::-moz-focus-inner {
+  border-style: none;
 }
 
-.c9.Mui-disabled {
+.emotion-5.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-5:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+@media (hover: none) {
+  .emotion-5:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-5.Mui-disabled {
   background-color: transparent;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255, 255, 255, 0.3);
 }
 
-.c9:hover {
+.emotion-5:hover {
   background-color: #3c3f43;
 }
 
-.c9.Mui-disabled {
+.emotion-5.Mui-disabled {
   color: rgb(255 255 255 / 25%);
 }
 
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+.emotion-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
 }
 
-.c5 {
-  gap: 16px;
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 {
-  gap: 16px;
-}
-
-.c7 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.c6 {
-  font-weight: 700;
-  color: #e7e7e7;
-  font-size: 1.2rem;
-  line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
-  margin-bottom: 4px;
-}
-
-.c17 {
-  font-weight: 700;
-  color: white;
-  font-size: 1rem;
-  line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
-  margin-bottom: 4px;
+.emotion-7 {
   overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
 }
 
-.c12 {
-  box-sizing: border-box;
+.emotion-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  row-gap: 24px;
+  -webkit-column-gap: 4px;
+  column-gap: 4px;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  width: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  margin-top: -16px;
-  width: calc(100% + 16px);
-  margin-left: -16px;
+  overflow: hidden;
 }
 
-.c12 > .MuiGrid-item {
-  padding-top: 16px;
-}
-
-.c12 > .MuiGrid-item {
-  padding-left: 16px;
-}
-
-.c13 {
-  box-sizing: border-box;
-  margin: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-basis: 100%;
-  -ms-flex-preferred-size: 100%;
-  flex-basis: 100%;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  max-width: 100%;
-}
-
-.c14 {
+.emotion-9 {
   position: relative;
   border-radius: 4px;
   overflow: hidden;
-  --width: calc( ( 100vw - 3 * 16px - 2 * 72px ) / 4 );
-  --height: calc(var(--width) * 0.64);
   width: var(--width);
   height: var(--height);
   -webkit-flex: 0 0 auto;
@@ -2122,18 +2517,320 @@ exports[`AnimeSearch renders default when loading more 1`] = `
   cursor: pointer;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.c14:hover {
+@media (max-width: 7396px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 22 * 16px - 2 *
+                72px
+            ) / 23
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 7080px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 21 * 16px - 2 *
+                72px
+            ) / 22
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6764px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 20 * 16px - 2 *
+                72px
+            ) / 21
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6448px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 19 * 16px - 2 *
+                72px
+            ) / 20
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6132px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 18 * 16px - 2 *
+                72px
+            ) / 19
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5816px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 17 * 16px - 2 *
+                72px
+            ) / 18
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5500px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 16 * 16px - 2 *
+                72px
+            ) / 17
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5184px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 15 * 16px - 2 *
+                72px
+            ) / 16
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4868px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 14 * 16px - 2 *
+                72px
+            ) / 15
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4552px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 13 * 16px - 2 *
+                72px
+            ) / 14
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4236px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 12 * 16px - 2 *
+                72px
+            ) / 13
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3920px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 11 * 16px - 2 *
+                72px
+            ) / 12
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3604px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 10 * 16px - 2 *
+                72px
+            ) / 11
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3288px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 9 * 16px - 2 *
+                72px
+            ) / 10
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2972px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 8 * 16px - 2 *
+                72px
+            ) / 9
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2656px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 7 * 16px - 2 *
+                72px
+            ) / 8
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2340px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 6 * 16px - 2 *
+                72px
+            ) / 7
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2024px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 5 * 16px - 2 *
+                72px
+            ) / 6
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1708px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 4 * 16px - 2 *
+                72px
+            ) / 5
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1392px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 3 * 16px - 2 *
+                72px
+            ) / 4
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1076px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 2 * 16px - 2 *
+                72px
+            ) / 3
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 760px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 1 * 16px - 2 *
+                72px
+            ) / 2
+        );
+    --height: calc(var(--width) * 0.94);
+    --height: calc(var(--width) * 0.84);
+  }
+}
+
+@media (max-width: 444px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 0 * 16px - 2 *
+                72px
+            ) / 1
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+.emotion-9 .ManageButtons {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.emotion-9:hover {
   z-index: 10;
 }
 
-.c16 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.emotion-9:hover .ManageButtons {
+  opacity: 1;
+}
+
+.emotion-10 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+}
+
+.emotion-11 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.emotion-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2142,123 +2839,48 @@ exports[`AnimeSearch renders default when loading more 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
   justify-content: flex-end;
-  background-image: linear-gradient( to top, rgba(0,0,0,0.7), rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 40% );
+  background-color: #292d33;
   padding: 16px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
-.c15 {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-.c2 {
-  overflow-y: overlay;
-  padding-bottom: 32px;
-  height: 100%;
-  position: relative;
-}
-
-.c3 {
-  padding: 32px 64px;
-}
-
-@media print {
-  .c8 {
-    color-adjust: exact;
-  }
-}
-
-@media (hover:none) {
-  .c9:hover {
-    background-color: transparent;
-  }
-}
-
-@media (min-width:500px) {
-  .c13 {
-    -webkit-flex-basis: 50%;
-    -ms-flex-preferred-size: 50%;
-    flex-basis: 50%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 50%;
-  }
-}
-
-@media (min-width:800px) {
-  .c13 {
-    -webkit-flex-basis: 33.333333%;
-    -ms-flex-preferred-size: 33.333333%;
-    flex-basis: 33.333333%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 33.333333%;
-  }
-}
-
-@media (min-width:1000px) {
-  .c13 {
-    -webkit-flex-basis: 25%;
-    -ms-flex-preferred-size: 25%;
-    flex-basis: 25%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    max-width: 25%;
-  }
-}
-
-@media (max-width:1000px) {
-  .c14 {
-    --width: calc( ( 100vw - 2 * 16px - 2 * 72px ) / 3 );
-    --height: calc(var(--width) * 0.64);
-  }
-}
-
-@media (max-width:800px) {
-  .c14 {
-    --width: calc( ( 100vw - 1 * 16px - 2 * 72px ) / 2 );
-    --height: calc(var(--width) * 0.64);
-    --height: calc(var(--width) * 0.84);
-  }
-}
-
-@media (max-width:500px) {
-  .c14 {
-    --width: calc( ( 100vw - 0 * 16px - 2 * 72px ) / 1 );
-    --height: calc(var(--width) * 0.64);
-  }
+.emotion-13 {
+  font-weight: 400;
+  color: white;
+  font-size: 1rem;
+  line-height: 1;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 <body>
   <div>
     <div
-      class="c0 c1 c2"
+      class="emotion-0"
       style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="c0 c1 c3"
-        style="padding: 32px 64px;"
+        class="emotion-1"
+        style="padding: 32px 72px;"
       >
         <div
-          class="c4 c5"
+          class="emotion-2"
           style="align-items: center;"
         >
           <h2
-            class="c6"
+            class="emotion-3"
             style="font-size: 1.5rem; white-space: pre;"
           >
-            Resultados de
-             
+            Resultados de 
             <span
               style="opacity: 0.8;"
             >
@@ -2268,11 +2890,11 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </span>
           </h2>
           <div
-            class="c7"
+            class="emotion-4"
           />
           <button
             aria-label="Cerrar"
-            class="c8 MuiButtonBase-root c9 MuiIconButton-root MuiIconButton-sizeMedium"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-5"
             data-mui-internal-clone-element="true"
             data-testid="anime-search-close-button"
             tabindex="0"
@@ -2280,45 +2902,50 @@ exports[`AnimeSearch renders default when loading more 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c10 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
               data-testid="CloseRoundedIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
               <path
-                d="M18.3 5.71a.9959.9959 0 0 0-1.41 0L12 10.59 7.11 5.7a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+                d="M18.3 5.71a.9959.9959 0 0 0-1.41 0L12 10.59 7.11 5.7a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4"
               />
             </svg>
             <span
-              class="c11 MuiTouchRipple-root"
+              class="MuiTouchRipple-root emotion-7"
             />
           </button>
         </div>
         <div
-          class="c12 MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+          class="emotion-8"
+          style="column-gap: 16px;"
         >
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 0"
-                  class="c15"
-                  src="image url 0"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 0"
+                    class="emotion-11"
+                    src="image url 0"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 0"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 0
                   </h3>
@@ -2326,28 +2953,32 @@ exports[`AnimeSearch renders default when loading more 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 1"
-                  class="c15"
-                  src="image url 1"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 1"
+                    class="emotion-11"
+                    src="image url 1"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 1"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 1
                   </h3>
@@ -2355,28 +2986,32 @@ exports[`AnimeSearch renders default when loading more 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 2000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 2000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 2"
-                  class="c15"
-                  src="image url 2"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 2"
+                    class="emotion-11"
+                    src="image url 2"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 2"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 2
                   </h3>
@@ -2384,28 +3019,32 @@ exports[`AnimeSearch renders default when loading more 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 3"
-                  class="c15"
-                  src="image url 3"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 3"
+                    class="emotion-11"
+                    src="image url 3"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 3"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 3
                   </h3>
@@ -2413,28 +3052,32 @@ exports[`AnimeSearch renders default when loading more 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 3000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 3000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 4"
-                  class="c15"
-                  src="image url 4"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 4"
+                    class="emotion-11"
+                    src="image url 4"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 4"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 4
                   </h3>
@@ -2442,28 +3085,32 @@ exports[`AnimeSearch renders default when loading more 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 3500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 3500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 5"
-                  class="c15"
-                  src="image url 5"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 5"
+                    class="emotion-11"
+                    src="image url 5"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 5"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 5
                   </h3>
@@ -2471,28 +3118,32 @@ exports[`AnimeSearch renders default when loading more 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 4000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 4000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 6"
-                  class="c15"
-                  src="image url 6"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 6"
+                    class="emotion-11"
+                    src="image url 6"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 6"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 6
                   </h3>
@@ -2500,28 +3151,32 @@ exports[`AnimeSearch renders default when loading more 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 4500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 4500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 7"
-                  class="c15"
-                  src="image url 7"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 7"
+                    class="emotion-11"
+                    src="image url 7"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 7"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 7
                   </h3>
@@ -2529,28 +3184,32 @@ exports[`AnimeSearch renders default when loading more 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 5000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 5000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 8"
-                  class="c15"
-                  src="image url 8"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 8"
+                    class="emotion-11"
+                    src="image url 8"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 8"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 8
                   </h3>
@@ -2558,28 +3217,32 @@ exports[`AnimeSearch renders default when loading more 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 5500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 5500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 9"
-                  class="c15"
-                  src="image url 9"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 9"
+                    class="emotion-11"
+                    src="image url 9"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 9"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 9
                   </h3>
@@ -2587,28 +3250,32 @@ exports[`AnimeSearch renders default when loading more 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 6000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 6000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 10"
-                  class="c15"
-                  src="image url 10"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 10"
+                    class="emotion-11"
+                    src="image url 10"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 10"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 10
                   </h3>
@@ -2616,28 +3283,32 @@ exports[`AnimeSearch renders default when loading more 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-          >
+          <div>
             <div
               data-testid="anime-entry-wrapper"
               style="opacity: 1; webkit-transition: opacity 6000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 6000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 data-testid="anime-entry-background"
               >
-                <img
-                  alt="anime name 11"
-                  class="c15"
-                  src="image url 11"
-                />
                 <div
-                  class="c16"
+                  class="emotion-10"
+                >
+                  <img
+                    alt="anime name 11"
+                    class="emotion-11"
+                    src="image url 11"
+                  />
+                </div>
+                <div
+                  class="emotion-12 AnimeInfo"
                   data-testid="anime-details-entry-anime-info"
                 >
                   <h3
-                    class="c17"
+                    aria-label="anime name 11"
+                    class=" emotion-13"
+                    data-mui-internal-clone-element="true"
                   >
                     anime name 11
                   </h3>
@@ -2646,14 +3317,13 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 1;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -2666,14 +3336,13 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.9545454545454546;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -2686,14 +3355,13 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.9090909090909091;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 1200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -2706,14 +3374,13 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.8636363636363636;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 1700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -2726,14 +3393,13 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.8181818181818181;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 2200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 2200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -2746,14 +3412,13 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.7727272727272727;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 2700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 2700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -2766,14 +3431,13 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.7272727272727273;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 3200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 3200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -2786,14 +3450,13 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.6818181818181819;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 3700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 3700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -2806,14 +3469,13 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.6363636363636364;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 4200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 4200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -2826,14 +3488,13 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.5909090909090908;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 4700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 4700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -2846,14 +3507,13 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.5454545454545454;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 5200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 5200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -2866,14 +3526,13 @@ exports[`AnimeSearch renders default when loading more 1`] = `
             </div>
           </div>
           <div
-            class="c13 MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             style="opacity: 0.5;"
           >
             <div
               style="opacity: 1; webkit-transition: opacity 5700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 5700ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
             >
               <div
-                class="c14"
+                class="emotion-9"
                 style="cursor: default;"
               >
                 <div
@@ -2893,37 +3552,60 @@ exports[`AnimeSearch renders default when loading more 1`] = `
 `;
 
 exports[`AnimeSearch renders default when no results 1`] = `
-.c10 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  font-size: 1.5rem;
-  font-size: inherit;
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  padding-bottom: 32px;
+  height: 100%;
+  position: relative;
 }
 
-.c11 {
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: inherit;
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 64px;
 }
 
-.c8 {
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.emotion-3 {
+  font-weight: 500;
+  color: #e7e7e7;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-shadow: 0 0 2px black,0 0 6px black;
+  margin-bottom: 24px;
+}
+
+.emotion-4 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -2933,8 +3615,8 @@ exports[`AnimeSearch renders default when no results 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -2957,18 +3639,6 @@ exports[`AnimeSearch renders default when no results 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
-}
-
-.c8::-moz-focus-inner {
-  border-style: none;
-}
-
-.c8.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c9 {
   text-align: center;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -2978,8 +3648,8 @@ exports[`AnimeSearch renders default when no results 1`] = `
   border-radius: 50%;
   overflow: visible;
   color: #fff;
-  -webkit-transition: background-color 150ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 150ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -2992,7 +3662,7 @@ exports[`AnimeSearch renders default when no results 1`] = `
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
-  outline: 0 !important;
+  outline: 0!important;
   white-space: nowrap;
   border: none;
   -webkit-user-select: none;
@@ -3004,131 +3674,106 @@ exports[`AnimeSearch renders default when no results 1`] = `
   border-radius: 6px;
 }
 
-.c9:hover {
-  background-color: rgba(255,255,255,0.08);
+.emotion-5::-moz-focus-inner {
+  border-style: none;
 }
 
-.c9.Mui-disabled {
-  background-color: transparent;
-  color: rgba(255,255,255,0.3);
-}
-
-.c9:hover {
-  background-color: #3c3f43;
-}
-
-.c9.Mui-disabled {
-  color: rgb(255 255 255 / 25%);
-}
-
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.c5 {
-  gap: 16px;
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 {
-  gap: 16px;
-}
-
-.c7 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.c6 {
-  font-weight: 700;
-  color: #e7e7e7;
-  font-size: 1.2rem;
-  line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
-  margin-bottom: 4px;
-}
-
-.c12 {
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  margin-top: -16px;
-  width: calc(100% + 16px);
-  margin-left: -16px;
-}
-
-.c12 > .MuiGrid-item {
-  padding-top: 16px;
-}
-
-.c12 > .MuiGrid-item {
-  padding-left: 16px;
-}
-
-.c2 {
-  overflow-y: overlay;
-  padding-bottom: 32px;
-  height: 100%;
-  position: relative;
-}
-
-.c3 {
-  padding: 32px 64px;
+.emotion-5.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
 }
 
 @media print {
-  .c8 {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-@media (hover:none) {
-  .c9:hover {
+.emotion-5:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+@media (hover: none) {
+  .emotion-5:hover {
     background-color: transparent;
   }
+}
+
+.emotion-5.Mui-disabled {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-5:hover {
+  background-color: #3c3f43;
+}
+
+.emotion-5.Mui-disabled {
+  color: rgb(255 255 255 / 25%);
+}
+
+.emotion-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
+}
+
+.emotion-7 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.emotion-8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  row-gap: 24px;
+  -webkit-column-gap: 4px;
+  column-gap: 4px;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 
 <body>
   <div>
     <div
-      class="c0 c1 c2"
+      class="emotion-0"
       style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="c0 c1 c3"
-        style="padding: 32px 64px;"
+        class="emotion-1"
+        style="padding: 32px 72px;"
       >
         <div
-          class="c4 c5"
+          class="emotion-2"
           style="align-items: center;"
         >
           <h2
-            class="c6"
+            class="emotion-3"
             style="font-size: 1.5rem; white-space: pre;"
           >
             No hay resultados para
@@ -3142,11 +3787,11 @@ exports[`AnimeSearch renders default when no results 1`] = `
             </span>
           </h2>
           <div
-            class="c7"
+            class="emotion-4"
           />
           <button
             aria-label="Cerrar"
-            class="c8 MuiButtonBase-root c9 MuiIconButton-root MuiIconButton-sizeMedium"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-5"
             data-mui-internal-clone-element="true"
             data-testid="anime-search-close-button"
             tabindex="0"
@@ -3154,22 +3799,23 @@ exports[`AnimeSearch renders default when no results 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c10 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
               data-testid="CloseRoundedIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
               <path
-                d="M18.3 5.71a.9959.9959 0 0 0-1.41 0L12 10.59 7.11 5.7a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+                d="M18.3 5.71a.9959.9959 0 0 0-1.41 0L12 10.59 7.11 5.7a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4"
               />
             </svg>
             <span
-              class="c11 MuiTouchRipple-root"
+              class="MuiTouchRipple-root emotion-7"
             />
           </button>
         </div>
         <div
-          class="c12 MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+          class="emotion-8"
+          style="column-gap: 16px;"
         >
           <div
             data-testid="waypoint-div"

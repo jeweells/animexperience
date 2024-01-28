@@ -1,19 +1,19 @@
 import AnimesCarousel, { AnimesCarouselProps } from './index'
-import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
 import useResizeObserver from 'use-resize-observer'
-import { ipcRenderer } from 'electron'
+import { ThemeProvider } from '@mui/material'
+import theme from '../../theme'
 
 describe('AnimesCarousel', () => {
   let props: AnimesCarouselProps
   const useResizeObserverMock = useResizeObserver as jest.Mock
-  const invokeMock = ipcRenderer.invoke as jest.Mock
+  const invokeMock = window.electron.ipcRenderer.invoke as jest.Mock
   const imageUrl = 'fake_image_url'
 
   const getComponent = (override: Partial<AnimesCarouselProps> = {}) => {
     return (
-      <TopLayout>
+      <ThemeProvider theme={theme}>
         <AnimesCarousel {...props} {...override} />
-      </TopLayout>
+      </ThemeProvider>
     )
   }
 

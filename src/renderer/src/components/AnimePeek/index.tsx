@@ -41,7 +41,7 @@ const SDivider = styled(Divider)`
 `
 
 export const Wrapper = styled(FColG16)`
-  overflow-y: overlay;
+  overflow-y: auto;
   padding-bottom: 32px;
   height: 100%;
   position: relative;

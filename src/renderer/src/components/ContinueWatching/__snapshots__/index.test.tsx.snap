@@ -1,7 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContinueWatching renders default when failed 1`] = `
-.c0 {
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
   min-height: 32px;
   max-height: 32px;
   height: 32px;
@@ -10,50 +100,40 @@ exports[`ContinueWatching renders default when failed 1`] = `
   flex-shrink: 0;
 }
 
-.c2 {
-  -webkit-animation: fNPkvL 1500ms;
-  animation: fNPkvL 1500ms;
+.emotion-1 {
+  font-weight: 500;
+  color: #e7e7e7;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-shadow: 0 0 2px black,0 0 6px black;
+  margin-bottom: 24px;
 }
 
-.c12 {
-  -webkit-animation: fNPkvL 3000ms;
-  animation: fNPkvL 3000ms;
+.emotion-2 {
+  -webkit-animation: animation-0 1500ms;
+  animation: animation-0 1500ms;
 }
 
-.c13 {
-  -webkit-animation: fNPkvL 4500ms;
-  animation: fNPkvL 4500ms;
+.emotion-3 {
+  overflow-x: hidden;
+  position: relative;
 }
 
-.c14 {
-  -webkit-animation: fNPkvL 6000ms;
-  animation: fNPkvL 6000ms;
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
 }
 
-.c15 {
-  -webkit-animation: fNPkvL 7500ms;
-  animation: fNPkvL 7500ms;
-}
-
-.c9 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  font-size: 1.5rem;
-  font-size: inherit;
-}
-
-.c6 {
+.emotion-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -63,8 +143,8 @@ exports[`ContinueWatching renders default when failed 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -87,19 +167,7 @@ exports[`ContinueWatching renders default when failed 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
-}
-
-.c6::-moz-focus-inner {
-  border-style: none;
-}
-
-.c6.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c7 {
-  font-family: Quicksand,sans-serif;
+  font-family: OpenSans,Quicksand,sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
@@ -107,8 +175,8 @@ exports[`ContinueWatching renders default when failed 1`] = `
   min-width: 64px;
   padding: 6px 8px;
   border-radius: 4px;
-  -webkit-transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #292d33;
   color: #e9ebf0;
   background-color: #292d33;
@@ -116,7 +184,7 @@ exports[`ContinueWatching renders default when failed 1`] = `
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
-  outline: 0 !important;
+  outline: 0!important;
   white-space: nowrap;
   border: none;
   -webkit-user-select: none;
@@ -131,110 +199,89 @@ exports[`ContinueWatching renders default when failed 1`] = `
   color: #e9ebf0;
   text-transform: none;
   padding: 8px 12px;
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent!important;
+  opacity: 0!important;
+  background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.4)
+    );
+  font-size: 3.5rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 0 24px;
 }
 
-.c7:hover {
+.emotion-5::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-5.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-5:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(41,45,51,0.08);
+  background-color: rgba(41, 45, 51, 0.08);
 }
 
-.c7.Mui-disabled {
-  color: rgba(255,255,255,0.3);
+@media (hover: none) {
+  .emotion-5:hover {
+    background-color: transparent;
+  }
 }
 
-.c7:hover {
+.emotion-5.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-5:hover {
   outline: none;
   border: none;
   background-color: #3c3f43;
 }
 
-.c11 {
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-  --width: calc( ( 100vw - 3 * 16px - 2 * 72px ) / 4 );
-  --height: calc(var(--width) * 0.64);
-  width: var(--width);
-  height: var(--height);
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  cursor: pointer;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+.emotion-5:hover {
+  opacity: 0!important;
+  background-image: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.8)
+      );
 }
 
-.c11:hover {
-  z-index: 10;
+.emotion-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
 }
 
-.c1 {
-  font-weight: 700;
-  color: #e7e7e7;
-  font-size: 1.2rem;
-  line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
-  margin-bottom: 4px;
-}
-
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c5 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 10;
-}
-
-.c8 {
-  height: 100%;
-  border-radius: 0;
-  background-color: transparent !important;
-  opacity: 0 !important;
-  background-image: linear-gradient( to left, rgba(0,0,0,0), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) );
-  font-size: 3.5rem;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-  padding: 0 24px;
-}
-
-.c8:hover {
-  opacity: 0 !important;
-  background-image: linear-gradient( to left, rgba(0,0,0,0), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) );
-}
-
-.c16 {
-  height: 100%;
-  border-radius: 0;
-  background-color: transparent !important;
-  opacity: 0 !important;
-  background-image: linear-gradient( to right, rgba(0,0,0,0), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) );
-  font-size: 3.5rem;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-  padding: 0 24px;
-}
-
-.c16:hover {
-  opacity: 0 !important;
-  background-image: linear-gradient( to right, rgba(0,0,0,0), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) );
-}
-
-.c3 {
-  overflow-x: hidden;
-  position: relative;
-}
-
-.c10 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -245,52 +292,480 @@ exports[`ContinueWatching renders default when failed 1`] = `
   gap: 16px;
 }
 
-@media print {
-  .c6 {
-    color-adjust: exact;
+.emotion-9 {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: var(--width);
+  height: var(--height);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media (max-width: 7396px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 22 * 16px - 2 *
+                72px
+            ) / 23
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (hover:none) {
-  .c7:hover {
-    background-color: transparent;
+@media (max-width: 7080px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 21 * 16px - 2 *
+                72px
+            ) / 22
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (max-width:1000px) {
-  .c11 {
-    --width: calc( ( 100vw - 2 * 16px - 2 * 72px ) / 3 );
-    --height: calc(var(--width) * 0.64);
+@media (max-width: 6764px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 20 * 16px - 2 *
+                72px
+            ) / 21
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (max-width:800px) {
-  .c11 {
-    --width: calc( ( 100vw - 1 * 16px - 2 * 72px ) / 2 );
-    --height: calc(var(--width) * 0.64);
+@media (max-width: 6448px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 19 * 16px - 2 *
+                72px
+            ) / 20
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6132px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 18 * 16px - 2 *
+                72px
+            ) / 19
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5816px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 17 * 16px - 2 *
+                72px
+            ) / 18
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5500px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 16 * 16px - 2 *
+                72px
+            ) / 17
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5184px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 15 * 16px - 2 *
+                72px
+            ) / 16
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4868px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 14 * 16px - 2 *
+                72px
+            ) / 15
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4552px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 13 * 16px - 2 *
+                72px
+            ) / 14
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4236px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 12 * 16px - 2 *
+                72px
+            ) / 13
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3920px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 11 * 16px - 2 *
+                72px
+            ) / 12
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3604px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 10 * 16px - 2 *
+                72px
+            ) / 11
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3288px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 9 * 16px - 2 *
+                72px
+            ) / 10
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2972px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 8 * 16px - 2 *
+                72px
+            ) / 9
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2656px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 7 * 16px - 2 *
+                72px
+            ) / 8
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2340px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 6 * 16px - 2 *
+                72px
+            ) / 7
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2024px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 5 * 16px - 2 *
+                72px
+            ) / 6
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1708px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 4 * 16px - 2 *
+                72px
+            ) / 5
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1392px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 3 * 16px - 2 *
+                72px
+            ) / 4
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1076px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 2 * 16px - 2 *
+                72px
+            ) / 3
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 760px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 1 * 16px - 2 *
+                72px
+            ) / 2
+        );
+    --height: calc(var(--width) * 0.94);
     --height: calc(var(--width) * 0.84);
   }
 }
 
-@media (max-width:500px) {
-  .c11 {
-    --width: calc( ( 100vw - 0 * 16px - 2 * 72px ) / 1 );
-    --height: calc(var(--width) * 0.64);
+@media (max-width: 444px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 0 * 16px - 2 *
+                72px
+            ) / 1
+        );
+    --height: calc(var(--width) * 0.94);
   }
+}
+
+.emotion-9 .ManageButtons {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.emotion-9:hover {
+  z-index: 10;
+}
+
+.emotion-9:hover .ManageButtons {
+  opacity: 1;
+}
+
+.emotion-10 {
+  -webkit-animation: animation-0 3000ms;
+  animation: animation-0 3000ms;
+}
+
+.emotion-12 {
+  -webkit-animation: animation-0 4500ms;
+  animation: animation-0 4500ms;
+}
+
+.emotion-14 {
+  -webkit-animation: animation-0 6000ms;
+  animation: animation-0 6000ms;
+}
+
+.emotion-16 {
+  -webkit-animation: animation-0 7500ms;
+  animation: animation-0 7500ms;
+}
+
+.emotion-19 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+  font-family: OpenSans,Quicksand,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #292d33;
+  color: #e9ebf0;
+  background-color: #292d33;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  outline: 0!important;
+  white-space: nowrap;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-transform: unset;
+  border-radius: 6px;
+  height: 36px;
+  color: #e9ebf0;
+  text-transform: none;
+  padding: 8px 12px;
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent!important;
+  opacity: 0!important;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.4)
+    );
+  font-size: 3.5rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 0 24px;
+}
+
+.emotion-19::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-19.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-19 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-19:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(41, 45, 51, 0.08);
+}
+
+@media (hover: none) {
+  .emotion-19:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-19.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-19:hover {
+  outline: none;
+  border: none;
+  background-color: #3c3f43;
+}
+
+.emotion-19:hover {
+  opacity: 0!important;
+  background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.8)
+      );
 }
 
 <body>
   <div>
     <div
-      class="c0"
+      class="emotion-0"
       size="32"
     />
     <h2
-      class="c1"
-      style="margin-left: 72px; margin-bottom: 8px;"
+      class="emotion-1"
+      style="margin-left: 72px; margin-bottom: 24px;"
     >
       <div
-        class="c2"
+        class="emotion-2"
       >
         <div
           animation="pulse"
@@ -301,15 +776,15 @@ exports[`ContinueWatching renders default when failed 1`] = `
       </div>
     </h2>
     <div
-      class="c3"
+      class="emotion-3"
       style="width: 100vw;"
     >
       <div
-        class="c4 c5"
+        class="emotion-4"
         style="left: 0px; width: 72px;"
       >
         <button
-          class="c6 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c7 c8"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-5"
           data-testid="navigation-button-button"
           direction="left"
           disabled=""
@@ -318,26 +793,26 @@ exports[`ContinueWatching renders default when failed 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
             data-testid="KeyboardArrowLeftRoundedIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M14.71 15.88 10.83 12l3.88-3.88c.39-.39.39-1.02 0-1.41a.9959.9959 0 0 0-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42z"
+              d="M14.71 15.88 10.83 12l3.88-3.88c.39-.39.39-1.02 0-1.41a.9959.9959 0 0 0-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42"
             />
           </svg>
         </button>
       </div>
       <div
-        class="c10"
+        class="emotion-7"
         style="transition: all 400ms; transform: translate3d(72px, 0, 0); pointer-events: all;"
       >
         <div
-          class="c2"
+          class="emotion-2"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 1;"
           >
             <div
@@ -349,10 +824,10 @@ exports[`ContinueWatching renders default when failed 1`] = `
           </div>
         </div>
         <div
-          class="c12"
+          class="emotion-10"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 0.9;"
           >
             <div
@@ -364,10 +839,10 @@ exports[`ContinueWatching renders default when failed 1`] = `
           </div>
         </div>
         <div
-          class="c13"
+          class="emotion-12"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 0.8;"
           >
             <div
@@ -379,10 +854,10 @@ exports[`ContinueWatching renders default when failed 1`] = `
           </div>
         </div>
         <div
-          class="c14"
+          class="emotion-14"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 0.7;"
           >
             <div
@@ -394,10 +869,10 @@ exports[`ContinueWatching renders default when failed 1`] = `
           </div>
         </div>
         <div
-          class="c15"
+          class="emotion-16"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 0.6;"
           >
             <div
@@ -410,11 +885,11 @@ exports[`ContinueWatching renders default when failed 1`] = `
         </div>
       </div>
       <div
-        class="c4 c5"
+        class="emotion-4"
         style="right: 0px; width: 72px;"
       >
         <button
-          class="c6 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c7 c16"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-19"
           data-testid="navigation-button-button"
           direction="right"
           disabled=""
@@ -423,13 +898,13 @@ exports[`ContinueWatching renders default when failed 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
             data-testid="KeyboardArrowRightRoundedIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M9.29 15.88 13.17 12 9.29 8.12a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"
+              d="M9.29 15.88 13.17 12 9.29 8.12a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42"
             />
           </svg>
         </button>
@@ -440,7 +915,97 @@ exports[`ContinueWatching renders default when failed 1`] = `
 `;
 
 exports[`ContinueWatching renders default when idle 1`] = `
-.c0 {
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
   min-height: 32px;
   max-height: 32px;
   height: 32px;
@@ -449,50 +1014,40 @@ exports[`ContinueWatching renders default when idle 1`] = `
   flex-shrink: 0;
 }
 
-.c2 {
-  -webkit-animation: fNPkvL 1500ms;
-  animation: fNPkvL 1500ms;
+.emotion-1 {
+  font-weight: 500;
+  color: #e7e7e7;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-shadow: 0 0 2px black,0 0 6px black;
+  margin-bottom: 24px;
 }
 
-.c12 {
-  -webkit-animation: fNPkvL 3000ms;
-  animation: fNPkvL 3000ms;
+.emotion-2 {
+  -webkit-animation: animation-0 1500ms;
+  animation: animation-0 1500ms;
 }
 
-.c13 {
-  -webkit-animation: fNPkvL 4500ms;
-  animation: fNPkvL 4500ms;
+.emotion-3 {
+  overflow-x: hidden;
+  position: relative;
 }
 
-.c14 {
-  -webkit-animation: fNPkvL 6000ms;
-  animation: fNPkvL 6000ms;
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
 }
 
-.c15 {
-  -webkit-animation: fNPkvL 7500ms;
-  animation: fNPkvL 7500ms;
-}
-
-.c9 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  font-size: 1.5rem;
-  font-size: inherit;
-}
-
-.c6 {
+.emotion-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -502,8 +1057,8 @@ exports[`ContinueWatching renders default when idle 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -526,19 +1081,7 @@ exports[`ContinueWatching renders default when idle 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
-}
-
-.c6::-moz-focus-inner {
-  border-style: none;
-}
-
-.c6.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c7 {
-  font-family: Quicksand,sans-serif;
+  font-family: OpenSans,Quicksand,sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
@@ -546,8 +1089,8 @@ exports[`ContinueWatching renders default when idle 1`] = `
   min-width: 64px;
   padding: 6px 8px;
   border-radius: 4px;
-  -webkit-transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #292d33;
   color: #e9ebf0;
   background-color: #292d33;
@@ -555,7 +1098,7 @@ exports[`ContinueWatching renders default when idle 1`] = `
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
-  outline: 0 !important;
+  outline: 0!important;
   white-space: nowrap;
   border: none;
   -webkit-user-select: none;
@@ -570,110 +1113,89 @@ exports[`ContinueWatching renders default when idle 1`] = `
   color: #e9ebf0;
   text-transform: none;
   padding: 8px 12px;
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent!important;
+  opacity: 0!important;
+  background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.4)
+    );
+  font-size: 3.5rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 0 24px;
 }
 
-.c7:hover {
+.emotion-5::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-5.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-5:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(41,45,51,0.08);
+  background-color: rgba(41, 45, 51, 0.08);
 }
 
-.c7.Mui-disabled {
-  color: rgba(255,255,255,0.3);
+@media (hover: none) {
+  .emotion-5:hover {
+    background-color: transparent;
+  }
 }
 
-.c7:hover {
+.emotion-5.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-5:hover {
   outline: none;
   border: none;
   background-color: #3c3f43;
 }
 
-.c11 {
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-  --width: calc( ( 100vw - 3 * 16px - 2 * 72px ) / 4 );
-  --height: calc(var(--width) * 0.64);
-  width: var(--width);
-  height: var(--height);
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  cursor: pointer;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+.emotion-5:hover {
+  opacity: 0!important;
+  background-image: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.8)
+      );
 }
 
-.c11:hover {
-  z-index: 10;
+.emotion-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
 }
 
-.c1 {
-  font-weight: 700;
-  color: #e7e7e7;
-  font-size: 1.2rem;
-  line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
-  margin-bottom: 4px;
-}
-
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c5 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 10;
-}
-
-.c8 {
-  height: 100%;
-  border-radius: 0;
-  background-color: transparent !important;
-  opacity: 0 !important;
-  background-image: linear-gradient( to left, rgba(0,0,0,0), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) );
-  font-size: 3.5rem;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-  padding: 0 24px;
-}
-
-.c8:hover {
-  opacity: 0 !important;
-  background-image: linear-gradient( to left, rgba(0,0,0,0), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) );
-}
-
-.c16 {
-  height: 100%;
-  border-radius: 0;
-  background-color: transparent !important;
-  opacity: 0 !important;
-  background-image: linear-gradient( to right, rgba(0,0,0,0), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) );
-  font-size: 3.5rem;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-  padding: 0 24px;
-}
-
-.c16:hover {
-  opacity: 0 !important;
-  background-image: linear-gradient( to right, rgba(0,0,0,0), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) );
-}
-
-.c3 {
-  overflow-x: hidden;
-  position: relative;
-}
-
-.c10 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -684,52 +1206,480 @@ exports[`ContinueWatching renders default when idle 1`] = `
   gap: 16px;
 }
 
-@media print {
-  .c6 {
-    color-adjust: exact;
+.emotion-9 {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: var(--width);
+  height: var(--height);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media (max-width: 7396px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 22 * 16px - 2 *
+                72px
+            ) / 23
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (hover:none) {
-  .c7:hover {
-    background-color: transparent;
+@media (max-width: 7080px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 21 * 16px - 2 *
+                72px
+            ) / 22
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (max-width:1000px) {
-  .c11 {
-    --width: calc( ( 100vw - 2 * 16px - 2 * 72px ) / 3 );
-    --height: calc(var(--width) * 0.64);
+@media (max-width: 6764px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 20 * 16px - 2 *
+                72px
+            ) / 21
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (max-width:800px) {
-  .c11 {
-    --width: calc( ( 100vw - 1 * 16px - 2 * 72px ) / 2 );
-    --height: calc(var(--width) * 0.64);
+@media (max-width: 6448px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 19 * 16px - 2 *
+                72px
+            ) / 20
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6132px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 18 * 16px - 2 *
+                72px
+            ) / 19
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5816px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 17 * 16px - 2 *
+                72px
+            ) / 18
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5500px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 16 * 16px - 2 *
+                72px
+            ) / 17
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5184px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 15 * 16px - 2 *
+                72px
+            ) / 16
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4868px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 14 * 16px - 2 *
+                72px
+            ) / 15
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4552px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 13 * 16px - 2 *
+                72px
+            ) / 14
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4236px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 12 * 16px - 2 *
+                72px
+            ) / 13
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3920px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 11 * 16px - 2 *
+                72px
+            ) / 12
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3604px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 10 * 16px - 2 *
+                72px
+            ) / 11
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3288px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 9 * 16px - 2 *
+                72px
+            ) / 10
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2972px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 8 * 16px - 2 *
+                72px
+            ) / 9
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2656px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 7 * 16px - 2 *
+                72px
+            ) / 8
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2340px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 6 * 16px - 2 *
+                72px
+            ) / 7
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2024px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 5 * 16px - 2 *
+                72px
+            ) / 6
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1708px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 4 * 16px - 2 *
+                72px
+            ) / 5
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1392px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 3 * 16px - 2 *
+                72px
+            ) / 4
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1076px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 2 * 16px - 2 *
+                72px
+            ) / 3
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 760px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 1 * 16px - 2 *
+                72px
+            ) / 2
+        );
+    --height: calc(var(--width) * 0.94);
     --height: calc(var(--width) * 0.84);
   }
 }
 
-@media (max-width:500px) {
-  .c11 {
-    --width: calc( ( 100vw - 0 * 16px - 2 * 72px ) / 1 );
-    --height: calc(var(--width) * 0.64);
+@media (max-width: 444px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 0 * 16px - 2 *
+                72px
+            ) / 1
+        );
+    --height: calc(var(--width) * 0.94);
   }
+}
+
+.emotion-9 .ManageButtons {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.emotion-9:hover {
+  z-index: 10;
+}
+
+.emotion-9:hover .ManageButtons {
+  opacity: 1;
+}
+
+.emotion-10 {
+  -webkit-animation: animation-0 3000ms;
+  animation: animation-0 3000ms;
+}
+
+.emotion-12 {
+  -webkit-animation: animation-0 4500ms;
+  animation: animation-0 4500ms;
+}
+
+.emotion-14 {
+  -webkit-animation: animation-0 6000ms;
+  animation: animation-0 6000ms;
+}
+
+.emotion-16 {
+  -webkit-animation: animation-0 7500ms;
+  animation: animation-0 7500ms;
+}
+
+.emotion-19 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+  font-family: OpenSans,Quicksand,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #292d33;
+  color: #e9ebf0;
+  background-color: #292d33;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  outline: 0!important;
+  white-space: nowrap;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-transform: unset;
+  border-radius: 6px;
+  height: 36px;
+  color: #e9ebf0;
+  text-transform: none;
+  padding: 8px 12px;
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent!important;
+  opacity: 0!important;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.4)
+    );
+  font-size: 3.5rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 0 24px;
+}
+
+.emotion-19::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-19.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-19 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-19:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(41, 45, 51, 0.08);
+}
+
+@media (hover: none) {
+  .emotion-19:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-19.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-19:hover {
+  outline: none;
+  border: none;
+  background-color: #3c3f43;
+}
+
+.emotion-19:hover {
+  opacity: 0!important;
+  background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.8)
+      );
 }
 
 <body>
   <div>
     <div
-      class="c0"
+      class="emotion-0"
       size="32"
     />
     <h2
-      class="c1"
-      style="margin-left: 72px; margin-bottom: 8px;"
+      class="emotion-1"
+      style="margin-left: 72px; margin-bottom: 24px;"
     >
       <div
-        class="c2"
+        class="emotion-2"
       >
         <div
           animation="pulse"
@@ -740,15 +1690,15 @@ exports[`ContinueWatching renders default when idle 1`] = `
       </div>
     </h2>
     <div
-      class="c3"
+      class="emotion-3"
       style="width: 100vw;"
     >
       <div
-        class="c4 c5"
+        class="emotion-4"
         style="left: 0px; width: 72px;"
       >
         <button
-          class="c6 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c7 c8"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-5"
           data-testid="navigation-button-button"
           direction="left"
           disabled=""
@@ -757,26 +1707,26 @@ exports[`ContinueWatching renders default when idle 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
             data-testid="KeyboardArrowLeftRoundedIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M14.71 15.88 10.83 12l3.88-3.88c.39-.39.39-1.02 0-1.41a.9959.9959 0 0 0-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42z"
+              d="M14.71 15.88 10.83 12l3.88-3.88c.39-.39.39-1.02 0-1.41a.9959.9959 0 0 0-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42"
             />
           </svg>
         </button>
       </div>
       <div
-        class="c10"
+        class="emotion-7"
         style="transition: all 400ms; transform: translate3d(72px, 0, 0); pointer-events: all;"
       >
         <div
-          class="c2"
+          class="emotion-2"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 1;"
           >
             <div
@@ -788,10 +1738,10 @@ exports[`ContinueWatching renders default when idle 1`] = `
           </div>
         </div>
         <div
-          class="c12"
+          class="emotion-10"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 0.9;"
           >
             <div
@@ -803,10 +1753,10 @@ exports[`ContinueWatching renders default when idle 1`] = `
           </div>
         </div>
         <div
-          class="c13"
+          class="emotion-12"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 0.8;"
           >
             <div
@@ -818,10 +1768,10 @@ exports[`ContinueWatching renders default when idle 1`] = `
           </div>
         </div>
         <div
-          class="c14"
+          class="emotion-14"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 0.7;"
           >
             <div
@@ -833,10 +1783,10 @@ exports[`ContinueWatching renders default when idle 1`] = `
           </div>
         </div>
         <div
-          class="c15"
+          class="emotion-16"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 0.6;"
           >
             <div
@@ -849,11 +1799,11 @@ exports[`ContinueWatching renders default when idle 1`] = `
         </div>
       </div>
       <div
-        class="c4 c5"
+        class="emotion-4"
         style="right: 0px; width: 72px;"
       >
         <button
-          class="c6 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c7 c16"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-19"
           data-testid="navigation-button-button"
           direction="right"
           disabled=""
@@ -862,13 +1812,13 @@ exports[`ContinueWatching renders default when idle 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
             data-testid="KeyboardArrowRightRoundedIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M9.29 15.88 13.17 12 9.29 8.12a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"
+              d="M9.29 15.88 13.17 12 9.29 8.12a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42"
             />
           </svg>
         </button>
@@ -879,7 +1829,97 @@ exports[`ContinueWatching renders default when idle 1`] = `
 `;
 
 exports[`ContinueWatching renders default when loading 1`] = `
-.c0 {
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(5%);
+    -moz-transform: translateX(5%);
+    -ms-transform: translateX(5%);
+    transform: translateX(5%);
+  }
+
+  to {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
   min-height: 32px;
   max-height: 32px;
   height: 32px;
@@ -888,50 +1928,40 @@ exports[`ContinueWatching renders default when loading 1`] = `
   flex-shrink: 0;
 }
 
-.c2 {
-  -webkit-animation: fNPkvL 1500ms;
-  animation: fNPkvL 1500ms;
+.emotion-1 {
+  font-weight: 500;
+  color: #e7e7e7;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-shadow: 0 0 2px black,0 0 6px black;
+  margin-bottom: 24px;
 }
 
-.c12 {
-  -webkit-animation: fNPkvL 3000ms;
-  animation: fNPkvL 3000ms;
+.emotion-2 {
+  -webkit-animation: animation-0 1500ms;
+  animation: animation-0 1500ms;
 }
 
-.c13 {
-  -webkit-animation: fNPkvL 4500ms;
-  animation: fNPkvL 4500ms;
+.emotion-3 {
+  overflow-x: hidden;
+  position: relative;
 }
 
-.c14 {
-  -webkit-animation: fNPkvL 6000ms;
-  animation: fNPkvL 6000ms;
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
 }
 
-.c15 {
-  -webkit-animation: fNPkvL 7500ms;
-  animation: fNPkvL 7500ms;
-}
-
-.c9 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  font-size: 1.5rem;
-  font-size: inherit;
-}
-
-.c6 {
+.emotion-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -941,8 +1971,8 @@ exports[`ContinueWatching renders default when loading 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -965,19 +1995,7 @@ exports[`ContinueWatching renders default when loading 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
-}
-
-.c6::-moz-focus-inner {
-  border-style: none;
-}
-
-.c6.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c7 {
-  font-family: Quicksand,sans-serif;
+  font-family: OpenSans,Quicksand,sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
@@ -985,8 +2003,8 @@ exports[`ContinueWatching renders default when loading 1`] = `
   min-width: 64px;
   padding: 6px 8px;
   border-radius: 4px;
-  -webkit-transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #292d33;
   color: #e9ebf0;
   background-color: #292d33;
@@ -994,7 +2012,7 @@ exports[`ContinueWatching renders default when loading 1`] = `
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
-  outline: 0 !important;
+  outline: 0!important;
   white-space: nowrap;
   border: none;
   -webkit-user-select: none;
@@ -1009,110 +2027,89 @@ exports[`ContinueWatching renders default when loading 1`] = `
   color: #e9ebf0;
   text-transform: none;
   padding: 8px 12px;
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent!important;
+  opacity: 0!important;
+  background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.4)
+    );
+  font-size: 3.5rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 0 24px;
 }
 
-.c7:hover {
+.emotion-5::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-5.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-5:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(41,45,51,0.08);
+  background-color: rgba(41, 45, 51, 0.08);
 }
 
-.c7.Mui-disabled {
-  color: rgba(255,255,255,0.3);
+@media (hover: none) {
+  .emotion-5:hover {
+    background-color: transparent;
+  }
 }
 
-.c7:hover {
+.emotion-5.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-5:hover {
   outline: none;
   border: none;
   background-color: #3c3f43;
 }
 
-.c11 {
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-  --width: calc( ( 100vw - 3 * 16px - 2 * 72px ) / 4 );
-  --height: calc(var(--width) * 0.64);
-  width: var(--width);
-  height: var(--height);
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  cursor: pointer;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+.emotion-5:hover {
+  opacity: 0!important;
+  background-image: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.8)
+      );
 }
 
-.c11:hover {
-  z-index: 10;
+.emotion-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
 }
 
-.c1 {
-  font-weight: 700;
-  color: #e7e7e7;
-  font-size: 1.2rem;
-  line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
-  margin-bottom: 4px;
-}
-
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c5 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 10;
-}
-
-.c8 {
-  height: 100%;
-  border-radius: 0;
-  background-color: transparent !important;
-  opacity: 0 !important;
-  background-image: linear-gradient( to left, rgba(0,0,0,0), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) );
-  font-size: 3.5rem;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-  padding: 0 24px;
-}
-
-.c8:hover {
-  opacity: 0 !important;
-  background-image: linear-gradient( to left, rgba(0,0,0,0), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) );
-}
-
-.c16 {
-  height: 100%;
-  border-radius: 0;
-  background-color: transparent !important;
-  opacity: 0 !important;
-  background-image: linear-gradient( to right, rgba(0,0,0,0), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) );
-  font-size: 3.5rem;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-  padding: 0 24px;
-}
-
-.c16:hover {
-  opacity: 0 !important;
-  background-image: linear-gradient( to right, rgba(0,0,0,0), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) );
-}
-
-.c3 {
-  overflow-x: hidden;
-  position: relative;
-}
-
-.c10 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1123,52 +2120,480 @@ exports[`ContinueWatching renders default when loading 1`] = `
   gap: 16px;
 }
 
-@media print {
-  .c6 {
-    color-adjust: exact;
+.emotion-9 {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: var(--width);
+  height: var(--height);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media (max-width: 7396px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 22 * 16px - 2 *
+                72px
+            ) / 23
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (hover:none) {
-  .c7:hover {
-    background-color: transparent;
+@media (max-width: 7080px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 21 * 16px - 2 *
+                72px
+            ) / 22
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (max-width:1000px) {
-  .c11 {
-    --width: calc( ( 100vw - 2 * 16px - 2 * 72px ) / 3 );
-    --height: calc(var(--width) * 0.64);
+@media (max-width: 6764px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 20 * 16px - 2 *
+                72px
+            ) / 21
+        );
+    --height: calc(var(--width) * 0.94);
   }
 }
 
-@media (max-width:800px) {
-  .c11 {
-    --width: calc( ( 100vw - 1 * 16px - 2 * 72px ) / 2 );
-    --height: calc(var(--width) * 0.64);
+@media (max-width: 6448px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 19 * 16px - 2 *
+                72px
+            ) / 20
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6132px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 18 * 16px - 2 *
+                72px
+            ) / 19
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5816px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 17 * 16px - 2 *
+                72px
+            ) / 18
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5500px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 16 * 16px - 2 *
+                72px
+            ) / 17
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5184px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 15 * 16px - 2 *
+                72px
+            ) / 16
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4868px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 14 * 16px - 2 *
+                72px
+            ) / 15
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4552px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 13 * 16px - 2 *
+                72px
+            ) / 14
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4236px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 12 * 16px - 2 *
+                72px
+            ) / 13
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3920px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 11 * 16px - 2 *
+                72px
+            ) / 12
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3604px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 10 * 16px - 2 *
+                72px
+            ) / 11
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3288px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 9 * 16px - 2 *
+                72px
+            ) / 10
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2972px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 8 * 16px - 2 *
+                72px
+            ) / 9
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2656px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 7 * 16px - 2 *
+                72px
+            ) / 8
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2340px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 6 * 16px - 2 *
+                72px
+            ) / 7
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2024px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 5 * 16px - 2 *
+                72px
+            ) / 6
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1708px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 4 * 16px - 2 *
+                72px
+            ) / 5
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1392px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 3 * 16px - 2 *
+                72px
+            ) / 4
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1076px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 2 * 16px - 2 *
+                72px
+            ) / 3
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 760px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 1 * 16px - 2 *
+                72px
+            ) / 2
+        );
+    --height: calc(var(--width) * 0.94);
     --height: calc(var(--width) * 0.84);
   }
 }
 
-@media (max-width:500px) {
-  .c11 {
-    --width: calc( ( 100vw - 0 * 16px - 2 * 72px ) / 1 );
-    --height: calc(var(--width) * 0.64);
+@media (max-width: 444px) {
+  .emotion-9 {
+    --width: calc(
+          (
+              100vw - 0 * 16px - 2 *
+                72px
+            ) / 1
+        );
+    --height: calc(var(--width) * 0.94);
   }
+}
+
+.emotion-9 .ManageButtons {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.emotion-9:hover {
+  z-index: 10;
+}
+
+.emotion-9:hover .ManageButtons {
+  opacity: 1;
+}
+
+.emotion-10 {
+  -webkit-animation: animation-0 3000ms;
+  animation: animation-0 3000ms;
+}
+
+.emotion-12 {
+  -webkit-animation: animation-0 4500ms;
+  animation: animation-0 4500ms;
+}
+
+.emotion-14 {
+  -webkit-animation: animation-0 6000ms;
+  animation: animation-0 6000ms;
+}
+
+.emotion-16 {
+  -webkit-animation: animation-0 7500ms;
+  animation: animation-0 7500ms;
+}
+
+.emotion-19 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+  font-family: OpenSans,Quicksand,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #292d33;
+  color: #e9ebf0;
+  background-color: #292d33;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  outline: 0!important;
+  white-space: nowrap;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-transform: unset;
+  border-radius: 6px;
+  height: 36px;
+  color: #e9ebf0;
+  text-transform: none;
+  padding: 8px 12px;
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent!important;
+  opacity: 0!important;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.4)
+    );
+  font-size: 3.5rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 0 24px;
+}
+
+.emotion-19::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-19.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-19 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-19:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(41, 45, 51, 0.08);
+}
+
+@media (hover: none) {
+  .emotion-19:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-19.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-19:hover {
+  outline: none;
+  border: none;
+  background-color: #3c3f43;
+}
+
+.emotion-19:hover {
+  opacity: 0!important;
+  background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.8)
+      );
 }
 
 <body>
   <div>
     <div
-      class="c0"
+      class="emotion-0"
       size="32"
     />
     <h2
-      class="c1"
-      style="margin-left: 72px; margin-bottom: 8px;"
+      class="emotion-1"
+      style="margin-left: 72px; margin-bottom: 24px;"
     >
       <div
-        class="c2"
+        class="emotion-2"
       >
         <div
           animation="pulse"
@@ -1179,15 +2604,15 @@ exports[`ContinueWatching renders default when loading 1`] = `
       </div>
     </h2>
     <div
-      class="c3"
+      class="emotion-3"
       style="width: 100vw;"
     >
       <div
-        class="c4 c5"
+        class="emotion-4"
         style="left: 0px; width: 72px;"
       >
         <button
-          class="c6 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c7 c8"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-5"
           data-testid="navigation-button-button"
           direction="left"
           disabled=""
@@ -1196,26 +2621,26 @@ exports[`ContinueWatching renders default when loading 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
             data-testid="KeyboardArrowLeftRoundedIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M14.71 15.88 10.83 12l3.88-3.88c.39-.39.39-1.02 0-1.41a.9959.9959 0 0 0-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42z"
+              d="M14.71 15.88 10.83 12l3.88-3.88c.39-.39.39-1.02 0-1.41a.9959.9959 0 0 0-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42"
             />
           </svg>
         </button>
       </div>
       <div
-        class="c10"
+        class="emotion-7"
         style="transition: all 400ms; transform: translate3d(72px, 0, 0); pointer-events: all;"
       >
         <div
-          class="c2"
+          class="emotion-2"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 1;"
           >
             <div
@@ -1227,10 +2652,10 @@ exports[`ContinueWatching renders default when loading 1`] = `
           </div>
         </div>
         <div
-          class="c12"
+          class="emotion-10"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 0.9;"
           >
             <div
@@ -1242,10 +2667,10 @@ exports[`ContinueWatching renders default when loading 1`] = `
           </div>
         </div>
         <div
-          class="c13"
+          class="emotion-12"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 0.8;"
           >
             <div
@@ -1257,10 +2682,10 @@ exports[`ContinueWatching renders default when loading 1`] = `
           </div>
         </div>
         <div
-          class="c14"
+          class="emotion-14"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 0.7;"
           >
             <div
@@ -1272,10 +2697,10 @@ exports[`ContinueWatching renders default when loading 1`] = `
           </div>
         </div>
         <div
-          class="c15"
+          class="emotion-16"
         >
           <div
-            class="c11"
+            class="emotion-9"
             style="cursor: default; opacity: 0.6;"
           >
             <div
@@ -1288,11 +2713,11 @@ exports[`ContinueWatching renders default when loading 1`] = `
         </div>
       </div>
       <div
-        class="c4 c5"
+        class="emotion-4"
         style="right: 0px; width: 72px;"
       >
         <button
-          class="c6 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c7 c16"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-19"
           data-testid="navigation-button-button"
           direction="right"
           disabled=""
@@ -1301,13 +2726,13 @@ exports[`ContinueWatching renders default when loading 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
             data-testid="KeyboardArrowRightRoundedIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M9.29 15.88 13.17 12 9.29 8.12a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"
+              d="M9.29 15.88 13.17 12 9.29 8.12a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42"
             />
           </svg>
         </button>
@@ -1318,7 +2743,7 @@ exports[`ContinueWatching renders default when loading 1`] = `
 `;
 
 exports[`ContinueWatching renders default when succeeded 1`] = `
-.c0 {
+.emotion-0 {
   min-height: 32px;
   max-height: 32px;
   height: 32px;
@@ -1327,7 +2752,165 @@ exports[`ContinueWatching renders default when succeeded 1`] = `
   flex-shrink: 0;
 }
 
-.c8 {
+.emotion-1 {
+  font-weight: 500;
+  color: #e7e7e7;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-shadow: 0 0 2px black,0 0 6px black;
+  margin-bottom: 24px;
+}
+
+.emotion-2 {
+  overflow-x: hidden;
+  position: relative;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.emotion-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+  font-family: OpenSans,Quicksand,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #292d33;
+  color: #e9ebf0;
+  background-color: #292d33;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  outline: 0!important;
+  white-space: nowrap;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-transform: unset;
+  border-radius: 6px;
+  height: 36px;
+  color: #e9ebf0;
+  text-transform: none;
+  padding: 8px 12px;
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent!important;
+  opacity: 0!important;
+  background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.4)
+    );
+  font-size: 3.5rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 0 24px;
+}
+
+.emotion-4::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-4.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-4 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-4:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(41, 45, 51, 0.08);
+}
+
+@media (hover: none) {
+  .emotion-4:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-4.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-4:hover {
+  outline: none;
+  border: none;
+  background-color: #3c3f43;
+}
+
+.emotion-4:hover {
+  opacity: 0!important;
+  background-image: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.8)
+      );
+}
+
+.emotion-5 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1339,13 +2922,517 @@ exports[`ContinueWatching renders default when succeeded 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.5rem;
   font-size: inherit;
 }
 
-.c16 {
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  gap: 16px;
+}
+
+.emotion-7 {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: var(--width);
+  height: var(--height);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media (max-width: 7396px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 22 * 16px - 2 *
+                72px
+            ) / 23
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 7080px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 21 * 16px - 2 *
+                72px
+            ) / 22
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6764px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 20 * 16px - 2 *
+                72px
+            ) / 21
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6448px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 19 * 16px - 2 *
+                72px
+            ) / 20
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6132px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 18 * 16px - 2 *
+                72px
+            ) / 19
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5816px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 17 * 16px - 2 *
+                72px
+            ) / 18
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5500px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 16 * 16px - 2 *
+                72px
+            ) / 17
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5184px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 15 * 16px - 2 *
+                72px
+            ) / 16
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4868px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 14 * 16px - 2 *
+                72px
+            ) / 15
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4552px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 13 * 16px - 2 *
+                72px
+            ) / 14
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4236px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 12 * 16px - 2 *
+                72px
+            ) / 13
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3920px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 11 * 16px - 2 *
+                72px
+            ) / 12
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3604px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 10 * 16px - 2 *
+                72px
+            ) / 11
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3288px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 9 * 16px - 2 *
+                72px
+            ) / 10
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2972px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 8 * 16px - 2 *
+                72px
+            ) / 9
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2656px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 7 * 16px - 2 *
+                72px
+            ) / 8
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2340px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 6 * 16px - 2 *
+                72px
+            ) / 7
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2024px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 5 * 16px - 2 *
+                72px
+            ) / 6
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1708px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 4 * 16px - 2 *
+                72px
+            ) / 5
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1392px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 3 * 16px - 2 *
+                72px
+            ) / 4
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1076px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 2 * 16px - 2 *
+                72px
+            ) / 3
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 760px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 1 * 16px - 2 *
+                72px
+            ) / 2
+        );
+    --height: calc(var(--width) * 0.94);
+    --height: calc(var(--width) * 0.84);
+  }
+}
+
+@media (max-width: 444px) {
+  .emotion-7 {
+    --width: calc(
+          (
+              100vw - 0 * 16px - 2 *
+                72px
+            ) / 1
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+.emotion-7 .ManageButtons {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.emotion-7:hover {
+  z-index: 10;
+}
+
+.emotion-7:hover .ManageButtons {
+  opacity: 1;
+}
+
+.emotion-8 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+}
+
+.emotion-9 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.emotion-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  background-color: #292d33;
+  padding: 16px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.emotion-11 {
+  font-weight: 400;
+  color: white;
+  font-size: 1rem;
+  line-height: 1;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.emotion-12 {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.emotion-38 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+  font-family: OpenSans,Quicksand,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #292d33;
+  color: #e9ebf0;
+  background-color: #292d33;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  outline: 0!important;
+  white-space: nowrap;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-transform: unset;
+  border-radius: 6px;
+  height: 36px;
+  color: #e9ebf0;
+  text-transform: none;
+  padding: 8px 12px;
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent!important;
+  opacity: 0.7!important;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.4)
+    );
+  font-size: 3.5rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 0 24px;
+}
+
+.emotion-38::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-38.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-38 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-38:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(41, 45, 51, 0.08);
+}
+
+@media (hover: none) {
+  .emotion-38:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-38.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-38:hover {
+  outline: none;
+  border: none;
+  background-color: #3c3f43;
+}
+
+.emotion-38:hover {
+  opacity: 1!important;
+  background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.8)
+      );
+}
+
+.emotion-40 {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -1357,302 +3444,28 @@ exports[`ContinueWatching renders default when succeeded 1`] = `
   border-radius: inherit;
 }
 
-.c5 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: relative;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  background-color: transparent;
-  outline: 0;
-  border: 0;
-  margin: 0;
-  border-radius: 0;
-  padding: 0;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  vertical-align: middle;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  color: inherit;
-  text-transform: unset;
-}
-
-.c5::-moz-focus-inner {
-  border-style: none;
-}
-
-.c5.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c6 {
-  font-family: Quicksand,sans-serif;
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.75;
-  text-transform: uppercase;
-  min-width: 64px;
-  padding: 6px 8px;
-  border-radius: 4px;
-  -webkit-transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  color: #292d33;
-  color: #e9ebf0;
-  background-color: #292d33;
-  margin-bottom: 0;
-  font-weight: normal;
-  text-align: center;
-  vertical-align: middle;
-  outline: 0 !important;
-  white-space: nowrap;
-  border: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-size: 14px;
-  line-height: 1.42857143;
-  text-transform: unset;
-  border-radius: 6px;
-  height: 36px;
-  color: #e9ebf0;
-  text-transform: none;
-  padding: 8px 12px;
-}
-
-.c6:hover {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  background-color: rgba(41,45,51,0.08);
-}
-
-.c6.Mui-disabled {
-  color: rgba(255,255,255,0.3);
-}
-
-.c6:hover {
-  outline: none;
-  border: none;
-  background-color: #3c3f43;
-}
-
-.c10 {
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-  --width: calc( ( 100vw - 3 * 16px - 2 * 72px ) / 4 );
-  --height: calc(var(--width) * 0.64);
-  width: var(--width);
-  height: var(--height);
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  cursor: pointer;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-}
-
-.c10:hover {
-  z-index: 10;
-}
-
-.c1 {
-  font-weight: 700;
-  color: #e7e7e7;
-  font-size: 1.2rem;
-  line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
-  margin-bottom: 4px;
-}
-
-.c13 {
-  font-weight: 700;
-  color: white;
-  font-size: 1rem;
-  line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
-  margin-bottom: 4px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-}
-
-.c14 {
-  font-weight: 300;
-  color: white;
-  font-size: 0.9rem;
-  text-shadow: 0 0 2px black,0 0 4px black;
-}
-
-.c12 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  background-image: linear-gradient( to top, rgba(0,0,0,0.7), rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 40% );
-  padding: 16px;
-}
-
-.c11 {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c4 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 10;
-}
-
-.c7 {
-  height: 100%;
-  border-radius: 0;
-  background-color: transparent !important;
-  opacity: 0 !important;
-  background-image: linear-gradient( to left, rgba(0,0,0,0), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) );
-  font-size: 3.5rem;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-  padding: 0 24px;
-}
-
-.c7:hover {
-  opacity: 0 !important;
-  background-image: linear-gradient( to left, rgba(0,0,0,0), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) );
-}
-
-.c15 {
-  height: 100%;
-  border-radius: 0;
-  background-color: transparent !important;
-  opacity: 0.7 !important;
-  background-image: linear-gradient( to right, rgba(0,0,0,0), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) );
-  font-size: 3.5rem;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-  padding: 0 24px;
-}
-
-.c15:hover {
-  opacity: 1 !important;
-  background-image: linear-gradient( to right, rgba(0,0,0,0), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) );
-}
-
-.c2 {
-  overflow-x: hidden;
-  position: relative;
-}
-
-.c9 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-  gap: 16px;
-}
-
-@media print {
-  .c5 {
-    color-adjust: exact;
-  }
-}
-
-@media (hover:none) {
-  .c6:hover {
-    background-color: transparent;
-  }
-}
-
-@media (max-width:1000px) {
-  .c10 {
-    --width: calc( ( 100vw - 2 * 16px - 2 * 72px ) / 3 );
-    --height: calc(var(--width) * 0.64);
-  }
-}
-
-@media (max-width:800px) {
-  .c10 {
-    --width: calc( ( 100vw - 1 * 16px - 2 * 72px ) / 2 );
-    --height: calc(var(--width) * 0.64);
-    --height: calc(var(--width) * 0.84);
-  }
-}
-
-@media (max-width:500px) {
-  .c10 {
-    --width: calc( ( 100vw - 0 * 16px - 2 * 72px ) / 1 );
-    --height: calc(var(--width) * 0.64);
-  }
-}
-
 <body>
   <div>
     <div
-      class="c0"
+      class="emotion-0"
       size="32"
     />
     <h2
-      class="c1"
-      style="margin-left: 72px; margin-bottom: 8px;"
+      class="emotion-1"
+      style="margin-left: 72px; margin-bottom: 24px;"
     >
       Sigue mirando
     </h2>
     <div
-      class="c2"
+      class="emotion-2"
       style="width: 100vw;"
     >
       <div
-        class="c3 c4"
+        class="emotion-3"
         style="left: 0px; width: 72px;"
       >
         <button
-          class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-disabled c6 c7"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-4"
           data-testid="navigation-button-button"
           direction="left"
           disabled=""
@@ -1661,19 +3474,19 @@ exports[`ContinueWatching renders default when succeeded 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c8 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-5"
             data-testid="KeyboardArrowLeftRoundedIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M14.71 15.88 10.83 12l3.88-3.88c.39-.39.39-1.02 0-1.41a.9959.9959 0 0 0-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42z"
+              d="M14.71 15.88 10.83 12l3.88-3.88c.39-.39.39-1.02 0-1.41a.9959.9959 0 0 0-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42"
             />
           </svg>
         </button>
       </div>
       <div
-        class="c9"
+        class="emotion-6"
         style="transition: all 400ms; transform: translate3d(72px, 0, 0); pointer-events: all;"
       >
         <div
@@ -1681,27 +3494,31 @@ exports[`ContinueWatching renders default when succeeded 1`] = `
           style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
         >
           <div
-            class="c10"
+            class="emotion-7"
             data-testid="anime-entry-background"
           >
-            <img
-              alt="anime name 0"
-              class="c11"
-              src="anime image link 0"
-            />
             <div
-              class="c12"
+              class="emotion-8"
+            >
+              <img
+                alt="anime name 0"
+                class="emotion-9"
+                src="anime image link 0"
+              />
+            </div>
+            <div
+              class="emotion-10 AnimeInfo"
               data-testid="anime-episode-entry-anime-info"
             >
               <h3
                 aria-label="anime name 0"
-                class="c13"
+                class=" emotion-11"
                 data-mui-internal-clone-element="true"
               >
                 anime name 0
               </h3>
               <h6
-                class="c14"
+                class="emotion-12"
               >
                 Episodio 0
               </h6>
@@ -1713,27 +3530,31 @@ exports[`ContinueWatching renders default when succeeded 1`] = `
           style="opacity: 1; webkit-transition: opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
         >
           <div
-            class="c10"
+            class="emotion-7"
             data-testid="anime-entry-background"
           >
-            <img
-              alt="anime name 1"
-              class="c11"
-              src="anime image link 1"
-            />
             <div
-              class="c12"
+              class="emotion-8"
+            >
+              <img
+                alt="anime name 1"
+                class="emotion-9"
+                src="anime image link 1"
+              />
+            </div>
+            <div
+              class="emotion-10 AnimeInfo"
               data-testid="anime-episode-entry-anime-info"
             >
               <h3
                 aria-label="anime name 1"
-                class="c13"
+                class=" emotion-11"
                 data-mui-internal-clone-element="true"
               >
                 anime name 1
               </h3>
               <h6
-                class="c14"
+                class="emotion-12"
               >
                 Episodio 2
               </h6>
@@ -1745,27 +3566,31 @@ exports[`ContinueWatching renders default when succeeded 1`] = `
           style="opacity: 1; webkit-transition: opacity 2000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 2000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
         >
           <div
-            class="c10"
+            class="emotion-7"
             data-testid="anime-entry-background"
           >
-            <img
-              alt="anime name 2"
-              class="c11"
-              src="anime image link 2"
-            />
             <div
-              class="c12"
+              class="emotion-8"
+            >
+              <img
+                alt="anime name 2"
+                class="emotion-9"
+                src="anime image link 2"
+              />
+            </div>
+            <div
+              class="emotion-10 AnimeInfo"
               data-testid="anime-episode-entry-anime-info"
             >
               <h3
                 aria-label="anime name 2"
-                class="c13"
+                class=" emotion-11"
                 data-mui-internal-clone-element="true"
               >
                 anime name 2
               </h3>
               <h6
-                class="c14"
+                class="emotion-12"
               >
                 Episodio 4
               </h6>
@@ -1777,27 +3602,31 @@ exports[`ContinueWatching renders default when succeeded 1`] = `
           style="opacity: 1; webkit-transition: opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
         >
           <div
-            class="c10"
+            class="emotion-7"
             data-testid="anime-entry-background"
           >
-            <img
-              alt="anime name 3"
-              class="c11"
-              src="anime image link 3"
-            />
             <div
-              class="c12"
+              class="emotion-8"
+            >
+              <img
+                alt="anime name 3"
+                class="emotion-9"
+                src="anime image link 3"
+              />
+            </div>
+            <div
+              class="emotion-10 AnimeInfo"
               data-testid="anime-episode-entry-anime-info"
             >
               <h3
                 aria-label="anime name 3"
-                class="c13"
+                class=" emotion-11"
                 data-mui-internal-clone-element="true"
               >
                 anime name 3
               </h3>
               <h6
-                class="c14"
+                class="emotion-12"
               >
                 Episodio 6
               </h6>
@@ -1809,27 +3638,31 @@ exports[`ContinueWatching renders default when succeeded 1`] = `
           style="opacity: 1; webkit-transition: opacity 3000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 3000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
         >
           <div
-            class="c10"
+            class="emotion-7"
             data-testid="anime-entry-background"
           >
-            <img
-              alt="anime name 4"
-              class="c11"
-              src="anime image link 4"
-            />
             <div
-              class="c12"
+              class="emotion-8"
+            >
+              <img
+                alt="anime name 4"
+                class="emotion-9"
+                src="anime image link 4"
+              />
+            </div>
+            <div
+              class="emotion-10 AnimeInfo"
               data-testid="anime-episode-entry-anime-info"
             >
               <h3
                 aria-label="anime name 4"
-                class="c13"
+                class=" emotion-11"
                 data-mui-internal-clone-element="true"
               >
                 anime name 4
               </h3>
               <h6
-                class="c14"
+                class="emotion-12"
               >
                 Episodio 8
               </h6>
@@ -1838,11 +3671,11 @@ exports[`ContinueWatching renders default when succeeded 1`] = `
         </div>
       </div>
       <div
-        class="c3 c4"
+        class="emotion-3"
         style="right: 0px; width: 72px;"
       >
         <button
-          class="c5 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c6 c15"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-38"
           data-testid="navigation-button-button"
           direction="right"
           tabindex="0"
@@ -1850,17 +3683,17 @@ exports[`ContinueWatching renders default when succeeded 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c8 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-5"
             data-testid="KeyboardArrowRightRoundedIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M9.29 15.88 13.17 12 9.29 8.12a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"
+              d="M9.29 15.88 13.17 12 9.29 8.12a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42"
             />
           </svg>
           <span
-            class="c16 MuiTouchRipple-root"
+            class="MuiTouchRipple-root emotion-40"
           />
         </button>
       </div>

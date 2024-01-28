@@ -4,27 +4,27 @@ import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import { ANIME_PEEK, IMAGE } from '@selectors'
 import { MockStoreEnhanced } from 'redux-mock-store'
-import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
 import useResizeObserver from 'use-resize-observer'
-import { ipcRenderer } from 'electron'
+import { ThemeProvider } from '@mui/material'
+import theme from '../../theme'
 
 describe('AnimePeek', () => {
   let initialState: DeepPartial<RootState>
   let props: AnimePeekProps
   let store: MockStoreEnhanced
   const useResizeObserverMock = useResizeObserver as jest.Mock
-  const invokeMock = ipcRenderer.invoke as jest.Mock
+  const invokeMock = window.electron.ipcRenderer.invoke as jest.Mock
   const imageUrl = 'fake_image_url'
   const onClose = jest.fn()
 
   const getComponent = (override: Partial<AnimePeekProps> = {}) => {
     store = mockStore(initialState)
     return (
-      <TopLayout>
-        <Provider store={store}>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
           <AnimePeek {...props} {...override} />
-        </Provider>
-      </TopLayout>
+        </ThemeProvider>
+      </Provider>
     )
   }
 

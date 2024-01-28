@@ -15,7 +15,6 @@ import { ContentContext } from '../Topbar'
 import Fade from '@mui/material/Fade'
 import { ANIME_SEARCH } from '@selectors'
 import AnimesGrid from '@components/AnimesGrid'
-import { useSizes } from '../AnimesCarousel/hooks'
 
 export type AnimeSearchProps = {
   onClose?(): void
@@ -27,7 +26,6 @@ export const AnimeSearch: FC<AnimeSearchProps> = memo(({ onClose }) => {
   const result = useAppSelector((d) => d.animeSearch.result)
   const contentRef = useRef<HTMLDivElement>(null)
   const dispatch = useAppDispatch()
-  const { navigationWidth } = useSizes()
   const handleAnimePeek = useCallback(
     (anime: Optional<AnimeDetails>) => {
       if (!anime) return

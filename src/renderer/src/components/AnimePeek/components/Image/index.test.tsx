@@ -1,20 +1,21 @@
 import Image, { ImageProps } from './index'
-import TopLayout from '../../../../../plugins/gatsby-plugin-top-layout/TopLayout'
-import { ipcRenderer } from 'electron'
-import invokeNames from '~/electron/invokeNames'
 import { IMAGE } from '@selectors'
+import theme from '../../../../theme'
+import { ThemeProvider } from '@mui/material'
+
+const invokeNames = window.invokeNames
 
 describe('Image', () => {
   let props: ImageProps
   const imageUrl = 'fake_image_url.png'
   const oldImageUrl = 'old_image_url.png'
-  const invokeMock = ipcRenderer.invoke as jest.Mock
+  const invokeMock = window.electron.ipcRenderer.invoke as jest.Mock
 
   const getComponent = (override: Partial<ImageProps> = {}) => {
     return (
-      <TopLayout>
+      <ThemeProvider theme={theme}>
         <Image {...props} {...override} />
-      </TopLayout>
+      </ThemeProvider>
     )
   }
 

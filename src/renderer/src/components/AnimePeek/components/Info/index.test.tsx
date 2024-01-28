@@ -1,14 +1,15 @@
 import Info, { InfoProps } from './index'
-import TopLayout from '../../../../../plugins/gatsby-plugin-top-layout/TopLayout'
+import theme from '../../../../theme'
+import { ThemeProvider } from '@mui/material'
 
 describe('Info', () => {
   let props: InfoProps
 
   const getComponent = (override: Partial<InfoProps> = {}) => {
     return (
-      <TopLayout>
+      <ThemeProvider theme={theme}>
         <Info {...props} {...override} />
-      </TopLayout>
+      </ThemeProvider>
     )
   }
 

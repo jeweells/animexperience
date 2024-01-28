@@ -4,10 +4,10 @@ import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import { ANIME_PEEK, IMAGE } from '@selectors'
 import { MockStoreEnhanced } from 'redux-mock-store'
-import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
 import useResizeObserver from 'use-resize-observer'
-import { ipcRenderer } from 'electron'
 import { FStatus, TopView } from '@shared/types'
+import { ThemeProvider } from '@mui/material'
+import theme from '../../theme'
 
 const statusTypes: FStatus[] = ['idle', 'loading', 'succeeded', 'failed']
 
@@ -16,17 +16,17 @@ describe('AnimePeekModal', () => {
   let props: AnimePeekModalProps
   let store: MockStoreEnhanced
   const useResizeObserverMock = useResizeObserver as jest.Mock
-  const invokeMock = ipcRenderer.invoke as jest.Mock
+  const invokeMock = window.electron.ipcRenderer.invoke as jest.Mock
   const imageUrl = 'fake_image_url'
 
   const getComponent = (override: Partial<AnimePeekModalProps> = {}) => {
     store = mockStore(initialState)
     return (
-      <TopLayout>
-        <Provider store={store}>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
           <AnimePeekModal {...props} {...override} />
-        </Provider>
-      </TopLayout>
+        </ThemeProvider>
+      </Provider>
     )
   }
 

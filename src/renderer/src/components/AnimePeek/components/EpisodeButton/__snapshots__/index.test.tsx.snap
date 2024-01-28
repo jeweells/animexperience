@@ -2,33 +2,7 @@
 
 exports[`EpisodeButton renders default 1`] = `
 <DocumentFragment>
-  .c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.c4 {
-  gap: 16px;
-}
-
-.c8 {
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: inherit;
-}
-
-.c0 {
+  .emotion-0 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -38,8 +12,8 @@ exports[`EpisodeButton renders default 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -61,46 +35,123 @@ exports[`EpisodeButton renders default 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
-}
-
-.c0::-moz-focus-inner {
-  border-style: none;
-}
-
-.c0.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c1 {
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  text-transform: unset;
+  font-family: OpenSans,Quicksand,sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
-  -webkit-letter-spacing: 0.02857em;
-  -moz-letter-spacing: 0.02857em;
-  -ms-letter-spacing: 0.02857em;
-  letter-spacing: 0.02857em;
   text-transform: uppercase;
   min-width: 64px;
   padding: 6px 8px;
   border-radius: 4px;
-  -webkit-transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  color: #1976d2;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #292d33;
+  color: #e9ebf0;
+  background-color: #292d33;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  outline: 0!important;
+  white-space: nowrap;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-transform: unset;
+  border-radius: 6px;
+  height: 36px;
+  color: #e9ebf0;
+  text-transform: none;
+  padding: 8px 12px;
+  width: 100%;
+  text-align: left;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
 }
 
-.c1:hover {
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-0 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-0:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(25,118,210,0.04);
+  background-color: rgba(41, 45, 51, 0.08);
 }
 
-.c1.Mui-disabled {
-  color: rgba(0,0,0,0.26);
+@media (hover: none) {
+  .emotion-0:hover {
+    background-color: transparent;
+  }
 }
 
-.c7 {
+.emotion-0.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-0:hover {
+  outline: none;
+  border: none;
+  background-color: #3c3f43;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -112,86 +163,56 @@ exports[`EpisodeButton renders default 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.5rem;
+  font-size: inherit;
 }
 
-.c2 {
-  width: 100%;
-  text-align: left;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
-
-.c6 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c5 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-@media print {
-  .c0 {
-    color-adjust: exact;
-  }
-}
-
-@media (hover:none) {
-  .c1:hover {
-    background-color: transparent;
-  }
+.emotion-4 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
 }
 
 <button
     aria-label="Ver episodio"
-    class="c0 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c1 c2"
+    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-0"
     data-mui-internal-clone-element="true"
     data-testid="episode-button-watch-button"
     tabindex="0"
     type="button"
   >
     <div
-      class="c3 c4 c5"
+      class="emotion-1"
     >
       <div>
         Episodio 69
       </div>
       <div
-        class="c3 c4 c6"
+        class="emotion-2"
       />
       <svg
         aria-hidden="true"
-        class="c7 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-3"
         data-testid="PlayArrowRoundedIcon"
         focusable="false"
         style="font-size: 1.4rem; overflow: hidden;"
         viewBox="0 0 24 24"
       >
         <path
-          d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+          d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
         />
       </svg>
     </div>
     <span
-      class="c8 MuiTouchRipple-root"
+      class="MuiTouchRipple-root emotion-4"
     />
   </button>
 </DocumentFragment>

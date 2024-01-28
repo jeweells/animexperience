@@ -8,7 +8,7 @@ import {
   Slice,
   SliceCaseReducers
 } from '@reduxjs/toolkit'
-import { FStatus } from '@shared/types'
+import { ForcedAny, FStatus } from '@shared/types'
 import { initialState, RootState } from '../state'
 import { AppDispatch } from '../utils'
 
@@ -23,8 +23,8 @@ type ThunkApiConfig = {
   extra: { s: string; n: number }
 }
 export const asyncAction = createAsyncThunk.withTypes<ThunkApiConfig>()
-export type AsyncAction = AsyncThunk<any, any, ThunkApiConfig>
-export const addFetchFlow = <State extends StateFlowType<any>>(
+export type AsyncAction = AsyncThunk<ForcedAny, ForcedAny, ThunkApiConfig>
+export const addFetchFlow = <State extends StateFlowType<ForcedAny>>(
   addCase: ActionReducerMapBuilder<State>['addCase'],
   reducer: AsyncAction,
   name: keyof State['status'],

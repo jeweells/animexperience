@@ -1,6 +1,7 @@
 import NavigationButton, { NavigationButtonProps } from './index'
-import TopLayout from '../../../../../plugins/gatsby-plugin-top-layout/TopLayout'
 import { NAVIGATION_BUTTON } from '@selectors'
+import theme from '../../../../theme'
+import { ThemeProvider } from '@mui/material'
 
 describe.each([['right'], ['left']])('NavigationButton (%s)', (direction) => {
   let props: NavigationButtonProps
@@ -8,9 +9,9 @@ describe.each([['right'], ['left']])('NavigationButton (%s)', (direction) => {
 
   const getComponent = (override: Partial<NavigationButtonProps> = {}) => {
     return (
-      <TopLayout>
+      <ThemeProvider theme={theme}>
         <NavigationButton {...props} {...override} />
-      </TopLayout>
+      </ThemeProvider>
     )
   }
 

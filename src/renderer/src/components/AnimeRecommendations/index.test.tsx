@@ -3,10 +3,10 @@ import AnimeRecommendations, { AnimeRecommendationsProps } from './index'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import { MockStoreEnhanced } from 'redux-mock-store'
-import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
 import useResizeObserver from 'use-resize-observer'
-import { ipcRenderer } from 'electron'
 import { RecommendationsState } from '~/redux/state/types'
+import theme from '../../theme'
+import { ThemeProvider } from '@mui/material'
 
 describe.each([[0], [0.5]])('AnimeRecommendations (random: %s)', (randomValue) => {
   let initialState: DeepPartial<RootState>
@@ -28,17 +28,17 @@ describe.each([[0], [0.5]])('AnimeRecommendations (random: %s)', (randomValue) =
   let props: AnimeRecommendationsProps
   let store: MockStoreEnhanced
   const useResizeObserverMock = useResizeObserver as jest.Mock
-  const invokeMock = ipcRenderer.invoke as jest.Mock
+  const invokeMock = window.electron.ipcRenderer.invoke as jest.Mock
   const imageUrl = 'fake_image_url'
 
   const getComponent = (override: Partial<AnimeRecommendationsProps> = {}) => {
     store = mockStore(initialState)
     return (
-      <TopLayout>
-        <Provider store={store}>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
           <AnimeRecommendations {...props} {...override} />
-        </Provider>
-      </TopLayout>
+        </ThemeProvider>
+      </Provider>
     )
   }
 

@@ -5,7 +5,7 @@ import Button from '@mui/material/Button'
 import { watch, invokedLink } from '@reducers'
 
 import { FRowG16, FRowG8 } from '../../atoms/Layout'
-import { DialogActions } from '@mui/material'
+import DialogActions from '@mui/material/DialogActions'
 import { TitleRow, UnhookedAnimePeek } from '../AnimePeek'
 import { CarouselTitle } from '../../atoms/Text'
 import { FExpand } from '../../atoms/Misc'

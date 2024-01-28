@@ -1,5 +1,5 @@
 import { useSliding } from './hooks'
-import { renderHook, act } from '@testing-library/react-hooks'
+import { renderHook, act } from '@testing-library/react'
 import useResizeObserver from 'use-resize-observer'
 
 describe('AnimesCarousel > useSliding', () => {

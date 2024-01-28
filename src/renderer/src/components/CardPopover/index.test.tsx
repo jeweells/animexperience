@@ -1,7 +1,8 @@
 import CardPopover, { CardPopoverProps } from './index'
 import * as React from 'react'
-import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
 import { ContentContext } from '@components/Topbar'
+import theme from '../../theme'
+import { ThemeProvider } from '@mui/material'
 
 describe('CardPopover', () => {
   let props: CardPopoverProps
@@ -45,9 +46,9 @@ describe('CardPopover', () => {
     }
     Wrapper.displayName = 'WrapperMock'
     return (
-      <TopLayout>
+      <ThemeProvider theme={theme}>
         <Wrapper />
-      </TopLayout>
+      </ThemeProvider>
     )
   }
 
@@ -71,9 +72,13 @@ describe('CardPopover', () => {
   })
 
   it('closes when dropping hover', () => {
+    const matchesSpy = jest
+      .spyOn(window.Element.prototype, 'matches')
+      .mockImplementation(() => false)
     render(getComponent())
     fireEvent.mouseMove(document)
     expect(onClose).toHaveBeenCalledTimes(1)
+    matchesSpy.mockRestore()
   })
 
   it('keeps popover when mouse is hovering', async () => {

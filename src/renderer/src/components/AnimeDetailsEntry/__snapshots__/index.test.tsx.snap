@@ -2,26 +2,10 @@
 
 exports[`AnimeDetailsEntry renders default 1`] = `
 <DocumentFragment>
-  .c3 {
-  font-weight: 700;
-  color: white;
-  font-size: 1rem;
-  line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
-  margin-bottom: 4px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-}
-
-.c0 {
+  .emotion-0 {
   position: relative;
   border-radius: 4px;
   overflow: hidden;
-  --width: calc( ( 100vw - 3 * 16px - 2 * 72px ) / 4 );
-  --height: calc(var(--width) * 0.64);
   width: var(--width);
   height: var(--height);
   -webkit-flex: 0 0 auto;
@@ -30,18 +14,320 @@ exports[`AnimeDetailsEntry renders default 1`] = `
   cursor: pointer;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.c0:hover {
+@media (max-width: 7396px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 22 * 16px - 2 *
+                72px
+            ) / 23
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 7080px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 21 * 16px - 2 *
+                72px
+            ) / 22
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6764px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 20 * 16px - 2 *
+                72px
+            ) / 21
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6448px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 19 * 16px - 2 *
+                72px
+            ) / 20
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6132px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 18 * 16px - 2 *
+                72px
+            ) / 19
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5816px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 17 * 16px - 2 *
+                72px
+            ) / 18
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5500px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 16 * 16px - 2 *
+                72px
+            ) / 17
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5184px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 15 * 16px - 2 *
+                72px
+            ) / 16
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4868px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 14 * 16px - 2 *
+                72px
+            ) / 15
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4552px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 13 * 16px - 2 *
+                72px
+            ) / 14
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4236px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 12 * 16px - 2 *
+                72px
+            ) / 13
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3920px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 11 * 16px - 2 *
+                72px
+            ) / 12
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3604px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 10 * 16px - 2 *
+                72px
+            ) / 11
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3288px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 9 * 16px - 2 *
+                72px
+            ) / 10
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2972px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 8 * 16px - 2 *
+                72px
+            ) / 9
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2656px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 7 * 16px - 2 *
+                72px
+            ) / 8
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2340px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 6 * 16px - 2 *
+                72px
+            ) / 7
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2024px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 5 * 16px - 2 *
+                72px
+            ) / 6
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1708px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 4 * 16px - 2 *
+                72px
+            ) / 5
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1392px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 3 * 16px - 2 *
+                72px
+            ) / 4
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1076px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 2 * 16px - 2 *
+                72px
+            ) / 3
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 760px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 1 * 16px - 2 *
+                72px
+            ) / 2
+        );
+    --height: calc(var(--width) * 0.94);
+    --height: calc(var(--width) * 0.84);
+  }
+}
+
+@media (max-width: 444px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 0 * 16px - 2 *
+                72px
+            ) / 1
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+.emotion-0 .ManageButtons {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.emotion-0:hover {
   z-index: 10;
 }
 
-.c2 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.emotion-0:hover .ManageButtons {
+  opacity: 1;
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+}
+
+.emotion-2 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -50,39 +336,27 @@ exports[`AnimeDetailsEntry renders default 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
   justify-content: flex-end;
-  background-image: linear-gradient( to top, rgba(0,0,0,0.7), rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 40% );
+  background-color: #292d33;
   padding: 16px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
-.c1 {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-@media (max-width:1000px) {
-  .c0 {
-    --width: calc( ( 100vw - 2 * 16px - 2 * 72px ) / 3 );
-    --height: calc(var(--width) * 0.64);
-  }
-}
-
-@media (max-width:800px) {
-  .c0 {
-    --width: calc( ( 100vw - 1 * 16px - 2 * 72px ) / 2 );
-    --height: calc(var(--width) * 0.64);
-    --height: calc(var(--width) * 0.84);
-  }
-}
-
-@media (max-width:500px) {
-  .c0 {
-    --width: calc( ( 100vw - 0 * 16px - 2 * 72px ) / 1 );
-    --height: calc(var(--width) * 0.64);
-  }
+.emotion-4 {
+  font-weight: 400;
+  color: white;
+  font-size: 1rem;
+  line-height: 1;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 <div
@@ -90,20 +364,26 @@ exports[`AnimeDetailsEntry renders default 1`] = `
     style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
   >
     <div
-      class="c0"
+      class="emotion-0"
       data-testid="anime-entry-background"
     >
-      <img
-        alt="Here goes the anime name"
-        class="c1"
-        src="Here goes the anime image url"
-      />
       <div
-        class="c2"
+        class="emotion-1"
+      >
+        <img
+          alt="Here goes the anime name"
+          class="emotion-2"
+          src="Here goes the anime image url"
+        />
+      </div>
+      <div
+        class="emotion-3 AnimeInfo"
         data-testid="anime-details-entry-anime-info"
       >
         <h3
-          class="c3"
+          aria-label="Here goes the anime name"
+          class=" emotion-4"
+          data-mui-internal-clone-element="true"
         >
           Here goes the anime name
         </h3>

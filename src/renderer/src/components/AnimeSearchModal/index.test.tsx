@@ -3,9 +3,10 @@ import AnimeSearchModal, { AnimeSearchModalProps } from './index'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import { MockStoreEnhanced } from 'redux-mock-store'
-import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
 import { range } from '~/src/utils'
 import { TopView } from '@shared/types'
+import { ThemeProvider } from '@mui/material'
+import theme from '../../theme'
 
 describe('AnimeSearchModal', () => {
   let initialState: DeepPartial<RootState>
@@ -16,11 +17,11 @@ describe('AnimeSearchModal', () => {
   const getComponent = (override: Partial<AnimeSearchModalProps> = {}) => {
     store = mockStore(initialState)
     return (
-      <TopLayout>
-        <Provider store={store}>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
           <AnimeSearchModal {...props} {...override} />
-        </Provider>
-      </TopLayout>
+        </ThemeProvider>
+      </Provider>
     )
   }
 

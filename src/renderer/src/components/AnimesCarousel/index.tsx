@@ -5,7 +5,7 @@ import { range } from '../../utils'
 import { NavigationButton } from './components/NavigationButton'
 import { useSizes, useSliding } from './hooks'
 
-import { CarouselTitleWithLoading } from '~/src/components'
+import CarouselTitleWithLoading from '../CarouselTitleWithLoading'
 
 const Scroller = styled('div')`
   overflow-x: hidden;

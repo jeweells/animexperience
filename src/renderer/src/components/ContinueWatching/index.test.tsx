@@ -1,7 +1,5 @@
-import ContinueWatching, { ContinueWatchingProps } from './index'
-import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
+import ContinueWatching from './index'
 import useResizeObserver from 'use-resize-observer'
-import { ipcRenderer } from 'electron'
 import { MockStoreEnhanced } from 'redux-mock-store'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
@@ -10,31 +8,30 @@ import { range } from '~/src/utils'
 import { EpisodeInfo } from '@shared/types'
 import { FStatus } from '@shared/types'
 import { ANIME_ENTRY_SELECTORS } from '@selectors'
+import theme from '../../theme'
+import { ThemeProvider } from '@mui/material'
 
 const statusTypes: FStatus[] = ['idle', 'loading', 'succeeded', 'failed']
 
 describe('ContinueWatching', () => {
-  let props: ContinueWatchingProps
   let initialState: DeepPartial<RootState>
   let store: MockStoreEnhanced
   const useResizeObserverMock = useResizeObserver as jest.Mock
-  const invokeMock = ipcRenderer.invoke as jest.Mock
+  const invokeMock = window.electron.ipcRenderer.invoke as jest.Mock
   const imageUrl = 'fake_image_url'
 
-  const getComponent = (override: Partial<ContinueWatchingProps> = {}) => {
+  const getComponent = () => {
     store = mockStore(initialState)
     return (
-      <TopLayout>
-        <Provider store={store}>
-          <ContinueWatching {...props} {...override} />
-        </Provider>
-      </TopLayout>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <ContinueWatching />
+        </ThemeProvider>
+      </Provider>
     )
   }
 
   beforeEach(() => {
-    props = {}
-
     initialState = {
       watchHistory: {
         sorted: range(5).map((n) => ({

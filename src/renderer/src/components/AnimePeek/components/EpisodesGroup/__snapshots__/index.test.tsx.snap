@@ -2,21 +2,7 @@
 
 exports[`EpisodesGroup renders default with different group size=4 1`] = `
 <DocumentFragment>
-  .c5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.c6 {
-  gap: 16px;
-}
-
-.c0 {
+  .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -24,25 +10,10 @@ exports[`EpisodesGroup renders default with different group size=4 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-}
-
-.c1 {
   gap: 16px;
 }
 
-.c10 {
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: inherit;
-}
-
-.c2 {
+.emotion-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -52,8 +23,8 @@ exports[`EpisodesGroup renders default with different group size=4 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -76,19 +47,7 @@ exports[`EpisodesGroup renders default with different group size=4 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
-}
-
-.c2::-moz-focus-inner {
-  border-style: none;
-}
-
-.c2.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c3 {
-  font-family: Quicksand,sans-serif;
+  font-family: OpenSans,Quicksand,sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
@@ -96,8 +55,8 @@ exports[`EpisodesGroup renders default with different group size=4 1`] = `
   min-width: 64px;
   padding: 6px 8px;
   border-radius: 4px;
-  -webkit-transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #292d33;
   color: #e9ebf0;
   background-color: #292d33;
@@ -105,7 +64,7 @@ exports[`EpisodesGroup renders default with different group size=4 1`] = `
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
-  outline: 0 !important;
+  outline: 0!important;
   white-space: nowrap;
   border: none;
   -webkit-user-select: none;
@@ -120,25 +79,90 @@ exports[`EpisodesGroup renders default with different group size=4 1`] = `
   color: #e9ebf0;
   text-transform: none;
   padding: 8px 12px;
+  width: 100%;
+  text-align: left;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
 }
 
-.c3:hover {
+.emotion-1::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-1.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-1 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-1:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(41,45,51,0.08);
+  background-color: rgba(41, 45, 51, 0.08);
 }
 
-.c3.Mui-disabled {
-  color: rgba(255,255,255,0.3);
+@media (hover: none) {
+  .emotion-1:hover {
+    background-color: transparent;
+  }
 }
 
-.c3:hover {
+.emotion-1.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-1:hover {
   outline: none;
   border: none;
   background-color: #3c3f43;
 }
 
-.c9 {
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-4 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -150,396 +174,365 @@ exports[`EpisodesGroup renders default with different group size=4 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.5rem;
   font-size: inherit;
 }
 
-.c4 {
-  width: 100%;
-  text-align: left;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
-
-.c8 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c7 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-@media print {
-  .c2 {
-    color-adjust: exact;
-  }
-}
-
-@media (hover:none) {
-  .c3:hover {
-    background-color: transparent;
-  }
+.emotion-5 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
 }
 
 <div
-    class="c0 c1"
+    class="emotion-0"
   >
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 1
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 2
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 3
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 4
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 5
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 6
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 7
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 8
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 9
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 10
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
   </div>
@@ -548,21 +541,7 @@ exports[`EpisodesGroup renders default with different group size=4 1`] = `
 
 exports[`EpisodesGroup renders default with different group size=4 sorted from newer to older 1`] = `
 <DocumentFragment>
-  .c5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.c6 {
-  gap: 16px;
-}
-
-.c0 {
+  .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -570,25 +549,10 @@ exports[`EpisodesGroup renders default with different group size=4 sorted from n
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-}
-
-.c1 {
   gap: 16px;
 }
 
-.c10 {
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: inherit;
-}
-
-.c2 {
+.emotion-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -598,8 +562,8 @@ exports[`EpisodesGroup renders default with different group size=4 sorted from n
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -622,19 +586,7 @@ exports[`EpisodesGroup renders default with different group size=4 sorted from n
   text-decoration: none;
   color: inherit;
   text-transform: unset;
-}
-
-.c2::-moz-focus-inner {
-  border-style: none;
-}
-
-.c2.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c3 {
-  font-family: Quicksand,sans-serif;
+  font-family: OpenSans,Quicksand,sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
@@ -642,8 +594,8 @@ exports[`EpisodesGroup renders default with different group size=4 sorted from n
   min-width: 64px;
   padding: 6px 8px;
   border-radius: 4px;
-  -webkit-transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #292d33;
   color: #e9ebf0;
   background-color: #292d33;
@@ -651,7 +603,7 @@ exports[`EpisodesGroup renders default with different group size=4 sorted from n
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
-  outline: 0 !important;
+  outline: 0!important;
   white-space: nowrap;
   border: none;
   -webkit-user-select: none;
@@ -666,25 +618,90 @@ exports[`EpisodesGroup renders default with different group size=4 sorted from n
   color: #e9ebf0;
   text-transform: none;
   padding: 8px 12px;
+  width: 100%;
+  text-align: left;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
 }
 
-.c3:hover {
+.emotion-1::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-1.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-1 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-1:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(41,45,51,0.08);
+  background-color: rgba(41, 45, 51, 0.08);
 }
 
-.c3.Mui-disabled {
-  color: rgba(255,255,255,0.3);
+@media (hover: none) {
+  .emotion-1:hover {
+    background-color: transparent;
+  }
 }
 
-.c3:hover {
+.emotion-1.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-1:hover {
   outline: none;
   border: none;
   background-color: #3c3f43;
 }
 
-.c9 {
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-4 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -696,396 +713,365 @@ exports[`EpisodesGroup renders default with different group size=4 sorted from n
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.5rem;
   font-size: inherit;
 }
 
-.c4 {
-  width: 100%;
-  text-align: left;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
-
-.c8 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c7 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-@media print {
-  .c2 {
-    color-adjust: exact;
-  }
-}
-
-@media (hover:none) {
-  .c3:hover {
-    background-color: transparent;
-  }
+.emotion-5 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
 }
 
 <div
-    class="c0 c1"
+    class="emotion-0"
   >
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 10
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 9
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 8
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 7
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 6
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 5
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 4
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 3
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 2
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 1
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
   </div>
@@ -1094,21 +1080,7 @@ exports[`EpisodesGroup renders default with different group size=4 sorted from n
 
 exports[`EpisodesGroup renders default with different group size=15 1`] = `
 <DocumentFragment>
-  .c5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.c6 {
-  gap: 16px;
-}
-
-.c0 {
+  .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1116,25 +1088,10 @@ exports[`EpisodesGroup renders default with different group size=15 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-}
-
-.c1 {
   gap: 16px;
 }
 
-.c10 {
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: inherit;
-}
-
-.c2 {
+.emotion-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1144,8 +1101,8 @@ exports[`EpisodesGroup renders default with different group size=15 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -1168,19 +1125,7 @@ exports[`EpisodesGroup renders default with different group size=15 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
-}
-
-.c2::-moz-focus-inner {
-  border-style: none;
-}
-
-.c2.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c3 {
-  font-family: Quicksand,sans-serif;
+  font-family: OpenSans,Quicksand,sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
@@ -1188,8 +1133,8 @@ exports[`EpisodesGroup renders default with different group size=15 1`] = `
   min-width: 64px;
   padding: 6px 8px;
   border-radius: 4px;
-  -webkit-transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #292d33;
   color: #e9ebf0;
   background-color: #292d33;
@@ -1197,7 +1142,7 @@ exports[`EpisodesGroup renders default with different group size=15 1`] = `
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
-  outline: 0 !important;
+  outline: 0!important;
   white-space: nowrap;
   border: none;
   -webkit-user-select: none;
@@ -1212,25 +1157,90 @@ exports[`EpisodesGroup renders default with different group size=15 1`] = `
   color: #e9ebf0;
   text-transform: none;
   padding: 8px 12px;
+  width: 100%;
+  text-align: left;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
 }
 
-.c3:hover {
+.emotion-1::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-1.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-1 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-1:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(41,45,51,0.08);
+  background-color: rgba(41, 45, 51, 0.08);
 }
 
-.c3.Mui-disabled {
-  color: rgba(255,255,255,0.3);
+@media (hover: none) {
+  .emotion-1:hover {
+    background-color: transparent;
+  }
 }
 
-.c3:hover {
+.emotion-1.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-1:hover {
   outline: none;
   border: none;
   background-color: #3c3f43;
 }
 
-.c9 {
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-4 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1242,396 +1252,365 @@ exports[`EpisodesGroup renders default with different group size=15 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.5rem;
   font-size: inherit;
 }
 
-.c4 {
-  width: 100%;
-  text-align: left;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
-
-.c8 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c7 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-@media print {
-  .c2 {
-    color-adjust: exact;
-  }
-}
-
-@media (hover:none) {
-  .c3:hover {
-    background-color: transparent;
-  }
+.emotion-5 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
 }
 
 <div
-    class="c0 c1"
+    class="emotion-0"
   >
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 1
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 2
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 3
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 4
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 5
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 6
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 7
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 8
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 9
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 10
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
   </div>
@@ -1640,21 +1619,7 @@ exports[`EpisodesGroup renders default with different group size=15 1`] = `
 
 exports[`EpisodesGroup renders default with different group size=15 sorted from newer to older 1`] = `
 <DocumentFragment>
-  .c5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.c6 {
-  gap: 16px;
-}
-
-.c0 {
+  .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1662,25 +1627,10 @@ exports[`EpisodesGroup renders default with different group size=15 sorted from 
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-}
-
-.c1 {
   gap: 16px;
 }
 
-.c10 {
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: inherit;
-}
-
-.c2 {
+.emotion-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -1690,8 +1640,8 @@ exports[`EpisodesGroup renders default with different group size=15 sorted from 
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -1714,19 +1664,7 @@ exports[`EpisodesGroup renders default with different group size=15 sorted from 
   text-decoration: none;
   color: inherit;
   text-transform: unset;
-}
-
-.c2::-moz-focus-inner {
-  border-style: none;
-}
-
-.c2.Mui-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
-.c3 {
-  font-family: Quicksand,sans-serif;
+  font-family: OpenSans,Quicksand,sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
@@ -1734,8 +1672,8 @@ exports[`EpisodesGroup renders default with different group size=15 sorted from 
   min-width: 64px;
   padding: 6px 8px;
   border-radius: 4px;
-  -webkit-transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: background-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,box-shadow 250ms cubic-bezier(0.4,0,0.2,1) 0ms,border-color 250ms cubic-bezier(0.4,0,0.2,1) 0ms,color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #292d33;
   color: #e9ebf0;
   background-color: #292d33;
@@ -1743,7 +1681,7 @@ exports[`EpisodesGroup renders default with different group size=15 sorted from 
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
-  outline: 0 !important;
+  outline: 0!important;
   white-space: nowrap;
   border: none;
   -webkit-user-select: none;
@@ -1758,25 +1696,90 @@ exports[`EpisodesGroup renders default with different group size=15 sorted from 
   color: #e9ebf0;
   text-transform: none;
   padding: 8px 12px;
+  width: 100%;
+  text-align: left;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
 }
 
-.c3:hover {
+.emotion-1::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-1.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-1 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-1:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(41,45,51,0.08);
+  background-color: rgba(41, 45, 51, 0.08);
 }
 
-.c3.Mui-disabled {
-  color: rgba(255,255,255,0.3);
+@media (hover: none) {
+  .emotion-1:hover {
+    background-color: transparent;
+  }
 }
 
-.c3:hover {
+.emotion-1.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-1:hover {
   outline: none;
   border: none;
   background-color: #3c3f43;
 }
 
-.c9 {
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 16px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-4 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1788,396 +1791,365 @@ exports[`EpisodesGroup renders default with different group size=15 sorted from 
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.5rem;
   font-size: inherit;
 }
 
-.c4 {
-  width: 100%;
-  text-align: left;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
-
-.c8 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c7 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-@media print {
-  .c2 {
-    color-adjust: exact;
-  }
-}
-
-@media (hover:none) {
-  .c3:hover {
-    background-color: transparent;
-  }
+.emotion-5 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
 }
 
 <div
-    class="c0 c1"
+    class="emotion-0"
   >
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 10
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 9
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 8
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 7
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 6
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 5
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 4
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 3
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 2
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
     <button
       aria-label="Ver episodio"
-      class="c2 MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root c3 c4"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium  emotion-1"
       data-mui-internal-clone-element="true"
       data-testid="episode-button-watch-button"
       tabindex="0"
       type="button"
     >
       <div
-        class="c5 c6 c7"
+        class="emotion-2"
       >
         <div>
           Episodio 1
         </div>
         <div
-          class="c5 c6 c8"
+          class="emotion-3"
         />
         <svg
           aria-hidden="true"
-          class="c9 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-4"
           data-testid="PlayArrowRoundedIcon"
           focusable="false"
           style="font-size: 1.4rem; overflow: hidden;"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+            d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82"
           />
         </svg>
       </div>
       <span
-        class="c10 MuiTouchRipple-root"
+        class="MuiTouchRipple-root emotion-5"
       />
     </button>
   </div>

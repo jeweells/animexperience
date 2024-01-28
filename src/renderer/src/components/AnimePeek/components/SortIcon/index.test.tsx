@@ -1,5 +1,6 @@
 import SortIcon, { SortIconProps } from './index'
-import TopLayout from '../../../../../plugins/gatsby-plugin-top-layout/TopLayout'
+import theme from '../../../../theme'
+import { ThemeProvider } from '@mui/material'
 
 const orders: Array<SortIconProps['order']> = ['asc', 'desc']
 
@@ -8,9 +9,9 @@ describe('SortIcon', () => {
 
   const getComponent = (override: Partial<SortIconProps> = {}) => {
     return (
-      <TopLayout>
+      <ThemeProvider theme={theme}>
         <SortIcon {...props} {...override} />
-      </TopLayout>
+      </ThemeProvider>
     )
   }
 

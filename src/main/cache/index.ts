@@ -1,20 +1,20 @@
 import { v4 as uuidv4 } from 'uuid'
-
+import { ForcedAny } from '@shared/types'
 interface CachedFn {
-  (...args: any): any
+  (...args: ForcedAny): ForcedAny
   cached?: boolean
 }
 
 // Memory cache which self-invalidates after a specific amount of time
 export class TimedCache {
-  cache: Record<string, any> = {}
-  timeouts: Record<string, any> = {}
+  cache: Record<string, ForcedAny> = {}
+  timeouts: Record<string, ForcedAny> = {}
   timeout = 1000 * 60 * 30
   constructor(timeout?: number) {
     this.timeout = timeout ?? this.timeout
   }
 
-  set(key: string, value: any) {
+  set(key: string, value: ForcedAny) {
     const oldTimeout = this.timeouts[key]
     if (oldTimeout ?? false) {
       clearTimeout(oldTimeout)
@@ -47,7 +47,7 @@ export class TimedCache {
       }
       const result = fn(...args)
       if (typeof result?.then === 'function') {
-        return result.then((x: any) => {
+        return result.then((x: ForcedAny) => {
           this.set(key, x)
           return x
         })

@@ -2,9 +2,10 @@ import FullModal, { FullModalProps } from './index'
 import { Provider } from 'react-redux'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
-import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
 import { TopView } from '@shared/types'
 import { MockStoreEnhanced } from 'redux-mock-store'
+import theme from '../../theme'
+import { ThemeProvider } from '@mui/material'
 
 describe('FullModal', () => {
   let initialState: DeepPartial<RootState>
@@ -27,11 +28,11 @@ describe('FullModal', () => {
   const getComponent = (override: Partial<FullModalProps> = {}) => {
     store = mockStore(initialState)
     return (
-      <TopLayout>
-        <Provider store={store}>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
           <FullModal {...props} {...override} />
-        </Provider>
-      </TopLayout>
+        </ThemeProvider>
+      </Provider>
     )
   }
 

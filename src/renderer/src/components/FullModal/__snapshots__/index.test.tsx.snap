@@ -1,7 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FullModal renders default 1`] = `
-.c3 {
+.emotion-0 {
+  position: fixed;
+  z-index: 1300;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100vw;
+  overflow: hidden;
+  --modal-height: calc(100vh - 56px);
+  height: var(--modal-height);
+  background-color: transparent;
+  top: 56px!important;
+}
+
+@media print {
+  .emotion-0 {
+    position: absolute!important;
+  }
+}
+
+.emotion-0 .MuiDialog-container {
+  background-color: #0f131a;
+}
+
+.emotion-0 .MuiPaper-root {
+  background-image: unset;
+  background-color: unset;
+}
+
+.emotion-1 {
   position: fixed;
   display: -webkit-box;
   display: -webkit-flex;
@@ -12,41 +43,19 @@ exports[`FullModal renders default 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   right: 0;
   bottom: 0;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   -webkit-tap-highlight-color: transparent;
-}
-
-.c0 {
-  position: fixed;
-  z-index: 1300;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  left: 0;
-}
-
-.c6 {
-  background-color: #121212;
-  color: #e9ebf0;
-  -webkit-transition: box-shadow 300ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: box-shadow 300ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  border-radius: 4px;
-  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
-  background-image: linear-gradient(rgba(255,255,255,0.16),rgba(255,255,255,0.16));
-}
-
-.c4 {
   z-index: -1;
 }
 
-.c5 {
+.emotion-2 {
   height: 100%;
   outline: 0;
   display: -webkit-box;
@@ -54,8 +63,8 @@ exports[`FullModal renders default 1`] = `
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -63,7 +72,20 @@ exports[`FullModal renders default 1`] = `
   align-items: center;
 }
 
-.c7 {
+@media print {
+  .emotion-2 {
+    height: auto;
+  }
+}
+
+.emotion-3 {
+  background-color: #121212;
+  color: #e9ebf0;
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16));
   margin: 0;
   position: relative;
   overflow-y: auto;
@@ -81,47 +103,16 @@ exports[`FullModal renders default 1`] = `
   border-radius: 0;
 }
 
-.c7.MuiDialog-paperScrollBody {
-  margin: 0;
-  max-width: 100%;
-}
-
-.c2 {
-  margin: 0;
-  width: 100vw;
-  overflow: hidden;
-  --modal-height: calc(100vh - 56px);
-  height: var(--modal-height);
-  background-color: transparent;
-  top: 56px !important;
-}
-
-.c2 .MuiDialog-container {
-  background-color: #0f131a;
-}
-
-.c2 .MuiPaper-root {
-  background-image: unset;
-  background-color: unset;
-}
-
 @media print {
-  .c1 {
-    position: absolute !important;
-  }
-}
-
-@media print {
-  .c5 {
-    height: auto;
-  }
-}
-
-@media print {
-  .c7 {
+  .emotion-3 {
     overflow-y: visible;
     box-shadow: none;
   }
+}
+
+.emotion-3.MuiDialog-paperScrollBody {
+  margin: 0;
+  max-width: 100%;
 }
 
 <body
@@ -131,32 +122,32 @@ exports[`FullModal renders default 1`] = `
     aria-hidden="true"
   />
   <div
-    class="c0 MuiModal-root c1 MuiDialog-root c2"
+    class="MuiDialog-root MuiModal-root emotion-0"
     role="presentation"
   >
     <div
       aria-hidden="true"
-      class="c3 MuiBackdrop-root c4"
+      class="MuiBackdrop-root MuiModal-backdrop emotion-1"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
-      class="c5 MuiDialog-container MuiDialog-scrollPaper"
+      class="MuiDialog-container MuiDialog-scrollPaper emotion-2"
       role="presentation"
       style="opacity: 1; webkit-transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
         aria-labelledby="full-modal"
-        class="c6 MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 c7 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullScreen"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullScreen emotion-3"
         role="dialog"
       />
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -164,7 +155,38 @@ exports[`FullModal renders default 1`] = `
 `;
 
 exports[`FullModal renders default with contrast 1`] = `
-.c3 {
+.emotion-0 {
+  position: fixed;
+  z-index: 1300;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100vw;
+  overflow: hidden;
+  --modal-height: calc(100vh - 56px);
+  height: var(--modal-height);
+  background-color: transparent;
+  top: 56px!important;
+}
+
+@media print {
+  .emotion-0 {
+    position: absolute!important;
+  }
+}
+
+.emotion-0 .MuiDialog-container {
+  background-color: #0f131a;
+}
+
+.emotion-0 .MuiPaper-root {
+  background-image: unset;
+  background-color: #0f131a;
+}
+
+.emotion-1 {
   position: fixed;
   display: -webkit-box;
   display: -webkit-flex;
@@ -175,41 +197,19 @@ exports[`FullModal renders default with contrast 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   right: 0;
   bottom: 0;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   -webkit-tap-highlight-color: transparent;
-}
-
-.c0 {
-  position: fixed;
-  z-index: 1300;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  left: 0;
-}
-
-.c6 {
-  background-color: #121212;
-  color: #e9ebf0;
-  -webkit-transition: box-shadow 300ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: box-shadow 300ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  border-radius: 4px;
-  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
-  background-image: linear-gradient(rgba(255,255,255,0.16),rgba(255,255,255,0.16));
-}
-
-.c4 {
   z-index: -1;
 }
 
-.c5 {
+.emotion-2 {
   height: 100%;
   outline: 0;
   display: -webkit-box;
@@ -217,8 +217,8 @@ exports[`FullModal renders default with contrast 1`] = `
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -226,7 +226,20 @@ exports[`FullModal renders default with contrast 1`] = `
   align-items: center;
 }
 
-.c7 {
+@media print {
+  .emotion-2 {
+    height: auto;
+  }
+}
+
+.emotion-3 {
+  background-color: #121212;
+  color: #e9ebf0;
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16));
   margin: 0;
   position: relative;
   overflow-y: auto;
@@ -244,47 +257,16 @@ exports[`FullModal renders default with contrast 1`] = `
   border-radius: 0;
 }
 
-.c7.MuiDialog-paperScrollBody {
-  margin: 0;
-  max-width: 100%;
-}
-
-.c2 {
-  margin: 0;
-  width: 100vw;
-  overflow: hidden;
-  --modal-height: calc(100vh - 56px);
-  height: var(--modal-height);
-  background-color: transparent;
-  top: 56px !important;
-}
-
-.c2 .MuiDialog-container {
-  background-color: #0f131a;
-}
-
-.c2 .MuiPaper-root {
-  background-image: unset;
-  background-color: #0f131a;
-}
-
 @media print {
-  .c1 {
-    position: absolute !important;
-  }
-}
-
-@media print {
-  .c5 {
-    height: auto;
-  }
-}
-
-@media print {
-  .c7 {
+  .emotion-3 {
     overflow-y: visible;
     box-shadow: none;
   }
+}
+
+.emotion-3.MuiDialog-paperScrollBody {
+  margin: 0;
+  max-width: 100%;
 }
 
 <body
@@ -294,32 +276,32 @@ exports[`FullModal renders default with contrast 1`] = `
     aria-hidden="true"
   />
   <div
-    class="c0 MuiModal-root c1 MuiDialog-root c2"
+    class="MuiDialog-root MuiModal-root emotion-0"
     role="presentation"
   >
     <div
       aria-hidden="true"
-      class="c3 MuiBackdrop-root c4"
+      class="MuiBackdrop-root MuiModal-backdrop emotion-1"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
-      class="c5 MuiDialog-container MuiDialog-scrollPaper"
+      class="MuiDialog-container MuiDialog-scrollPaper emotion-2"
       role="presentation"
       style="opacity: 1; webkit-transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
         aria-labelledby="full-modal"
-        class="c6 MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 c7 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullScreen"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullScreen emotion-3"
         role="dialog"
       />
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -327,10 +309,6 @@ exports[`FullModal renders default with contrast 1`] = `
 `;
 
 exports[`FullModal renders when another view is active 1`] = `
-@media print {
-
-}
-
 <body
   style=""
 >
@@ -339,7 +317,38 @@ exports[`FullModal renders when another view is active 1`] = `
 `;
 
 exports[`FullModal renders when not showing 1`] = `
-.c3 {
+.emotion-0 {
+  position: fixed;
+  z-index: 1300;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100vw;
+  overflow: hidden;
+  --modal-height: calc(100vh - 56px);
+  height: var(--modal-height);
+  background-color: transparent;
+  top: 56px!important;
+}
+
+@media print {
+  .emotion-0 {
+    position: absolute!important;
+  }
+}
+
+.emotion-0 .MuiDialog-container {
+  background-color: #0f131a;
+}
+
+.emotion-0 .MuiPaper-root {
+  background-image: unset;
+  background-color: unset;
+}
+
+.emotion-1 {
   position: fixed;
   display: -webkit-box;
   display: -webkit-flex;
@@ -350,41 +359,19 @@ exports[`FullModal renders when not showing 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   right: 0;
   bottom: 0;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   -webkit-tap-highlight-color: transparent;
-}
-
-.c0 {
-  position: fixed;
-  z-index: 1300;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  left: 0;
-}
-
-.c6 {
-  background-color: #121212;
-  color: #e9ebf0;
-  -webkit-transition: box-shadow 300ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: box-shadow 300ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  border-radius: 4px;
-  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
-  background-image: linear-gradient(rgba(255,255,255,0.16),rgba(255,255,255,0.16));
-}
-
-.c4 {
   z-index: -1;
 }
 
-.c5 {
+.emotion-2 {
   height: 100%;
   outline: 0;
   display: -webkit-box;
@@ -392,8 +379,8 @@ exports[`FullModal renders when not showing 1`] = `
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -401,7 +388,20 @@ exports[`FullModal renders when not showing 1`] = `
   align-items: center;
 }
 
-.c7 {
+@media print {
+  .emotion-2 {
+    height: auto;
+  }
+}
+
+.emotion-3 {
+  background-color: #121212;
+  color: #e9ebf0;
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16));
   margin: 0;
   position: relative;
   overflow-y: auto;
@@ -419,47 +419,16 @@ exports[`FullModal renders when not showing 1`] = `
   border-radius: 0;
 }
 
-.c7.MuiDialog-paperScrollBody {
-  margin: 0;
-  max-width: 100%;
-}
-
-.c2 {
-  margin: 0;
-  width: 100vw;
-  overflow: hidden;
-  --modal-height: calc(100vh - 56px);
-  height: var(--modal-height);
-  background-color: transparent;
-  top: 56px !important;
-}
-
-.c2 .MuiDialog-container {
-  background-color: #0f131a;
-}
-
-.c2 .MuiPaper-root {
-  background-image: unset;
-  background-color: unset;
-}
-
 @media print {
-  .c1 {
-    position: absolute !important;
-  }
-}
-
-@media print {
-  .c5 {
-    height: auto;
-  }
-}
-
-@media print {
-  .c7 {
+  .emotion-3 {
     overflow-y: visible;
     box-shadow: none;
   }
+}
+
+.emotion-3.MuiDialog-paperScrollBody {
+  margin: 0;
+  max-width: 100%;
 }
 
 <body
@@ -469,32 +438,32 @@ exports[`FullModal renders when not showing 1`] = `
     aria-hidden="true"
   />
   <div
-    class="c0 MuiModal-root c1 MuiDialog-root c2"
+    class="MuiDialog-root MuiModal-root emotion-0"
     role="presentation"
   >
     <div
       aria-hidden="true"
-      class="c3 MuiBackdrop-root c4"
+      class="MuiBackdrop-root MuiModal-backdrop emotion-1"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
-      class="c5 MuiDialog-container MuiDialog-scrollPaper"
+      class="MuiDialog-container MuiDialog-scrollPaper emotion-2"
       role="presentation"
       style="opacity: 1; webkit-transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
         aria-labelledby="full-modal"
-        class="c6 MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 c7 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullScreen"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullScreen emotion-3"
         role="dialog"
       />
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>

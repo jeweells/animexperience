@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { makeStyles } from '@mui/styles'
 import { ButtonBase, ButtonProps, lighten, Theme } from '@mui/material'
+import { ForcedAny } from '@shared/types'
 
 const useStyles = makeStyles<Theme>((theme) => {
-  const root: any = theme.components?.MuiButton?.styleOverrides?.root
-  const text: any = theme.components?.MuiButton?.styleOverrides?.text
+  const root: ForcedAny = theme.components?.MuiButton?.styleOverrides?.root
+  const text: ForcedAny = theme.components?.MuiButton?.styleOverrides?.text
   return {
     common: {
       transition: 'color 0.2s linear, background-color 0.3s linear'

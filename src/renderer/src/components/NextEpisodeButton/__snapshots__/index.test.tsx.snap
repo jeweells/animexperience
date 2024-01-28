@@ -16,7 +16,7 @@ exports[`NextEpisodeButton renders default 1`] = `
     }
 
         
-   
+
     button.raex-button-injected {
         font-family: 'Quicksand';
         color: #292d33;
@@ -44,7 +44,7 @@ exports[`NextEpisodeButton renders default 1`] = `
     button.raex-button-injected:hover, button.raex-button-injected:focus {
         color: #3c3f43;
         background-color: #e9ebf0;
-        
+
     }
 
       </style>
@@ -82,7 +82,7 @@ exports[`NextEpisodeButton renders default when not shown 1`] = `
     }
 
         
-   
+
     button.raex-button-injected {
         font-family: 'Quicksand';
         color: #292d33;
@@ -110,7 +110,7 @@ exports[`NextEpisodeButton renders default when not shown 1`] = `
     button.raex-button-injected:hover, button.raex-button-injected:focus {
         color: #3c3f43;
         background-color: #e9ebf0;
-        
+
     }
 
       </style>
@@ -148,7 +148,7 @@ exports[`NextEpisodeButton renders default when timedout 1`] = `
     }
 
         
-   
+
     button.raex-button-injected {
         font-family: 'Quicksand';
         color: #292d33;
@@ -176,7 +176,7 @@ exports[`NextEpisodeButton renders default when timedout 1`] = `
     button.raex-button-injected:hover, button.raex-button-injected:focus {
         color: #3c3f43;
         background-color: #e9ebf0;
-        
+
     }
 
       </style>
@@ -214,7 +214,7 @@ exports[`NextEpisodeButton renders when the episode is the last one 1`] = `
     }
 
         
-   
+
     button.raex-button-injected {
         font-family: 'Quicksand';
         color: #292d33;
@@ -242,7 +242,7 @@ exports[`NextEpisodeButton renders when the episode is the last one 1`] = `
     button.raex-button-injected:hover, button.raex-button-injected:focus {
         color: #3c3f43;
         background-color: #e9ebf0;
-        
+
     }
 
       </style>

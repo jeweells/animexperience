@@ -9,11 +9,12 @@ interface RawQuery {
   u: string
 }
 
-const isAction = (s: any): s is InvokedLink['action'] =>
-  (['watch'] as Array<InvokedLink['action']>).includes(s)
+const isAction = (s: unknown): s is InvokedLink['action'] =>
+  (['watch'] as Array<InvokedLink['action']>).includes(s as InvokedLink['action'])
 
-const isQuery = (query: any): query is RawQuery => {
+const isQuery = (query: unknown): query is RawQuery => {
   if (!query) return false
+  if (!(typeof query === 'object')) return false
   const queryShape: RawQuery = { ep: 0, u: 'anime-name' }
   return (Object.keys(queryShape) as Array<keyof RawQuery>).every((key) => {
     if (!(key in query)) return false

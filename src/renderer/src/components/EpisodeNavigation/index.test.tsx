@@ -1,31 +1,29 @@
-import EpisodeNavigation, { EpisodeNavigationProps } from './index'
-import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
+import EpisodeNavigation from './index'
 import { MockStoreEnhanced } from 'redux-mock-store'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import { Provider } from 'react-redux'
 import { TopView } from '@shared/types'
 import { EPISODE_NAVIGATION } from '@selectors'
+import theme from '../../theme'
+import { ThemeProvider } from '@mui/material'
 
 describe('EpisodeNavigation', () => {
-  let props: EpisodeNavigationProps
   let initialState: DeepPartial<RootState>
   let store: MockStoreEnhanced
 
-  const getComponent = (override: Partial<EpisodeNavigationProps> = {}) => {
+  const getComponent = () => {
     store = mockStore(initialState)
     return (
-      <TopLayout>
-        <Provider store={store}>
-          <EpisodeNavigation {...props} {...override} />
-        </Provider>
-      </TopLayout>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <EpisodeNavigation />
+        </ThemeProvider>
+      </Provider>
     )
   }
 
   beforeEach(() => {
-    props = {}
-
     initialState = {
       watch: {
         watching: {

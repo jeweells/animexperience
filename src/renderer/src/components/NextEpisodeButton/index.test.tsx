@@ -1,19 +1,15 @@
-import NextEpisodeButton, { NextEpisodeButtonProps } from './index'
+import NextEpisodeButton from './index'
 import { Provider } from 'react-redux'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import { MockStoreEnhanced } from 'redux-mock-store'
 import { NEXT_EPISODE_BUTTON } from '@selectors'
-import { getCurrentWindow } from '@electron/remote'
 
 describe('NextEpisodeButton', () => {
   let initialState: DeepPartial<RootState>
-  let props: NextEpisodeButtonProps
   let store: MockStoreEnhanced
-  const getUrlMock = getCurrentWindow().webContents.getURL as jest.Mock
 
   beforeEach(() => {
-    props = {}
     initialState = {
       watch: {
         showNextEpisodeButton: true,
@@ -54,14 +50,13 @@ describe('NextEpisodeButton', () => {
         }
       }
     }
-    getUrlMock.mockClear()
   })
 
-  const getComponent = (override: Partial<NextEpisodeButtonProps> = {}) => {
+  const getComponent = () => {
     store = mockStore(initialState)
     return (
       <Provider store={store}>
-        <NextEpisodeButton {...props} {...override} />
+        <NextEpisodeButton />
       </Provider>
     )
   }
@@ -69,7 +64,6 @@ describe('NextEpisodeButton', () => {
   it('renders default', async () => {
     const wrapper = render(getComponent())
     expect(wrapper.baseElement).toMatchSnapshot()
-    expect(getUrlMock).toHaveBeenCalledTimes(1)
   })
 
   it('renders default when not shown', async () => {

@@ -1,22 +1,21 @@
-import FollowedAnimesUpdates, { FollowedAnimesUpdatesProps } from './index'
+import FollowedAnimesUpdates from './index'
 import { ANIME_ENTRY_SELECTORS, ANIME_EPISODE_ENTRY } from '@selectors'
 import { Provider } from 'react-redux'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
-import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
 import { range } from '~/src/utils'
 import useResizeObserver from 'use-resize-observer'
 import { FollowedAnime } from '@shared/types'
 import { FollowedAnimeWStatus } from '~/redux/reducers/followedAnimes'
+import theme from '../../theme'
+import { ThemeProvider } from '@mui/material'
 
 describe('FollowedAnimesUpdates', () => {
   const returnTestId = ANIME_EPISODE_ENTRY.ANIME_INFO
   let initialState: DeepPartial<RootState>
-  let props: FollowedAnimesUpdatesProps
   const useResizeObserverMock = useResizeObserver as jest.Mock
 
   beforeEach(() => {
-    props = {}
     const followed: DeepPartial<FollowedAnimeWStatus>[] = range(3).map((n) => ({
       name: 'Here goes the anime name ' + n,
       image: 'Here goes the anime image url ' + n,
@@ -55,13 +54,13 @@ describe('FollowedAnimesUpdates', () => {
     useResizeObserverMock.mockReturnValue({ ref: jest.fn(), width: 100, height: 100 })
   })
 
-  const getComponent = (override: Partial<FollowedAnimesUpdatesProps> = {}) => {
+  const getComponent = () => {
     return (
-      <TopLayout>
-        <Provider store={mockStore(initialState)}>
-          <FollowedAnimesUpdates {...props} {...override} />
-        </Provider>
-      </TopLayout>
+      <Provider store={mockStore(initialState)}>
+        <ThemeProvider theme={theme}>
+          <FollowedAnimesUpdates />
+        </ThemeProvider>
+      </Provider>
     )
   }
 

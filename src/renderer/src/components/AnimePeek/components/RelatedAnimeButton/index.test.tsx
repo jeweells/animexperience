@@ -3,9 +3,10 @@ import RelatedAnimeButton, { RelatedAnimeButtonProps, types } from './index'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import { MockStoreEnhanced } from 'redux-mock-store'
-import TopLayout from '../../../../../plugins/gatsby-plugin-top-layout/TopLayout'
 import { RelatedAnime } from '@shared/types'
 import { RELATED_ANIME_BUTTON } from '@selectors'
+import theme from '../../../../theme'
+import { ThemeProvider } from '@mui/material'
 
 describe('RelatedAnimeButton', () => {
   let initialState: DeepPartial<RootState>
@@ -15,11 +16,11 @@ describe('RelatedAnimeButton', () => {
   const getComponent = (override: Partial<RelatedAnimeButtonProps> = {}) => {
     store = mockStore(initialState)
     return (
-      <TopLayout>
-        <Provider store={store}>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
           <RelatedAnimeButton {...props} {...override} />
-        </Provider>
-      </TopLayout>
+        </ThemeProvider>
+      </Provider>
     )
   }
 

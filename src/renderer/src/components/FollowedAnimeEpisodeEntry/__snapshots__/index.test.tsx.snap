@@ -1,37 +1,374 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FollowedAnimeEpisodeEntry renders default when failed 1`] = `
-.c7 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
+.emotion-0 {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: var(--width);
+  height: var(--height);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media (max-width: 7396px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 22 * 16px - 2 *
+                72px
+            ) / 23
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 7080px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 21 * 16px - 2 *
+                72px
+            ) / 22
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6764px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 20 * 16px - 2 *
+                72px
+            ) / 21
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6448px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 19 * 16px - 2 *
+                72px
+            ) / 20
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6132px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 18 * 16px - 2 *
+                72px
+            ) / 19
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5816px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 17 * 16px - 2 *
+                72px
+            ) / 18
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5500px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 16 * 16px - 2 *
+                72px
+            ) / 17
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5184px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 15 * 16px - 2 *
+                72px
+            ) / 16
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4868px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 14 * 16px - 2 *
+                72px
+            ) / 15
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4552px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 13 * 16px - 2 *
+                72px
+            ) / 14
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4236px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 12 * 16px - 2 *
+                72px
+            ) / 13
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3920px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 11 * 16px - 2 *
+                72px
+            ) / 12
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3604px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 10 * 16px - 2 *
+                72px
+            ) / 11
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3288px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 9 * 16px - 2 *
+                72px
+            ) / 10
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2972px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 8 * 16px - 2 *
+                72px
+            ) / 9
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2656px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 7 * 16px - 2 *
+                72px
+            ) / 8
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2340px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 6 * 16px - 2 *
+                72px
+            ) / 7
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2024px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 5 * 16px - 2 *
+                72px
+            ) / 6
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1708px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 4 * 16px - 2 *
+                72px
+            ) / 5
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1392px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 3 * 16px - 2 *
+                72px
+            ) / 4
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1076px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 2 * 16px - 2 *
+                72px
+            ) / 3
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 760px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 1 * 16px - 2 *
+                72px
+            ) / 2
+        );
+    --height: calc(var(--width) * 0.94);
+    --height: calc(var(--width) * 0.84);
+  }
+}
+
+@media (max-width: 444px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 0 * 16px - 2 *
+                72px
+            ) / 1
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+.emotion-0 .ManageButtons {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.emotion-0:hover {
+  z-index: 10;
+}
+
+.emotion-0:hover .ManageButtons {
+  opacity: 1;
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+}
+
+.emotion-2 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  background-color: #292d33;
+  padding: 16px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  font-size: 1.5rem;
-  font-size: inherit;
 }
 
-.c8 {
-  overflow: hidden;
-  pointer-events: none;
+.emotion-4 {
   position: absolute;
-  z-index: 0;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  border-radius: inherit;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  padding: 8px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.5) 20%,
+      rgba(0, 0, 0, 0) 90%
+    );
+  -webkit-backface-visibility: initial;
 }
 
-.c5 {
+.emotion-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -41,8 +378,8 @@ exports[`FollowedAnimeEpisodeEntry renders default when failed 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -65,43 +402,62 @@ exports[`FollowedAnimeEpisodeEntry renders default when failed 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
+  -webkit-filter: drop-shadow(0px 0px 1px #000000aa);
+  filter: drop-shadow(0px 0px 1px #000000aa);
+  font-size: 24px;
 }
 
-.c5::-moz-focus-inner {
+.emotion-5::-moz-focus-inner {
   border-style: none;
 }
 
-.c5.Mui-disabled {
+.emotion-5.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
-.c0 {
-  position: relative;
-  border-radius: 4px;
+@media print {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
+}
+
+.emotion-7 {
   overflow: hidden;
-  --width: calc( ( 100vw - 3 * 16px - 2 * 72px ) / 4 );
-  --height: calc(var(--width) * 0.64);
-  width: var(--width);
-  height: var(--height);
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  cursor: pointer;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
 }
 
-.c0:hover {
-  z-index: 10;
-}
-
-.c9 {
-  font-weight: 700;
+.emotion-8 {
+  font-weight: 400;
   color: white;
   font-size: 1rem;
   line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
   margin-bottom: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -110,100 +466,10 @@ exports[`FollowedAnimeEpisodeEntry renders default when failed 1`] = `
   -webkit-box-orient: vertical;
 }
 
-.c10 {
+.emotion-9 {
   font-weight: 300;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
-  text-shadow: 0 0 2px black,0 0 4px black;
-}
-
-.c6 {
-  -webkit-filter: drop-shadow(0px 0px 1px #000000aa);
-  filter: drop-shadow(0px 0px 1px #000000aa);
-  font-size: 24px;
-}
-
-.c4 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding: 8px;
-  background-image: linear-gradient( to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 90% );
-  -webkit-backface-visibility: initial;
-}
-
-.c2 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  background-image: linear-gradient( to top, rgba(0,0,0,0.7), rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 40% );
-  padding: 16px;
-}
-
-.c2 .c3 {
-  opacity: 0;
-  -webkit-transition: opacity 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out;
-}
-
-.c2:hover .c3 {
-  opacity: 1;
-}
-
-.c1 {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-@media print {
-  .c5 {
-    color-adjust: exact;
-  }
-}
-
-@media (max-width:1000px) {
-  .c0 {
-    --width: calc( ( 100vw - 2 * 16px - 2 * 72px ) / 3 );
-    --height: calc(var(--width) * 0.64);
-  }
-}
-
-@media (max-width:800px) {
-  .c0 {
-    --width: calc( ( 100vw - 1 * 16px - 2 * 72px ) / 2 );
-    --height: calc(var(--width) * 0.64);
-    --height: calc(var(--width) * 0.84);
-  }
-}
-
-@media (max-width:500px) {
-  .c0 {
-    --width: calc( ( 100vw - 0 * 16px - 2 * 72px ) / 1 );
-    --height: calc(var(--width) * 0.64);
-  }
 }
 
 <body>
@@ -213,24 +479,28 @@ exports[`FollowedAnimeEpisodeEntry renders default when failed 1`] = `
       style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="c0"
+        class="emotion-0"
         data-testid="anime-entry-background"
       >
-        <img
-          alt="Here goes the anime name"
-          class="c1"
-          src="Here goes the anime image url"
-        />
         <div
-          class="c2"
+          class="emotion-1"
+        >
+          <img
+            alt="Here goes the anime name"
+            class="emotion-2"
+            src="Here goes the anime image url"
+          />
+        </div>
+        <div
+          class="emotion-3 AnimeInfo"
           data-testid="anime-episode-entry-anime-info"
         >
           <div
-            class="c3 c4"
+            class="emotion-4 ManageButtons"
           >
             <button
               aria-label="Seguir"
-              class="c5 MuiButtonBase-root c6"
+              class="MuiButtonBase-root  emotion-5"
               data-mui-internal-clone-element="true"
               data-testid="manage-follow-button-button"
               tabindex="0"
@@ -238,29 +508,29 @@ exports[`FollowedAnimeEpisodeEntry renders default when failed 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="c7 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
                 data-testid="FavoriteBorderRoundedIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M19.66 3.99c-2.64-1.8-5.9-.96-7.66 1.1-1.76-2.06-5.02-2.91-7.66-1.1-1.4.96-2.28 2.58-2.34 4.29-.14 3.88 3.3 6.99 8.55 11.76l.1.09c.76.69 1.93.69 2.69-.01l.11-.1c5.25-4.76 8.68-7.87 8.55-11.75-.06-1.7-.94-3.32-2.34-4.28zM12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"
+                  d="M19.66 3.99c-2.64-1.8-5.9-.96-7.66 1.1-1.76-2.06-5.02-2.91-7.66-1.1-1.4.96-2.28 2.58-2.34 4.29-.14 3.88 3.3 6.99 8.55 11.76l.1.09c.76.69 1.93.69 2.69-.01l.11-.1c5.25-4.76 8.68-7.87 8.55-11.75-.06-1.7-.94-3.32-2.34-4.28M12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05"
                 />
               </svg>
               <span
-                class="c8 MuiTouchRipple-root"
+                class="MuiTouchRipple-root emotion-7"
               />
             </button>
           </div>
           <h3
             aria-label="Here goes the anime name"
-            class="c9"
+            class=" emotion-8"
             data-mui-internal-clone-element="true"
           >
             Here goes the anime name
           </h3>
           <h6
-            class="c10"
+            class="emotion-9"
           >
             Episodio 70
           </h6>
@@ -272,37 +542,374 @@ exports[`FollowedAnimeEpisodeEntry renders default when failed 1`] = `
 `;
 
 exports[`FollowedAnimeEpisodeEntry renders default when idle 1`] = `
-.c7 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
+.emotion-0 {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: var(--width);
+  height: var(--height);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media (max-width: 7396px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 22 * 16px - 2 *
+                72px
+            ) / 23
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 7080px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 21 * 16px - 2 *
+                72px
+            ) / 22
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6764px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 20 * 16px - 2 *
+                72px
+            ) / 21
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6448px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 19 * 16px - 2 *
+                72px
+            ) / 20
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6132px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 18 * 16px - 2 *
+                72px
+            ) / 19
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5816px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 17 * 16px - 2 *
+                72px
+            ) / 18
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5500px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 16 * 16px - 2 *
+                72px
+            ) / 17
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5184px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 15 * 16px - 2 *
+                72px
+            ) / 16
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4868px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 14 * 16px - 2 *
+                72px
+            ) / 15
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4552px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 13 * 16px - 2 *
+                72px
+            ) / 14
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4236px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 12 * 16px - 2 *
+                72px
+            ) / 13
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3920px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 11 * 16px - 2 *
+                72px
+            ) / 12
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3604px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 10 * 16px - 2 *
+                72px
+            ) / 11
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3288px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 9 * 16px - 2 *
+                72px
+            ) / 10
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2972px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 8 * 16px - 2 *
+                72px
+            ) / 9
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2656px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 7 * 16px - 2 *
+                72px
+            ) / 8
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2340px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 6 * 16px - 2 *
+                72px
+            ) / 7
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2024px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 5 * 16px - 2 *
+                72px
+            ) / 6
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1708px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 4 * 16px - 2 *
+                72px
+            ) / 5
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1392px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 3 * 16px - 2 *
+                72px
+            ) / 4
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1076px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 2 * 16px - 2 *
+                72px
+            ) / 3
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 760px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 1 * 16px - 2 *
+                72px
+            ) / 2
+        );
+    --height: calc(var(--width) * 0.94);
+    --height: calc(var(--width) * 0.84);
+  }
+}
+
+@media (max-width: 444px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 0 * 16px - 2 *
+                72px
+            ) / 1
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+.emotion-0 .ManageButtons {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.emotion-0:hover {
+  z-index: 10;
+}
+
+.emotion-0:hover .ManageButtons {
+  opacity: 1;
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+}
+
+.emotion-2 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  background-color: #292d33;
+  padding: 16px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  font-size: 1.5rem;
-  font-size: inherit;
 }
 
-.c8 {
-  overflow: hidden;
-  pointer-events: none;
+.emotion-4 {
   position: absolute;
-  z-index: 0;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  border-radius: inherit;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  padding: 8px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.5) 20%,
+      rgba(0, 0, 0, 0) 90%
+    );
+  -webkit-backface-visibility: initial;
 }
 
-.c5 {
+.emotion-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -312,8 +919,8 @@ exports[`FollowedAnimeEpisodeEntry renders default when idle 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -336,43 +943,62 @@ exports[`FollowedAnimeEpisodeEntry renders default when idle 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
+  -webkit-filter: drop-shadow(0px 0px 1px #000000aa);
+  filter: drop-shadow(0px 0px 1px #000000aa);
+  font-size: 24px;
 }
 
-.c5::-moz-focus-inner {
+.emotion-5::-moz-focus-inner {
   border-style: none;
 }
 
-.c5.Mui-disabled {
+.emotion-5.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
-.c0 {
-  position: relative;
-  border-radius: 4px;
+@media print {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
+}
+
+.emotion-7 {
   overflow: hidden;
-  --width: calc( ( 100vw - 3 * 16px - 2 * 72px ) / 4 );
-  --height: calc(var(--width) * 0.64);
-  width: var(--width);
-  height: var(--height);
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  cursor: pointer;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
 }
 
-.c0:hover {
-  z-index: 10;
-}
-
-.c9 {
-  font-weight: 700;
+.emotion-8 {
+  font-weight: 400;
   color: white;
   font-size: 1rem;
   line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
   margin-bottom: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -381,100 +1007,10 @@ exports[`FollowedAnimeEpisodeEntry renders default when idle 1`] = `
   -webkit-box-orient: vertical;
 }
 
-.c10 {
+.emotion-9 {
   font-weight: 300;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
-  text-shadow: 0 0 2px black,0 0 4px black;
-}
-
-.c6 {
-  -webkit-filter: drop-shadow(0px 0px 1px #000000aa);
-  filter: drop-shadow(0px 0px 1px #000000aa);
-  font-size: 24px;
-}
-
-.c4 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding: 8px;
-  background-image: linear-gradient( to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 90% );
-  -webkit-backface-visibility: initial;
-}
-
-.c2 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  background-image: linear-gradient( to top, rgba(0,0,0,0.7), rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 40% );
-  padding: 16px;
-}
-
-.c2 .c3 {
-  opacity: 0;
-  -webkit-transition: opacity 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out;
-}
-
-.c2:hover .c3 {
-  opacity: 1;
-}
-
-.c1 {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-@media print {
-  .c5 {
-    color-adjust: exact;
-  }
-}
-
-@media (max-width:1000px) {
-  .c0 {
-    --width: calc( ( 100vw - 2 * 16px - 2 * 72px ) / 3 );
-    --height: calc(var(--width) * 0.64);
-  }
-}
-
-@media (max-width:800px) {
-  .c0 {
-    --width: calc( ( 100vw - 1 * 16px - 2 * 72px ) / 2 );
-    --height: calc(var(--width) * 0.64);
-    --height: calc(var(--width) * 0.84);
-  }
-}
-
-@media (max-width:500px) {
-  .c0 {
-    --width: calc( ( 100vw - 0 * 16px - 2 * 72px ) / 1 );
-    --height: calc(var(--width) * 0.64);
-  }
 }
 
 <body>
@@ -484,24 +1020,28 @@ exports[`FollowedAnimeEpisodeEntry renders default when idle 1`] = `
       style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="c0"
+        class="emotion-0"
         data-testid="anime-entry-background"
       >
-        <img
-          alt="Here goes the anime name"
-          class="c1"
-          src="Here goes the anime image url"
-        />
         <div
-          class="c2"
+          class="emotion-1"
+        >
+          <img
+            alt="Here goes the anime name"
+            class="emotion-2"
+            src="Here goes the anime image url"
+          />
+        </div>
+        <div
+          class="emotion-3 AnimeInfo"
           data-testid="anime-episode-entry-anime-info"
         >
           <div
-            class="c3 c4"
+            class="emotion-4 ManageButtons"
           >
             <button
               aria-label="Seguir"
-              class="c5 MuiButtonBase-root c6"
+              class="MuiButtonBase-root  emotion-5"
               data-mui-internal-clone-element="true"
               data-testid="manage-follow-button-button"
               tabindex="0"
@@ -509,29 +1049,29 @@ exports[`FollowedAnimeEpisodeEntry renders default when idle 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="c7 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
                 data-testid="FavoriteBorderRoundedIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M19.66 3.99c-2.64-1.8-5.9-.96-7.66 1.1-1.76-2.06-5.02-2.91-7.66-1.1-1.4.96-2.28 2.58-2.34 4.29-.14 3.88 3.3 6.99 8.55 11.76l.1.09c.76.69 1.93.69 2.69-.01l.11-.1c5.25-4.76 8.68-7.87 8.55-11.75-.06-1.7-.94-3.32-2.34-4.28zM12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"
+                  d="M19.66 3.99c-2.64-1.8-5.9-.96-7.66 1.1-1.76-2.06-5.02-2.91-7.66-1.1-1.4.96-2.28 2.58-2.34 4.29-.14 3.88 3.3 6.99 8.55 11.76l.1.09c.76.69 1.93.69 2.69-.01l.11-.1c5.25-4.76 8.68-7.87 8.55-11.75-.06-1.7-.94-3.32-2.34-4.28M12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05"
                 />
               </svg>
               <span
-                class="c8 MuiTouchRipple-root"
+                class="MuiTouchRipple-root emotion-7"
               />
             </button>
           </div>
           <h3
             aria-label="Here goes the anime name"
-            class="c9"
+            class=" emotion-8"
             data-mui-internal-clone-element="true"
           >
             Here goes the anime name
           </h3>
           <h6
-            class="c10"
+            class="emotion-9"
           >
             Episodio 70
           </h6>
@@ -543,37 +1083,374 @@ exports[`FollowedAnimeEpisodeEntry renders default when idle 1`] = `
 `;
 
 exports[`FollowedAnimeEpisodeEntry renders default when loading 1`] = `
-.c7 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
+.emotion-0 {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: var(--width);
+  height: var(--height);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media (max-width: 7396px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 22 * 16px - 2 *
+                72px
+            ) / 23
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 7080px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 21 * 16px - 2 *
+                72px
+            ) / 22
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6764px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 20 * 16px - 2 *
+                72px
+            ) / 21
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6448px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 19 * 16px - 2 *
+                72px
+            ) / 20
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6132px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 18 * 16px - 2 *
+                72px
+            ) / 19
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5816px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 17 * 16px - 2 *
+                72px
+            ) / 18
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5500px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 16 * 16px - 2 *
+                72px
+            ) / 17
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5184px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 15 * 16px - 2 *
+                72px
+            ) / 16
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4868px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 14 * 16px - 2 *
+                72px
+            ) / 15
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4552px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 13 * 16px - 2 *
+                72px
+            ) / 14
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4236px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 12 * 16px - 2 *
+                72px
+            ) / 13
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3920px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 11 * 16px - 2 *
+                72px
+            ) / 12
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3604px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 10 * 16px - 2 *
+                72px
+            ) / 11
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3288px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 9 * 16px - 2 *
+                72px
+            ) / 10
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2972px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 8 * 16px - 2 *
+                72px
+            ) / 9
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2656px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 7 * 16px - 2 *
+                72px
+            ) / 8
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2340px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 6 * 16px - 2 *
+                72px
+            ) / 7
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2024px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 5 * 16px - 2 *
+                72px
+            ) / 6
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1708px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 4 * 16px - 2 *
+                72px
+            ) / 5
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1392px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 3 * 16px - 2 *
+                72px
+            ) / 4
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1076px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 2 * 16px - 2 *
+                72px
+            ) / 3
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 760px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 1 * 16px - 2 *
+                72px
+            ) / 2
+        );
+    --height: calc(var(--width) * 0.94);
+    --height: calc(var(--width) * 0.84);
+  }
+}
+
+@media (max-width: 444px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 0 * 16px - 2 *
+                72px
+            ) / 1
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+.emotion-0 .ManageButtons {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.emotion-0:hover {
+  z-index: 10;
+}
+
+.emotion-0:hover .ManageButtons {
+  opacity: 1;
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+}
+
+.emotion-2 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  background-color: #292d33;
+  padding: 16px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  font-size: 1.5rem;
-  font-size: inherit;
 }
 
-.c8 {
-  overflow: hidden;
-  pointer-events: none;
+.emotion-4 {
   position: absolute;
-  z-index: 0;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  border-radius: inherit;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  padding: 8px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.5) 20%,
+      rgba(0, 0, 0, 0) 90%
+    );
+  -webkit-backface-visibility: initial;
 }
 
-.c5 {
+.emotion-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -583,8 +1460,8 @@ exports[`FollowedAnimeEpisodeEntry renders default when loading 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -607,43 +1484,62 @@ exports[`FollowedAnimeEpisodeEntry renders default when loading 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
+  -webkit-filter: drop-shadow(0px 0px 1px #000000aa);
+  filter: drop-shadow(0px 0px 1px #000000aa);
+  font-size: 24px;
 }
 
-.c5::-moz-focus-inner {
+.emotion-5::-moz-focus-inner {
   border-style: none;
 }
 
-.c5.Mui-disabled {
+.emotion-5.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
-.c0 {
-  position: relative;
-  border-radius: 4px;
+@media print {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
+}
+
+.emotion-7 {
   overflow: hidden;
-  --width: calc( ( 100vw - 3 * 16px - 2 * 72px ) / 4 );
-  --height: calc(var(--width) * 0.64);
-  width: var(--width);
-  height: var(--height);
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  cursor: pointer;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
 }
 
-.c0:hover {
-  z-index: 10;
-}
-
-.c9 {
-  font-weight: 700;
+.emotion-8 {
+  font-weight: 400;
   color: white;
   font-size: 1rem;
   line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
   margin-bottom: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -652,100 +1548,10 @@ exports[`FollowedAnimeEpisodeEntry renders default when loading 1`] = `
   -webkit-box-orient: vertical;
 }
 
-.c10 {
+.emotion-9 {
   font-weight: 300;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
-  text-shadow: 0 0 2px black,0 0 4px black;
-}
-
-.c6 {
-  -webkit-filter: drop-shadow(0px 0px 1px #000000aa);
-  filter: drop-shadow(0px 0px 1px #000000aa);
-  font-size: 24px;
-}
-
-.c4 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding: 8px;
-  background-image: linear-gradient( to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 90% );
-  -webkit-backface-visibility: initial;
-}
-
-.c2 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  background-image: linear-gradient( to top, rgba(0,0,0,0.7), rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 40% );
-  padding: 16px;
-}
-
-.c2 .c3 {
-  opacity: 0;
-  -webkit-transition: opacity 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out;
-}
-
-.c2:hover .c3 {
-  opacity: 1;
-}
-
-.c1 {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-@media print {
-  .c5 {
-    color-adjust: exact;
-  }
-}
-
-@media (max-width:1000px) {
-  .c0 {
-    --width: calc( ( 100vw - 2 * 16px - 2 * 72px ) / 3 );
-    --height: calc(var(--width) * 0.64);
-  }
-}
-
-@media (max-width:800px) {
-  .c0 {
-    --width: calc( ( 100vw - 1 * 16px - 2 * 72px ) / 2 );
-    --height: calc(var(--width) * 0.64);
-    --height: calc(var(--width) * 0.84);
-  }
-}
-
-@media (max-width:500px) {
-  .c0 {
-    --width: calc( ( 100vw - 0 * 16px - 2 * 72px ) / 1 );
-    --height: calc(var(--width) * 0.64);
-  }
 }
 
 <body>
@@ -755,24 +1561,28 @@ exports[`FollowedAnimeEpisodeEntry renders default when loading 1`] = `
       style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="c0"
+        class="emotion-0"
         data-testid="anime-entry-background"
       >
-        <img
-          alt="Here goes the anime name"
-          class="c1"
-          src="Here goes the anime image url"
-        />
         <div
-          class="c2"
+          class="emotion-1"
+        >
+          <img
+            alt="Here goes the anime name"
+            class="emotion-2"
+            src="Here goes the anime image url"
+          />
+        </div>
+        <div
+          class="emotion-3 AnimeInfo"
           data-testid="anime-episode-entry-anime-info"
         >
           <div
-            class="c3 c4"
+            class="emotion-4 ManageButtons"
           >
             <button
               aria-label="Seguir"
-              class="c5 MuiButtonBase-root c6"
+              class="MuiButtonBase-root  emotion-5"
               data-mui-internal-clone-element="true"
               data-testid="manage-follow-button-button"
               tabindex="0"
@@ -780,29 +1590,29 @@ exports[`FollowedAnimeEpisodeEntry renders default when loading 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="c7 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
                 data-testid="FavoriteBorderRoundedIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M19.66 3.99c-2.64-1.8-5.9-.96-7.66 1.1-1.76-2.06-5.02-2.91-7.66-1.1-1.4.96-2.28 2.58-2.34 4.29-.14 3.88 3.3 6.99 8.55 11.76l.1.09c.76.69 1.93.69 2.69-.01l.11-.1c5.25-4.76 8.68-7.87 8.55-11.75-.06-1.7-.94-3.32-2.34-4.28zM12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"
+                  d="M19.66 3.99c-2.64-1.8-5.9-.96-7.66 1.1-1.76-2.06-5.02-2.91-7.66-1.1-1.4.96-2.28 2.58-2.34 4.29-.14 3.88 3.3 6.99 8.55 11.76l.1.09c.76.69 1.93.69 2.69-.01l.11-.1c5.25-4.76 8.68-7.87 8.55-11.75-.06-1.7-.94-3.32-2.34-4.28M12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05"
                 />
               </svg>
               <span
-                class="c8 MuiTouchRipple-root"
+                class="MuiTouchRipple-root emotion-7"
               />
             </button>
           </div>
           <h3
             aria-label="Here goes the anime name"
-            class="c9"
+            class=" emotion-8"
             data-mui-internal-clone-element="true"
           >
             Here goes the anime name
           </h3>
           <h6
-            class="c10"
+            class="emotion-9"
           >
             Episodio 70
           </h6>
@@ -814,37 +1624,374 @@ exports[`FollowedAnimeEpisodeEntry renders default when loading 1`] = `
 `;
 
 exports[`FollowedAnimeEpisodeEntry renders default when succeeded 1`] = `
-.c7 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
+.emotion-0 {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: var(--width);
+  height: var(--height);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media (max-width: 7396px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 22 * 16px - 2 *
+                72px
+            ) / 23
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 7080px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 21 * 16px - 2 *
+                72px
+            ) / 22
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6764px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 20 * 16px - 2 *
+                72px
+            ) / 21
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6448px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 19 * 16px - 2 *
+                72px
+            ) / 20
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 6132px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 18 * 16px - 2 *
+                72px
+            ) / 19
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5816px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 17 * 16px - 2 *
+                72px
+            ) / 18
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5500px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 16 * 16px - 2 *
+                72px
+            ) / 17
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 5184px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 15 * 16px - 2 *
+                72px
+            ) / 16
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4868px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 14 * 16px - 2 *
+                72px
+            ) / 15
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4552px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 13 * 16px - 2 *
+                72px
+            ) / 14
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 4236px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 12 * 16px - 2 *
+                72px
+            ) / 13
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3920px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 11 * 16px - 2 *
+                72px
+            ) / 12
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3604px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 10 * 16px - 2 *
+                72px
+            ) / 11
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 3288px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 9 * 16px - 2 *
+                72px
+            ) / 10
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2972px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 8 * 16px - 2 *
+                72px
+            ) / 9
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2656px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 7 * 16px - 2 *
+                72px
+            ) / 8
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2340px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 6 * 16px - 2 *
+                72px
+            ) / 7
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 2024px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 5 * 16px - 2 *
+                72px
+            ) / 6
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1708px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 4 * 16px - 2 *
+                72px
+            ) / 5
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1392px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 3 * 16px - 2 *
+                72px
+            ) / 4
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 1076px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 2 * 16px - 2 *
+                72px
+            ) / 3
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+@media (max-width: 760px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 1 * 16px - 2 *
+                72px
+            ) / 2
+        );
+    --height: calc(var(--width) * 0.94);
+    --height: calc(var(--width) * 0.84);
+  }
+}
+
+@media (max-width: 444px) {
+  .emotion-0 {
+    --width: calc(
+          (
+              100vw - 0 * 16px - 2 *
+                72px
+            ) / 1
+        );
+    --height: calc(var(--width) * 0.94);
+  }
+}
+
+.emotion-0 .ManageButtons {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.emotion-0:hover {
+  z-index: 10;
+}
+
+.emotion-0:hover .ManageButtons {
+  opacity: 1;
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+}
+
+.emotion-2 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  background-color: #292d33;
+  padding: 16px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-  font-size: 1.5rem;
-  font-size: inherit;
 }
 
-.c8 {
-  overflow: hidden;
-  pointer-events: none;
+.emotion-4 {
   position: absolute;
-  z-index: 0;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  border-radius: inherit;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  padding: 8px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.5) 20%,
+      rgba(0, 0, 0, 0) 90%
+    );
+  -webkit-backface-visibility: initial;
 }
 
-.c5 {
+.emotion-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -854,8 +2001,8 @@ exports[`FollowedAnimeEpisodeEntry renders default when succeeded 1`] = `
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
@@ -878,43 +2025,62 @@ exports[`FollowedAnimeEpisodeEntry renders default when succeeded 1`] = `
   text-decoration: none;
   color: inherit;
   text-transform: unset;
+  -webkit-filter: drop-shadow(0px 0px 1px #000000aa);
+  filter: drop-shadow(0px 0px 1px #000000aa);
+  font-size: 24px;
 }
 
-.c5::-moz-focus-inner {
+.emotion-5::-moz-focus-inner {
   border-style: none;
 }
 
-.c5.Mui-disabled {
+.emotion-5.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
-.c0 {
-  position: relative;
-  border-radius: 4px;
+@media print {
+  .emotion-5 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  font-size: inherit;
+}
+
+.emotion-7 {
   overflow: hidden;
-  --width: calc( ( 100vw - 3 * 16px - 2 * 72px ) / 4 );
-  --height: calc(var(--width) * 0.64);
-  width: var(--width);
-  height: var(--height);
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  cursor: pointer;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
 }
 
-.c0:hover {
-  z-index: 10;
-}
-
-.c9 {
-  font-weight: 700;
+.emotion-8 {
+  font-weight: 400;
   color: white;
   font-size: 1rem;
   line-height: 1;
-  text-shadow: 0 0 2px black,0 0 6px black;
   margin-bottom: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -923,100 +2089,10 @@ exports[`FollowedAnimeEpisodeEntry renders default when succeeded 1`] = `
   -webkit-box-orient: vertical;
 }
 
-.c10 {
+.emotion-9 {
   font-weight: 300;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
-  text-shadow: 0 0 2px black,0 0 4px black;
-}
-
-.c6 {
-  -webkit-filter: drop-shadow(0px 0px 1px #000000aa);
-  filter: drop-shadow(0px 0px 1px #000000aa);
-  font-size: 24px;
-}
-
-.c4 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding: 8px;
-  background-image: linear-gradient( to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 90% );
-  -webkit-backface-visibility: initial;
-}
-
-.c2 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  background-image: linear-gradient( to top, rgba(0,0,0,0.7), rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 40% );
-  padding: 16px;
-}
-
-.c2 .c3 {
-  opacity: 0;
-  -webkit-transition: opacity 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out;
-}
-
-.c2:hover .c3 {
-  opacity: 1;
-}
-
-.c1 {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-@media print {
-  .c5 {
-    color-adjust: exact;
-  }
-}
-
-@media (max-width:1000px) {
-  .c0 {
-    --width: calc( ( 100vw - 2 * 16px - 2 * 72px ) / 3 );
-    --height: calc(var(--width) * 0.64);
-  }
-}
-
-@media (max-width:800px) {
-  .c0 {
-    --width: calc( ( 100vw - 1 * 16px - 2 * 72px ) / 2 );
-    --height: calc(var(--width) * 0.64);
-    --height: calc(var(--width) * 0.84);
-  }
-}
-
-@media (max-width:500px) {
-  .c0 {
-    --width: calc( ( 100vw - 0 * 16px - 2 * 72px ) / 1 );
-    --height: calc(var(--width) * 0.64);
-  }
 }
 
 <body>
@@ -1026,24 +2102,28 @@ exports[`FollowedAnimeEpisodeEntry renders default when succeeded 1`] = `
       style="opacity: 1; webkit-transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="c0"
+        class="emotion-0"
         data-testid="anime-entry-background"
       >
-        <img
-          alt="Here goes the anime name"
-          class="c1"
-          src="Here goes the anime image url"
-        />
         <div
-          class="c2"
+          class="emotion-1"
+        >
+          <img
+            alt="Here goes the anime name"
+            class="emotion-2"
+            src="Here goes the anime image url"
+          />
+        </div>
+        <div
+          class="emotion-3 AnimeInfo"
           data-testid="anime-episode-entry-anime-info"
         >
           <div
-            class="c3 c4"
+            class="emotion-4 ManageButtons"
           >
             <button
               aria-label="Seguir"
-              class="c5 MuiButtonBase-root c6"
+              class="MuiButtonBase-root  emotion-5"
               data-mui-internal-clone-element="true"
               data-testid="manage-follow-button-button"
               tabindex="0"
@@ -1051,29 +2131,29 @@ exports[`FollowedAnimeEpisodeEntry renders default when succeeded 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="c7 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-6"
                 data-testid="FavoriteBorderRoundedIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M19.66 3.99c-2.64-1.8-5.9-.96-7.66 1.1-1.76-2.06-5.02-2.91-7.66-1.1-1.4.96-2.28 2.58-2.34 4.29-.14 3.88 3.3 6.99 8.55 11.76l.1.09c.76.69 1.93.69 2.69-.01l.11-.1c5.25-4.76 8.68-7.87 8.55-11.75-.06-1.7-.94-3.32-2.34-4.28zM12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"
+                  d="M19.66 3.99c-2.64-1.8-5.9-.96-7.66 1.1-1.76-2.06-5.02-2.91-7.66-1.1-1.4.96-2.28 2.58-2.34 4.29-.14 3.88 3.3 6.99 8.55 11.76l.1.09c.76.69 1.93.69 2.69-.01l.11-.1c5.25-4.76 8.68-7.87 8.55-11.75-.06-1.7-.94-3.32-2.34-4.28M12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05"
                 />
               </svg>
               <span
-                class="c8 MuiTouchRipple-root"
+                class="MuiTouchRipple-root emotion-7"
               />
             </button>
           </div>
           <h3
             aria-label="Here goes the anime name"
-            class="c9"
+            class=" emotion-8"
             data-mui-internal-clone-element="true"
           >
             Here goes the anime name
           </h3>
           <h6
-            class="c10"
+            class="emotion-9"
           >
             Episodio 70
           </h6>

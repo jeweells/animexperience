@@ -1,4 +1,5 @@
 import { LinkedFn } from '../fnlinker'
+import { ForcedAny } from '@shared/types'
 
 const sleep = async (ms: number, onInit?: (cancel: () => void) => void) =>
   new Promise((resolve) => {
@@ -13,7 +14,7 @@ const ticks = [5, 10, 15, 20, 30]
 export const retry = (linkedFn: LinkedFn): LinkedFn => {
   if (!linkedFn.fn) return linkedFn
   const fnRef = linkedFn.fn
-  linkedFn.fn = async (...args: any[]): Promise<any> => {
+  linkedFn.fn = async (...args: ForcedAny[]): Promise<ForcedAny> => {
     for (let times = 1, targetTick = 0; ; times++) {
       try {
         return await fnRef?.(...args)

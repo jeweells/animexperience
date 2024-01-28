@@ -4,7 +4,8 @@ import { Provider } from 'react-redux'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import { FStatus } from '@shared/types'
-import TopLayout from '../../../plugins/gatsby-plugin-top-layout/TopLayout'
+import theme from '../../theme'
+import { ThemeProvider } from '@mui/material'
 
 const statusTypes: FStatus[] = ['idle', 'loading', 'succeeded', 'failed']
 
@@ -59,11 +60,11 @@ describe('FollowedAnimeEpisodeEntry', () => {
 
   const getComponent = (override: Partial<FollowedAnimeEpisodeEntryProps> = {}) => {
     return (
-      <TopLayout>
-        <Provider store={mockStore(initialState)}>
+      <Provider store={mockStore(initialState)}>
+        <ThemeProvider theme={theme}>
           <FollowedAnimeEpisodeEntry {...props} {...override} />
-        </Provider>
-      </TopLayout>
+        </ThemeProvider>
+      </Provider>
     )
   }
 

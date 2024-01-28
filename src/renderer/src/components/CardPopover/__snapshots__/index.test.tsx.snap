@@ -9,7 +9,7 @@ exports[`CardPopover renders default 1`] = `
         style="position: absolute; pointer-events: all; top: 0px; left: 0px; z-index: 100;"
       >
         <div
-          class="makeStyles-item-1 makeStyles-item-3"
+          class="makeStyles-item-1"
           style="transform-origin: left top;"
         >
           <div>
