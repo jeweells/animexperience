@@ -39,3 +39,15 @@ export const deepFindVideos = (
   }
   return
 }
+
+export const deepFindVideo = (target: $IframeContents, depth = 5) => {
+  return deepFindVideos(target, depth)?.find((vid) => {
+    const jVid = $(vid)
+    if (jVid.attr('src')) {
+      return true
+    } else if (jVid.find('source[src]').length) {
+      return true
+    }
+    return false
+  })
+}

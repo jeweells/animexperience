@@ -21,3 +21,18 @@ export const rendererInvoke = (
 }
 
 export const random = () => Math.random()
+
+export const polling = <T>(initialData: T, callback: (data: T, stop: () => T) => T, ms: number) => {
+  let dataRef = initialData
+
+  const t = setInterval(() => {
+    dataRef = callback(dataRef, stop)
+  }, ms)
+  const stop = () => {
+    clearInterval(t)
+    return dataRef
+  }
+  return () => {
+    stop()
+  }
+}
