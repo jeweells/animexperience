@@ -13,11 +13,12 @@ export const initializePlayerOption = (
   const methods: Partial<
     Record<KnownOption, (contents: $IframeContents, episodeInfo?: Optional<EpisodeInfo>) => boolean>
   > = {
-    fembed: handleFembedPlayer,
-    okru: handleOkRuPlayer,
-    mixdrop: handleMixDrop,
-    streamtape: handleStreamtape,
-    stape: handleStreamtape
+    fembed,
+    okru,
+    mixdrop,
+    streamtape,
+    stape: streamtape,
+    mega
   }
   const handler = methods[option?.name?.toLowerCase() ?? '']
   if (!handler) return false
@@ -29,7 +30,7 @@ export const initializePlayerOption = (
   return false
 }
 
-export const handleStreamtape = (iframe: $IframeContents) => {
+export const streamtape = (iframe: $IframeContents) => {
   const adOverlay = iframe.find('.plyr-container > .plyr-overlay')
   if (adOverlay.length > 0) {
     if (adOverlay.css('display') !== 'none') {
@@ -39,7 +40,14 @@ export const handleStreamtape = (iframe: $IframeContents) => {
   return false
 }
 
-export const handleFembedPlayer = (iframe: $IframeContents) => {
+export const mega = (iframe: $IframeContents) => {
+  const playBtn = iframe.find('.play-video-button')
+  if (!playBtn.length) return false
+  playBtn.trigger('click')
+  return true
+}
+
+export const fembed = (iframe: $IframeContents) => {
   console.debug('Fembed: Clicking play button')
   const playBtn = iframe.find('.faplbu')
   if (playBtn.length > 0) {
@@ -49,7 +57,7 @@ export const handleFembedPlayer = (iframe: $IframeContents) => {
   }
   return false
 }
-export const handleOkRuPlayer = (iframe: $IframeContents, episodeInfo?: Optional<EpisodeInfo>) => {
+export const okru = (iframe: $IframeContents, episodeInfo?: Optional<EpisodeInfo>) => {
   console.debug('Okru: Clicking play button')
   const playBtn = iframe.find('div#embedVideoC.vid-card_cnt_w')
   if (playBtn.length > 0) {
@@ -109,7 +117,7 @@ export const handleOkRuPlayer = (iframe: $IframeContents, episodeInfo?: Optional
   }
   return false
 }
-export const handleMixDrop = (iframe: $IframeContents) => {
+export const mixdrop = (iframe: $IframeContents) => {
   let adClicked = false
   for (const adClick of iframe.find('div[onclick]').get()) {
     const onclick = adClick.getAttribute('onclick')
