@@ -2,16 +2,16 @@ import $ from 'jquery'
 import { EpisodeInfo } from '@shared/types'
 import { Optional } from '@shared/types'
 import { VideoOption } from './index'
-import { $IframeContents } from './types'
+import { $IframeContents, KnownOption } from './types'
 import { deepIframes } from './utils'
 
-export const handleSpecificOptions = (
+export const initializePlayerOption = (
   option: Optional<VideoOption>,
   contents: $IframeContents,
   episodeInfo: Optional<EpisodeInfo>
 ): boolean => {
   const methods: Partial<
-    Record<string, (contents: $IframeContents, episodeInfo?: Optional<EpisodeInfo>) => boolean>
+    Record<KnownOption, (contents: $IframeContents, episodeInfo?: Optional<EpisodeInfo>) => boolean>
   > = {
     fembed: handleFembedPlayer,
     okru: handleOkRuPlayer,
@@ -20,14 +20,12 @@ export const handleSpecificOptions = (
     stape: handleStreamtape
   }
   const handler = methods[option?.name?.toLowerCase() ?? '']
-  if (handler) {
-    for (const iframe of deepIframes(contents)) {
-      if (handler(iframe, episodeInfo)) {
-        return true
-      }
+  if (!handler) return false
+  for (const iframe of deepIframes(contents)) {
+    if (handler(iframe, episodeInfo)) {
+      return true
     }
   }
-
   return false
 }
 

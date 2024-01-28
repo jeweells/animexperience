@@ -25,9 +25,6 @@ export const useInvokedLinks = () => {
       if (!invokedLink) return
       handleInvokedLink(invokedLink)
     })
-    ipcRenderer.on(eventNames.linkInvoked, fn)
-    return () => {
-      ipcRenderer.removeListener(eventNames.linkInvoked, fn)
-    }
+    return ipcRenderer.on(eventNames.linkInvoked, fn)
   }, [])
 }

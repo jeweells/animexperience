@@ -1,11 +1,12 @@
-import { useMemo, useState, useLayoutEffect, FC, PropsWithChildren, memo } from 'react'
+import { useMemo, useState, useLayoutEffect, FC, PropsWithChildren, memo, useCallback } from 'react'
 import { styled } from '@mui/system'
-import { useAppSelector } from '~/redux/utils'
+import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { useFadeInStyles } from '../../globalMakeStyles/fadeIn'
 import { OptionsRow } from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import VideoPlayer, { VideoOption } from '../VideoPlayer'
 import OptionButton from './components/OptionButton'
 import Tabs from '@mui/material/Tabs'
+import { watch } from '@reducers'
 
 const STabs = styled(Tabs)`
   min-height: 0;
@@ -16,6 +17,7 @@ const STabs = styled(Tabs)`
 
 export const VideoPlayerWOptions: FC<PropsWithChildren> = memo(({ children }) => {
   const { fadeIn } = useFadeInStyles()
+  const dispatch = useAppDispatch()
   const availableOptions = useAppSelector((d) => d.watch.availableVideos)
   const usedOptions = useAppSelector((d) => d.playerOptions.options)
   const [currentOption, setCurrentOption] = useState<VideoOption | null>(null)
@@ -36,13 +38,18 @@ export const VideoPlayerWOptions: FC<PropsWithChildren> = memo(({ children }) =>
   }, [availableOptions, usedOptions])
 
   useLayoutEffect(() => {
-    if (sortedOptions.length > 0 && !currentOption) {
-      setCurrentOption(sortedOptions[0])
-    }
+    if (sortedOptions.length === 0 || sortedOptions.find((opt) => opt.name === currentOption?.name))
+      return
+    setCurrentOption(sortedOptions[0])
   }, [sortedOptions, currentOption])
 
+  const onOptionNotFound = useCallback(() => {
+    if (!currentOption) return
+    dispatch(watch.dropVideoOption(currentOption))
+  }, [currentOption, sortedOptions])
+
   return (
-    <VideoPlayer option={currentOption}>
+    <VideoPlayer option={currentOption} onOptionNotFound={onOptionNotFound}>
       <OptionsRow className={fadeIn}>
         <STabs
           variant={'scrollable'}

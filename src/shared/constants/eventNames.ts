@@ -1,3 +1,4 @@
 export default {
-  linkInvoked: 'linkInvoked'
+  linkInvoked: 'linkInvoked',
+  videoUrlFailed: 'videoUrlFailed'
 }

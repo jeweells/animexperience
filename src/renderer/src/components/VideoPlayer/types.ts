@@ -7,3 +7,5 @@ export type BasicVideoInfo = {
   option?: Optional<VideoOption>
   anime?: Optional<RecentAnimeData>
 }
+
+export type KnownOption = 'fembed' | 'okru' | 'mixdrop' | 'streamtape' | 'stape'

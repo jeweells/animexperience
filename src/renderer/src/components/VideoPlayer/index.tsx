@@ -14,6 +14,7 @@ export type VideoOption = {
 }
 export type VideoPlayerProps = {
   option: VideoOption | null
+  onOptionNotFound: () => void
 }
 
 const IFrame: FC<
@@ -42,50 +43,53 @@ const IFrame: FC<
 
 IFrame.displayName = 'IFrame'
 
-export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(({ option, children }) => {
-  const [ref, setRef] = useState<HTMLDivElement | null>(null)
-  const freezed = useAppSelector((d) => d.player.freezed)
-  const watching = useAppSelector((d) => d.watch.watching)
-  const { ref: containerRef, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>()
+export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
+  ({ option, onOptionNotFound, children }) => {
+    const [ref, setRef] = useState<HTMLDivElement | null>(null)
+    const freezed = useAppSelector((d) => d.player.freezed)
+    const watching = useAppSelector((d) => d.watch.watching)
+    const { ref: containerRef, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>()
 
-  useLayoutEffect(() => {
-    if (!ref) return
-    const iframe = $(ref).find('iframe')
-    if (!iframe.length) return
-    iframe.attr('width', Math.floor(width) - 1)
-    iframe.attr('height', Math.floor(height) - 1)
-  }, [ref, option?.name, width, height])
+    useLayoutEffect(() => {
+      if (!ref) return
+      const iframe = $(ref).find('iframe')
+      if (!iframe.length) return
+      iframe.attr('width', Math.floor(width) - 1)
+      iframe.attr('height', Math.floor(height) - 1)
+    }, [ref, option?.name, width, height])
 
-  useVideoImprovements(
-    {
-      anime: watching,
-      option
-    },
-    ref
-  )
+    useVideoImprovements({
+      info: {
+        anime: watching,
+        option
+      },
+      container: ref,
+      onOptionNotFound
+    })
 
-  const updateWrapperRef = useCallback((r: HTMLDivElement | null) => {
-    setRef(r)
-    return containerRef(r)
-  }, [])
+    const updateWrapperRef = useCallback((r: HTMLDivElement | null) => {
+      setRef(r)
+      return containerRef(r)
+    }, [])
 
-  console.debug('FREEZED:', freezed)
-  return (
-    <Wrapper
-      style={{
-        width: '100vw',
-        height: 'var(--modal-height)'
-      }}
-    >
-      {children}
-      {!freezed && option && (
-        <IFrame html={option?.html} updateRef={updateWrapperRef}>
-          <NextEpisodeButton />
-        </IFrame>
-      )}
-    </Wrapper>
-  )
-})
+    console.debug('FREEZED:', freezed)
+    return (
+      <Wrapper
+        style={{
+          width: '100vw',
+          height: 'var(--modal-height)'
+        }}
+      >
+        {children}
+        {!freezed && option && (
+          <IFrame html={option?.html} updateRef={updateWrapperRef}>
+            <NextEpisodeButton />
+          </IFrame>
+        )}
+      </Wrapper>
+    )
+  }
+)
 
 VideoPlayer.displayName = 'VideoPlayer'
 

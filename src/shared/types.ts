@@ -168,3 +168,8 @@ export type WatchInvokedLink = {
   partialLink: string
 }
 export type InvokedLink = WatchInvokedLink
+
+export type VideoURLFailed = {
+  option: 'streamtape'
+  url: string
+}

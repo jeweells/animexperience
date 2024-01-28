@@ -124,6 +124,10 @@ export const slice = createSlice({
     },
     setAutoFullScreen(state, { payload }: PayloadAction<boolean>) {
       state.autoFullScreen = payload
+    },
+    dropVideoOption(state, { payload: option }: PayloadAction<VideoOption>) {
+      if (!state.availableVideos) return
+      state.availableVideos = state.availableVideos.filter((x) => x.name !== option.name)
     }
   },
   extraReducers: ({ addCase }) => {

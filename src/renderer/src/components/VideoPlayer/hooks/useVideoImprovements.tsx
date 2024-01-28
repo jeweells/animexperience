@@ -1,4 +1,3 @@
-import { BasicVideoInfo } from '@components/VideoPlayer/types'
 import { EpisodeInfo, Optional, Store } from '@shared/types'
 import { useAppDispatch } from '~/redux/utils'
 import { useStaticStore } from '~/src/hooks/useStaticStore'
@@ -13,7 +12,7 @@ import {
 } from '../constants'
 import { followedAnimes, watch, watched } from '@reducers'
 import store from '~/redux/store'
-import { useVideo } from './useVideo'
+import { UseVideoArgs, useVideo } from './useVideo'
 import { dispatch } from '~/redux/dispatch'
 import { RecentAnimeData } from '~/src/hooks/useRecentAnimes'
 
@@ -24,8 +23,8 @@ type Refs = Partial<{
   followed: boolean
 }>
 
-export const useVideoImprovements = (info: BasicVideoInfo, container: Optional<HTMLDivElement>) => {
-  const video = useVideo(info, container)
+export const useVideoImprovements = ({ info, container, onOptionNotFound, ms }: UseVideoArgs) => {
+  const video = useVideo({ info, container, onOptionNotFound, ms })
   const dispatch = useAppDispatch()
   const staticStore = useStaticStore(Store.WATCHED)
 

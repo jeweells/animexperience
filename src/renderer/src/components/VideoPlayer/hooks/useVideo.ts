@@ -5,14 +5,24 @@ import { useAppSelector } from '~/redux/utils'
 import { useWatched } from '~/src/hooks/useWatched'
 import $ from 'jquery'
 import { polling } from '~/src/utils'
-import { handleSpecificOptions } from '@components/VideoPlayer/autoPlayHandlers'
+import { initializePlayerOption } from '@components/VideoPlayer/autoPlayHandlers'
 import { deepFindVideo } from '@components/VideoPlayer/utils'
+import { optionNotLongerAvailable } from '../videoNotFoundHandlers'
+import { useVideoURLFailedListener } from '~/src/hooks/useVideoURLFailed'
 
-export const useVideo = (info: BasicVideoInfo, container: Optional<HTMLDivElement>, ms = 300) => {
+export type UseVideoArgs = {
+  info: BasicVideoInfo
+  container: Optional<HTMLDivElement>
+  onOptionNotFound: () => void
+  ms?: number
+}
+export const useVideo = ({ info, container, ms = 300, onOptionNotFound }: UseVideoArgs) => {
   const [video, setVideo] = useState<Optional<HTMLVideoElement>>(null)
   const [detachedVideo, setDetachedVideo] = useState<Optional<HTMLVideoElement>>(null)
   const watchEpisodeStatus = useAppSelector((d) => d.watch.status.watchEpisode)
   const episodeInfo = useWatched(info.anime)
+
+  useVideoURLFailedListener()
 
   useLayoutEffect(() => {
     if (!video) return
@@ -37,7 +47,11 @@ export const useVideo = (info: BasicVideoInfo, container: Optional<HTMLDivElemen
       (data, stop) => {
         const contents = iframeContent.contents()
         if (!data.handledSpecificOptions) {
-          data.handledSpecificOptions = handleSpecificOptions(info.option, contents, episodeInfo)
+          data.handledSpecificOptions = initializePlayerOption(info.option, contents, episodeInfo)
+        }
+        if (optionNotLongerAvailable(info.option, contents)) {
+          onOptionNotFound()
+          return stop()
         }
         const targetVideo = deepFindVideo(contents)
         if (!targetVideo) return data
