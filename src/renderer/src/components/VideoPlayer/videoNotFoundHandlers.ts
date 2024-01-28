@@ -41,7 +41,10 @@ const maru: OptionFn = (iframe) => {
 }
 
 const okru: OptionFn = (iframe) => {
-  return _checkText(iframe, 'Okru', 'not been found')
+  return (
+    _checkText(iframe, 'Okru', 'not been found') ||
+    _checkText(iframe, 'Okru', 'video has been blocked')
+  )
 }
 const mixdrop: OptionFn = () => {
   return false
@@ -74,7 +77,7 @@ const yourupload: OptionFn = (iframe) => {
 
 const _checkText = (iframe: $IframeContents, optionName: string, text: string) => {
   const hasFailedText =
-    iframe.filter(function () {
+    iframe.find('*:not(:has(*)):visible').filter(function () {
       return new RegExp(text, 'i').test($(this).text())
     }).length > 0
   if (hasFailedText) console.debug(`${optionName} skipped since text is shown`)
