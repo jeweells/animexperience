@@ -59,9 +59,7 @@ const isDocument = (iframe: $IframeContents[number]): iframe is Document => {
   return 'location' in iframe
 }
 
-const streamtape: OptionFn = () => {
-  return false
-}
+const streamtape: OptionFn = (iframe) => stape(iframe)
 
 const mega: OptionFn = (iframe) => {
   return _checkText(iframe, 'Mega', 'no longer accessible')
