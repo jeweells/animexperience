@@ -1,4 +1,4 @@
-import cheerio from 'cheerio'
+import * as cheerio from 'cheerio'
 import JSON5 from 'json5'
 import fetch from 'node-fetch'
 import { Logger } from 'tslog'

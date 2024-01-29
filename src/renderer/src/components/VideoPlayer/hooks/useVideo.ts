@@ -21,7 +21,6 @@ export const useVideo = ({ info, container, ms = 300, onOptionNotFound }: UseVid
   const [detachedVideo, setDetachedVideo] = useState<Optional<HTMLVideoElement>>(null)
   const watchEpisodeStatus = useAppSelector((d) => d.watch.status.watchEpisode)
   const episodeInfo = useWatched(info.anime)
-
   useVideoURLFailedListener()
 
   useLayoutEffect(() => {

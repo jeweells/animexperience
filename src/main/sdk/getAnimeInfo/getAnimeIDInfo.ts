@@ -1,4 +1,5 @@
-import cheerio, { Cheerio, CheerioAPI, Element } from 'cheerio'
+import * as cheerio from 'cheerio'
+import { Cheerio, CheerioAPI, Element } from 'cheerio'
 import fetch from 'node-fetch'
 import { Logger } from 'tslog'
 import { AnimeInfo, RelatedAnime } from '@shared/types'

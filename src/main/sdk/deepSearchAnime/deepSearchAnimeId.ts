@@ -1,4 +1,4 @@
-import cheerio from 'cheerio'
+import * as cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import { AnimeIDAnimeMatch, DeepAnimeIdSearchResult } from '../../../shared/types'
 import { cached } from '../../cache'

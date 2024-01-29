@@ -1,4 +1,4 @@
-import cheerio from 'cheerio'
+import * as cheerio from 'cheerio'
 import { Logger } from 'tslog'
 import fetch from 'node-fetch'
 import { searchMalAnime } from './searchAnime/searchMalAnime'

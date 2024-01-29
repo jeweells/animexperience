@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, session } from 'electron'
+import { app, BrowserWindow, ipcMain, session, protocol, net } from 'electron'
 import moment from 'moment'
 import 'moment/locale/es'
 import { setupBlocker } from './blocker'
@@ -12,6 +12,18 @@ import { join } from 'path'
 import icon from '../../resources/icon.png?asset'
 import { handleFailedVideoUrls } from './handleFailedVideoUrls'
 import { autoUpdater } from 'electron-updater'
+import { injectScriptLoader, loadScriptAsString, SCRIPT_LOADER_LOCATION } from './intersectors'
+
+protocol.registerSchemesAsPrivileged([
+  {
+    scheme: 'app',
+    privileges: {
+      standard: true,
+      secure: true,
+      supportFetchAPI: true
+    }
+  }
+])
 
 moment.locale('es')
 
@@ -55,7 +67,26 @@ async function createWindow(): Promise<void> {
       action: 'deny'
     }
   })
+  protocol.handle('https', async (request) => {
+    if (request.url.includes(SCRIPT_LOADER_LOCATION)) {
+      return new Response(loadScriptAsString(), request)
+    }
 
+    const response = await net.fetch(request, { bypassCustomProtocolHandlers: true })
+    const shouldModifyPrototype =
+      response.headers.get('Content-Type')?.includes('text/html') &&
+      (app.isPackaged ? request.referrer === '' : request.referrer.includes('localhost'))
+
+    if (shouldModifyPrototype) {
+      try {
+        const body = injectScriptLoader(await response.text())
+        return new Response(body, response)
+      } catch (e) {
+        console.warn('Could not modify prototypes on', request.url)
+      }
+    }
+    return response
+  })
   mainWindow.on('ready-to-show', () => {
     mainWindow.maximize()
     mainWindow.show()
