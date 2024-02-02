@@ -1,10 +1,22 @@
 import { resolve } from 'path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 import react from '@vitejs/plugin-react'
-
+import { normalizePath } from 'vite'
 export default defineConfig({
   main: {
-    plugins: [externalizeDepsPlugin()],
+    plugins: [
+      externalizeDepsPlugin(),
+      viteStaticCopy({
+        targets: [
+          {
+            src: normalizePath(resolve(__dirname, './extensions/**')),
+            dest: './'
+          }
+        ],
+        structured: true
+      })
+    ],
     resolve: {
       alias: {
         '@shared': resolve('src/shared')

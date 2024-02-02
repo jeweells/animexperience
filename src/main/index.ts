@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, session, protocol, net } from 'electron'
+import { app, BrowserWindow, ipcMain, session } from 'electron'
 import moment from 'moment'
 import 'moment/locale/es'
 import { setupBlocker } from './blocker'
@@ -12,18 +12,6 @@ import { join } from 'path'
 import icon from '../../resources/icon.png?asset'
 import { handleFailedVideoUrls } from './handleFailedVideoUrls'
 import { autoUpdater } from 'electron-updater'
-import { injectScriptLoader, loadScriptAsString, SCRIPT_LOADER_LOCATION } from './intersectors'
-
-protocol.registerSchemesAsPrivileged([
-  {
-    scheme: 'app',
-    privileges: {
-      standard: true,
-      secure: true,
-      supportFetchAPI: true
-    }
-  }
-])
 
 moment.locale('es')
 
@@ -42,6 +30,11 @@ app.commandLine.appendSwitch('disable-site-isolation-trials')
 // eslint-disable-next-line no-console
 async function createWindow(): Promise<void> {
   console.debug('Creating window')
+
+  await session.defaultSession
+    .loadExtension(join(__dirname, './extensions/breakfullscreen/'))
+    .then(() => console.debug('[BreakFullscreenExt] Extension loaded'))
+
   const mainWindow = setMainWindow(
     new BrowserWindow({
       width: 1100,
@@ -59,6 +52,7 @@ async function createWindow(): Promise<void> {
       }
     })
   )
+
   let publicPath
   console.debug('Setting open handler')
   mainWindow.webContents.setWindowOpenHandler((d) => {
@@ -67,26 +61,7 @@ async function createWindow(): Promise<void> {
       action: 'deny'
     }
   })
-  protocol.handle('https', async (request) => {
-    if (request.url.includes(SCRIPT_LOADER_LOCATION)) {
-      return new Response(loadScriptAsString(), request)
-    }
 
-    const response = await net.fetch(request, { bypassCustomProtocolHandlers: true })
-    const shouldModifyPrototype =
-      response.headers.get('Content-Type')?.includes('text/html') &&
-      (app.isPackaged ? request.referrer === '' : request.referrer.includes('localhost'))
-
-    if (shouldModifyPrototype) {
-      try {
-        const body = injectScriptLoader(await response.text())
-        return new Response(body, response)
-      } catch (e) {
-        console.warn('Could not modify prototypes on', request.url)
-      }
-    }
-    return response
-  })
   mainWindow.on('ready-to-show', () => {
     mainWindow.maximize()
     mainWindow.show()
@@ -107,11 +82,14 @@ async function createWindow(): Promise<void> {
     mainWindow.loadFile(publicPath).then(() => setupBlocker())
   }
   // Referrer needed to display some players in JKAnime.net
-  session.defaultSession.webRequest.onBeforeSendHeaders(
-    {
-      urls: ['https://jkanime.net/*', 'https://www3.animeflv.net/*', 'https://animeflv.net/*']
-    },
-    (details, callback) => {
+  session.defaultSession.webRequest.onBeforeSendHeaders(async (details, callback) => {
+    console.debug('onBeforeHeaders', details.url)
+
+    if (
+      ['https://jkanime.net/', 'https://www3.animeflv.net/', 'https://animeflv.net/'].some((u) =>
+        details.url.startsWith(u)
+      )
+    ) {
       const url = new URL(details.url)
       details.requestHeaders.Origin = url.origin
       if (
@@ -122,8 +100,16 @@ async function createWindow(): Promise<void> {
         details.requestHeaders.Referer = details.url
         console.debug('ADDED REFERER FOR', details.url)
       }
-      callback({ cancel: false, requestHeaders: details.requestHeaders })
     }
+    return callback({ cancel: false, requestHeaders: details.requestHeaders })
+  })
+
+  mainWindow.webContents.setUserAgent(
+    mainWindow.webContents
+      .getUserAgent()
+      .split(' ')
+      .filter((x) => !x.includes('animexperience') && !x.includes('Electron'))
+      .join(' ')
   )
 
   handleFailedVideoUrls(session.defaultSession.webRequest)
