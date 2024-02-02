@@ -1,26 +1,19 @@
 import { VideoURLFailed } from '@shared/types'
-import { WebRequest } from 'electron'
 import { getMainWindow } from './windows'
 import { eventNames } from '@shared/constants'
+import { OnCompletedListenerDetails } from 'electron'
 
-export const handleFailedVideoUrls = (webRequest: WebRequest) => {
+export const handleFailedVideoUrls = (details: OnCompletedListenerDetails) => {
   ;[streamtape].forEach((handle) => {
-    handle(webRequest)
+    handle(details)
   })
-  streamtape(webRequest)
 }
 
-const streamtape = (webRequest: WebRequest) => {
-  webRequest.onCompleted(
-    {
-      urls: ['https://streamtape.com/*'],
-      types: ['xhr']
-    },
-    (a) => {
-      getMainWindow()?.webContents.send(eventNames.videoUrlFailed, {
-        option: 'streamtape',
-        url: a.url
-      } as VideoURLFailed)
-    }
-  )
+const streamtape = (details: OnCompletedListenerDetails) => {
+  if (details.resourceType !== 'xhr') return
+  if (!details.url.startsWith('https://streamtape.com/')) return
+  getMainWindow()?.webContents.send(eventNames.videoUrlFailed, {
+    option: 'streamtape',
+    url: details.url
+  } as VideoURLFailed)
 }
