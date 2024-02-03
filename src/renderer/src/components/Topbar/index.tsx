@@ -3,9 +3,7 @@ import {
   Fragment,
   PropsWithChildren,
   useContext,
-  useLayoutEffect,
   useRef,
-  useState,
   FC,
   memo,
   RefObject
@@ -17,11 +15,12 @@ import CloseButton from '../../atoms/CloseButton'
 import SearchBar from '../SearchBar'
 import fade from './fade.module.css'
 import ShareAnimeEpisodeButton from '../ShareAnimeEpisodeButton'
+import { useIsFullscreen } from '~/src/hooks/useIsFullscreen'
 
 const ipcRenderer = window.electron.ipcRenderer
 
 const Wrapper = styled('div')`
-  background: rgba(37, 40, 46, 0.26);
+  background: rgb(21, 24, 31);
   position: fixed;
   top: 0;
   left: 0;
@@ -31,6 +30,9 @@ const Wrapper = styled('div')`
   -webkit-app-region: drag;
   display: flex;
   align-items: center;
+  transition: height 300ms ease-in-out;
+  will-change: height, opacity;
+  contain: paint;
 `
 
 const Container = styled('div')`
@@ -55,7 +57,11 @@ const Content = styled('div')`
   position: relative;
 `
 
-export const useTopBarHeight = () => 56
+export const useTopBarHeight = () => {
+  const isFullscreen = useIsFullscreen()
+  if (isFullscreen) return 0
+  return 56
+}
 
 export type TopbarProps = PropsWithChildren
 
@@ -68,67 +74,55 @@ const closeApp = () => {
 
 export const Topbar: FC<TopbarProps> = memo(({ children }) => {
   const watching = useAppSelector((d) => d.watch.watching)
-  const [isFullscreen, setIsFullScreen] = useState(false)
-  useLayoutEffect(() => {
-    const handle = () => {
-      setIsFullScreen(!!document.fullscreenElement)
-    }
-    document.addEventListener('fullscreenchange', handle)
-    return () => {
-      document.removeEventListener('fullscreenchange', handle)
-    }
-  }, [])
   const height = useTopBarHeight()
   const title = watching ? `${watching.name} - Episodio ${watching.episode}` : 'ANIMEXPERIENCE'
   const contentRef = useRef<HTMLDivElement>(null)
   return (
     <Fragment>
-      {!isFullscreen && (
-        <Wrapper
-          style={{
-            height
-          }}
-        >
-          <SwitchTransition>
-            <CSSTransition
-              key={title}
-              addEndListener={(node, done) => node.addEventListener('transitionend', done, false)}
-              classNames={{ ...fade }}
-            >
-              <Container>
-                <div>{title}</div>
-                {!watching && <SearchBar style={{ marginRight: 8 }} />}
-                {watching && (
-                  <ShareAnimeEpisodeButton
-                    style={{
-                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-ignore
-                      WebkitAppRegion: 'no-drag',
-                      WebkitUserSelect: 'all'
-                    }}
-                  />
-                )}
-              </Container>
-            </CSSTransition>
-          </SwitchTransition>
-          <Buttons>
-            <CloseButton
-              style={{
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                WebkitAppRegion: 'no-drag',
-                WebkitUserSelect: 'all',
-                borderRadius: 0,
-                height: '100%',
-                width: 48,
+      <Wrapper
+        style={{
+          height
+        }}
+      >
+        <SwitchTransition>
+          <CSSTransition
+            key={title}
+            addEndListener={(node, done) => node.addEventListener('transitionend', done, false)}
+            classNames={{ ...fade }}
+          >
+            <Container>
+              <div>{title}</div>
+              {!watching && <SearchBar style={{ marginRight: 8 }} />}
+              {watching && (
+                <ShareAnimeEpisodeButton
+                  style={{
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    WebkitAppRegion: 'no-drag',
+                    WebkitUserSelect: 'all'
+                  }}
+                />
+              )}
+            </Container>
+          </CSSTransition>
+        </SwitchTransition>
+        <Buttons>
+          <CloseButton
+            style={{
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              WebkitAppRegion: 'no-drag',
+              WebkitUserSelect: 'all',
+              borderRadius: 0,
+              height: '100%',
+              width: 48,
 
-                background: 'rgb(0,0,0,0)'
-              }}
-              onClick={closeApp}
-            />
-          </Buttons>
-        </Wrapper>
-      )}
+              background: 'rgb(0,0,0,0)'
+            }}
+            onClick={closeApp}
+          />
+        </Buttons>
+      </Wrapper>
       <Content
         ref={contentRef}
         style={{

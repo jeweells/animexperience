@@ -19,6 +19,10 @@ const SModal = styled(Dialog, {
   overflow: hidden;
   --modal-height: calc(100vh - ${(props) => props.topBarHeight}px);
   height: var(--modal-height);
+  transition:
+    height 300ms ease-in-out,
+    top 300ms ease-in-out;
+  will-change: height, top;
   background-color: transparent;
   .MuiDialog-container {
     background-color: #0f131a;

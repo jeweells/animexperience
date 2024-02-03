@@ -10,6 +10,10 @@ export const Wrapper = styled(FCol)`
   width: 100%;
   height: 100%;
   gap: 16px;
+  transition:
+    height 300ms ease-in-out,
+    gap 300ms ease-in-out;
+  will-change: height;
   background-color: #292d33;
 `
 

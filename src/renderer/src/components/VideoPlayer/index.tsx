@@ -7,6 +7,8 @@ import { Wrapper } from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import NextEpisodeButton from '../NextEpisodeButton'
 import { useVideoImprovements } from './hooks'
 import { FC, memo, PropsWithChildren, useCallback, useLayoutEffect, useState } from 'react'
+import Collapse from '@mui/material/Collapse'
+import { useIsFullscreen } from '~/src/hooks/useIsFullscreen'
 
 export type VideoOption = {
   name: string
@@ -50,6 +52,8 @@ export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
     const watching = useAppSelector((d) => d.watch.watching)
     const { ref: containerRef, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>()
 
+    const isFullscreen = useIsFullscreen()
+
     useLayoutEffect(() => {
       if (!ref) return
       const iframe = $(ref).find('iframe')
@@ -77,10 +81,11 @@ export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
       <Wrapper
         style={{
           width: '100vw',
-          height: 'var(--modal-height)'
+          height: 'var(--modal-height)',
+          ...(isFullscreen && { gap: 0 })
         }}
       >
-        {children}
+        <Collapse in={!isFullscreen}>{children}</Collapse>
         {!freezed && option && (
           <IFrame html={option?.html} updateRef={updateWrapperRef}>
             <NextEpisodeButton />
