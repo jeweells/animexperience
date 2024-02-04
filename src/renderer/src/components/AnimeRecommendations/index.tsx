@@ -6,6 +6,7 @@ import { Optional } from '@shared/types'
 import { AnimeDetails, AnimeDetailsEntry } from '../AnimeDetailsEntry'
 import { AnimesCarousel } from '../AnimesCarousel'
 import { random } from '~/src/utils'
+import { debug } from '@dev/events'
 
 export type AnimeRecommendationsProps = {
   animeName: string
@@ -43,7 +44,7 @@ export const AnimeRecommendations: FC<AnimeRecommendationsProps> = memo(({ anime
     (anime: Optional<AnimeDetails>) => {
       if (!anime) return
       dispatch(peek.peek(anime.name))
-      console.debug('CLICKED', anime)
+      debug('CLICKED', anime)
     },
     [dispatch]
   )

@@ -36,9 +36,7 @@ app.commandLine.appendSwitch('disable-site-isolation-trials')
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(async () => {
-  setInterval(() => {
-    debug('App is ready', { intersting: 123, myarray: [1, 2, 3, 4, 5, 5, 5, 6, 6] })
-  }, 2000)
+  debug('App is ready')
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.animexperience')
   onBrowserWindowCreated()

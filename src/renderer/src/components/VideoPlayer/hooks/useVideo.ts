@@ -9,6 +9,7 @@ import { initializePlayerOption } from '@components/VideoPlayer/autoPlayHandlers
 import { deepFindVideo } from '@components/VideoPlayer/utils'
 import { optionNotLongerAvailable } from '../videoNotFoundHandlers'
 import { useVideoURLFailedListener } from '~/src/hooks/useVideoURLFailed'
+import * as dev from '@dev/events'
 
 export type UseVideoArgs = {
   info: BasicVideoInfo
@@ -28,7 +29,7 @@ export const useVideo = ({ info, container, ms = 300, onOptionNotFound }: UseVid
     const jTargetVideo = $(video)
     jTargetVideo.on('DOMNodeRemoved', () => {
       if (jTargetVideo.parent().length !== 0) return
-      console.debug('VIDEO DETACHED')
+      dev.info('VIDEO DETACHED')
       setDetachedVideo(video)
     })
     return () => {

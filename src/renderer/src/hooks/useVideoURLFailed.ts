@@ -2,6 +2,7 @@ import { eventNames } from '@shared/constants'
 import { useLayoutEffect } from 'react'
 import { create } from 'zustand'
 import { VideoURLFailed } from '@shared/types'
+import { error } from '@dev/events'
 
 const ipcRenderer = window.electron.ipcRenderer
 
@@ -22,7 +23,7 @@ export const urlHasFailed = (url: string) => {
 export const useVideoURLFailedListener = () => {
   useLayoutEffect(() => {
     return ipcRenderer.on(eventNames.videoUrlFailed, (_info, args) => {
-      console.debug('Got new url failed', args)
+      error('Got new url failed', args)
       set({ failedUrls: [...get().failedUrls, args] })
     })
   }, [])

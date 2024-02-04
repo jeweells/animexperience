@@ -54,7 +54,6 @@ export const ScrollView = forwardRef<ScrollViewController, Props>(
       const targetOffset = validIndex * itemSize - height / 2
       const newOffset = Math.min(maxOffset, Math.max(0, targetOffset))
       const _scroll = scrollRef.current
-      console.log({ newOffset, targetOffset, validIndex, height, offset, startVisibleIndex })
       _scroll.scrollTo({ top: -newOffset, behavior: 'instant' })
     }
 

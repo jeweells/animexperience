@@ -4,6 +4,7 @@ import { rendererInvoke } from '../../utils'
 import { VideoOption } from './index'
 import { $IframeContents } from './types'
 import { deepIframes } from './utils'
+import { debug } from '@dev/events'
 
 export const handleFullScreen = (
   option: Optional<VideoOption>,
@@ -50,7 +51,7 @@ const simpleSendF = (
         async () => {
           if (!document.fullscreenElement) {
             beforeClick?.(elm)
-            console.debug('Pressing F key')
+            debug('Pressing F key')
             await rendererInvoke('keyDown', 'f')
           }
         },

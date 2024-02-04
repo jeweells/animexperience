@@ -7,6 +7,7 @@ import Button from '@mui/material/Button'
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
 import Tooltip from '@mui/material/Tooltip'
+import { debug } from '@dev/events'
 
 export type OptionButtonProps = {
   onClick?(): void
@@ -46,7 +47,7 @@ export const OptionButton: React.FC<OptionButtonProps> = React.memo(
         >
           <StarButton
             onClick={() => {
-              console.debug('CLICKING PREFER', optionInfo)
+              debug('CLICKING PREFER', optionInfo)
               prefer(!optionInfo?.prefer)
             }}
           >

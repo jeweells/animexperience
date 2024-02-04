@@ -4,6 +4,7 @@ import ShareButton from '../../atoms/ShareButton'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { notifications } from '@reducers'
 import { PUBLIC_URL } from '../../constants'
+import { error } from '@dev/events'
 
 export const ShareAnimeEpisodeButton = React.memo<IconButtonProps>((props) => {
   const watching = useAppSelector((s) => s.watch.watching)
@@ -41,7 +42,7 @@ export const ShareAnimeEpisodeButton = React.memo<IconButtonProps>((props) => {
             })
           )
         } catch (e) {
-          console.error('[CLIPBOARD]', e)
+          error('[CLIPBOARD]', e)
         }
       }}
     />

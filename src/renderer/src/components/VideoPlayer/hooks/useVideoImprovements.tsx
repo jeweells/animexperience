@@ -15,6 +15,7 @@ import store from '~/redux/store'
 import { UseVideoArgs, useVideo } from './useVideo'
 import { dispatch } from '~/redux/dispatch'
 import { RecentAnimeData } from '~/src/hooks/useRecentAnimes'
+import { debug } from '@dev/events'
 
 type Refs = Partial<{
   nextButtonShown: boolean
@@ -76,7 +77,7 @@ const handleFollow = (refs: Refs, video: HTMLVideoElement) => {
   if (refs.followed || !canTrackUpdatesOfThisAnime(video)) return
   const watchState = store.getState().watch
   if (!(watchState.info && watchState.watching)) return
-  console.debug('Marking this anime as followed')
+  debug('Marking this anime as followed')
   store.dispatch(
     followedAnimes.follow({
       anime: watchState.watching,

@@ -4,6 +4,7 @@ import { $IframeContents, KnownOption } from '@components/VideoPlayer/types'
 import { deepIframes } from '@components/VideoPlayer/utils'
 import $ from 'jquery'
 import { urlHasFailed } from '~/src/hooks/useVideoURLFailed'
+import { info } from '@dev/events'
 
 type OptionFn = (contents: $IframeContents) => boolean
 
@@ -52,7 +53,7 @@ const mixdrop: OptionFn = () => {
 const stape: OptionFn = (iframe) => {
   const _document = iframe[0]
   if (isDocument(_document) && urlHasFailed(_document.location.href)) {
-    console.debug('Stape skipped since URL failed')
+    info('Stape skipped since URL failed')
     return true
   }
   return _checkText(iframe, 'Streamtape', 'server error occurred')
@@ -80,6 +81,6 @@ const _checkText = (iframe: $IframeContents, optionName: string, text: string) =
     iframe.find('*:not(:has(*)):visible').filter(function () {
       return new RegExp(text, 'i').test($(this).text())
     }).length > 0
-  if (hasFailedText) console.debug(`${optionName} skipped since text is shown`)
+  if (hasFailedText) info(`${optionName} skipped since text is shown`)
   return hasFailedText
 }

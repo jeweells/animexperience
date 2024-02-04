@@ -4,6 +4,7 @@ import * as React from 'react'
 import { invokedLink } from '@reducers'
 import { rendererInvoke } from '../utils'
 import { useAppDispatch } from '~/redux/utils'
+import { debug } from '@dev/events'
 
 const ipcRenderer = window.electron.ipcRenderer
 
@@ -11,7 +12,7 @@ export const useInvokedLinks = () => {
   const dispatch = useAppDispatch()
   React.useLayoutEffect(() => {
     const handleInvokedLink = (data: InvokedLink) => {
-      console.debug('Link Invoked with', data)
+      debug('Link Invoked with', data)
       switch (data.action) {
         case 'watch':
           dispatch(invokedLink.show('watch'))

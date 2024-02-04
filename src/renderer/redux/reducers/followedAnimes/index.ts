@@ -8,6 +8,7 @@ import { rendererInvoke } from '../../../src/utils'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { FollowedAnimesState } from '../../state/types'
 import { ForcedAny } from '@shared/types'
+import { debug, error, info } from '@dev/events'
 
 export type FollowedAnimeWStatus = {
   status: FStatus
@@ -31,7 +32,7 @@ const fetchStore = asyncAction('followedAnimes/fetchStore', async (_, api) => {
       return Promise.resolve({ ...x })
         .then(async (value) => {
           if (now < value.nextCheckAt) {
-            console.debug(
+            debug(
               'For',
               value.name,
               'next check at',
@@ -42,7 +43,7 @@ const fetchStore = asyncAction('followedAnimes/fetchStore', async (_, api) => {
             return value
           }
           if (value.lastEpisodeWatched < value.nextEpisodeToWatch) {
-            console.debug(
+            debug(
               'For',
               value.name,
               'already has episodes to watch',
@@ -53,13 +54,13 @@ const fetchStore = asyncAction('followedAnimes/fetchStore', async (_, api) => {
             // We already have a new episode to watch, so we skip fetching new info
             return value
           }
-          console.debug('Getting anime info of', value.name)
+          debug('Getting anime info of', value.name)
           const info: AnimeInfo | null = await rendererInvoke(
             'getAnimeFlvInfo',
             value.name,
             value.link
           ).catch((err) => {
-            console.error('FAILED TO FETCH', err)
+            error('FAILED TO FETCH', err)
             return null
           })
           if (!info) return value
@@ -68,7 +69,7 @@ const fetchStore = asyncAction('followedAnimes/fetchStore', async (_, api) => {
             info.status === 'Finalizada' &&
             info.episodesRange?.max === value.lastEpisodeWatched
           ) {
-            console.debug(value.name, 'has finished; Removed from the follow list')
+            debug(value.name, 'has finished; Removed from the follow list')
             return null
           }
           const _now = moment.now()
@@ -80,12 +81,12 @@ const fetchStore = asyncAction('followedAnimes/fetchStore', async (_, api) => {
           if (hasNewEpisodeAvailable) {
             value.nextEpisodeToWatch = value.lastEpisodeWatched
             value.nextEpisodeToWatch++
-            console.debug('[Followed] New episode found!')
+            debug('[Followed] New episode found!')
             value.lastSuccessAt = _now
           }
           value.lastCheckAt = _now
           value.nextCheckAt = nextCheck(value.lastSuccessAt)
-          console.debug('Got info of', value.name, {
+          debug('Got info of', value.name, {
             info,
             lastEpisode,
             hasNewEpisodeAvailable
@@ -96,7 +97,7 @@ const fetchStore = asyncAction('followedAnimes/fetchStore', async (_, api) => {
           if (value !== null) {
             value.status = 'succeeded'
           }
-          console.debug('[FollowedAnimes] Succeding fetching:', value)
+          debug('[FollowedAnimes] Succeding fetching:', value)
           followedCpy[index] = value
           return value
         })
@@ -111,7 +112,7 @@ const fetchStore = asyncAction('followedAnimes/fetchStore', async (_, api) => {
       return values
     })
     .catch((err) => {
-      console.error('[Followed] ERROR', err)
+      error('[Followed] ERROR', err)
       throw err
     })
 })
@@ -159,9 +160,7 @@ const set = (
 ) => {
   state.followed = sortFollowed(payload.followed.filter((x): x is FollowedAnimeWStatus => !!x))
   if (!payload.noUpdate) {
-    setStaticStore(Store.FOLLOWED, 'followed', followedToDict(state, state.followed)).catch(
-      console.error
-    )
+    setStaticStore(Store.FOLLOWED, 'followed', followedToDict(state, state.followed)).catch(error)
   }
 }
 
@@ -214,18 +213,18 @@ export const slice = createSlice({
         }
         state.followed = sortFollowed(state.followed)
 
-        console.debug('Saving followed anime')
+        debug('Saving followed anime')
         setStaticStore(Store.FOLLOWED, 'followed', followedToDict(state, state.followed)).catch(
-          console.error
+          error
         )
       } else {
-        console.debug('Invalid anime to follow', payload.anime.name, payload.info.link)
+        debug('Invalid anime to follow', payload.anime.name, payload.info.link)
       }
     }
   },
   extraReducers: ({ addCase }) => {
     addFetchFlow(addCase, fetchStore, 'followed', () => {
-      console.debug('FOLLOWED SUCCEEDED')
+      info('FOLLOWED SUCCEEDED')
     })
   }
 })

@@ -8,6 +8,7 @@ import { CarouselTitleWithLoading } from '~/src/components'
 import AnimeSearchPlaceholder from '~/src/placeholders/AnimeSearchPlaceholder'
 import AnimesGrid from '@components/AnimesGrid'
 import { useSizes } from '@components/AnimesCarousel/hooks'
+import { error } from '@dev/events'
 
 export const RecentAnimes: React.FC = React.memo(() => {
   const { data: recentAnimes, status } = useRecentAnimes()
@@ -21,7 +22,7 @@ export const RecentAnimes: React.FC = React.memo(() => {
     if (anime.name && anime.episode) {
       dispatch(watch.watchEpisode(anime))
     } else {
-      console.error('No enough data to perform animeSearch')
+      error('No enough data to perform animeSearch')
     }
   }, [])
   return (

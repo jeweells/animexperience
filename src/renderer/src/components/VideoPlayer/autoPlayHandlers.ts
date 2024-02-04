@@ -4,6 +4,7 @@ import { Optional } from '@shared/types'
 import { VideoOption } from './index'
 import { $IframeContents, KnownOption } from './types'
 import { deepIframes } from './utils'
+import { debug, error } from '@dev/events'
 
 export const initializePlayerOption = (
   option: Optional<VideoOption>,
@@ -48,17 +49,17 @@ export const mega = (iframe: $IframeContents) => {
 }
 
 export const fembed = (iframe: $IframeContents) => {
-  console.debug('Fembed: Clicking play button')
+  debug('Fembed: Clicking play button')
   const playBtn = iframe.find('.faplbu')
   if (playBtn.length > 0) {
-    console.debug('GOT', playBtn)
+    debug('GOT', playBtn)
     playBtn.trigger('click')
     return true
   }
   return false
 }
 export const okru = (iframe: $IframeContents, episodeInfo?: Optional<EpisodeInfo>) => {
-  console.debug('Okru: Clicking play button')
+  debug('Okru: Clicking play button')
   const playBtn = iframe.find('div#embedVideoC.vid-card_cnt_w')
   if (playBtn.length > 0) {
     const video = iframe.find('video')
@@ -73,7 +74,7 @@ export const okru = (iframe: $IframeContents, episodeInfo?: Optional<EpisodeInfo
         const targetStorage = targetWindow?.OK?.VideoPlayer?.storage
         const targetFn = targetStorage?.getMovieLastPlayingTime
         const targetPlayer = iframe.find('div[data-module=OKVideo]')
-        console.debug('Target player; Target storage', targetStorage)
+        debug('Target player; Target storage', targetStorage)
         if (!(targetStorage && targetPlayer.length > 0)) return false
 
         if (!targetFn?.injected) {
@@ -85,22 +86,22 @@ export const okru = (iframe: $IframeContents, episodeInfo?: Optional<EpisodeInfo
                 // By default, is 0.85, so we wouldn't be able to automatically seek after that certain
                 // point of the video
                 dataOptions.flashvars.notSavePositionAfter = 1
-                console.debug('Injecting data options; notSavePositionAfter=1')
+                debug('Injecting data options; notSavePositionAfter=1')
               }
               targetPlayer.attr('data-options', JSON.stringify(dataOptions))
             } catch (e) {
-              console.error(e)
+              error(e)
             }
           }
           const idRegex = /\/([0-9]+)\/?$/
           const url = targetWindow?.location.href
           const videoId = idRegex.exec(url ?? '')?.[1]
-          console.debug('VideoId', videoId)
+          debug('VideoId', videoId)
           if (videoId) {
             targetStorage.getMovieLastPlayingTime = (n: string) => {
-              console.debug('CHECKING', n, videoId, videoId === n, typeof n, episodeInfo)
+              debug('CHECKING', n, videoId, videoId === n, typeof n, episodeInfo)
               if (videoId === n) {
-                console.debug('CHECKING:: RETURN', episodeInfo, episodeInfo.currentTime)
+                debug('CHECKING:: RETURN', episodeInfo, episodeInfo.currentTime)
                 return episodeInfo.currentTime
               }
               return targetFn(n)
@@ -109,7 +110,7 @@ export const okru = (iframe: $IframeContents, episodeInfo?: Optional<EpisodeInfo
           }
         }
       }
-      console.debug('GOT', playBtn)
+      debug('GOT', playBtn)
       playBtn.trigger('click')
       // Let it spam or else it won't work
       return false

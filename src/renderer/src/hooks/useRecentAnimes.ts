@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { rendererInvoke } from '../utils'
+import { error } from '@dev/events'
 
 type Status = 'idle' | 'loading' | 'succeeded' | 'failed'
 
@@ -13,7 +14,7 @@ export const useInnerFetch = <T>(name: keyof typeof window.invokeNames) => {
         setData(x)
         setStatus('succeeded')
       })
-      .catch(console.error)
+      .catch(error)
   }, [])
   return {
     data,

@@ -3,6 +3,7 @@ import { useFadeInStyles } from '~/src/globalMakeStyles/fadeIn'
 import { IMAGE } from '@selectors'
 import { FStatus, Optional } from '@shared/types'
 import { rendererInvoke } from '~/src/utils'
+import { error } from '@dev/events'
 
 export type ImageProps = {
   animeName: string
@@ -24,7 +25,7 @@ export const Image: React.FC<ImageProps> = React.memo(({ animeName, containerSty
         }
       })
       .catch((e) => {
-        console.error(e)
+        error(e)
         setStatus('failed')
       })
   }, [animeName])

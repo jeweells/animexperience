@@ -2,6 +2,7 @@ import { PayloadAction, unwrapResult } from '@reduxjs/toolkit'
 import { Store, WatchHistoryItem } from '@shared/types'
 import { getStaticStore, setStaticStore } from '../../../src/hooks/useStaticStore'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
+import { error } from '@dev/events'
 
 const fetchStore = asyncAction('watchHistory/fetchStore', async (_, api) => {
   const history: WatchHistoryItem[] = await getStaticStore(Store.WATCH_HISTORY, 'sorted').then(
@@ -59,7 +60,7 @@ export const slice = createSlice({
       const sliced = payload.sorted.slice(0, 20)
       state.sorted = sliced
       if (!payload.noUpdate) {
-        setStaticStore(Store.WATCH_HISTORY, 'sorted', sliced).catch(console.error)
+        setStaticStore(Store.WATCH_HISTORY, 'sorted', sliced).catch(error)
       }
     }
   },

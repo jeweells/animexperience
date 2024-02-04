@@ -3,6 +3,7 @@ import { Store } from '@shared/types'
 import { getStaticStore, setStaticStore } from '../../../src/hooks/useStaticStore'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { OptionInfo } from '../../state/types'
+import { debug } from '@dev/events'
 
 const OPTIONS_HISTORY_SIZE = 30
 
@@ -47,7 +48,7 @@ const prefer = asyncAction(
       preferredSet.delete(opts.name)
     }
     const preferred = [...preferredSet]
-    console.debug('Setting preferred:', preferred, opts)
+    debug('Setting preferred:', preferred, opts)
     api.dispatch(playerOptions.setPreferred(preferred))
     api.dispatch(playerOptions.updateOptions())
     await setStaticStore(Store.PLAYER_OPTIONS, 'preferred', preferred)

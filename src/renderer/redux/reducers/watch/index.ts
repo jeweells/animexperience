@@ -8,6 +8,7 @@ import { player } from '../player'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { WatchState } from '../../state/types'
 import { initialState } from '../../state'
+import { debug } from '@dev/events'
 
 const changeWatchingEpisode = (state: WatchState, episode: number): RecentAnimeData => {
   const { info, watching } = state
@@ -136,7 +137,7 @@ export const slice = createSlice({
       getAvailableVideos,
       'availableVideos',
       (state, { payload }: PayloadAction<Optional<VideoOption[]>>) => {
-        console.debug('Available videos:', payload)
+        debug('Available videos:', payload)
         state.availableVideos = payload
       }
     )

@@ -35,7 +35,8 @@ export default defineConfig({
         '@components': resolve('src/renderer/src/components'),
         '@reducers': resolve('src/renderer/redux/reducers'),
         '@selectors': resolve('src/renderer/src/selectors'),
-        '~': resolve('src/renderer/')
+        '~': resolve('src/renderer/'),
+        '@dev': resolve('src/renderer/src/dev')
       }
     },
     plugins: [

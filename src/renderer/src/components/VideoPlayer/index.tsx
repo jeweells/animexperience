@@ -9,6 +9,7 @@ import { useVideoImprovements } from './hooks'
 import { FC, memo, PropsWithChildren, useCallback, useLayoutEffect, useState } from 'react'
 import Collapse from '@mui/material/Collapse'
 import { useIsFullscreen } from '~/src/hooks/useIsFullscreen'
+import { debug } from '@dev/events'
 
 export type VideoOption = {
   name: string
@@ -76,7 +77,7 @@ export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
       return containerRef(r)
     }, [])
 
-    console.debug('FREEZED:', freezed)
+    debug('FREEZED:', freezed)
     return (
       <Wrapper
         style={{

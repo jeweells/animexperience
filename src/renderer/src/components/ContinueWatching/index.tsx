@@ -7,6 +7,7 @@ import { RecentAnimeData } from '../../hooks/useRecentAnimes'
 import { AnimeCarouselContent } from '../../placeholders/AnimeCarouselContent'
 import { AnimeEpisodeEntry } from '../AnimeEpisodeEntry'
 import { AnimesCarousel } from '../AnimesCarousel'
+import { error } from '@dev/events'
 
 export const ContinueWatching: FC = memo(() => {
   const history = useAppSelector((d) => d.watchHistory.sorted) ?? []
@@ -23,7 +24,7 @@ export const ContinueWatching: FC = memo(() => {
     if (anime.name && typeof anime.episode === 'number') {
       dispatch(watch.watchEpisode(anime))
     } else {
-      console.error('No enough data to perform animeSearch')
+      error('No enough data to perform animeSearch')
     }
   }, [])
   if (status === 'succeeded' && filteredAnimes.length === 0) {

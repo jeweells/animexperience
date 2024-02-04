@@ -5,6 +5,7 @@ import { formatKeys, getStaticStore, setStaticStore } from '../../../src/hooks/u
 import { Optional } from '@shared/types'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { watchHistory } from '../watchHistory'
+import { debug, error } from '@dev/events'
 
 const fetchStore = asyncAction('watched/fetchStore', async (arg: RecentAnimeData, { dispatch }) => {
   return await getStaticStore(Store.WATCHED, arg?.name, arg?.episode)
@@ -56,7 +57,7 @@ const updateRecentlyWatched = asyncAction(
     } else {
       recently.push(newData)
     }
-    console.debug('Updating recently watched anime', newData)
+    debug('Updating recently watched anime', newData)
     recently.sort((a, b) => b.at - a.at)
     api.dispatch(
       watched.setRecently({
@@ -78,7 +79,7 @@ const updateWatched = asyncAction(
     api.dispatch(watched.set(payload))
     const keys = [payload.anime?.name, payload.anime?.episode]
     await Promise.all([
-      setStaticStore(Store.WATCHED, ...keys, payload.info).catch(console.error),
+      setStaticStore(Store.WATCHED, ...keys, payload.info).catch(error),
       // Should remove it because we can consider it as "watched"
       payload.info.currentTime / payload.info.duration > 0.85
         ? api.dispatch(watchHistory.remove(payload.anime.name))
@@ -119,7 +120,7 @@ export const slice = createSlice({
     ) {
       state.recently = payload.recently
       if (!payload.noUpdate) {
-        setStaticStore(Store.RECENTLY_WATCHED, 'sorted', payload.recently).catch(console.error)
+        setStaticStore(Store.RECENTLY_WATCHED, 'sorted', payload.recently).catch(error)
       }
     }
   },
