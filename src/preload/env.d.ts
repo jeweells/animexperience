@@ -9,5 +9,6 @@ declare global {
     invokeNames: typeof invokeNames
     currentURL: string
     clipboard: typeof clipboard
+    setFullscreen: (value: boolean) => void
   }
 }

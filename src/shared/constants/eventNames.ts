@@ -3,5 +3,6 @@ export default {
   videoUrlFailed: 'videoUrlFailed',
   devMessage: 'devMessage',
   devMessageRendererReady: 'devMessageRendererReady',
-  bridgeDevMessage: 'bridgeDevMessage'
+  bridgeDevMessage: 'bridgeDevMessage',
+  setFullscreen: 'setFullscreen'
 }

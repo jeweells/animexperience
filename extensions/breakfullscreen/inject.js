@@ -9,16 +9,20 @@ if (window !== rootWindow) {
   let lastFsElement = null
   Object.defineProperty(Document.prototype, 'fullscreenElement', {
     get() {
-      return rootWindow.document.fullscreenElement ? lastFsElement : null
+      return rootWindow.document.fullscreenElement ? lastFsElement ?? document.body : null
     }
   })
+
   rootWindow.document.addEventListener('fullscreenchange', (e) => {
+    console.debug('Fullscreen changed on', rootWindow, 'dispatching on', document)
     document.dispatchEvent(new CustomEvent(e.type))
   })
+
   Element.prototype.requestFullscreen = function (options) {
     lastFsElement = this
     const isFullscreen = !!rootWindow.document.fullscreenElement
     console.debug('Requesting fs', isFullscreen, lastFsElement)
+    if (isFullscreen) return Promise.resolve()
     // if(isFullscreen) {
     //   return rootWindow.document.exitFullscreen();
     // }

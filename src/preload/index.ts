@@ -1,6 +1,7 @@
 import { contextBridge, clipboard } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 import invokeNames from '../main/invokeNames'
+import { eventNames } from '../shared/constants'
 
 // Custom APIs for renderer
 const api = {}
@@ -29,4 +30,8 @@ if (process.contextIsolated) {
   window.invokeNames = invokeNames
   // @ts-ignore (define in dts)
   window.currentURL = process.env['ELECTRON_RENDERER_URL']
+  // @ts-ignore (define in dts)
+  window.setFullscreen = (value) => {
+    void electronAPI.ipcRenderer.invoke(eventNames.setFullscreen, value)
+  }
 }

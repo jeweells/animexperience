@@ -1,7 +1,10 @@
 import { useSyncExternalStore } from 'react'
 
 const subscribe = (callback: () => void) => {
-  document.addEventListener('fullscreenchange', callback)
+  document.addEventListener('fullscreenchange', () => {
+    window.setFullscreen(!!document.fullscreenElement)
+    callback()
+  })
   return () => {
     document.removeEventListener('fullscreenchange', callback)
   }

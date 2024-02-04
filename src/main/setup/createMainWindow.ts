@@ -12,11 +12,13 @@ import { setupBlocker } from '../blocker'
 import { setUserAgent } from './setUserAgent'
 import { onClosed } from './onClosed'
 import { debug } from '@dev'
+import { onFullscreen } from './onFullscreen'
 
 export async function createMainWindow(): Promise<void> {
   debug('Creating window')
   await loadExtensions()
   const window = buildWindow()
+  onFullscreen(window)
   setWindowOpenHanlder(window)
   onReadyToShow(window)
   onBeforeSendHeaders()
