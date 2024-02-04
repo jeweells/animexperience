@@ -1,9 +1,10 @@
 import { autoUpdater } from 'electron-updater'
 import { app } from 'electron'
+import { info } from '@dev'
 
 export const checkForUpdates = () => {
   if (!app.isPackaged) return
   autoUpdater.checkForUpdates().then((result) => {
-    console.debug('Updates available!', result)
+    info('Updates available!', result)
   })
 }

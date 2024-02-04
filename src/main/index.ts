@@ -13,6 +13,10 @@ import { onBrowserWindowCreated } from './setup/onBrowserWindowCreated'
 import { onPing } from './setup/onPing'
 import { onActivate } from './setup/onActivate'
 import { checkForUpdates } from './setup/checkForUpdates'
+import { createDevWindow } from './setup/createDevWindow'
+import { PUBLIC_PATH } from './constants'
+import { debug, info } from '@dev'
+import { onDevRendererIsReady } from './setup/onDevRendererIsReady'
 
 moment.locale('es')
 
@@ -22,7 +26,7 @@ if (app.isPackaged) {
 }
 
 setupOpenUrl((invokedLink) => {
-  console.debug({ invokedLink })
+  info('Opening link', { invokedLink })
   getMainWindow()?.webContents.send(eventNames.linkInvoked, invokedLink)
 })
 // Comment in order to make the React dev tools work
@@ -32,11 +36,16 @@ app.commandLine.appendSwitch('disable-site-isolation-trials')
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(async () => {
-  console.debug('App is ready')
+  setInterval(() => {
+    debug('App is ready', { intersting: 123, myarray: [1, 2, 3, 4, 5, 5, 5, 6, 6] })
+  }, 2000)
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.animexperience')
   onBrowserWindowCreated()
   onPing()
+  onDevRendererIsReady()
+  const devWindow = createDevWindow()
+  await devWindow?.loadURL(PUBLIC_PATH + '#dev')
   await createMainWindow()
   onActivate()
   checkForUpdates()
@@ -56,7 +65,7 @@ ipcMain.handle('closeApp', () => {
 if (app.isPackaged) {
   autoUpdater.on('update-available', () => {
     autoUpdater.downloadUpdate().then((info) => {
-      console.debug('Updated downloaded!', info)
+      debug('Updated downloaded!', info)
     })
   })
 }

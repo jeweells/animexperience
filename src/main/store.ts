@@ -2,6 +2,7 @@ import Store from 'electron-store'
 import { Store as TStore, StoreMethod } from '@shared/types'
 import { ipcMain } from 'electron'
 import { formatKeys } from '@shared/utils'
+import { debug } from '@dev'
 
 // Create the same store for each store in the TStore enum
 export const stores = Object.values(TStore).reduce(
@@ -77,7 +78,7 @@ const migrateStores = () => {
 }
 
 export const setupStores = () => {
-  console.debug('Setting up stores')
+  debug('Setting up stores')
 
   migrateStores()
 

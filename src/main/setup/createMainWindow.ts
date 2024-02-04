@@ -11,9 +11,10 @@ import { loadMainWindow } from './loadMainWindow'
 import { setupBlocker } from '../blocker'
 import { setUserAgent } from './setUserAgent'
 import { onClosed } from './onClosed'
+import { debug } from '@dev'
 
 export async function createMainWindow(): Promise<void> {
-  console.debug('Creating window')
+  debug('Creating window')
   await loadExtensions()
   const window = buildWindow()
   setWindowOpenHanlder(window)

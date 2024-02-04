@@ -22,9 +22,10 @@ import { searchAnimeID } from './searchAnime/searchAnimeId'
 import { searchJKAnime } from './searchAnime/searchJKAnime'
 import { searchMalAnime } from './searchAnime/searchMalAnime'
 import { getInvokedLink } from './openUrl'
+import { info } from '@dev'
 
 export const setupSdk = () => {
-  console.debug('Setting up sdk')
+  info('Setting up sdk')
   for (const fn of [
     invokeNames.getRecentAnimes.link(getRecentAnimes),
     invokeNames.getAnimeIDInfo.link(getAnimeIDInfo),

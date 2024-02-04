@@ -173,3 +173,10 @@ export type VideoURLFailed = {
   option: 'streamtape'
   url: string
 }
+
+export type DevMessageType = 'warn' | 'info' | 'error' | 'debug'
+
+export type RawDevMessage = {
+  type: DevMessageType
+  message: ForcedAny[]
+}

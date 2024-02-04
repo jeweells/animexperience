@@ -1,3 +1,4 @@
+import { debug } from '@dev'
 import { ipcMain } from 'electron'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -6,7 +7,7 @@ export const requestFromWindow = (w: Electron.BrowserWindow, fnContent: string) 
     const key = `__animeflv-${uuidv4()}`
 
     ipcMain.handleOnce(key, (_e, arg) => {
-      console.debug('RESOLVED WITH', arg)
+      debug('RESOLVED WITH', arg)
       resolve(arg)
     })
     const code = `

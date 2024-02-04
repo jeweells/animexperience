@@ -1,3 +1,4 @@
+import { error, info } from '@dev'
 import { LinkedFn } from '../fnlinker'
 import { ForcedAny } from '@shared/types'
 
@@ -19,12 +20,10 @@ export const retry = (linkedFn: LinkedFn): LinkedFn => {
       try {
         return await fnRef?.(...args)
       } catch (err) {
-        console.error('[FAILED]', linkedFn.debugName, err)
+        error('[FAILED]', linkedFn.debugName, err)
       }
       targetTick = Math.min(targetTick + 1, ticks.length - 1)
-      console.debug(
-        `Retrying [${linkedFn.debugName}][Try number ${times}] in ${ticks[targetTick]} seconds`
-      )
+      info(`Retrying [${linkedFn.debugName}][Try number ${times}] in ${ticks[targetTick]} seconds`)
       await sleep(ticks[targetTick] * 1000)
     }
   }

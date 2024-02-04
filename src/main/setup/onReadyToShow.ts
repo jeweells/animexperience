@@ -7,7 +7,7 @@ export const onReadyToShow = (window: BrowserWindow) => {
     window.show()
     if (is.dev) {
       window.webContents.openDevTools({
-        mode: 'detach'
+        mode: 'right'
       })
     }
   })

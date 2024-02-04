@@ -22,7 +22,9 @@ import { useInvokedLinks } from './hooks/useInvokedLinks'
 import { useAppDispatch } from '~/redux/utils'
 import { ThemeProvider } from '@mui/material'
 import theme from './theme'
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
+
+const Dev = React.lazy(() => import('~/src/dev'))
 
 moment.locale('es')
 
@@ -69,12 +71,20 @@ const App = () => {
     </React.Fragment>
   )
 }
+
 const AppWithProvider = () => {
+  const isDevWindow = location.hash.includes('dev')
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <App />
+        {isDevWindow ? (
+          <Suspense fallback={null}>
+            <Dev />
+          </Suspense>
+        ) : (
+          <App />
+        )}
       </ThemeProvider>
     </Provider>
   )

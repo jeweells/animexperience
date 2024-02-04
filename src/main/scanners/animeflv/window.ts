@@ -1,5 +1,6 @@
 import { BrowserWindow } from 'electron'
 import { requestFromWindow } from '../base'
+import { info } from '@dev'
 
 export const BASE_ORIGIN = 'https://animeflv.net'
 export const createAnimeFlvRequest = async (url: string, fnContent: string) => {
@@ -38,10 +39,10 @@ export const createAnimeFlvRequest = async (url: string, fnContent: string) => {
           (ANIMEFLV_URL_REGEX.exec(url.host) === null ||
             blackListExt.some((ext) => url.pathname.endsWith('.' + ext)))
         ) {
-          console.debug('[ANIMEFLV]', details.url, '(CANCELED)')
+          info('[ANIMEFLV]', details.url, '(CANCELED)')
           cancel = true
         } else {
-          console.debug('[ANIMEFLV]', details.url)
+          info('[ANIMEFLV]', details.url)
         }
         const r = { cancel }
         callback(r)

@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import { ForcedAny } from '@shared/types'
+import { info } from '@dev'
 interface CachedFn {
   (...args: ForcedAny): ForcedAny
   cached?: boolean
@@ -42,7 +43,7 @@ export class TimedCache {
     const wrappedFn = ((...args) => {
       const key = JSON.stringify({ id, args })
       if (this.has(key)) {
-        console.debug(`Using cache for ${fn?.name ?? 'Unknown'}:`, args)
+        info(`Using cache for ${fn?.name ?? 'Unknown'}:`, args)
         return this.get(key)
       }
       const result = fn(...args)
