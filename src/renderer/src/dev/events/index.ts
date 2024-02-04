@@ -1,11 +1,11 @@
-import { DevMessageType } from '@shared/types'
-import { addMessage } from '~/src/dev/hooks/useMessages'
+import { DevMessageType, RawDevMessage } from '@shared/types'
+import { eventNames } from '@shared/constants'
 
 export const message = (type: DevMessageType, ...args) => {
-  addMessage({
-    message: args,
+  void window.electron.ipcRenderer.invoke(eventNames.bridgeDevMessage, {
+    message: [...args, { $stack: new Error().stack }],
     type
-  })
+  } as RawDevMessage)
 }
 
 export const info = message.bind(null, 'info')

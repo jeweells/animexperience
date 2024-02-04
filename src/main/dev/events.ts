@@ -17,7 +17,7 @@ const defferMessageUntilDevWindowIsCreated = <T extends (...args: ForcedAny) => 
   }) as T
 }
 
-const message = defferMessageUntilDevWindowIsCreated(
+export const message = defferMessageUntilDevWindowIsCreated(
   (type: DevMessageType, ...message: ForcedAny[]) => {
     return getDevWindow()?.webContents.send(eventNames.devMessage, {
       type,

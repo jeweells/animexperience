@@ -1,9 +1,9 @@
 import { Typography } from '@mui/material'
 
-export const TextToken = ({ token }: { token: string }) => {
+export const NumberToken = ({ token }: { token: number }) => {
   return (
     <Typography
-      title={token}
+      title={String(token)}
       sx={{
         overflow: 'hidden',
         textOverflow: 'ellipsis',
@@ -11,10 +11,11 @@ export const TextToken = ({ token }: { token: string }) => {
         WebkitLineClamp: '1',
         WebkitBoxOrient: 'vertical',
         wordBreak: 'break-all',
+        fontWeight: 'bold',
         minWidth: '1ch'
       }}
     >
-      {token}
+      {String(token)}
     </Typography>
   )
 }
