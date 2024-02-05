@@ -1,3 +1,6 @@
+import moment from 'moment/moment'
+import { ONE_HOUR_IN_SECONDS } from '~/src/constants'
+
 export const range = (length: number): number[] => {
   return Array(length)
     .fill(0)
@@ -35,4 +38,8 @@ export const polling = <T>(initialData: T, callback: (data: T, stop: () => T) =>
   return () => {
     stop()
   }
+}
+
+export const formatTime = (seconds: number) => {
+  return moment.utc(seconds * 1000).format(seconds >= ONE_HOUR_IN_SECONDS ? 'HH:mm:ss' : 'mm:ss')
 }

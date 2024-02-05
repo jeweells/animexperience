@@ -1,4 +1,4 @@
-import { useMemo, useState, useRef, useLayoutEffect, HTMLAttributes } from 'react'
+import { useMemo, useState, HTMLAttributes } from 'react'
 import useResizeObserver from 'use-resize-observer'
 
 export const useSliding = (gap: number, countElements: number, prevButtonWidth: number) => {
@@ -24,12 +24,14 @@ export const useSliding = (gap: number, countElements: number, prevButtonWidth: 
   const handlePrev = () => {
     if (!sliding) {
       setViewed((viewed) => Math.min(countElements, Math.max(viewed - totalInViewport, 0)))
+      setSliding(true)
     }
   }
 
   const handleNext = () => {
     if (!sliding) {
       setViewed((viewed) => Math.min(countElements, Math.max(viewed + totalInViewport, 0)))
+      setSliding(true)
     }
   }
 
@@ -37,13 +39,6 @@ export const useSliding = (gap: number, countElements: number, prevButtonWidth: 
     const elementWithGap = elementWidth + gap
     return -prevButtonWidth + elementWithGap * viewed
   }, [viewed, elementWidth, gap, prevButtonWidth])
-  const mounted = useRef(false)
-  useLayoutEffect(() => {
-    if (mounted.current) {
-      setSliding(true)
-    }
-    mounted.current = true
-  }, [distance, totalInViewport, viewed])
 
   const slideProps = useMemo<Partial<HTMLAttributes<HTMLElement>>>(
     () => ({
@@ -71,6 +66,9 @@ export const useSliding = (gap: number, countElements: number, prevButtonWidth: 
     sliding,
     viewed,
     totalInViewport,
+    onSlidingStart: () => {
+      setSliding(true)
+    },
     onSlidingComplete: () => {
       setSliding(false)
     }

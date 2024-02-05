@@ -38,7 +38,8 @@ export const AnimesCarousel: FC<AnimesCarouselProps> = memo(({ count, loading, t
     sliding,
     viewed,
     totalInViewport,
-    onSlidingComplete
+    onSlidingComplete,
+    onSlidingStart
   } = useSliding(gap, count, navigationWidth)
   const duration = 400
   if (!loading && count === 0) return null
@@ -47,7 +48,16 @@ export const AnimesCarousel: FC<AnimesCarouselProps> = memo(({ count, loading, t
       <CarouselTitleWithLoading title={title} loading={loading} />
       <Scroller ref={scrollerRef} style={{ width: containerWidth }}>
         <NavigationButton onClick={handlePrev} disabled={loading || !hasPrev} direction={'left'} />
-        <Transition in={sliding} unmountOnExit={false} onEntered={onSlidingComplete} timeout={400}>
+        <Transition
+          in={sliding}
+          unmountOnExit={false}
+          onEntered={onSlidingComplete}
+          onEnter={(_, isAppearing) => {
+            if (isAppearing) return
+            onSlidingStart()
+          }}
+          timeout={400}
+        >
           {() => (
             <Items
               ref={containerRef}

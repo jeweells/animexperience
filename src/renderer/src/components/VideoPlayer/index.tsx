@@ -4,12 +4,9 @@ import { useAppSelector } from '~/redux/utils'
 import { FCol } from '../../atoms/Layout'
 import { useFadeInStyles } from '../../globalMakeStyles/fadeIn'
 import { Wrapper } from '../../placeholders/VideoPlayerWOptionsPlaceholder'
-import NextEpisodeButton from '../NextEpisodeButton'
 import { useVideoImprovements } from './hooks'
 import { FC, memo, PropsWithChildren, useCallback, useLayoutEffect, useState } from 'react'
-import Collapse from '@mui/material/Collapse'
-import { useIsFullscreen } from '~/src/hooks/useIsFullscreen'
-import { debug } from '@dev/events'
+import { Controls } from './components'
 
 export type VideoOption = {
   name: string
@@ -47,13 +44,11 @@ const IFrame: FC<
 IFrame.displayName = 'IFrame'
 
 export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
-  ({ option, onOptionNotFound, children }) => {
+  ({ option, onOptionNotFound }) => {
     const [ref, setRef] = useState<HTMLDivElement | null>(null)
     const freezed = useAppSelector((d) => d.player.freezed)
     const watching = useAppSelector((d) => d.watch.watching)
     const { ref: containerRef, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>()
-
-    const isFullscreen = useIsFullscreen()
 
     useLayoutEffect(() => {
       if (!ref) return
@@ -63,7 +58,7 @@ export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
       iframe.attr('height', Math.floor(height) - 1)
     }, [ref, option?.name, width, height])
 
-    useVideoImprovements({
+    const { video } = useVideoImprovements({
       info: {
         anime: watching,
         option
@@ -77,21 +72,15 @@ export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
       return containerRef(r)
     }, [])
 
-    debug('FREEZED:', freezed)
     return (
       <Wrapper
         style={{
           width: '100vw',
-          height: 'var(--modal-height)',
-          ...(isFullscreen && { gap: 0 })
+          height: 'var(--modal-height)'
         }}
       >
-        <Collapse in={!isFullscreen}>{children}</Collapse>
-        {!freezed && option && (
-          <IFrame html={option?.html} updateRef={updateWrapperRef}>
-            <NextEpisodeButton />
-          </IFrame>
-        )}
+        {!freezed && option && <IFrame html={option?.html} updateRef={updateWrapperRef}></IFrame>}
+        <Controls video={video ?? null} />
       </Wrapper>
     )
   }

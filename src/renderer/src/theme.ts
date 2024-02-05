@@ -101,6 +101,9 @@ const theme = createTheme({
           '&.Mui-disabled': {
             color: 'rgb(255 255 255 / 25%)'
           }
+        },
+        sizeLarge: {
+          fontSize: '2rem'
         }
       }
     },

@@ -53,13 +53,14 @@ export const useVideoImprovements = ({ info, container, onOptionNotFound, ms }: 
     const handleMouseMove = () => {
       if (refs.nextButtonShown) dispatch(watch.setNextEpisodeTimeout(-1))
     }
-    video.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mousemove', handleMouseMove)
     video.addEventListener('timeupdate', handleTimeUpdate)
     return () => {
       video.removeEventListener('timeupdate', handleTimeUpdate)
-      video.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mousemove', handleMouseMove)
     }
   }, [video])
+  return { video }
 }
 
 const canGoToNextEpisode = (video: HTMLVideoElement) => {

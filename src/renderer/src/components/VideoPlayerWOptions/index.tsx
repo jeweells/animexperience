@@ -1,22 +1,9 @@
-import { useMemo, useState, useLayoutEffect, FC, PropsWithChildren, memo, useCallback } from 'react'
-import { styled } from '@mui/system'
+import { useMemo, useState, useLayoutEffect, FC, memo, useCallback } from 'react'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
-import { useFadeInStyles } from '../../globalMakeStyles/fadeIn'
-import { OptionsRow } from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import VideoPlayer, { VideoOption } from '../VideoPlayer'
-import OptionButton from './components/OptionButton'
-import Tabs from '@mui/material/Tabs'
 import { watch } from '@reducers'
 
-const STabs = styled(Tabs)`
-  min-height: 0;
-  .MuiTabs-flexContainer {
-    gap: 16px;
-  }
-`
-
-export const VideoPlayerWOptions: FC<PropsWithChildren> = memo(({ children }) => {
-  const { fadeIn } = useFadeInStyles()
+export const VideoPlayerWOptions: FC = memo(() => {
   const dispatch = useAppDispatch()
   const availableOptions = useAppSelector((d) => d.watch.availableVideos)
   const usedOptions = useAppSelector((d) => d.playerOptions.options)
@@ -48,33 +35,7 @@ export const VideoPlayerWOptions: FC<PropsWithChildren> = memo(({ children }) =>
     dispatch(watch.dropVideoOption(currentOption))
   }, [currentOption, sortedOptions])
 
-  return (
-    <VideoPlayer option={currentOption} onOptionNotFound={onOptionNotFound}>
-      <OptionsRow className={fadeIn}>
-        <STabs
-          variant={'scrollable'}
-          style={{ flex: 1 }}
-          TabIndicatorProps={{
-            style: {
-              display: 'none'
-            }
-          }}
-        >
-          {sortedOptions?.map((x, idx) => (
-            <OptionButton
-              disabled={currentOption?.name === x?.name}
-              key={idx}
-              option={x}
-              onClick={() => {
-                setCurrentOption(x)
-              }}
-            />
-          ))}
-        </STabs>
-        {children}
-      </OptionsRow>
-    </VideoPlayer>
-  )
+  return <VideoPlayer option={currentOption} onOptionNotFound={onOptionNotFound}></VideoPlayer>
 })
 
 VideoPlayerWOptions.displayName = 'VideoPlayerWOptions'

@@ -5,7 +5,6 @@ import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import CloseButton from '../../atoms/CloseButton'
 import VideoPlayerWOptionsPlaceholder from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import { TopView } from '@shared/types'
-import EpisodeNavigation from '../EpisodeNavigation'
 import FullModal, { FullModalProps } from '../FullModal'
 import VideoPlayerWOptions from '../VideoPlayerWOptions'
 
@@ -17,6 +16,7 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = React.memo<Vide
     const show = useAppSelector((d) => d.player.open)
     const availableVideosStatus = useAppSelector((d) => d.watch.status.availableVideos)
     const optionsStatus = useAppSelector((d) => d.playerOptions.status.options)
+
     React.useLayoutEffect(() => {
       dispatch(playerOptions.fetchStore())
     }, [])
@@ -26,10 +26,7 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = React.memo<Vide
     return (
       <FullModal {...rest} view={TopView.PLAYER} show={show}>
         {availableVideosStatus === 'succeeded' && optionsStatus === 'succeeded' ? (
-          <VideoPlayerWOptions>
-            <EpisodeNavigation />
-            <CloseButton onClick={close} />
-          </VideoPlayerWOptions>
+          <VideoPlayerWOptions />
         ) : (
           <VideoPlayerWOptionsPlaceholder>
             <CloseButton onClick={close} />

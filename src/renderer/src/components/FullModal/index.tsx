@@ -1,6 +1,6 @@
 import Dialog, { DialogProps } from '@mui/material/Dialog'
 import Fade from '@mui/material/Fade'
-import { useLayoutEffect, FC, memo } from 'react'
+import { useLayoutEffect, FC, memo, useEffect } from 'react'
 import { styled } from '@mui/system'
 import { topView } from '@reducers'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
@@ -19,9 +19,6 @@ const SModal = styled(Dialog, {
   overflow: hidden;
   --modal-height: calc(100vh - ${(props) => props.topBarHeight}px);
   height: var(--modal-height);
-  transition:
-    height 300ms ease-in-out,
-    top 300ms ease-in-out;
   will-change: height, top;
   background-color: transparent;
   .MuiDialog-container {
@@ -53,6 +50,20 @@ export const FullModal: FC<FullModalProps> = memo<FullModalProps>(
         dispatch(topView.pop(view))
       }
     }, [show])
+
+    useEffect(() => {
+      if (currentTopview !== view) return
+      const handle = (e: KeyboardEvent) => {
+        if (e.code === 'Escape') {
+          dispatch(topView.pop(view))
+        }
+      }
+      document.addEventListener('keyup', handle)
+      return () => {
+        document.removeEventListener('keyup', handle)
+      }
+    }, [currentTopview])
+
     return (
       <SModal
         aria-labelledby={'full-modal'}

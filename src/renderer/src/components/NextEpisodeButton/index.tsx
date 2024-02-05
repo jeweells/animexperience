@@ -1,53 +1,10 @@
 import * as React from 'react'
 import { watch } from '@reducers'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
-import font from '../../fonts/Quicksand/Quicksand-Light.ttf'
 import Fade from '@mui/material/Fade'
 import { NEXT_EPISODE_BUTTON } from '@selectors'
-
-// We need to form an absolute url since this element will be injected inside an iframe
-// and inside iframes, relatives url won't match ours
-export const quicksandCss = () => `
-    @font-face {
-        font-family: 'Quicksand';
-        src: url('${new URL(font, window.currentURL).href}') format('truetype');
-        font-weight: 300;
-        font-style: normal;
-    }
-`
-
-export const buttonCss = `
-
-    button.raex-button-injected {
-        font-family: 'Quicksand';
-        color: #292d33;
-        background: #e9ebf0;
-        display: inline-block;
-        margin-bottom: 0;
-        font-weight: normal;
-        text-align: center;
-        vertical-align: middle;
-        cursor: pointer;
-        outline: 0 !important;
-        white-space: nowrap;
-        border: none;
-        user-select: none;
-        padding: 8px 12px;
-        font-size: 14px;
-        line-height: 1.42857143;
-        border-radius: 6px;
-        position: relative;
-        transition: color 0.2s linear, background-color 0.3s linear;
-        margin: 0;
-        overflow: hidden;
-        text-decoration: none;
-    }
-    button.raex-button-injected:hover, button.raex-button-injected:focus {
-        color: #3c3f43;
-        background-color: #e9ebf0;
-
-    }
-`
+import { useEffect } from 'react'
+import Button from '@mui/material/Button'
 
 export const NextEpisodeButton: React.FC = React.memo(() => {
   const timeout = useAppSelector((d) => d.watch.nextEpisodeTimeout)
@@ -59,23 +16,23 @@ export const NextEpisodeButton: React.FC = React.memo(() => {
     dispatch(watch.setNextEpisodeButton(false))
     dispatch(watch.nextEpisode())
   }
+
+  useEffect(() => {
+    const handleMouseMove = () => {
+      if (showNextButton) dispatch(watch.setNextEpisodeTimeout(-1))
+    }
+    document.addEventListener('mousemove', handleMouseMove)
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [showNextButton])
+
   return (
     <Fade in={showNextButton} timeout={400}>
-      <div
-        style={{
-          position: 'absolute',
-          top: 16,
-          right: 16,
-          zIndex: 2147483647
-        }}
-      >
-        <style>
-          {quicksandCss()}
-          {buttonCss}
-        </style>
-        <button
+      <div>
+        <Button
+          style={{ filter: 'invert(100%)' }}
           data-testid={NEXT_EPISODE_BUTTON.BUTTON}
-          className={'raex-button-injected'}
           onClick={() => {
             handleNext()
           }}
@@ -93,7 +50,7 @@ export const NextEpisodeButton: React.FC = React.memo(() => {
               transition: timeout === -1 ? 'none' : `all ${timeout}s`
             }}
           />
-        </button>
+        </Button>
       </div>
     </Fade>
   )

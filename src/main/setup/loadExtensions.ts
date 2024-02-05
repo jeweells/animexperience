@@ -6,7 +6,10 @@ import { error, info } from '@dev'
 export const loadExtensions = async () => {
   await session.defaultSession
     .loadExtension(join(__dirname, './extensions/breakfullscreen/'))
-    .then(() => info('[BreakFullscreenExt] Extension loaded'))
+    .then(() => info('[BreakFullscreen] Extension loaded'))
+  await session.defaultSession
+    .loadExtension(join(__dirname, './extensions/breakstyles/'))
+    .then(() => info('[BreakStyles] Extension loaded'))
 
   if (is.dev) {
     const installExtension = require('electron-devtools-installer')
