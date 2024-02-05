@@ -8,6 +8,7 @@ import {
   NextEpisode,
   PlayButton,
   SeekBar,
+  VideoOptions,
   Volume
 } from './components'
 
@@ -34,6 +35,7 @@ export const PlayBar = () => {
             <Volume />
             <Duration />
             <Box flex={1} />
+            <VideoOptions />
             <EpisodesList />
             <FullscreenButton />
           </Stack>

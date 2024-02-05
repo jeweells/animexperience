@@ -2,12 +2,12 @@ import * as React from 'react'
 import { styled } from '@mui/system'
 import { VideoOption } from '../../../VideoPlayer'
 import { usePlayerOption } from './hooks'
-import ButtonGroup from '@mui/material/ButtonGroup'
-import Button from '@mui/material/Button'
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
 import Tooltip from '@mui/material/Tooltip'
 import { debug } from '@dev/events'
+import { ListItemIcon, ListItemText, MenuItem } from '@mui/material'
+import IconButton from '@mui/material/IconButton'
 
 export type OptionButtonProps = {
   onClick?(): void
@@ -15,23 +15,14 @@ export type OptionButtonProps = {
   disabled?: boolean
 }
 
-const StarButton = styled(Button)`
+const StarButton = styled(IconButton)`
   min-width: 0;
   flex-shrink: 0;
-  background: hsl(216deg 13% 28%);
-  padding: 5px 12px;
   border: none;
-`
-
-const ActionButton = styled(Button)`
-  border: none;
-  background: #343a43;
-  flex: 1;
-  &:disabled {
-    background: #343a43;
-  }
-  &.Mui-disabled {
-    color: #ffffff91;
+  pointer-events: all;
+  &,
+  &:hover {
+    background: transparent;
   }
 `
 
@@ -40,30 +31,32 @@ export const OptionButton: React.FC<OptionButtonProps> = React.memo(
     const { prefer, option: optionInfo, use } = usePlayerOption(option?.name)
     if (!option) return null
     return (
-      <ButtonGroup>
-        <Tooltip
-          title={!optionInfo?.prefer ? 'Preferir esta opción' : 'No preferir esta opción'}
-          arrow
-        >
-          <StarButton
-            onClick={() => {
-              debug('CLICKING PREFER', optionInfo)
-              prefer(!optionInfo?.prefer)
-            }}
+      <MenuItem
+        disabled={disabled}
+        onClick={() => {
+          use()
+          onClick?.()
+        }}
+      >
+        <ListItemIcon>
+          <Tooltip
+            placement="left"
+            title={!optionInfo?.prefer ? 'Preferir esta opción' : 'No preferir esta opción'}
+            arrow
           >
-            {optionInfo?.prefer ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
-          </StarButton>
-        </Tooltip>
-        <ActionButton
-          disabled={disabled}
-          onClick={() => {
-            use()
-            onClick?.()
-          }}
-        >
-          {option.name}
-        </ActionButton>
-      </ButtonGroup>
+            <StarButton
+              onClick={(e) => {
+                e.stopPropagation()
+                debug('CLICKING PREFER', optionInfo)
+                prefer(!optionInfo?.prefer)
+              }}
+            >
+              {optionInfo?.prefer ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
+            </StarButton>
+          </Tooltip>
+        </ListItemIcon>
+        <ListItemText>{option.name}</ListItemText>
+      </MenuItem>
     )
   }
 )

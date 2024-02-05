@@ -3,6 +3,7 @@ import { useVolume } from '../../hooks'
 import { useDeferredValue } from 'react'
 import { Slider, Stack } from '@mui/material'
 import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
+import Tooltip from '@mui/material/Tooltip'
 
 export const Volume = () => {
   const { volume, setVolume } = useVolume()
@@ -27,17 +28,19 @@ export const Volume = () => {
         onClick={toggleMute}
       />
       <Stack width={70} justifyContent={'center'} pr={2}>
-        <Slider
-          size={'small'}
-          style={{ color: '#fff' }}
-          value={volume}
-          min={0}
-          max={1}
-          step={0.01}
-          onChange={(_, value) => {
-            setVolume(Array.isArray(value) ? value[0] : value)
-          }}
-        />
+        <Tooltip title={'Volumen'}>
+          <Slider
+            size={'small'}
+            style={{ color: '#fff' }}
+            value={volume}
+            min={0}
+            max={1}
+            step={0.01}
+            onChange={(_, value) => {
+              setVolume(Array.isArray(value) ? value[0] : value)
+            }}
+          />
+        </Tooltip>
       </Stack>
     </>
   )

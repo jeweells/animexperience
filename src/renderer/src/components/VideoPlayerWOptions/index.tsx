@@ -2,6 +2,7 @@ import { useMemo, useState, useLayoutEffect, FC, memo, useCallback } from 'react
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import VideoPlayer, { VideoOption } from '../VideoPlayer'
 import { watch } from '@reducers'
+import { VideoOptionsContext } from '@components/VideoPlayerWOptions/context'
 
 export const VideoPlayerWOptions: FC = memo(() => {
   const dispatch = useAppDispatch()
@@ -35,7 +36,20 @@ export const VideoPlayerWOptions: FC = memo(() => {
     dispatch(watch.dropVideoOption(currentOption))
   }, [currentOption, sortedOptions])
 
-  return <VideoPlayer option={currentOption} onOptionNotFound={onOptionNotFound}></VideoPlayer>
+  return (
+    <VideoOptionsContext.Provider
+      value={useMemo(
+        () => ({
+          sortedOptions,
+          currentOption,
+          setCurrentOption
+        }),
+        [sortedOptions, currentOption, setCurrentOption]
+      )}
+    >
+      <VideoPlayer option={currentOption} onOptionNotFound={onOptionNotFound}></VideoPlayer>
+    </VideoOptionsContext.Provider>
+  )
 })
 
 VideoPlayerWOptions.displayName = 'VideoPlayerWOptions'

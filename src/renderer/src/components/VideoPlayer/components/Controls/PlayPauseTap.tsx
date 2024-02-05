@@ -50,7 +50,7 @@ export const PlayPauseTap = () => {
         void document.body.requestFullscreen()
       }
     },
-    { code: 'f' }
+    { key: 'f' }
   )
 
   return (

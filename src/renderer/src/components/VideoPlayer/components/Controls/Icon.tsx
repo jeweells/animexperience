@@ -9,9 +9,12 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp'
 import VolumeDownIcon from '@mui/icons-material/VolumeDown'
 import VolumeMuteIcon from '@mui/icons-material/VolumeMute'
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered'
+import StarRoundedIcon from '@mui/icons-material/StarRounded'
+
 import CloseIcon from '@mui/icons-material/Close'
 import { ComponentProps, forwardRef, ReactNode } from 'react'
 import Tooltip from '@mui/material/Tooltip'
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded'
 
 const TransparentIconButton = styled(IconButton)`
   color: white;
@@ -30,7 +33,9 @@ const icons = {
   volumeDown: VolumeDownIcon,
   volumeMute: VolumeMuteIcon,
   listNumbered: FormatListNumberedIcon,
-  close: CloseIcon
+  close: CloseIcon,
+  starRounded: StarRoundedIcon,
+  starBorderRounded: StarBorderRoundedIcon
 }
 
 export type IconName = keyof typeof icons
