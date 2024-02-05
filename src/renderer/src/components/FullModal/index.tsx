@@ -52,7 +52,13 @@ export const FullModal: FC<FullModalProps> = memo<FullModalProps>(
       }
     }, [show])
 
-    useKeyUp(() => dispatch(topView.pop(view)), { code: 'Escape' })
+    useKeyUp(
+      () => {
+        if (currentTopview !== view) return
+        dispatch(topView.pop(view))
+      },
+      { code: 'Escape' }
+    )
 
     return (
       <SModal
