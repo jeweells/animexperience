@@ -1,7 +1,7 @@
 import { Icon } from '../../Icon'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { peek } from '@reducers'
-import { useEffect } from 'react'
+import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
 
 export const EpisodesList = () => {
   const watching = useAppSelector((d) => d.watch.watching)
@@ -11,21 +11,13 @@ export const EpisodesList = () => {
     dispatch(peek.peek(watching.name))
   }
 
-  useEffect(() => {
-    const handle = (e: KeyboardEvent) => {
-      if (e.key === 'e') tryPeeking()
-    }
-    document.addEventListener('keyup', handle)
-    return () => {
-      document.removeEventListener('keyup', handle)
-    }
-  }, [])
+  useKeyUp(tryPeeking, { key: 'e' })
 
   return (
     <Icon
       style={{ fontSize: '1.5rem' }}
       name={'listNumbered'}
-      title={'Episodios (e)'}
+      title={'Episodios ( e )'}
       onClick={tryPeeking}
     />
   )

@@ -7,7 +7,7 @@ export const Close = () => {
   return (
     <Icon
       name={'close'}
-      title={'Cerrar (escape)'}
+      title={'Cerrar ( Esc )'}
       onClick={() => {
         dispatch(player.hide())
       }}

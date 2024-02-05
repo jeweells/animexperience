@@ -1,10 +1,11 @@
 import { Stack, Zoom } from '@mui/material'
 import { styled } from '@mui/system'
 import { useControls, usePlayPause } from './hooks'
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import { InverseFade } from '~/src/atoms/InverseFade'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import PauseIcon from '@mui/icons-material/Pause'
+import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
 
 const Wrapper = styled(Stack)`
   position: absolute;
@@ -13,6 +14,7 @@ const Wrapper = styled(Stack)`
   inset: 0;
   transition: opacity 250ms ease-in-out;
   outline: none;
+  background: linear-gradient(0deg, #00000094, transparent);
 `
 
 const IconWrapper = styled('div')`
@@ -33,28 +35,23 @@ export const PlayPauseTap = () => {
     setKey(null)
   }, [video])
 
-  useEffect(() => {
-    const handle = (e: KeyboardEvent) => {
-      if (e.code === 'Space') toggle()
-      if (e.key === 'f') {
-        if (document.fullscreenElement) {
-          void document.exitFullscreen()
-        } else {
-          void document.body.requestFullscreen()
-        }
-      }
-    }
-    document.addEventListener('keyup', handle)
-    return () => {
-      document.removeEventListener('keyup', handle)
-    }
-  }, [isPlaying])
-
   const toggle = () => {
     if (isPlaying) pause()
     else void play()
     setKey(isPlaying ? 'playing' : 'paused')
   }
+
+  useKeyUp(toggle, { code: 'Space' })
+  useKeyUp(
+    () => {
+      if (document.fullscreenElement) {
+        void document.exitFullscreen()
+      } else {
+        void document.body.requestFullscreen()
+      }
+    },
+    { code: 'f' }
+  )
 
   return (
     <Wrapper

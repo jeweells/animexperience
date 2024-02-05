@@ -1,7 +1,7 @@
 import { Icon } from '../../Icon'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { watch } from '@reducers'
-import { useEffect } from 'react'
+import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
 
 export const NextEpisode = () => {
   const data = useAppSelector((d) => d.watch.info)
@@ -14,22 +14,14 @@ export const NextEpisode = () => {
   const hasMax =
     typeof max === 'number' && typeof watching?.episode === 'number' && watching.episode < max
 
-  useEffect(() => {
-    const handle = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight' && hasMax) dispatch(watch.nextEpisode())
-      if (e.key === 'ArrowLeft' && hasMin) dispatch(watch.previousEpisode())
-    }
-    document.addEventListener('keyup', handle)
-    return () => {
-      document.removeEventListener('keyup', handle)
-    }
-  }, [])
+  useKeyUp(() => hasMax && dispatch(watch.nextEpisode()), { key: 'ArrowRight', altKey: true })
+  useKeyUp(() => hasMin && dispatch(watch.previousEpisode()), { key: 'ArrowLeft', altKey: true })
 
   if (!hasMax) return null
   return (
     <Icon
       name={'skipNext'}
-      title={'Siguiente episodio (flecha derecha)'}
+      title={'Siguiente episodio ( Alt + ➜ )'}
       onClick={() => dispatch(watch.nextEpisode())}
     />
   )

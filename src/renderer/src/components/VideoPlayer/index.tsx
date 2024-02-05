@@ -1,12 +1,11 @@
 import $ from 'jquery'
 import useResizeObserver from 'use-resize-observer'
 import { useAppSelector } from '~/redux/utils'
-import { FCol } from '../../atoms/Layout'
-import { useFadeInStyles } from '../../globalMakeStyles/fadeIn'
 import { Wrapper } from '../../placeholders/VideoPlayerWOptionsPlaceholder'
 import { useVideoImprovements } from './hooks'
 import { FC, memo, PropsWithChildren, useCallback, useLayoutEffect, useState } from 'react'
 import { Controls } from './components'
+import { Iframe } from './Iframe'
 
 export type VideoOption = {
   name: string
@@ -16,32 +15,6 @@ export type VideoPlayerProps = {
   option: VideoOption | null
   onOptionNotFound: () => void
 }
-
-const IFrame: FC<
-  PropsWithChildren<{
-    html?: string
-    updateRef?(r: HTMLDivElement | null): void
-  }>
-> = memo(({ html, updateRef, children }) => {
-  const { fadeIn } = useFadeInStyles()
-  if (!html) return null
-  return (
-    <FCol
-      className={fadeIn}
-      style={{ flex: 1, width: '100%', overflow: 'hidden', position: 'relative' }}
-      ref={updateRef}
-    >
-      <div
-        style={{ flex: 1, width: '100%', overflow: 'hidden' }}
-        ref={updateRef}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-      {children}
-    </FCol>
-  )
-})
-
-IFrame.displayName = 'IFrame'
 
 export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
   ({ option, onOptionNotFound }) => {
@@ -79,7 +52,9 @@ export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
           height: 'var(--modal-height)'
         }}
       >
-        {!freezed && option && <IFrame html={option?.html} updateRef={updateWrapperRef}></IFrame>}
+        {!freezed && option && (
+          <Iframe html={option?.html} updateRef={updateWrapperRef} loading={!video}></Iframe>
+        )}
         <Controls video={video ?? null} />
       </Wrapper>
     )

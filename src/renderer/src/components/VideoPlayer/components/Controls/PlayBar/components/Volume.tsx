@@ -1,7 +1,8 @@
 import { Icon } from '../../Icon'
 import { useVolume } from '../../hooks'
-import { useDeferredValue, useEffect } from 'react'
+import { useDeferredValue } from 'react'
 import { Slider, Stack } from '@mui/material'
+import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
 
 export const Volume = () => {
   const { volume, setVolume } = useVolume()
@@ -11,21 +12,15 @@ export const Volume = () => {
     setVolume(volume === 0 ? (oldVolume === volume ? 1 : oldVolume) : 0)
   }
 
-  useEffect(() => {
-    const handle = (e: KeyboardEvent) => {
-      if (e.key === 'm') toggleMute()
-    }
-    document.addEventListener('keyup', handle)
-    return () => {
-      document.removeEventListener('keyup', handle)
-    }
-  }, [volume, oldVolume])
+  useKeyUp(toggleMute, { key: 'm' })
+  useKeyUp(() => setVolume(Math.min(1, volume + 0.1)), { key: 'ArrowUp' })
+  useKeyUp(() => setVolume(Math.max(0, volume - 0.1)), { key: 'ArrowDown' })
 
   return (
     <>
       <Icon
         name={volume === 0 ? 'volumeMute' : volume < 0.6 ? 'volumeDown' : 'volumeUp'}
-        title={'Silenciar (m)'}
+        title={'Silenciar ( m )'}
         style={{
           fontSize: '1.7rem'
         }}

@@ -7,9 +7,9 @@ export const FullscreenButton = () => {
     return (
       <Icon
         name={'exitFullscreen'}
-        title={'Salir de pantalla completa (f)'}
+        title={'Salir de pantalla completa ( f )'}
         onClick={toggleFullscreen}
       />
     )
-  return <Icon name={'fullscreen'} title={'Pantalla completa (f)'} onClick={toggleFullscreen} />
+  return <Icon name={'fullscreen'} title={'Pantalla completa ( f )'} onClick={toggleFullscreen} />
 }

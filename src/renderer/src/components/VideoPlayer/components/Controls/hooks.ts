@@ -117,6 +117,11 @@ export const useSeek = () => {
     seek: (value: number) => {
       if (!video) return
       video.currentTime = value
+    },
+    fastSeek: (value: number) => {
+      if (!video) return
+      if (!video.fastSeek) video.currentTime = value
+      else video.fastSeek(value)
     }
   }
 }

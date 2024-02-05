@@ -1,11 +1,12 @@
 import Dialog, { DialogProps } from '@mui/material/Dialog'
 import Fade from '@mui/material/Fade'
-import { useLayoutEffect, FC, memo, useEffect } from 'react'
+import { useLayoutEffect, FC, memo } from 'react'
 import { styled } from '@mui/system'
 import { topView } from '@reducers'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { TopView } from '@shared/types'
 import { useTopBarHeight } from '../Topbar'
+import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
 
 type SModalProps = { topBarHeight: number; contrast?: boolean } & DialogProps
 
@@ -51,18 +52,7 @@ export const FullModal: FC<FullModalProps> = memo<FullModalProps>(
       }
     }, [show])
 
-    useEffect(() => {
-      if (currentTopview !== view) return
-      const handle = (e: KeyboardEvent) => {
-        if (e.code === 'Escape') {
-          dispatch(topView.pop(view))
-        }
-      }
-      document.addEventListener('keyup', handle)
-      return () => {
-        document.removeEventListener('keyup', handle)
-      }
-    }, [currentTopview])
+    useKeyUp(() => dispatch(topView.pop(view)), { code: 'Escape' })
 
     return (
       <SModal
