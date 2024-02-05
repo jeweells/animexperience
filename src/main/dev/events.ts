@@ -2,9 +2,13 @@ import { getDevWindow } from '../windows'
 import { eventNames } from '@shared/constants'
 import { DevMessageType, ForcedAny, RawDevMessage } from '@shared/types'
 import { isDevRendererReady } from '../setup/onDevRendererIsReady'
+import { app } from 'electron'
+import { is } from '@electron-toolkit/utils'
 
 const defferMessageUntilDevWindowIsCreated = <T extends (...args: ForcedAny) => void>(fn: T) => {
   return ((...args) => {
+    if (app.isPackaged) return
+    if (!is.dev) return
     if (isDevRendererReady()) {
       fn(...args)
     } else {

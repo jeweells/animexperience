@@ -1,4 +1,4 @@
-import { app, ipcMain } from 'electron'
+import { app, ipcMain, dialog } from 'electron'
 import moment from 'moment'
 import 'moment/locale/es'
 import setupSdk from './sdk'
@@ -17,6 +17,7 @@ import { createDevWindow } from './setup/createDevWindow'
 import { PUBLIC_PATH } from './constants'
 import { debug, info } from '@dev'
 import { onDevRendererIsReady } from './setup/onDevRendererIsReady'
+import Store from 'electron-store'
 
 moment.locale('es')
 
@@ -67,3 +68,33 @@ if (app.isPackaged) {
     })
   })
 }
+
+process.on('uncaughtException', (e) => {
+  console.error(e)
+  const store = new Store({
+    name: 'crashes'
+  })
+  store.set(new Date().toISOString().replaceAll('.', '_'), {
+    message: e.message,
+    stack: e.stack,
+    cause: e.cause,
+    name: e.name
+  })
+
+  dialog.showErrorBox('Crashed', e.message)
+  app.quit()
+})
+
+process.on('unhandledRejection', (e) => {
+  console.error(e)
+  const store = new Store({
+    name: `crashes`,
+    defaults: {}
+  })
+
+  store.set(new Date().toISOString().replaceAll('.', '_'), {
+    error: String(e)
+  })
+  dialog.showErrorBox('Crashed (Rejected)', String(e))
+  app.quit()
+})

@@ -1,5 +1,5 @@
 import { join } from 'path'
-import { BrowserWindow, screen } from 'electron'
+import { app, BrowserWindow, screen } from 'electron'
 import { is } from '@electron-toolkit/utils'
 import { setDevWindow } from '../windows'
 import contextMenu from 'electron-context-menu'
@@ -22,6 +22,7 @@ const buildWindow = () => {
 }
 
 export const createDevWindow = () => {
+  if (app.isPackaged) return
   if (!is.dev) return null
   const window = buildWindow()
   window.maximize()

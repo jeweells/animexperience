@@ -10,6 +10,9 @@ files:
   - '!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md,jest.config.js}'
   - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
   - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json,tsconfig.test.json}'
+  - '!{tsconfig.node.tsbuildinfo,tsconfig.web.tsbuildinfo}'
+extraResources:
+  - 'extensions/**'
 asarUnpack:
   - resources/**
 win:
