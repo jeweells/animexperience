@@ -5,7 +5,7 @@ import { range } from '~/src/utils'
 
 export const useControls = () => useContext(Context)
 
-const msToHide = 2000
+const MS_TO_HIDE = 4000
 
 export const useShowControls = () => {
   const [show, setShow] = useState(true)
@@ -37,7 +37,7 @@ export const useShowControls = () => {
     if (!show) return
     const t = setTimeout(() => {
       setShow(false)
-    }, msToHide)
+    }, MS_TO_HIDE)
     return () => clearTimeout(t)
   }, [show, isPlaying, loading])
   return { show, transitionMs: 500 }
@@ -46,6 +46,11 @@ export const useShowControls = () => {
 export const usePlayPause = () => {
   const { video } = useControls()
   const [playing, setPlaying] = useState(false)
+
+  useLayoutEffect(() => {
+    if (video) return
+    setPlaying(false)
+  }, [video])
 
   useEffect(() => {
     if (!video) return
@@ -74,6 +79,11 @@ export const usePlayPause = () => {
 export const useVolume = () => {
   const { video } = useControls()
   const [volume, setVolume] = useState(0)
+  useLayoutEffect(() => {
+    if (video) return
+    setVolume(0)
+  }, [video])
+
   useEffect(() => {
     if (!video) return
     const updateVolume = () => {
@@ -95,9 +105,17 @@ export const useVolume = () => {
   }
 }
 
+const defaultTime = { currentTime: 0, duration: 0 }
+
 export const useSeek = () => {
   const { video } = useControls()
-  const [time, setTime] = useState({ currentTime: 0, duration: 0 })
+  const [time, setTime] = useState(defaultTime)
+
+  useLayoutEffect(() => {
+    if (video) return
+    setTime(defaultTime)
+  }, [video])
+
   useEffect(() => {
     if (!video) return
     const updateTime = () => {
@@ -113,7 +131,7 @@ export const useSeek = () => {
     }
   }, [video])
   return {
-    time,
+    time: video ? time : { currentTime: 0, duration: 0 },
     seek: (value: number) => {
       if (!video) return
       video.currentTime = value
@@ -135,6 +153,12 @@ export const useBuffer = () => {
   }
 
   const [buffered, setBuffered] = useState<Buffer[]>([])
+
+  useLayoutEffect(() => {
+    if (video) return
+    if (buffered.length) setBuffered([])
+  }, [video])
+
   useEffect(() => {
     if (!video) return
     const updateBuffer = () => {
@@ -162,6 +186,12 @@ export const useLoading = () => {
   const { video } = useControls()
 
   const [loading, setLoading] = useState(true)
+
+  useLayoutEffect(() => {
+    if (video) return
+    setLoading(true)
+  }, [video])
+
   useEffect(() => {
     if (!video) return
     const seeking = () => {

@@ -115,7 +115,7 @@ export const SeekBar = () => {
   const [timePer, setTimePer] = useState(0)
 
   useLayoutEffect(() => {
-    setTimePer((time.currentTime / time.duration) * 100)
+    setTimePer(time.duration === 0 ? 0 : (time.currentTime / time.duration) * 100)
   }, [time])
 
   useKeyUp(

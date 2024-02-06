@@ -26,9 +26,8 @@ export const VideoPlayerWOptions: FC = memo(() => {
   }, [availableOptions, usedOptions])
 
   useLayoutEffect(() => {
-    if (sortedOptions.length === 0 || sortedOptions.find((opt) => opt.name === currentOption?.name))
-      return
-    setCurrentOption(sortedOptions[0])
+    if (sortedOptions.some((opt) => opt.id === currentOption?.id)) return
+    setCurrentOption(sortedOptions[0] ?? null)
   }, [sortedOptions, currentOption])
 
   const onOptionNotFound = useCallback(() => {

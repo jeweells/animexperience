@@ -9,6 +9,7 @@ import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { WatchState } from '../../state/types'
 import { initialState } from '../../state'
 import { debug } from '@dev/events'
+import { v4 as uuidv4 } from 'uuid'
 
 const changeWatchingEpisode = (state: WatchState, episode: number): RecentAnimeData => {
   const { info, watching } = state
@@ -98,6 +99,7 @@ const watchEpisode = asyncAction(
   'watch/watchEpisode',
   async (anime: RecentAnimeData, { dispatch }) => {
     dispatch(watch.set(anime))
+    dispatch(watch.resetAvailableVideos())
     const p = dispatch(watch.getAvailableVideos())
     const info = dispatch(watch.getAnimeInfo())
     dispatch(player.show())
@@ -113,6 +115,9 @@ export const slice = createSlice({
     },
     reset() {
       return initialState.watch
+    },
+    resetAvailableVideos(state) {
+      state.availableVideos = []
     },
     setNextEpisodeButton(state, { payload }: PayloadAction<boolean>) {
       state.showNextEpisodeButton = payload
@@ -138,7 +143,7 @@ export const slice = createSlice({
       'availableVideos',
       (state, { payload }: PayloadAction<Optional<VideoOption[]>>) => {
         debug('Available videos:', payload)
-        state.availableVideos = payload
+        state.availableVideos = payload?.map((opt) => ({ ...opt, id: uuidv4() }))
       }
     )
     addFetchFlow(

@@ -8,6 +8,7 @@ import { Controls } from './components'
 import { Iframe } from './Iframe'
 
 export type VideoOption = {
+  id: string
   name: string
   html: string
 }
@@ -29,7 +30,7 @@ export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
       if (!iframe.length) return
       iframe.attr('width', Math.floor(width) - 1)
       iframe.attr('height', Math.floor(height) - 1)
-    }, [ref, option?.name, width, height])
+    }, [ref, option?.id, width, height])
 
     const { video } = useVideoImprovements({
       info: {

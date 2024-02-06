@@ -3,38 +3,61 @@ import { watch } from '@reducers'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import Fade from '@mui/material/Fade'
 import { NEXT_EPISODE_BUTTON } from '@selectors'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Button from '@mui/material/Button'
-import { usePlayPause, useShowControls } from '@components/VideoPlayer/components/Controls/hooks'
+import {
+  usePlayPause,
+  useSeek,
+  useShowControls
+} from '@components/VideoPlayer/components/Controls/hooks'
+import { canGoToNextEpisode } from '@components/VideoPlayer/hooks'
+import { SECONDS_NEXT_BUTTON_DISPLAY } from '@components/VideoPlayer/constants'
 
 export const NextEpisodeButton: React.FC = React.memo(() => {
-  const timeout = useAppSelector((d) => d.watch.nextEpisodeTimeout)
+  const [{ seconds, clear }, _setTimeout] = useState<{ seconds: number; clear?: () => void }>({
+    seconds: -1
+  })
   const max = useAppSelector((d) => d.watch.info?.episodesRange?.max) ?? 0
   const episode = useAppSelector((d) => d.watch.watching?.episode) ?? 0
   const dispatch = useAppDispatch()
-  const showNextButton = useAppSelector((d) => d.watch.showNextEpisodeButton) && episode < max
   const handleNext = () => {
-    dispatch(watch.setNextEpisodeButton(false))
     dispatch(watch.nextEpisode())
   }
 
   const { isPlaying } = usePlayPause()
   const { show, transitionMs } = useShowControls()
+  const { time } = useSeek()
+  const showNextButton = episode < max && time.duration > 0 && canGoToNextEpisode(time)
 
   useEffect(() => {
-    if (isPlaying) return
-    if (showNextButton) dispatch(watch.setNextEpisodeTimeout(-1))
-  }, [isPlaying])
+    if (!showNextButton) return
+    const t = setTimeout(handleNext, SECONDS_NEXT_BUTTON_DISPLAY * 1000)
+    _setTimeout({
+      seconds: SECONDS_NEXT_BUTTON_DISPLAY,
+      clear: () => {
+        clearTimeout(t)
+        _setTimeout({ seconds: -1 })
+      }
+    })
+    return () => {
+      clearTimeout(t)
+    }
+  }, [showNextButton])
 
   useEffect(() => {
     const handleMouseMove = () => {
-      if (showNextButton) dispatch(watch.setNextEpisodeTimeout(-1))
+      clear?.()
     }
     document.addEventListener('mousemove', handleMouseMove)
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [showNextButton])
+  }, [clear])
+
+  useEffect(() => {
+    if (isPlaying) return
+    clear?.()
+  }, [isPlaying, clear])
 
   return (
     <Fade in={showNextButton} timeout={400}>
@@ -64,8 +87,8 @@ export const NextEpisodeButton: React.FC = React.memo(() => {
                 left: 0,
                 bottom: 0,
                 backgroundColor: 'rgba(0,0,0,0.9)',
-                width: timeout !== -1 && showNextButton ? '100%' : '0',
-                transition: timeout === -1 ? 'none' : `all ${timeout}s`
+                width: seconds !== -1 && showNextButton ? '100%' : '0',
+                transition: seconds === -1 ? 'none' : `all ${seconds}s`
               }}
             />
           </Button>

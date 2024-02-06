@@ -6,6 +6,7 @@ export const Duration = () => {
   const { time } = useSeek()
   if (!isFinite(time.duration)) return null
   if (!isFinite(time.currentTime)) return null
+  if (!time.duration) return null
 
   return (
     <Text

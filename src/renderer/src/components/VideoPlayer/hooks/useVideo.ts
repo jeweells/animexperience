@@ -40,7 +40,7 @@ export const useVideo = ({ info, container, ms = 300, onOptionNotFound }: UseVid
   useLayoutEffect(() => {
     if (!(watchEpisodeStatus === 'succeeded' && container && episodeInfo !== null)) return
     const iframeContent = $(container).find('iframe')
-    return polling(
+    const stopPolling = polling(
       {
         handledSpecificOptions: false
       },
@@ -60,10 +60,14 @@ export const useVideo = ({ info, container, ms = 300, onOptionNotFound }: UseVid
       },
       ms
     )
+    return () => {
+      setVideo(null)
+      stopPolling()
+    }
   }, [
     info.anime?.name,
     info.anime?.episode,
-    info.option?.name,
+    info.option?.id,
     container,
     ms,
     detachedVideo,

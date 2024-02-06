@@ -6,9 +6,7 @@ import { handleSeek } from '../seekHandlers'
 import {
   CURRENT_TIME_SAVE_DELAY,
   RATIO_TO_FOLLOW_AN_ANIME,
-  SECONDS_LEFT_TO_NEXT_EPISODE,
-  SECONDS_LEFT_TO_TRIGGER_NEXT_EPISODE,
-  SECONDS_NEXT_BUTTON_DISPLAY
+  SECONDS_LEFT_TO_NEXT_EPISODE
 } from '../constants'
 import { followedAnimes, watch, watched } from '@reducers'
 import store from '~/redux/store'
@@ -46,25 +44,26 @@ export const useVideoImprovements = ({ info, container, onOptionNotFound, ms }: 
     const delayed = withDelay(CURRENT_TIME_SAVE_DELAY)
     const handleTimeUpdate = () => {
       if (!isFinite(video.duration)) return
-      handleAutoNavigation(refs, video, anime)
+      handleWatchedDetector(refs, video, anime)
       handleSaving(video, anime, delayed)
       handleFollow(refs, video)
     }
-    const handleMouseMove = () => {
-      if (refs.nextButtonShown) dispatch(watch.setNextEpisodeTimeout(-1))
+    const handleVideoEnded = () => {
+      console.log('Video ended! YES!')
+      dispatch(watch.nextEpisode())
     }
-    document.addEventListener('mousemove', handleMouseMove)
+    video.addEventListener('ended', handleVideoEnded)
     video.addEventListener('timeupdate', handleTimeUpdate)
     return () => {
       video.removeEventListener('timeupdate', handleTimeUpdate)
-      document.removeEventListener('mousemove', handleMouseMove)
+      video.removeEventListener('ended', handleVideoEnded)
     }
   }, [video])
   return { video }
 }
 
-const canGoToNextEpisode = (video: HTMLVideoElement) => {
-  const { duration, currentTime } = video
+export const canGoToNextEpisode = (time: { duration: number; currentTime: number }) => {
+  const { duration, currentTime } = time
   return currentTime + SECONDS_LEFT_TO_NEXT_EPISODE >= duration
 }
 
@@ -88,15 +87,6 @@ const handleFollow = (refs: Refs, video: HTMLVideoElement) => {
   refs.followed = true
 }
 
-const autoGoToNextEpisode = () => {
-  const _state = store.getState()
-  const userMovedMouse = _state.watch.nextEpisodeTimeout === -1
-  if (userMovedMouse) return false
-  dispatch(watch.nextEpisode())
-  dispatch(watch.setNextEpisodeButton(false))
-  return true
-}
-
 const withDelay = <T extends () => void>(delay: number) => {
   let canCall = true
   let lastCallback: T | null
@@ -117,36 +107,15 @@ const withDelay = <T extends () => void>(delay: number) => {
   }
 }
 
-const handleAutoNavigation = (
+const handleWatchedDetector = (
   refs: Refs,
   video: HTMLVideoElement,
   anime: Optional<RecentAnimeData>
 ) => {
-  const { duration, currentTime } = video
-  if (canGoToNextEpisode(video)) {
-    if (!refs.watched) {
-      refs.watched = true
-      // At this time of the video, the video can be considered "watched"
-      dispatch(watched.updateRecentlyWatched(anime))
-    }
-    const canAutomaticallyGoToNextEpisode =
-      Math.max(0, duration - (currentTime + SECONDS_LEFT_TO_TRIGGER_NEXT_EPISODE)) === 0
-    if (canAutomaticallyGoToNextEpisode) {
-      if (autoGoToNextEpisode()) {
-        refs.nextButtonShown = false
-        return
-      }
-    }
-
-    if (!refs.nextButtonShown) {
-      refs.nextButtonShown = true
-      dispatch(watch.setNextEpisodeButton(true))
-      dispatch(watch.setNextEpisodeTimeout(SECONDS_NEXT_BUTTON_DISPLAY))
-    }
-  } else if (refs.nextButtonShown) {
-    refs.nextButtonShown = false
-    dispatch(watch.setNextEpisodeButton(false))
-  }
+  if (!canGoToNextEpisode(video)) return
+  if (refs.watched) return
+  refs.watched = true
+  dispatch(watched.updateRecentlyWatched(anime))
 }
 
 const handleSaving = (

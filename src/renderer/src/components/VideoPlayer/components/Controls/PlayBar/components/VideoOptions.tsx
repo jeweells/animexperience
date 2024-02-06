@@ -50,8 +50,8 @@ export const VideoOptions = () => {
           {sortedOptions.toReversed().map((opt) => {
             return (
               <OptionButton
-                disabled={opt.name === currentOption?.name}
-                key={opt.name}
+                disabled={opt.id === currentOption?.id}
+                key={opt.id}
                 option={opt}
                 onClick={() => {
                   setCurrentOption(opt)
