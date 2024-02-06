@@ -1,14 +1,21 @@
 import * as React from 'react'
-import { useAppSelector } from '~/redux/utils'
+import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import WatchInvokedLink from '../WatchInvokedLink'
 import FullModal, { FullModalProps } from '../FullModal'
 import { TopView } from '@shared/types'
+import { invokedLink } from '@reducers'
 
 export type WatchInvokedLinkModalProps = Omit<FullModalProps, 'show' | 'children' | 'view'>
 
 export const WatchInvokedLinkModal: React.FC<WatchInvokedLinkModalProps> =
   React.memo<WatchInvokedLinkModalProps>(({ ...rest }) => {
     const open = useAppSelector((d) => d.invokedLink.open.watch)
+    const dispatch = useAppDispatch()
+
+    const close = () => {
+      dispatch(invokedLink.hide('watch'))
+    }
+
     return (
       <FullModal
         view={TopView.INVOKED_LINK}
@@ -26,8 +33,9 @@ export const WatchInvokedLinkModal: React.FC<WatchInvokedLinkModalProps> =
           }
         }}
         {...rest}
+        onPopRequested={close}
       >
-        <WatchInvokedLink />
+        <WatchInvokedLink onClose={close} />
       </FullModal>
     )
   })

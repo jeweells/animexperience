@@ -18,7 +18,15 @@ export const AnimePeekModal: React.FC<AnimePeekModalProps> = React.memo(({ ...re
   }
 
   return (
-    <FullModal view={TopView.PEEK} show={peeking} contrast={true} {...rest}>
+    <FullModal
+      view={TopView.PEEK}
+      show={peeking}
+      contrast={true}
+      {...rest}
+      onPopRequested={() => {
+        handleClose()
+      }}
+    >
       {status === 'succeeded' ? (
         <AnimePeek onClose={handleClose} />
       ) : (

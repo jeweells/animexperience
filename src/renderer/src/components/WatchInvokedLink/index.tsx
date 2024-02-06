@@ -2,7 +2,7 @@ import * as React from 'react'
 import { styled } from '@mui/system'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import Button from '@mui/material/Button'
-import { watch, invokedLink } from '@reducers'
+import { watch } from '@reducers'
 
 import { FRowG16, FRowG8 } from '../../atoms/Layout'
 import DialogActions from '@mui/material/DialogActions'
@@ -46,14 +46,11 @@ const CloseButtonAlt = styled(CloseButton)`
   }
 `
 
-export const WatchInvokedLink: React.FC = React.memo(() => {
+export const WatchInvokedLink = React.memo(({ onClose }: { onClose: () => void }) => {
   const status = useAppSelector((d) => d.invokedLink.status.watch)
   const { data: info, request } = useAppSelector((d) => d.invokedLink.preAllow.watch) ?? {}
   const dispatch = useAppDispatch()
 
-  const close = () => {
-    dispatch(invokedLink.hide('watch'))
-  }
   const ready = status === 'succeeded'
 
   const episode = request?.episode ?? '<?>'
@@ -65,7 +62,7 @@ export const WatchInvokedLink: React.FC = React.memo(() => {
           <Title>Enlace compartido</Title>
         </FRowG8>
         <FExpand />
-        <CloseButtonAlt onClick={close} />
+        <CloseButtonAlt onClick={onClose} />
       </TitleBar>
       {ready ? (
         <UnhookedAnimePeek info={info} contentProps={{ style: { paddingTop: 52 + 32 } }} />

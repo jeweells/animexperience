@@ -10,14 +10,19 @@ export type AnimeSearchModalProps = Omit<FullModalProps, 'show' | 'children' | '
 export const AnimeSearchModal: React.FC<AnimeSearchModalProps> = React.memo(({ ...rest }) => {
   const searching = useAppSelector((d) => d.animeSearch.searching)
   const dispatch = useAppDispatch()
+  const handleClose = () => {
+    dispatch(animeSearch.setSearching(false))
+  }
   return (
     <React.Fragment>
-      <FullModal view={TopView.SEARCH} show={searching} contrast={true} {...rest}>
-        <AnimeSearch
-          onClose={() => {
-            dispatch(animeSearch.setSearching(false))
-          }}
-        />
+      <FullModal
+        view={TopView.SEARCH}
+        show={searching}
+        contrast={true}
+        {...rest}
+        onPopRequested={handleClose}
+      >
+        <AnimeSearch onClose={handleClose} />
       </FullModal>
     </React.Fragment>
   )

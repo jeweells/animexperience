@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { playerOptions } from '@reducers'
+import { player, playerOptions } from '@reducers'
 
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { TopView } from '@shared/types'
@@ -16,8 +16,16 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = React.memo<Vide
     React.useLayoutEffect(() => {
       dispatch(playerOptions.fetchStore())
     }, [])
+
     return (
-      <FullModal {...rest} view={TopView.PLAYER} show={show}>
+      <FullModal
+        {...rest}
+        view={TopView.PLAYER}
+        show={show}
+        onPopRequested={() => {
+          dispatch(player.hide())
+        }}
+      >
         <VideoPlayerWOptions />
       </FullModal>
     )

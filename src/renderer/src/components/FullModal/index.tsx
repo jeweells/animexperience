@@ -36,10 +36,11 @@ export type FullModalProps = {
   contrast?: boolean
   show: string | undefined
   view: TopView
+  onPopRequested?: () => void
 } & Omit<DialogProps, 'open' | 'sx'>
 
 export const FullModal: FC<FullModalProps> = memo<FullModalProps>(
-  ({ view, children, show, ...rest }) => {
+  ({ view, children, show, onPopRequested, ...rest }) => {
     const topBarHeight = useTopBarHeight()
     const currentTopview = useAppSelector((d) => d.topView.views[0])
     const dispatch = useAppDispatch()
@@ -55,7 +56,7 @@ export const FullModal: FC<FullModalProps> = memo<FullModalProps>(
     useKeyUp(
       () => {
         if (currentTopview !== view) return
-        dispatch(topView.pop(view))
+        onPopRequested?.()
       },
       { code: 'Escape' }
     )
