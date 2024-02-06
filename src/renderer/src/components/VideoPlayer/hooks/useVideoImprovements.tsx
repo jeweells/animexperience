@@ -49,7 +49,6 @@ export const useVideoImprovements = ({ info, container, onOptionNotFound, ms }: 
       handleFollow(refs, video)
     }
     const handleVideoEnded = () => {
-      console.log('Video ended! YES!')
       dispatch(watch.nextEpisode())
     }
     video.addEventListener('ended', handleVideoEnded)
