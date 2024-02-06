@@ -19,16 +19,16 @@ export const Controls = ({ video }: Pick<ControlsContext, 'video'>) => {
       }, [video])}
     >
       <OpacityLayer>
-        <Loading />
         <PlayPauseTap />
         <div style={{ position: 'absolute', top: 16, right: 16 }}>
           <Stack direction={'row'} spacing={2}>
-            <NextEpisodeButton />
             <Close />
           </Stack>
         </div>
         <PlayBar />
       </OpacityLayer>
+      <Loading />
+      <NextEpisodeButton />
     </Context.Provider>
   )
 }
