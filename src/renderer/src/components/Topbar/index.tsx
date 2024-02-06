@@ -16,6 +16,7 @@ import SearchBar from '../SearchBar'
 import fade from './fade.module.css'
 import ShareAnimeEpisodeButton from '../ShareAnimeEpisodeButton'
 import { useIsFullscreen } from '~/src/hooks/useIsFullscreen'
+import { UpdateButton } from '@components'
 
 const ipcRenderer = window.electron.ipcRenderer
 
@@ -107,6 +108,7 @@ export const Topbar: FC<TopbarProps> = memo(({ children }) => {
           </CSSTransition>
         </SwitchTransition>
         <Buttons>
+          <UpdateButton />
           <CloseButton
             style={{
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -4,5 +4,12 @@ export default {
   devMessage: 'devMessage',
   devMessageRendererReady: 'devMessageRendererReady',
   bridgeDevMessage: 'bridgeDevMessage',
-  setFullscreen: 'setFullscreen'
+  setFullscreen: 'setFullscreen',
+  update: {
+    found: 'update.found',
+    progress: 'update.progress',
+    finished: 'update.finished',
+    install: 'update.install',
+    download: 'update.download'
+  }
 }

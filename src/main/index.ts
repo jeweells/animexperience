@@ -7,12 +7,11 @@ import { getMainWindow } from './windows'
 import { setupOpenUrl } from './sdk/openUrl'
 import { eventNames } from '@shared/constants'
 import { electronApp } from '@electron-toolkit/utils'
-import { autoUpdater } from 'electron-updater'
 import { createMainWindow } from './setup/createMainWindow'
 import { onBrowserWindowCreated } from './setup/onBrowserWindowCreated'
 import { onPing } from './setup/onPing'
 import { onActivate } from './setup/onActivate'
-import { checkForUpdates } from './setup/checkForUpdates'
+import { handleUpdates } from './setup/handleUpdates'
 import { createDevWindow } from './setup/createDevWindow'
 import { PUBLIC_PATH } from './constants'
 import { debug, info } from '@dev'
@@ -20,11 +19,6 @@ import { onDevRendererIsReady } from './setup/onDevRendererIsReady'
 import Store from 'electron-store'
 
 moment.locale('es')
-
-if (app.isPackaged) {
-  autoUpdater.autoDownload = false
-  autoUpdater.autoInstallOnAppQuit = true
-}
 
 setupOpenUrl((invokedLink) => {
   info('Opening link', { invokedLink })
@@ -47,7 +41,7 @@ app.whenReady().then(async () => {
   await devWindow?.loadURL(PUBLIC_PATH + '#dev')
   await createMainWindow()
   onActivate()
-  checkForUpdates()
+  handleUpdates()
 })
 
 app.on('window-all-closed', () => {
@@ -60,14 +54,6 @@ setupStores()
 ipcMain.handle('closeApp', () => {
   app.quit()
 })
-
-if (app.isPackaged) {
-  autoUpdater.on('update-available', () => {
-    autoUpdater.downloadUpdate().then((info) => {
-      debug('Updated downloaded!', info)
-    })
-  })
-}
 
 process.on('uncaughtException', (e) => {
   console.error(e)
