@@ -42,6 +42,7 @@ export const UpdateButton = () => {
         version={updateAvailable}
         onClick={() => {
           void ipc.invoke(eventNames.update.download)
+          setProgress(0)
         }}
       />
     )

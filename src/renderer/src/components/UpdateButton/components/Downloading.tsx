@@ -12,7 +12,7 @@ export const Downloading = ({ progress }: { progress: number }) => {
           WebkitUserSelect: 'all'
         }}
       >
-        {Math.floor(progress * 100).toFixed(1)}%
+        {Math.floor(progress).toFixed(1)}%
       </Button>
     </Tooltip>
   )
