@@ -21,7 +21,7 @@ jobs:
           cache: 'yarn'
 
       - name: Installing dependencies
-        run: yarn install --frozen-lockfile --network-timeout 100000
+        run: yarn install --frozen-lockfile --network-timeout 10000000
 
       - name: Building and releasing application
         env:
