@@ -2,6 +2,8 @@ import { Icon } from '../../Icon'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { watch } from '@reducers'
 import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
+import { useEffect } from 'react'
+import { useControls } from '../../hooks'
 
 export const NextEpisode = () => {
   const data = useAppSelector((d) => d.watch.info)
@@ -14,8 +16,24 @@ export const NextEpisode = () => {
   const hasMax =
     typeof max === 'number' && typeof watching?.episode === 'number' && watching.episode < max
 
-  useKeyUp(() => hasMax && dispatch(watch.nextEpisode()), { key: 'ArrowRight', altKey: true })
-  useKeyUp(() => hasMin && dispatch(watch.previousEpisode()), { key: 'ArrowLeft', altKey: true })
+  const goNext = () => hasMax && dispatch(watch.nextEpisode())
+  const goPrev = () => hasMin && dispatch(watch.previousEpisode())
+
+  useKeyUp(goNext, { key: 'ArrowRight', altKey: true })
+  useKeyUp(goPrev, { key: 'ArrowLeft', altKey: true })
+  const { video } = useControls()
+  useEffect(() => {
+    if (!video) return
+    const _w = video.ownerDocument.defaultView
+    if (!_w) return
+    const setHandler = _w.navigator.mediaSession.setActionHandler.bind(_w.navigator.mediaSession)
+    setHandler('nexttrack', hasMax ? goNext : null)
+    setHandler('previoustrack', hasMin ? goPrev : null)
+    return () => {
+      setHandler('nexttrack', null)
+      setHandler('previoustrack', null)
+    }
+  }, [video, hasMax, hasMin])
 
   if (!hasMax) return null
   return (

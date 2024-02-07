@@ -1,7 +1,7 @@
 import { EpisodeInfo, Optional, Store } from '@shared/types'
 import { useAppDispatch } from '~/redux/utils'
 import { useStaticStore } from '~/src/hooks/useStaticStore'
-import { useLayoutEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { handleSeek } from '../seekHandlers'
 import {
   CURRENT_TIME_SAVE_DELAY,
@@ -26,6 +26,21 @@ export const useVideoImprovements = ({ info, container, onOptionNotFound, ms }: 
   const video = useVideo({ info, container, onOptionNotFound, ms })
   const dispatch = useAppDispatch()
   const staticStore = useStaticStore(Store.WATCHED)
+
+  useEffect(() => {
+    if (!info.anime) return
+    if (!video) return
+    const anime = info.anime
+    const _w = video.ownerDocument.defaultView
+    if (!_w) return
+    _w.navigator.mediaSession.metadata = new MediaMetadata({
+      title: `${anime.name} - Episodio ${anime.episode}`,
+      artwork: anime.img ? [{ src: anime.img }] : []
+    })
+    return () => {
+      _w.navigator.mediaSession.metadata = null
+    }
+  }, [video])
 
   useLayoutEffect(() => {
     if (!video) return

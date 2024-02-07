@@ -22,8 +22,7 @@ import { useInvokedLinks } from './hooks/useInvokedLinks'
 import { useAppDispatch } from '~/redux/utils'
 import { ThemeProvider } from '@mui/material'
 import theme from './theme'
-import { Suspense, useEffect } from 'react'
-import { debug } from '@dev/events'
+import { Suspense } from 'react'
 
 const Dev = React.lazy(() => import('~/src/dev'))
 
@@ -31,11 +30,6 @@ moment.locale('es')
 
 const App = () => {
   const dispatch = useAppDispatch()
-  useEffect(() => {
-    navigator.mediaSession.setActionHandler('pause', () => {
-      debug('This shit has been paused 🥵🥵')
-    })
-  }, [])
   useInvokedLinks()
 
   return (

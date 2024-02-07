@@ -5,7 +5,6 @@ import { useBuffer, useSeek } from '@components/VideoPlayer/components/Controls/
 import { Text } from './Text'
 import { formatTime } from '~/src/utils'
 import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
-import { FAST_SEEK_BACKWARDS_IN_SECONDS, FAST_SEEK_FORWARD_IN_SECONDS } from '~/src/constants'
 
 const ms = 200
 
@@ -97,7 +96,7 @@ const ThinWrapper = styled(Box)`
 export const SeekBar = () => {
   const intentionRef = useRef<HTMLDivElement>(null)
   const timeRef = useRef<HTMLDivElement>(null)
-  const { time, seek, fastSeek } = useSeek()
+  const { time, seek, seekForward, seekBackward } = useSeek()
   const { onMouseMove, onMouseLeave, relOffset } = useMouseTrack({
     onChange: (relOffset) => {
       const trackElm = intentionRef.current
@@ -118,27 +117,15 @@ export const SeekBar = () => {
     setTimePer(time.duration === 0 ? 0 : (time.currentTime / time.duration) * 100)
   }, [time])
 
-  useKeyUp(
-    () => {
-      const nextCurrentTime = time.currentTime + FAST_SEEK_FORWARD_IN_SECONDS
-      if (nextCurrentTime > time.duration) return
-      fastSeek(nextCurrentTime)
-    },
-    {
-      altKey: false,
-      key: 'ArrowRight'
-    }
-  )
+  useKeyUp(seekForward, {
+    altKey: false,
+    key: 'ArrowRight'
+  })
 
-  useKeyUp(
-    () => {
-      fastSeek(Math.max(0, time.currentTime - FAST_SEEK_BACKWARDS_IN_SECONDS))
-    },
-    {
-      altKey: false,
-      key: 'ArrowLeft'
-    }
-  )
+  useKeyUp(seekBackward, {
+    altKey: false,
+    key: 'ArrowLeft'
+  })
 
   return (
     <Wrapper

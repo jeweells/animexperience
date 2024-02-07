@@ -2,6 +2,7 @@ import { useContext, useEffect, useLayoutEffect, useState } from 'react'
 import { Context } from './context'
 import { useIsFullscreen } from '~/src/hooks/useIsFullscreen'
 import { range } from '~/src/utils'
+import { FAST_SEEK_BACKWARD_IN_SECONDS, FAST_SEEK_FORWARD_IN_SECONDS } from '~/src/constants'
 
 export const useControls = () => useContext(Context)
 
@@ -47,6 +48,37 @@ export const usePlayPause = () => {
   const { video } = useControls()
   const [playing, setPlaying] = useState(false)
 
+  useEffect(() => {
+    if (!video) return
+    const _w = video.ownerDocument.defaultView
+    if (!_w) return
+    _w.navigator.mediaSession.playbackState = playing ? 'playing' : 'paused'
+  }, [video, playing])
+
+  const play = () => video?.play() ?? Promise.resolve()
+  const pause = () => video?.pause()
+
+  useEffect(() => {
+    if (!video) return
+    const _w = video.ownerDocument.defaultView
+    if (!_w) return
+    const setHandler = _w.navigator.mediaSession.setActionHandler.bind(_w.navigator.mediaSession)
+    setHandler('pause', () => {
+      pause()
+    })
+    setHandler('play', () => {
+      void play()
+    })
+    setHandler('stop', () => {
+      pause()
+    })
+    return () => {
+      setHandler('pause', null)
+      setHandler('play', null)
+      setHandler('stop', null)
+    }
+  }, [video])
+
   useLayoutEffect(() => {
     if (video) return
     setPlaying(false)
@@ -71,8 +103,8 @@ export const usePlayPause = () => {
 
   return {
     isPlaying: playing,
-    play: () => video?.play() ?? Promise.resolve(),
-    pause: () => video?.pause()
+    play,
+    pause
   }
 }
 
@@ -111,6 +143,49 @@ export const useSeek = () => {
   const { video } = useControls()
   const [time, setTime] = useState(defaultTime)
 
+  const seek = (value: number) => {
+    if (!video) return
+    video.currentTime = value
+  }
+
+  const fastSeek = (value: number) => {
+    if (!video) return
+    if (!video.fastSeek) video.currentTime = value
+    else video.fastSeek(value)
+  }
+
+  const seekForward = () => {
+    const nextCurrentTime = time.currentTime + FAST_SEEK_FORWARD_IN_SECONDS
+    if (nextCurrentTime > time.duration) return
+    fastSeek(nextCurrentTime)
+  }
+  const seekBackward = () => {
+    fastSeek(Math.max(0, time.currentTime - FAST_SEEK_BACKWARD_IN_SECONDS))
+  }
+
+  useEffect(() => {
+    if (!video) return
+    const _w = video.ownerDocument.defaultView
+    if (!_w) return
+    const setHandler = _w.navigator.mediaSession.setActionHandler.bind(_w.navigator.mediaSession)
+    setHandler('seekto', (details) => {
+      if (!details.seekTime) return
+      seek(details.seekTime)
+    })
+    setHandler('seekforward', () => {
+      seekForward()
+    })
+    setHandler('seekbackward', () => {
+      seekBackward()
+    })
+
+    return () => {
+      setHandler('seekto', null)
+      setHandler('seekforward', null)
+      setHandler('seekbackward', null)
+    }
+  }, [video])
+
   useLayoutEffect(() => {
     if (video) return
     setTime(defaultTime)
@@ -132,15 +207,10 @@ export const useSeek = () => {
   }, [video])
   return {
     time: video ? time : { currentTime: 0, duration: 0 },
-    seek: (value: number) => {
-      if (!video) return
-      video.currentTime = value
-    },
-    fastSeek: (value: number) => {
-      if (!video) return
-      if (!video.fastSeek) video.currentTime = value
-      else video.fastSeek(value)
-    }
+    seek,
+    fastSeek,
+    seekForward,
+    seekBackward
   }
 }
 
