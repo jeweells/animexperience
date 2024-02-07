@@ -1,0 +1,29 @@
+name: Windows Release
+
+on:
+  push:
+    tags:
+      - v*
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js and Yarn
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.19.0'
+          cache: 'yarn'
+
+      - name: Installing dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Building and releasing application
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn release --win

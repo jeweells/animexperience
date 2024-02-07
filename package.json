@@ -25,6 +25,7 @@
     "dev:w": "yarn dev --watch",
     "build": "yarn typecheck && electron-vite build",
     "postinstall": "electron-builder install-app-deps",
+    "release": "yarn build && electron-builder",
     "build:unpack": "yarn build && electron-builder --dir",
     "build:win": "yarn build && electron-builder --win",
     "build:mac": "electron-vite build && electron-builder --mac",
