@@ -52,7 +52,6 @@ export const fembed = (iframe: $IframeContents) => {
   debug('Fembed: Clicking play button')
   const playBtn = iframe.find('.faplbu')
   if (playBtn.length > 0) {
-    debug('GOT', playBtn)
     playBtn.trigger('click')
     return true
   }
@@ -110,7 +109,6 @@ export const okru = (iframe: $IframeContents, episodeInfo?: Optional<EpisodeInfo
           }
         }
       }
-      debug('GOT', playBtn)
       playBtn.trigger('click')
       // Let it spam or else it won't work
       return false

@@ -219,7 +219,7 @@ export const useFullscreen = () => {
   return {
     isFullscreen,
     toggleFullscreen: () => {
-      return isFullscreen ? document.exitFullscreen() : document.body.requestFullscreen()
+      return window.setFullscreen(!isFullscreen)
     }
   }
 }

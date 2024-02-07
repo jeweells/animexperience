@@ -32,6 +32,7 @@ export async function createMainWindow(): Promise<void> {
 const buildWindow = () =>
   setMainWindow(
     new BrowserWindow({
+      title: 'Animexperience',
       width: 1100,
       height: 700,
       show: false,

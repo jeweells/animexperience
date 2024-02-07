@@ -1,6 +1,6 @@
 import { Stack, Zoom } from '@mui/material'
 import { styled } from '@mui/system'
-import { useControls, usePlayPause } from './hooks'
+import { useControls, useFullscreen, usePlayPause } from './hooks'
 import { useLayoutEffect, useState } from 'react'
 import { InverseFade } from '~/src/atoms/InverseFade'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
@@ -40,18 +40,10 @@ export const PlayPauseTap = () => {
     else void play()
     setKey(isPlaying ? 'playing' : 'paused')
   }
-
   useKeyUp(toggle, { code: 'Space' })
-  useKeyUp(
-    () => {
-      if (document.fullscreenElement) {
-        void document.exitFullscreen()
-      } else {
-        void document.body.requestFullscreen()
-      }
-    },
-    { key: 'f' }
-  )
+
+  const { toggleFullscreen } = useFullscreen()
+  useKeyUp(toggleFullscreen, { key: 'f' })
 
   return (
     <Wrapper
