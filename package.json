@@ -31,7 +31,7 @@
     "build:linux": "electron-vite build && electron-builder --linux",
     "test": "jest",
     "prepare": "husky || true",
-    "generate:icons": "eib -i ./resources/icon.png --flatten"
+    "generate:icons": "eib -i ./resources/icon.png --flatten && echo 'Go to https://icoconvert.com and convert the initial .png there'"
   },
   "dependencies": {
     "@cliqz/adblocker-electron": "^1.26.15",
