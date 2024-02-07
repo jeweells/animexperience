@@ -170,7 +170,7 @@ export type WatchInvokedLink = {
 export type InvokedLink = WatchInvokedLink
 
 export type VideoURLFailed = {
-  option: 'streamtape'
+  option: 'streamtape' | 'yourupload'
   url: string
 }
 

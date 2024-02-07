@@ -14,6 +14,7 @@ const get = useVideoURLFailed.getState
 const set = useVideoURLFailed.setState
 
 export const urlHasFailed = (url: string) => {
+  console.log('Checking if failed:', url)
   const failedUrl = get().failedUrls.find((info) => info.url === url)
   if (!failedUrl) return false
   set({ failedUrls: get().failedUrls.filter((info) => info !== failedUrl) })
@@ -22,7 +23,7 @@ export const urlHasFailed = (url: string) => {
 
 export const useVideoURLFailedListener = () => {
   useLayoutEffect(() => {
-    return ipcRenderer.on(eventNames.videoUrlFailed, (_info, args) => {
+    return ipcRenderer.on(eventNames.videoUrlFailed, (_info, args: VideoURLFailed) => {
       error('Got new url failed', args)
       set({ failedUrls: [...get().failedUrls, args] })
     })

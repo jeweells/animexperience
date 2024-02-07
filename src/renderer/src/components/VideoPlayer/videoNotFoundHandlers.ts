@@ -73,6 +73,10 @@ const sw: OptionFn = (iframe) => {
 }
 
 const yourupload: OptionFn = (iframe) => {
+  if (urlHasFailed('https://www.yourupload.com/embed/novideo.mp4')) {
+    info('Yourupload skipped since URL failed')
+    return true
+  }
   return _checkText(iframe, 'YourUpload', 'File not found')
 }
 
