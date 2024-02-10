@@ -14,7 +14,7 @@ export const VideoOptions = () => {
   const open = Boolean(anchorEl)
   if (!video) return null
   return (
-    <Tooltip title={'Cambiar opción'} open={openTooltip}>
+    <Tooltip title={'Cambiar opción'} disableInteractive={true} open={openTooltip}>
       <div>
         <CurrentVideoOption
           onMouseMove={() => {

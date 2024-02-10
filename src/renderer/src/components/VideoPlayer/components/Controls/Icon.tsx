@@ -49,7 +49,7 @@ export const Icon = forwardRef<HTMLButtonElement, Props>(
   ({ name, title, ...props }: Props, ref) => {
     const Component = icons[name]
     return (
-      <Tooltip title={title}>
+      <Tooltip title={title} disableInteractive={true}>
         <TransparentIconButton size={'large'} ref={ref} {...props}>
           <Component />
         </TransparentIconButton>

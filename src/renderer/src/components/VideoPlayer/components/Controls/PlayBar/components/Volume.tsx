@@ -28,7 +28,7 @@ export const Volume = () => {
         onClick={toggleMute}
       />
       <Stack width={70} justifyContent={'center'} pr={2}>
-        <Tooltip title={'Volumen'}>
+        <Tooltip disableInteractive={true} title={'Volumen'}>
           <Slider
             size={'small'}
             style={{ color: '#fff' }}
