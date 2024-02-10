@@ -1,7 +1,7 @@
 import { RawDevMessage } from '@shared/types'
 import { Moment } from 'moment'
 
-export type DevMessage = RawDevMessage & {
+export interface DevMessage extends RawDevMessage {
   id: string
   at: Moment
 }

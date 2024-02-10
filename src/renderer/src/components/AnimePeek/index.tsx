@@ -56,7 +56,7 @@ export type AnimePeekProps = {
   contentProps?: ComponentProps<typeof Content>
 }
 
-export type UnhookedAnimePeek = AnimePeekProps & {
+export interface UnhookedAnimePeek extends AnimePeekProps {
   info: Optional<AnimeInfo>
 }
 

@@ -144,13 +144,14 @@ export const AnimeEntry = React.memo<AnimeEntryProps>(
 
 AnimeEntry.displayName = 'AnimeEntry'
 
-type AnimeEntryPopoverProps = {
+interface AnimeEntryPopoverProps
+  extends Pick<AnimeEntryProps, 'onClick' | 'index' | 'visible' | 'sliding' | 'render'> {
   open: boolean
   onMouseOut?: React.HTMLAttributes<HTMLDivElement>['onMouseOver']
   onMouseOver?: React.HTMLAttributes<HTMLDivElement>['onMouseOut']
   cardRef?: React.RefObject<HTMLElement>
   onClose?(): void
-} & Pick<AnimeEntryProps, 'onClick' | 'index' | 'visible' | 'sliding' | 'render'>
+}
 
 const AnimeEntryPopover: React.VFC<AnimeEntryPopoverProps> = React.memo<AnimeEntryPopoverProps>(
   ({

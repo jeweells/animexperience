@@ -5,10 +5,10 @@ import { FStatus, Optional } from '@shared/types'
 import { rendererInvoke } from '~/src/utils'
 import { error } from '@dev/events'
 
-export type ImageProps = {
+export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   animeName: string
   containerStyle?: React.CSSProperties
-} & React.ImgHTMLAttributes<HTMLImageElement>
+}
 
 export const Image: React.FC<ImageProps> = React.memo(({ animeName, containerStyle, ...rest }) => {
   const { fadeIn } = useFadeInStyles()

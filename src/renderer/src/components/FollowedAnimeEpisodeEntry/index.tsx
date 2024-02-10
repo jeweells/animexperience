@@ -9,7 +9,7 @@ import {
 } from '../AnimeEpisodeEntry'
 import Fade from '@mui/material/Fade'
 
-export type FollowedAnimeEpisodeEntryProps = Omit<AnimeEpisodeEntryProps, 'anime'> & {
+export interface FollowedAnimeEpisodeEntryProps extends Omit<AnimeEpisodeEntryProps, 'anime'> {
   followed: FollowedAnimeWStatus
 }
 

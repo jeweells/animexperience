@@ -12,10 +12,10 @@ export type AnimeDetails = {
   image: string
 }
 
-export type AnimeDetailsEntryProps = {
+export interface AnimeDetailsEntryProps extends Omit<AnimeEntryProps, 'render' | 'onClick'> {
   anime: Optional<AnimeDetails>
   onClick?(anime: Optional<AnimeDetails>): void
-} & Omit<AnimeEntryProps, 'render' | 'onClick'>
+}
 
 export const AnimeDetailsEntry = memo<AnimeDetailsEntryProps>(({ anime, onClick, ...rest }) => {
   const { src: imgSrc, onError } = useEnsureAnimeImage(anime?.image)

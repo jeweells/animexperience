@@ -8,7 +8,10 @@ import { TopView } from '@shared/types'
 import { useTopBarHeight } from '../Topbar'
 import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
 
-type SModalProps = { topBarHeight: number; contrast?: boolean } & DialogProps
+interface SModalProps extends DialogProps {
+  topBarHeight: number
+  contrast?: boolean
+}
 
 const SModal = styled(Dialog, {
   shouldForwardProp(propName) {
@@ -32,12 +35,12 @@ const SModal = styled(Dialog, {
   }
 `
 
-export type FullModalProps = {
+export interface FullModalProps extends Omit<DialogProps, 'open' | 'sx'> {
   contrast?: boolean
   show: string | undefined
   view: TopView
   onPopRequested?: () => void
-} & Omit<DialogProps, 'open' | 'sx'>
+}
 
 export const FullModal: FC<FullModalProps> = memo<FullModalProps>(
   ({ view, children, show, onPopRequested, ...rest }) => {

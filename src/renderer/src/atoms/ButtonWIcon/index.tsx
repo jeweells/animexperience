@@ -45,9 +45,9 @@ const useStyles = makeStyles<Theme>((theme) => {
   }
 })
 
-export type ButtonWIconProps = {
+export interface ButtonWIconProps extends ButtonProps {
   icon: React.ReactNode
-} & ButtonProps
+}
 
 const cls = (...arr: (string | undefined)[]) => arr.filter(Boolean).join(' ')
 

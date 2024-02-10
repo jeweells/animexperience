@@ -3,7 +3,9 @@ import ShareIcon from '@mui/icons-material/Share'
 import IconButton, { IconButtonProps } from '@mui/material/IconButton'
 import Tooltip from '@mui/material/Tooltip'
 
-export type ShareButtonProps = IconButtonProps & { tooltip?: string }
+export interface ShareButtonProps extends IconButtonProps {
+  tooltip?: string
+}
 
 export const ShareButton = React.memo<ShareButtonProps>(
   ({ tooltip = 'Copiar al portapapeles', ...props }) => {

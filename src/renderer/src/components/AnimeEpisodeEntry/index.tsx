@@ -15,12 +15,12 @@ export type ManagementVisibility = Partial<{
   follow: boolean
 }>
 
-export type AnimeEpisodeEntryProps = {
+export interface AnimeEpisodeEntryProps extends Omit<AnimeEntryProps, 'render' | 'onClick'> {
   anime: Optional<RecentAnimeData>
   // Whether it can follow or unfollow this anime
   management?: ManagementVisibility
   onClick?(anime: Optional<RecentAnimeData>): void
-} & Omit<AnimeEntryProps, 'render' | 'onClick'>
+}
 
 export const AnimeEpisodeEntry = memo<AnimeEpisodeEntryProps>(
   ({ anime, management = {}, onClick, ...rest }) => {

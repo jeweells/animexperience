@@ -10,9 +10,9 @@ import { FollowedAnimesState } from '../../state/types'
 import { ForcedAny } from '@shared/types'
 import { debug, error, info } from '@dev/events'
 
-export type FollowedAnimeWStatus = {
+export interface FollowedAnimeWStatus extends FollowedAnime {
   status: FStatus
-} & FollowedAnime
+}
 
 const nextCheck = (now: number): number => now
 

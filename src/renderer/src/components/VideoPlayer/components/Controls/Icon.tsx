@@ -40,10 +40,10 @@ const icons = {
 
 export type IconName = keyof typeof icons
 
-type Props = { name: IconName; title: ReactNode } & Omit<
-  ComponentProps<typeof TransparentIconButton>,
-  'name' | 'title'
->
+interface Props extends Omit<ComponentProps<typeof TransparentIconButton>, 'name' | 'title'> {
+  name: IconName
+  title: ReactNode
+}
 
 export const Icon = forwardRef<HTMLButtonElement, Props>(
   ({ name, title, ...props }: Props, ref) => {
