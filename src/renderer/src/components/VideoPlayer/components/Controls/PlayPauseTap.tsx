@@ -52,6 +52,9 @@ export const PlayPauseTap = () => {
         if (e.currentTarget !== e.target) return
         toggle()
       }}
+      onDoubleClick={() => {
+        toggleFullscreen()
+      }}
     >
       {key && (
         <div key={key} style={{ pointerEvents: 'none' }}>
