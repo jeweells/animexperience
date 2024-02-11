@@ -16,6 +16,7 @@ describe('NextEpisodeButton', () => {
   const vid = useControls().video!
   const getCurrentTime = Object.getOwnPropertyDescriptor(vid, 'currentTime')?.get as jest.Mock
   const getDuration = Object.getOwnPropertyDescriptor(vid, 'duration')?.get as jest.Mock
+  const vidAddEventListener = vid.addEventListener as jest.Mock
 
   beforeEach(() => {
     initialState = {
@@ -61,11 +62,12 @@ describe('NextEpisodeButton', () => {
 
     getCurrentTime.mockReturnValue(getDuration() - SECONDS_LEFT_TO_NEXT_EPISODE + 1)
     getDuration.mockClear()
-    ;(clearTimeout as jest.Mock).mockClear()
   })
 
   afterEach(() => {
     getCurrentTime.mockReset()
+    vidAddEventListener.mockClear()
+    ;(clearTimeout as jest.Mock).mockClear()
   })
 
   const getComponent = () => {
@@ -115,8 +117,7 @@ describe('NextEpisodeButton', () => {
   it('stop timer when user pauses the video', async () => {
     render(getComponent())
     expect(clearTimeout).not.toHaveBeenCalled()
-    const events = useControls().video?.addEventListener as jest.Mock
-    const pausedCalls = events.mock.calls.filter((call) => call[0] === 'pause')
+    const pausedCalls = vidAddEventListener.mock.calls.filter((call) => call[0] === 'pause')
     const getPaused = Object.getOwnPropertyDescriptor(vid, 'duration')?.get as jest.Mock
     getPaused.mockReturnValue(true)
     act(() => {
