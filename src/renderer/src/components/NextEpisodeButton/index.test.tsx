@@ -4,10 +4,18 @@ import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import { MockStoreEnhanced } from 'redux-mock-store'
 import { NEXT_EPISODE_BUTTON } from '@selectors'
+import { useControls } from '@components/VideoPlayer/components/Controls/hooks'
+import { SECONDS_LEFT_TO_NEXT_EPISODE } from '@components/VideoPlayer/constants'
+import { act } from '@testing-library/react'
+
+jest.spyOn(global, 'clearTimeout')
 
 describe('NextEpisodeButton', () => {
   let initialState: DeepPartial<RootState>
   let store: MockStoreEnhanced
+  const vid = useControls().video!
+  const getCurrentTime = Object.getOwnPropertyDescriptor(vid, 'currentTime')?.get as jest.Mock
+  const getDuration = Object.getOwnPropertyDescriptor(vid, 'duration')?.get as jest.Mock
 
   beforeEach(() => {
     initialState = {
@@ -50,6 +58,14 @@ describe('NextEpisodeButton', () => {
         }
       }
     }
+
+    getCurrentTime.mockReturnValue(getDuration() - SECONDS_LEFT_TO_NEXT_EPISODE + 1)
+    getDuration.mockClear()
+    ;(clearTimeout as jest.Mock).mockClear()
+  })
+
+  afterEach(() => {
+    getCurrentTime.mockReset()
   })
 
   const getComponent = () => {
@@ -61,13 +77,8 @@ describe('NextEpisodeButton', () => {
     )
   }
 
-  it('renders default', async () => {
-    const wrapper = render(getComponent())
-    expect(wrapper.baseElement).toMatchSnapshot()
-  })
-
-  it('renders default when not shown', async () => {
-    initialState.watch!.showNextEpisodeButton = false
+  it('renders default (not shown)', async () => {
+    getCurrentTime.mockReturnValue(0)
     const wrapper = render(getComponent())
     expect(wrapper.baseElement).toMatchSnapshot()
   })
@@ -87,5 +98,31 @@ describe('NextEpisodeButton', () => {
         type: 'watch/nextEpisode/pending'
       })
     )
+  })
+
+  it('renders when the episode looks like it has ended', async () => {
+    const wrapper = render(getComponent())
+
+    expect(wrapper.baseElement).toMatchSnapshot()
+  })
+
+  it('stop timer when user moves the mouse', async () => {
+    render(getComponent())
+    fireEvent.mouseMove(document)
+    expect(clearTimeout).toHaveBeenCalledTimes(1)
+  })
+
+  it('stop timer when user pauses the video', async () => {
+    render(getComponent())
+    expect(clearTimeout).not.toHaveBeenCalled()
+    const events = useControls().video?.addEventListener as jest.Mock
+    const pausedCalls = events.mock.calls.filter((call) => call[0] === 'pause')
+    const getPaused = Object.getOwnPropertyDescriptor(vid, 'duration')?.get as jest.Mock
+    getPaused.mockReturnValue(true)
+    act(() => {
+      pausedCalls.forEach((call) => call[1]())
+    })
+    expect(clearTimeout).toHaveBeenCalledTimes(pausedCalls.length)
+    getPaused.mockReset()
   })
 })

@@ -4,6 +4,7 @@ exports[`AnimesCarousel > useSliding renders default 1`] = `
 {
   "hasNext": true,
   "hasPrev": false,
+  "onSlidingStart": [Function],
   "slideProps": {
     "style": {
       "pointerEvents": "all",
@@ -20,6 +21,7 @@ exports[`AnimesCarousel > useSliding renders when clicking next/prev: Clicked ne
 {
   "hasNext": false,
   "hasPrev": true,
+  "onSlidingStart": [Function],
   "slideProps": {
     "style": {
       "pointerEvents": "none",
@@ -36,6 +38,7 @@ exports[`AnimesCarousel > useSliding renders when clicking next/prev: Clicked pr
 {
   "hasNext": true,
   "hasPrev": false,
+  "onSlidingStart": [Function],
   "slideProps": {
     "style": {
       "pointerEvents": "none",
@@ -52,6 +55,7 @@ exports[`AnimesCarousel > useSliding renders when clicking next/prev: Finished s
 {
   "hasNext": false,
   "hasPrev": true,
+  "onSlidingStart": [Function],
   "slideProps": {
     "style": {
       "pointerEvents": "all",
@@ -68,6 +72,7 @@ exports[`AnimesCarousel > useSliding renders when clicking next/prev: Finished s
 {
   "hasNext": true,
   "hasPrev": false,
+  "onSlidingStart": [Function],
   "slideProps": {
     "style": {
       "pointerEvents": "all",

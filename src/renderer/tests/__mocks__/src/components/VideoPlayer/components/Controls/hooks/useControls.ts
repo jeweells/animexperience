@@ -29,10 +29,14 @@ jest.mock('~/src/components/VideoPlayer/components/Controls/hooks/useControls', 
     get: jest.fn(() => 24 * 60)
   })
 
+  Object.defineProperty(video, 'paused', {
+    get: jest.fn(() => false)
+  })
+
   return {
     __esModule: true,
-    useControls: jest.fn().mockReturnValue({
+    useControls: jest.fn(() => ({
       video
-    })
+    }))
   }
 })
