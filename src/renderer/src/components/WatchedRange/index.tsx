@@ -24,6 +24,7 @@ const Progress = styled('div')<{ progress: number }>`
 `
 const hhmmss = (seconds: number) => {
   const mmt = moment().startOf('day').seconds(seconds)
+  if (!mmt) return '00:00'
   if (seconds < 3600) {
     return mmt.format('mm:ss')
   }
