@@ -5,6 +5,7 @@ import { VideoOption } from './index'
 import { $IframeContents, KnownOption } from './types'
 import { deepIframes } from './utils'
 import { debug, error } from '@dev/events'
+import { ALMOST_ENDED_SECONDS } from '@components/VideoPlayer/constants'
 
 export const initializePlayerOption = (
   option: Optional<VideoOption>,
@@ -101,6 +102,7 @@ export const okru = (iframe: $IframeContents, episodeInfo?: Optional<EpisodeInfo
               debug('CHECKING', n, videoId, videoId === n, typeof n, episodeInfo)
               if (videoId === n) {
                 debug('CHECKING:: RETURN', episodeInfo, episodeInfo.currentTime)
+                if (episodeInfo.currentTime + ALMOST_ENDED_SECONDS >= episodeInfo.duration) return 0
                 return episodeInfo.currentTime
               }
               return targetFn(n)

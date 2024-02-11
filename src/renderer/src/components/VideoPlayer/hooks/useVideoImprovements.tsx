@@ -6,7 +6,8 @@ import { handleSeek } from '../seekHandlers'
 import {
   CURRENT_TIME_SAVE_DELAY,
   RATIO_TO_FOLLOW_AN_ANIME,
-  SECONDS_LEFT_TO_NEXT_EPISODE
+  SECONDS_LEFT_TO_NEXT_EPISODE,
+  ALMOST_ENDED_SECONDS
 } from '../constants'
 import { followedAnimes, watch, watched } from '@reducers'
 import store from '~/redux/store'
@@ -50,8 +51,9 @@ export const useVideoImprovements = ({ info, container, onOptionNotFound, ms }: 
     const anime = info.anime
     if (anime) {
       staticStore.get(anime.name, anime.episode).then((data: Optional<EpisodeInfo>) => {
+        const isAlmostEnded = data && data.currentTime + ALMOST_ENDED_SECONDS >= data.duration
         // Try autoplay the video at latest time stored
-        handleSeek(info, data, video)
+        handleSeek(info, isAlmostEnded ? { ...data, currentTime: 0 } : data, video)
       })
     }
     const refs: Refs = {}
