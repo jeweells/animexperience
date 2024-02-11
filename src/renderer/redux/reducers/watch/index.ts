@@ -35,6 +35,7 @@ const getAvailableVideos = asyncAction('watch/availableVideos', async (_, api) =
     switch (opt) {
       // IOS: What a horrible option full of ads and annoying stuff
       case 'ios':
+      case 'netu': // This option is so complex and offers nothing we can take advantage of
         return false
     }
     return true
