@@ -51,6 +51,7 @@ const Buttons = styled('div')`
   align-items: center;
   gap: 8px;
   height: 100%;
+  margin-left: 8px;
 `
 
 const Content = styled('div')`
@@ -93,7 +94,7 @@ export const Topbar: FC<TopbarProps> = memo(({ children }) => {
           >
             <Container>
               <div>{title}</div>
-              {!watching && <SearchBar style={{ marginRight: 8 }} />}
+              {!watching && <SearchBar />}
               {watching && (
                 <ShareAnimeEpisodeButton
                   style={{
