@@ -17,6 +17,7 @@ const fetchStore = asyncAction('watched/fetchStore', async (arg: RecentAnimeData
       if (x.info) {
         dispatch(watched.set({ ...x }))
       }
+      return x
     })
 })
 

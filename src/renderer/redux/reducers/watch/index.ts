@@ -1,15 +1,15 @@
 import { PayloadAction } from '@reduxjs/toolkit'
-import { AnimeInfo } from '@shared/types'
-import { VideoOption } from '../../../src/components/VideoPlayer'
-import { RecentAnimeData } from '../../../src/hooks/useRecentAnimes'
-import { Optional } from '@shared/types'
-import { rendererInvoke } from '../../../src/utils'
+import { AnimeInfo, Optional } from '@shared/types'
+import { VideoOption } from '@components/VideoPlayer'
+import { RecentAnimeData } from '~/src/hooks/useRecentAnimes'
+import { rendererInvoke } from '~/src/utils'
 import { player } from '../player'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { WatchState } from '../../state/types'
 import { initialState } from '../../state'
 import { debug } from '@dev/events'
 import { v4 as uuidv4 } from 'uuid'
+import { watched } from '~/redux/reducers'
 
 const changeWatchingEpisode = (state: WatchState, episode: number): RecentAnimeData => {
   const { info, watching } = state
@@ -78,21 +78,32 @@ const nextEpisode = asyncAction('watch/nextEpisode', async (_, api) => {
   // No episodes available
   if (currentEpisode >= maxEpisode) return
   const watching = state.watch.watching
-  if (watching && typeof watching.episode === 'number') {
-    const newEpisode = watching.episode + 1
-    // If the user is on fullscreen mode, the next video will be played on fullscreen mode
-    api.dispatch(watch.setAutoFullScreen(!!document.fullscreenElement))
-    await api.dispatch(watchEpisode(changeWatchingEpisode(state.watch, newEpisode)))
+  if (!(watching && typeof watching.episode === 'number')) return
+  const newEpisode = watching.episode + 1
+  api.dispatch(watch.setAutoFullScreen(!!document.fullscreenElement))
+  const episodeInfo = changeWatchingEpisode(state.watch, newEpisode)
+
+  // We want the user to start the video again if he comes from the previous video
+  // e.g: Let's say he's watching it again, we don't want him to start the next episode when he left it
+  const newEpisodeStoredData = await api.dispatch(watched.fetchStore(episodeInfo)).unwrap()
+  if (newEpisodeStoredData) {
+    await api.dispatch(
+      watched.updateWatched({
+        ...newEpisodeStoredData,
+        info: { ...newEpisodeStoredData.info, currentTime: 0 }
+      })
+    )
   }
+  await api.dispatch(watchEpisode(episodeInfo))
 })
 
 const previousEpisode = asyncAction('watch/previousEpisode', async (_, api) => {
   const state = api.getState()
   const watching = state.watch.watching
-  if (watching && typeof watching.episode === 'number') {
-    const newEpisode = watching.episode - 1
-    await api.dispatch(watchEpisode(changeWatchingEpisode(state.watch, newEpisode)))
-  }
+  if (!(watching && typeof watching.episode === 'number')) return
+  const newEpisode = watching.episode - 1
+  const episodeInfo = changeWatchingEpisode(state.watch, newEpisode)
+  await api.dispatch(watchEpisode(episodeInfo))
 })
 
 const watchEpisode = asyncAction(

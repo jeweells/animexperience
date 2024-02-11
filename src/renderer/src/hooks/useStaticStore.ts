@@ -1,7 +1,5 @@
 import { useMemo } from 'react'
-import { Store, StoreMethod } from '@shared/types'
-import { Optional } from '@shared/types'
-import { ForcedAny } from '../../../shared/types'
+import { Store, StoreMethod, Optional, ForcedAny } from '@shared/types'
 
 const ipcRenderer = window.electron.ipcRenderer
 
