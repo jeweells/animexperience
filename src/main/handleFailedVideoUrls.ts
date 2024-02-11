@@ -26,8 +26,10 @@ export const handleFailedVideoUrlsBeforeHeaders: OnBeforeHeaders = (details, cal
 }
 
 const streamtape = (details: OnCompletedListenerDetails) => {
-  if (details.resourceType !== 'xhr') return
+  if (details.statusCode !== 404) return
+  if (!['xhr', 'subFrame'].includes(details.resourceType)) return
   if (!details.url.startsWith('https://streamtape.com/')) return
+
   getMainWindow()?.webContents.send(eventNames.videoUrlFailed, {
     option: 'streamtape',
     url: details.url
