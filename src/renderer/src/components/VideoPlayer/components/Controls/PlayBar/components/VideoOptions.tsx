@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useVideoOptions } from '@components/VideoPlayerWOptions/hooks'
 import OptionButton from '@components/VideoPlayerWOptions/components/OptionButton'
 import { CurrentVideoOption } from './CurrentVideoOption'
+import { PRIORITY_VIDEO_OPTION_KEY } from '~/src/constants'
 
 export const VideoOptions = () => {
   const { sortedOptions, currentOption, setCurrentOption } = useVideoOptions()
@@ -54,6 +55,7 @@ export const VideoOptions = () => {
                 key={opt.id}
                 option={opt}
                 onClick={() => {
+                  sessionStorage.setItem(PRIORITY_VIDEO_OPTION_KEY, opt.name)
                   setCurrentOption(opt)
                   setAnchorEl(null)
                 }}
