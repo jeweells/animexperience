@@ -1,6 +1,7 @@
 import { Stack, Zoom } from '@mui/material'
 import { styled } from '@mui/system'
-import { useControls, useFullscreen, usePlayPause } from './hooks'
+import { useControls, usePlayPause } from './hooks'
+import { useFullscreen } from '~/src/hooks'
 import { useLayoutEffect, useState } from 'react'
 import { InverseFade } from '~/src/atoms/InverseFade'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'

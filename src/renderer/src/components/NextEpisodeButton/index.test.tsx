@@ -72,27 +72,16 @@ describe('NextEpisodeButton', () => {
     expect(wrapper.baseElement).toMatchSnapshot()
   })
 
-  it('renders when the episode is the last one', async () => {
+  it('do not show when the episode is the last one', async () => {
     initialState.watch!.info!.episodesRange!.max = initialState.watch!.watching!.episode!
     const wrapper = render(getComponent())
     expect(wrapper.baseElement).toMatchSnapshot()
   })
 
-  it('renders default when timedout', async () => {
-    initialState.watch!.nextEpisodeTimeout = -1
-    const wrapper = render(getComponent())
-    expect(wrapper.baseElement).toMatchSnapshot()
-  })
-
-  it('hides the button and calls next episode when clicking', async () => {
+  it('calls next episode when clicking', async () => {
     const wrapper = render(getComponent())
     fireEvent.click(wrapper.getByTestId(NEXT_EPISODE_BUTTON.BUTTON))
-    expect(store.getActions()).toContainEqual(
-      expect.objectContaining({
-        payload: false,
-        type: 'watch/setNextEpisodeButton'
-      })
-    )
+
     expect(store.getActions()).toContainEqual(
       expect.objectContaining({
         type: 'watch/nextEpisode/pending'

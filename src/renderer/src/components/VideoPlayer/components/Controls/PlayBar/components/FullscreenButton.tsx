@@ -1,4 +1,4 @@
-import { useFullscreen } from '../../hooks'
+import { useFullscreen } from '~/src/hooks'
 import { Icon } from '../../Icon'
 
 export const FullscreenButton = () => {

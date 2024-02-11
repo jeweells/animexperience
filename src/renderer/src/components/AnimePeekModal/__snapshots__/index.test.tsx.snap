@@ -103,6 +103,7 @@ exports[`AnimePeekModal renders default when failed 1`] = `
   overflow: hidden;
   --modal-height: calc(100vh - 56px);
   height: var(--modal-height);
+  will-change: height,top;
   background-color: transparent;
   top: 56px!important;
 }
@@ -1933,6 +1934,7 @@ exports[`AnimePeekModal renders default when idle 1`] = `
   overflow: hidden;
   --modal-height: calc(100vh - 56px);
   height: var(--modal-height);
+  will-change: height,top;
   background-color: transparent;
   top: 56px!important;
 }
@@ -3763,6 +3765,7 @@ exports[`AnimePeekModal renders default when loading 1`] = `
   overflow: hidden;
   --modal-height: calc(100vh - 56px);
   height: var(--modal-height);
+  will-change: height,top;
   background-color: transparent;
   top: 56px!important;
 }
@@ -5593,6 +5596,7 @@ exports[`AnimePeekModal renders default when succeeded 1`] = `
   overflow: hidden;
   --modal-height: calc(100vh - 56px);
   height: var(--modal-height);
+  will-change: height,top;
   background-color: transparent;
   top: 56px!important;
 }

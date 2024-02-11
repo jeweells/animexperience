@@ -1,132 +1,456 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NextEpisodeButton renders default 1`] = `
+exports[`NextEpisodeButton do not show when the episode is the last one 1`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+  font-family: OpenSans,Quicksand,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #292d33;
+  color: #e9ebf0;
+  background-color: #292d33;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  outline: 0!important;
+  white-space: nowrap;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-transform: unset;
+  border-radius: 6px;
+  height: 36px;
+  color: #e9ebf0;
+  text-transform: none;
+  padding: 8px 12px;
+}
+
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-0 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(41, 45, 51, 0.08);
+}
+
+@media (hover: none) {
+  .emotion-0:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-0.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-0:hover {
+  outline: none;
+  border: none;
+  background-color: #3c3f43;
+}
+
+.emotion-1 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
 <body>
   <div>
     <div
-      style="opacity: 1; position: absolute; top: 16px; right: 16px; z-index: 2147483647; webkit-transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      style="opacity: 0; visibility: hidden;"
     >
-      <style>
-        
-    @font-face {
-        font-family: 'Quicksand';
-        src: url('http://127.0.0.1:3000/mocked-font.ttf') format('truetype');
-        font-weight: 300;
-        font-style: normal;
-    }
-
-        
-
-    button.raex-button-injected {
-        font-family: 'Quicksand';
-        color: #292d33;
-        background: #e9ebf0;
-        display: inline-block;
-        margin-bottom: 0;
-        font-weight: normal;
-        text-align: center;
-        vertical-align: middle;
-        cursor: pointer;
-        outline: 0 !important;
-        white-space: nowrap;
-        border: none;
-        user-select: none;
-        padding: 8px 12px;
-        font-size: 14px;
-        line-height: 1.42857143;
-        border-radius: 6px;
-        position: relative;
-        transition: color 0.2s linear, background-color 0.3s linear;
-        margin: 0;
-        overflow: hidden;
-        text-decoration: none;
-    }
-    button.raex-button-injected:hover, button.raex-button-injected:focus {
-        color: #3c3f43;
-        background-color: #e9ebf0;
-
-    }
-
-      </style>
-      <button
-        class="raex-button-injected"
-        data-testid="next-episode-button-nbutton"
+      <div
+        style="position: absolute; right: 16px; bottom: 16px; transform: translateY(-56px); transition: all 500ms ease;"
       >
-        <span
-          style="position: relative; z-index: 2;"
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-0"
+          data-testid="next-episode-button-nbutton"
+          style="filter: invert(100%); overflow: hidden;"
+          tabindex="0"
+          type="button"
         >
-          Siguiente episodio
-        </span>
-        <div
-          style="position: absolute; z-index: 1; top: 0px; left: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.1); width: 100%; transition: all 5s;"
-        />
-      </button>
+          <span
+            style="position: relative; z-index: 2;"
+          >
+            Siguiente episodio
+          </span>
+          <div
+            style="position: absolute; z-index: 1; top: 0px; left: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.9); width: 0px; transition: none;"
+          />
+          <span
+            class="MuiTouchRipple-root emotion-1"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`NextEpisodeButton renders default 1`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+  font-family: OpenSans,Quicksand,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #292d33;
+  color: #e9ebf0;
+  background-color: #292d33;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  outline: 0!important;
+  white-space: nowrap;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-transform: unset;
+  border-radius: 6px;
+  height: 36px;
+  color: #e9ebf0;
+  text-transform: none;
+  padding: 8px 12px;
+}
+
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-0 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(41, 45, 51, 0.08);
+}
+
+@media (hover: none) {
+  .emotion-0:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-0.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-0:hover {
+  outline: none;
+  border: none;
+  background-color: #3c3f43;
+}
+
+.emotion-1 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+<body>
+  <div>
+    <div
+      style="opacity: 0; visibility: hidden;"
+    >
+      <div
+        style="position: absolute; right: 16px; bottom: 16px; transform: translateY(-56px); transition: all 500ms ease;"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-0"
+          data-testid="next-episode-button-nbutton"
+          style="filter: invert(100%); overflow: hidden;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            style="position: relative; z-index: 2;"
+          >
+            Siguiente episodio
+          </span>
+          <div
+            style="position: absolute; z-index: 1; top: 0px; left: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.9); width: 0px; transition: none;"
+          />
+          <span
+            class="MuiTouchRipple-root emotion-1"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </body>
 `;
 
 exports[`NextEpisodeButton renders default when not shown 1`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: unset;
+  font-family: OpenSans,Quicksand,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #292d33;
+  color: #e9ebf0;
+  background-color: #292d33;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  outline: 0!important;
+  white-space: nowrap;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-transform: unset;
+  border-radius: 6px;
+  height: 36px;
+  color: #e9ebf0;
+  text-transform: none;
+  padding: 8px 12px;
+}
+
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-0 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(41, 45, 51, 0.08);
+}
+
+@media (hover: none) {
+  .emotion-0:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-0.Mui-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-0:hover {
+  outline: none;
+  border: none;
+  background-color: #3c3f43;
+}
+
+.emotion-1 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
 <body>
   <div>
     <div
-      style="opacity: 0; visibility: hidden; position: absolute; top: 16px; right: 16px; z-index: 2147483647;"
+      style="opacity: 0; visibility: hidden;"
     >
-      <style>
-        
-    @font-face {
-        font-family: 'Quicksand';
-        src: url('http://127.0.0.1:3000/mocked-font.ttf') format('truetype');
-        font-weight: 300;
-        font-style: normal;
-    }
-
-        
-
-    button.raex-button-injected {
-        font-family: 'Quicksand';
-        color: #292d33;
-        background: #e9ebf0;
-        display: inline-block;
-        margin-bottom: 0;
-        font-weight: normal;
-        text-align: center;
-        vertical-align: middle;
-        cursor: pointer;
-        outline: 0 !important;
-        white-space: nowrap;
-        border: none;
-        user-select: none;
-        padding: 8px 12px;
-        font-size: 14px;
-        line-height: 1.42857143;
-        border-radius: 6px;
-        position: relative;
-        transition: color 0.2s linear, background-color 0.3s linear;
-        margin: 0;
-        overflow: hidden;
-        text-decoration: none;
-    }
-    button.raex-button-injected:hover, button.raex-button-injected:focus {
-        color: #3c3f43;
-        background-color: #e9ebf0;
-
-    }
-
-      </style>
-      <button
-        class="raex-button-injected"
-        data-testid="next-episode-button-nbutton"
+      <div
+        style="position: absolute; right: 16px; bottom: 16px; transform: translateY(-56px); transition: all 500ms ease;"
       >
-        <span
-          style="position: relative; z-index: 2;"
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium emotion-0"
+          data-testid="next-episode-button-nbutton"
+          style="filter: invert(100%); overflow: hidden;"
+          tabindex="0"
+          type="button"
         >
-          Siguiente episodio
-        </span>
-        <div
-          style="position: absolute; z-index: 1; top: 0px; left: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.1); width: 0px; transition: all 5s;"
-        />
-      </button>
+          <span
+            style="position: relative; z-index: 2;"
+          >
+            Siguiente episodio
+          </span>
+          <div
+            style="position: absolute; z-index: 1; top: 0px; left: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.9); width: 0px; transition: none;"
+          />
+          <span
+            class="MuiTouchRipple-root emotion-1"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </body>

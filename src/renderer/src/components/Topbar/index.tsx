@@ -16,7 +16,7 @@ import SearchBar from '../SearchBar'
 import fade from './fade.module.css'
 import ShareAnimeEpisodeButton from '../ShareAnimeEpisodeButton'
 import { useIsFullscreen } from '~/src/hooks/useIsFullscreen'
-import { UpdateButton } from '@components'
+import { UpdateButton } from '@components/UpdateButton'
 
 const ipcRenderer = window.electron.ipcRenderer
 

@@ -28,7 +28,9 @@ module.exports = {
     './src/renderer/tests/__mocks__/use-resize-observer.ts',
     './src/renderer/tests/__mocks__/src/utils.ts',
     './src/renderer/tests/__mocks__/mui/material/Skeleton.tsx',
-    './src/renderer/tests/__mocks__/@electron/remote/index.ts'
+    './src/renderer/tests/__mocks__/@electron/remote/index.ts',
+    './src/renderer/tests/__mocks__/src/components/VideoPlayer/components/Controls/hooks/useControls.ts',
+    './src/renderer/tests/__mocks__/@dev/events/index.ts'
   ],
   snapshotSerializers: ['@emotion/jest/serializer']
 }
