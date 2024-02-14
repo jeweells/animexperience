@@ -173,7 +173,7 @@ const useMouseTrack = ({ onChange }: { onChange: (relOffset: number) => void }) 
     relOffset,
     onMouseMove: (e: MouseEvent<HTMLDivElement>) => {
       const rect = e.currentTarget.getBoundingClientRect()
-      relOffset.current = Math.max(0, Math.min(1, (e.screenX - rect.x) / rect.width))
+      relOffset.current = Math.max(0, Math.min(1, (e.clientX - rect.x) / rect.width))
       onChange(relOffset.current)
     },
     onMouseLeave: () => {
