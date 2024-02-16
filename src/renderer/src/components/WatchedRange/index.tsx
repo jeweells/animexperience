@@ -16,8 +16,7 @@ const Back = styled('div')<{ hideBorder?: boolean }>`
   background: rgba(154, 154, 154, 0.2);
 `
 
-const Progress = styled('div')<{ progress: number }>`
-  width: ${(props) => props.progress}%;
+const Progress = styled('div')`
   height: 4px;
   background: rgba(220, 220, 220, 0.64);
   transition: all 400ms;
@@ -49,7 +48,9 @@ export const WatchedRange: React.FC<WatchedRangeProps> = React.memo<WatchedRange
         >
           <Back hideBorder={hideBorder}>
             <Progress
-              progress={info && info.duration !== 0 ? (info.currentTime / info.duration) * 100 : 0}
+              style={{
+                width: `${info && info.duration !== 0 ? (info.currentTime / info.duration) * 100 : 0}%`
+              }}
             />
           </Back>
         </Tooltip>
