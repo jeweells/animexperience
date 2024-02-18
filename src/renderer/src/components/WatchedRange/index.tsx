@@ -32,10 +32,21 @@ const hhmmss = (seconds: number) => {
 
 export const WatchedRange: React.FC<WatchedRangeProps> = React.memo<WatchedRangeProps>(
   ({ info, showTime, hideBorder }) => {
+    const currTime = info?.currentTime
+    const duration = info?.duration
+    const isValid =
+      typeof duration === 'number' &&
+      typeof currTime === 'number' &&
+      isFinite(duration) &&
+      isFinite(currTime) &&
+      duration !== 0
     const fmtDuration = React.useMemo(
-      () => (info ? `${hhmmss(info.currentTime)} / ${hhmmss(info.duration)}` : ''),
-      [info?.currentTime, info?.duration]
+      () => (isValid ? `${hhmmss(currTime)} / ${hhmmss(duration)}` : ''),
+      [currTime, duration]
     )
+
+    if (!isValid) return null
+
     return (
       <React.Fragment>
         <Tooltip
@@ -49,12 +60,12 @@ export const WatchedRange: React.FC<WatchedRangeProps> = React.memo<WatchedRange
           <Back hideBorder={hideBorder}>
             <Progress
               style={{
-                width: `${info && info.duration !== 0 ? (info.currentTime / info.duration) * 100 : 0}%`
+                width: `${isValid ? (currTime / duration) * 100 : 0}%`
               }}
             />
           </Back>
         </Tooltip>
-        {info && showTime && <div>{fmtDuration}</div>}
+        {info && showTime && fmtDuration && <div>{fmtDuration}</div>}
       </React.Fragment>
     )
   }

@@ -6,16 +6,21 @@ import { Optional } from '@shared/types'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { watchHistory } from '../watchHistory'
 import { debug, error } from '@dev/events'
+import { watchedAnime } from '@shared/schemas'
 
 const fetchStore = asyncAction('watched/fetchStore', async (arg: RecentAnimeData, { dispatch }) => {
   return await getStaticStore(Store.WATCHED, arg?.name, arg?.episode)
-    .then((x) => ({
-      anime: arg,
-      info: x as EpisodeInfo
-    }))
     .then((x) => {
-      if (x.info) {
-        dispatch(watched.set({ ...x }))
+      const parsed = watchedAnime.safeParse(x)
+      return {
+        anime: arg,
+        info: parsed.success ? parsed.data : null
+      }
+    })
+    .then((x) => {
+      const info = x.info
+      if (info) {
+        dispatch(watched.set({ ...x, info }))
       }
       return x
     })

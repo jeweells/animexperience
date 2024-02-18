@@ -87,7 +87,7 @@ const nextEpisode = asyncAction('watch/nextEpisode', async (_, api) => {
   // We want the user to start the video again if he comes from the previous video
   // e.g: Let's say he's watching it again, we don't want him to start the next episode when he left it
   const newEpisodeStoredData = await api.dispatch(watched.fetchStore(episodeInfo)).unwrap()
-  if (newEpisodeStoredData) {
+  if (newEpisodeStoredData && newEpisodeStoredData.info) {
     await api.dispatch(
       watched.updateWatched({
         ...newEpisodeStoredData,

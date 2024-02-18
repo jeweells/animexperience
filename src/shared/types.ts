@@ -1,3 +1,6 @@
+import { watchedAnime } from '@shared/schemas'
+import { z } from 'zod'
+
 export type RecentAnimeData = Partial<{
   name: string
   episode: number
@@ -19,11 +22,7 @@ export enum StoreMethod {
   setStore = 'setStore'
 }
 
-export type EpisodeInfo = {
-  currentTime: number
-  duration: number
-  at: number
-}
+export type EpisodeInfo = z.infer<typeof watchedAnime>
 
 export type RelatedAnime = {
   name: string
