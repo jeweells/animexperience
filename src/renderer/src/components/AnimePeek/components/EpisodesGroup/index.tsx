@@ -39,8 +39,14 @@ export const EpisodesGroup: FC<EpisodesGroupProps> = memo(({ size, info, min, ma
         <SEpisodeButton onClick={() => setShow((p) => !p)}>
           {`Episodios ${min} - ${max}`}
         </SEpisodeButton>
-        <Collapse in={show} mountOnEnter={false} unmountOnExit={true} appear={false}>
-          <FCol style={{ paddingLeft: 16 }}>{renderEpisodes()}</FCol>
+        <Collapse
+          in={show}
+          mountOnEnter={false}
+          unmountOnExit={true}
+          timeout={Math.max(300, episodes.length * 30)}
+          appear={false}
+        >
+          <FCol style={{ paddingLeft: 16, marginTop: 16 }}>{renderEpisodes()}</FCol>
         </Collapse>
       </Fragment>
     )

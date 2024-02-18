@@ -9,6 +9,7 @@ import EpisodesGroup from '../EpisodesGroup'
 import SortIcon from '../SortIcon'
 import Tooltip from '@mui/material/Tooltip'
 import { EPISODES } from '@selectors'
+import { Stack } from '@mui/material'
 
 export type EpisodesProps = {
   info: Optional<AnimeInfo>
@@ -62,18 +63,22 @@ export const Episodes: FC<EpisodesProps> = memo(({ info, groupSize = 30 }) => {
           </div>
         </Tooltip>
       </FRow>
-      {groups.map((group) => {
-        return (
-          <EpisodesGroup
-            sort={sort}
-            key={'group-' + group}
-            size={groupSize}
-            min={group * groupSize + min}
-            max={Math.min((group + 1) * groupSize + min - 1, max)}
-            info={info}
-          />
-        )
-      })}
+
+      <Stack spacing={2}>
+        {groups.map((group) => {
+          return (
+            <div key={'group-' + group}>
+              <EpisodesGroup
+                sort={sort}
+                size={groupSize}
+                min={group * groupSize + min}
+                max={Math.min((group + 1) * groupSize + min - 1, max)}
+                info={info}
+              />
+            </div>
+          )
+        })}
+      </Stack>
     </FColG16>
   )
 })
