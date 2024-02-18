@@ -1,7 +1,6 @@
 import { PayloadAction, unwrapResult } from '@reduxjs/toolkit'
 import { EpisodeInfo, RecentAnimeInfo, Store } from '@shared/types'
-import { RecentAnimeData } from '../../../src/hooks/useRecentAnimes'
-import { formatKeys, getStaticStore, setStaticStore } from '../../../src/hooks/useStaticStore'
+import { formatKeys, getStaticStore, setStaticStore, RecentAnimeData } from '~/src/hooks'
 import { Optional } from '@shared/types'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { watchHistory } from '../watchHistory'
