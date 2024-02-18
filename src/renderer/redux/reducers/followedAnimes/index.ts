@@ -9,6 +9,7 @@ import { FollowedAnimesState } from '../../state/types'
 import { ForcedAny } from '@shared/types'
 import { debug, error, info } from '@dev/events'
 import { followedAnimeSchema } from '@shared/schemas'
+import { onlyValidItems } from '@shared/schemas/onlyValidItems'
 
 export interface FollowedAnimeWStatus extends FollowedAnime {
   status: FStatus
@@ -20,13 +21,7 @@ const fetchStore = asyncAction('followedAnimes/fetchStore', async (_, api) => {
   const followed = await getStaticStore(Store.FOLLOWED, 'followed').then((x) => {
     if (!x) return []
 
-    return Object.values(x)
-      .map((value) => {
-        const parsed = followedAnimeSchema.safeParse(value)
-        if (parsed.success) return parsed.data
-        return null
-      })
-      .filter((value) => value !== null)
+    return onlyValidItems(Object.values(x), followedAnimeSchema)
   })
 
   const followedCpy: (FollowedAnimeWStatus | null)[] = followed.map((x) => ({

@@ -6,6 +6,7 @@ import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { watchHistory } from '../watchHistory'
 import { debug, error } from '@dev/events'
 import { recentAnimeSchema, watchedAnimeSchema } from '@shared/schemas'
+import { onlyValidItems } from '@shared/schemas/onlyValidItems'
 
 const fetchStore = asyncAction('watched/fetchStore', async (arg: RecentAnimeData, { dispatch }) => {
   return await getStaticStore(Store.WATCHED, arg?.name, arg?.episode)
@@ -27,17 +28,7 @@ const fetchStore = asyncAction('watched/fetchStore', async (arg: RecentAnimeData
 
 const fetchRecentlyStore = asyncAction('watched/fetchRecentlyStore', async (_, { dispatch }) => {
   return await getStaticStore(Store.RECENTLY_WATCHED, 'sorted')
-    .then((x) => {
-      return Array.isArray(x)
-        ? x
-            .map((value) => {
-              const parsed = recentAnimeSchema.safeParse(value)
-              if (parsed.success) return parsed.data
-              return null
-            })
-            .filter((value) => value !== null)
-        : []
-    })
+    .then((x) => onlyValidItems(x, recentAnimeSchema))
     .then((x) => {
       dispatch(
         watched.setRecently({
@@ -142,11 +133,7 @@ export const slice = createSlice({
         setStaticStore(
           Store.RECENTLY_WATCHED,
           'sorted',
-          payload.recently.reduce((acc, value) => {
-            const parsed = recentAnimeSchema.safeParse(value)
-            if (parsed.success) acc.push(parsed.data)
-            return acc
-          }, [])
+          onlyValidItems(payload.recently, recentAnimeSchema)
         ).catch(error)
       }
     }

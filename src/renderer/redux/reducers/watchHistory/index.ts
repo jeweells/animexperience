@@ -4,18 +4,11 @@ import { getStaticStore, setStaticStore } from '~/src/hooks'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { error } from '@dev/events'
 import { watchedHistoryItemSchema } from '@shared/schemas'
+import { onlyValidItems } from '@shared/schemas/onlyValidItems'
 
 const fetchStore = asyncAction('watchHistory/fetchStore', async (_, api) => {
   const history = await getStaticStore(Store.WATCH_HISTORY, 'sorted').then((x) =>
-    Array.isArray(x)
-      ? x
-          .map((value) => {
-            const parsed = watchedHistoryItemSchema.safeParse(value)
-            if (parsed.success) return parsed.data
-            return null
-          })
-          .filter((value) => value !== null)
-      : []
+    Array.isArray(x) ? onlyValidItems(x, watchedHistoryItemSchema) : []
   )
   api.dispatch(
     watchHistory.set({
@@ -66,11 +59,7 @@ export const slice = createSlice({
   name: 'watchHistory',
   reducers: {
     set(state, { payload }: PayloadAction<{ sorted: WatchHistoryItem[]; noUpdate?: boolean }>) {
-      const sliced = payload.sorted.slice(0, 20).reduce((acc, value) => {
-        const parsed = watchedHistoryItemSchema.safeParse(value)
-        if (parsed.success) acc.push(parsed.data)
-        return acc
-      }, [])
+      const sliced = onlyValidItems(payload.sorted.slice(0, 20), watchedHistoryItemSchema)
       state.sorted = sliced
       if (!payload.noUpdate) {
         setStaticStore(Store.WATCH_HISTORY, 'sorted', sliced).catch(error)

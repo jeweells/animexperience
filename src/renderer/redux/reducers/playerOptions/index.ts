@@ -5,26 +5,18 @@ import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { OptionInfo } from '../../state/types'
 import { debug } from '@dev/events'
 import { playerOptionSchema } from '@shared/schemas'
+import { onlyValidItems } from '@shared/schemas/onlyValidItems'
 
 const OPTIONS_HISTORY_SIZE = 30
 
 const fetchStore = asyncAction('playerOptions/fetchStore', async (_, api) => {
-  const history = await getStaticStore(Store.PLAYER_OPTIONS, 'history').then((x) => {
-    return Array.isArray(x)
-      ? x
-          .map((value) => {
-            const parsed = playerOptionSchema.safeParse(value)
-            if (parsed.success) return parsed.data
-            return null
-          })
-          .filter((value) => value !== null)
-      : []
-  })
-  const preferred = await getStaticStore(Store.PLAYER_OPTIONS, 'preferred').then((x) => {
-    const parsed = playerOptionsSchema.safeParse(x)
-    if (parsed.success) return parsed.data
-    return []
-  })
+  const history = await getStaticStore(Store.PLAYER_OPTIONS, 'history').then((x) =>
+    onlyValidItems(x, playerOptionSchema)
+  )
+  const preferred = onlyValidItems(
+    await getStaticStore(Store.PLAYER_OPTIONS, 'preferred'),
+    playerOptionSchema
+  )
   // Order is important
   api.dispatch(playerOptions.setPreferred(preferred))
   api.dispatch(playerOptions.setHistory(history))
@@ -33,13 +25,11 @@ const fetchStore = asyncAction('playerOptions/fetchStore', async (_, api) => {
 })
 
 const use = asyncAction('playerOptions/use', async (optName: string, api) => {
-  const history = [optName, ...(api.getState().playerOptions.history ?? [])]
-    .slice(0, OPTIONS_HISTORY_SIZE)
-    .reduce((acc, value) => {
-      const parsed = playerOptionSchema.safeParse(value)
-      if (parsed.success) acc.push(parsed.data)
-      return acc
-    }, [])
+  const history = onlyValidItems(
+    [optName, ...(api.getState().playerOptions.history ?? [])].slice(0, OPTIONS_HISTORY_SIZE),
+    playerOptionSchema
+  )
+
   // Order is important
   api.dispatch(playerOptions.setHistory(history))
   api.dispatch(playerOptions.updateOptions())
@@ -61,11 +51,7 @@ const prefer = asyncAction(
     } else {
       preferredSet.delete(opts.name)
     }
-    const preferred = [...preferredSet].reduce((acc, value) => {
-      const parsed = playerOptionSchema.safeParse(value)
-      if (parsed.success) acc.push(parsed.data)
-      return acc
-    }, [])
+    const preferred = onlyValidItems([...preferredSet], playerOptionSchema)
     debug('Setting preferred:', preferred, opts)
     api.dispatch(playerOptions.setPreferred(preferred))
     api.dispatch(playerOptions.updateOptions())
