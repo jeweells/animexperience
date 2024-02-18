@@ -75,6 +75,17 @@ export const SeekBar = () => {
 
   const pendingSeek = useRef<null | (() => void)>(null)
 
+  useLayoutEffect(() => {
+    const dotElm = dotRef.current
+    const trackBarElm = trackBarRef.current
+    if (!dotElm) return
+    if (!trackBarElm) return
+    if (primaryButtonPressed) return
+    const val = `${timePer}%`
+    dotElm.style.left = val
+    trackBarElm.style.width = val
+  }, [primaryButtonPressed, timePer])
+
   return (
     <Wrapper
       forceHover={primaryButtonPressed}
@@ -88,8 +99,8 @@ export const SeekBar = () => {
         <Backdrop />
         <BufferBars />
         <IntentionBackdrop ref={intentionRef} />
-        <TrackBar ref={trackBarRef} style={{ width: `${timePer}%` }} />
-        <Dot ref={dotRef} style={{ left: `${timePer}%` }} />
+        <TrackBar ref={trackBarRef} />
+        <Dot ref={dotRef} />
         <TimeOverlay ref={timeRef} />
       </ThinWrapper>
     </Wrapper>
