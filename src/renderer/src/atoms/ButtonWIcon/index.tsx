@@ -28,7 +28,7 @@ const useStyles = makeStyles<Theme>((theme) => {
     wrapper: {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      borderRadius: root?.borderRadius,
+      borderRadius: `${typeof root?.borderRadius === 'number' ? `${root?.borderRadius}px !important` : root?.borderRadius}`,
       overflow: 'hidden',
       '&:hover $root': {
         backgroundColor: lighten(theme.palette.secondary.main, 0.05)
@@ -54,6 +54,7 @@ const cls = (...arr: (string | undefined)[]) => arr.filter(Boolean).join(' ')
 export const ButtonWIcon: React.FC<ButtonWIconProps> = React.memo(
   ({ icon, children, ...props }) => {
     const classes = useStyles()
+    console.log(classes.wrapper)
     return (
       <ButtonBase
         {...props}
