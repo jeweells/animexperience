@@ -6,7 +6,7 @@ import { useLayoutEffect, useState } from 'react'
 import { InverseFade } from '~/src/atoms/InverseFade'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import PauseIcon from '@mui/icons-material/Pause'
-import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
+import { useToggleFullscreen, useTogglePlayPause } from '~/src/hooks/shortcuts'
 
 const Wrapper = styled(Stack)`
   position: absolute;
@@ -41,10 +41,11 @@ export const PlayPauseTap = () => {
     else void play()
     setKey(isPlaying ? 'playing' : 'paused')
   }
-  useKeyUp(toggle, { code: 'Space' })
+
+  useTogglePlayPause(toggle)
 
   const { toggleFullscreen } = useFullscreen()
-  useKeyUp(toggleFullscreen, { key: 'f' })
+  useToggleFullscreen(toggleFullscreen)
 
   return (
     <Wrapper

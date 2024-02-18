@@ -1,7 +1,7 @@
 import { Icon } from '../../Icon'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { peek } from '@reducers'
-import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
+import { useOpenEpisodeList } from '~/src/hooks/shortcuts'
 
 export const EpisodesList = () => {
   const watching = useAppSelector((d) => d.watch.watching)
@@ -11,7 +11,7 @@ export const EpisodesList = () => {
     dispatch(peek.peek(watching.name))
   }
 
-  useKeyUp(tryPeeking, { key: 'e' })
+  useOpenEpisodeList(tryPeeking)
 
   return (
     <Icon

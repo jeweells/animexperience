@@ -1,9 +1,9 @@
 import { Icon } from '../../Icon'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { watch } from '@reducers'
-import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
 import { useEffect } from 'react'
 import { useControls } from '../../hooks'
+import { useGoNextEpisode, useGoPreviousEpisode } from '~/src/hooks/shortcuts'
 
 export const NextEpisode = () => {
   const data = useAppSelector((d) => d.watch.info)
@@ -19,8 +19,9 @@ export const NextEpisode = () => {
   const goNext = () => hasMax && dispatch(watch.nextEpisode())
   const goPrev = () => hasMin && dispatch(watch.previousEpisode())
 
-  useKeyUp(goNext, { key: 'ArrowRight', altKey: true })
-  useKeyUp(goPrev, { key: 'ArrowLeft', altKey: true })
+  useGoNextEpisode(goNext)
+  useGoPreviousEpisode(goPrev)
+
   const { video } = useControls()
   useEffect(() => {
     if (!video) return

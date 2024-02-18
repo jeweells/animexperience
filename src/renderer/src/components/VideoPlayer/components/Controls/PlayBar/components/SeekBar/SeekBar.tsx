@@ -1,7 +1,6 @@
 import { memo, useLayoutEffect, useRef, useState } from 'react'
 import { useBuffer, useSeek } from '../../../hooks'
 import { formatTime } from '~/src/utils'
-import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
 import {
   Backdrop,
   BufferBackdrop,
@@ -13,6 +12,7 @@ import {
   Wrapper
 } from './components'
 import { useMouseTrack, usePrimaryButton } from './hooks'
+import { useSeekBackward, useSeekForward } from '~/src/hooks/shortcuts'
 
 export const SeekBar = () => {
   const intentionRef = useRef<HTMLDivElement>(null)
@@ -70,15 +70,8 @@ export const SeekBar = () => {
     setTimePer(time.duration === 0 ? 0 : (time.currentTime / time.duration) * 100)
   }, [time])
 
-  useKeyUp(seekForward, {
-    altKey: false,
-    key: 'ArrowRight'
-  })
-
-  useKeyUp(seekBackward, {
-    altKey: false,
-    key: 'ArrowLeft'
-  })
+  useSeekForward(seekForward)
+  useSeekBackward(seekBackward)
 
   const pendingSeek = useRef<null | (() => void)>(null)
 

@@ -6,7 +6,7 @@ import { topView } from '@reducers'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { TopView } from '@shared/types'
 import { useTopBarHeight } from '../Topbar'
-import { useKeyUp } from '~/src/hooks/useKeyboardKeys'
+import { usePopModal } from '~/src/hooks/shortcuts'
 
 interface SModalProps extends DialogProps {
   topBarHeight: number
@@ -56,13 +56,10 @@ export const FullModal: FC<FullModalProps> = memo<FullModalProps>(
       }
     }, [show])
 
-    useKeyUp(
-      () => {
-        if (currentTopview !== view) return
-        onPopRequested?.()
-      },
-      { code: 'Escape' }
-    )
+    usePopModal(() => {
+      if (currentTopview !== view) return
+      onPopRequested?.()
+    })
 
     return (
       <SModal
