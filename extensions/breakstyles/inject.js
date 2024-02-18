@@ -6,6 +6,7 @@
 
   if (window !== rootWindow) {
     const style = document.createElement('style')
+    // language=css
     style.innerText = `
      *:not(:has(video)):not(video) {
         position: fixed !important;
@@ -15,14 +16,18 @@
         padding: 0 !important;
         margin: -1px !important;
         border: 0 !important;
+        outline: none !important;
         overflow: hidden !important;
         white-space: nowrap !important;
         clip-path: inset(100%) !important;
         clip: rect(0 0 0 0) !important;
         top: -10000px;
         left: -10000px;
+        pointer-events: none !important;
+        user-select: none !important;
      }
      video {
+        pointer-events: none !important;
         position: fixed !important;
         z-index: 10000000000 !important;
         width: 100vw !important;
@@ -36,8 +41,10 @@
         right: 0 !important;
         bottom: 0 !important;
         inset: 0 !important;
+        outline: none !important;
         border-radius: 0 !important;
         transition: none !important;
+        user-select: none !important;
      }
   `
     document.body.appendChild(style)
