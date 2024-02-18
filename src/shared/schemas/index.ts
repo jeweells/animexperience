@@ -12,7 +12,7 @@ export const recentAnimeSchema = z.object({
   at: z.number()
 })
 
-export const playerOptionSchema = z.array(z.string())
+export const playerOptionSchema = z.string()
 
 export const followedAnimeSchema = z.object({
   name: z.string(),

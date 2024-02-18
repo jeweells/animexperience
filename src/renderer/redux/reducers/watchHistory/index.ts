@@ -66,7 +66,11 @@ export const slice = createSlice({
   name: 'watchHistory',
   reducers: {
     set(state, { payload }: PayloadAction<{ sorted: WatchHistoryItem[]; noUpdate?: boolean }>) {
-      const sliced = payload.sorted.slice(0, 20)
+      const sliced = payload.sorted.slice(0, 20).reduce((acc, value) => {
+        const parsed = watchedHistoryItemSchema.safeParse(value)
+        if (parsed.success) acc.push(parsed.data)
+        return acc
+      }, [])
       state.sorted = sliced
       if (!payload.noUpdate) {
         setStaticStore(Store.WATCH_HISTORY, 'sorted', sliced).catch(error)

@@ -137,22 +137,14 @@ const followedToDict = (
   state: Draft<FollowedAnimesState>,
   arr: FollowedAnimeWStatus[]
 ): Record<string, FollowedAnime> => {
-  const result = arr.reduce(
-    (
-      acc: ForcedAny,
-      {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        status,
-        ...rest
-      }
-    ) => {
-      const key = formatKeys([rest.name ?? ''])
-      if (!key) return acc
-      acc[key] = rest
-      return acc
-    },
-    {}
-  )
+  const result = arr.reduce((acc: ForcedAny, followedAnime) => {
+    const key = formatKeys([followedAnime.name ?? ''])
+    if (!key) return acc
+    const parsed = followedAnimeSchema.safeParse(followedAnime)
+    if (!parsed.success) return acc
+    acc[key] = parsed.data
+    return acc
+  }, {})
   state.followedDict = result
   return result
 }

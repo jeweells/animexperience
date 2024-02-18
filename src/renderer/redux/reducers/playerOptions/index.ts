@@ -33,10 +33,13 @@ const fetchStore = asyncAction('playerOptions/fetchStore', async (_, api) => {
 })
 
 const use = asyncAction('playerOptions/use', async (optName: string, api) => {
-  const history = [optName, ...(api.getState().playerOptions.history ?? [])].slice(
-    0,
-    OPTIONS_HISTORY_SIZE
-  )
+  const history = [optName, ...(api.getState().playerOptions.history ?? [])]
+    .slice(0, OPTIONS_HISTORY_SIZE)
+    .reduce((acc, value) => {
+      const parsed = playerOptionSchema.safeParse(value)
+      if (parsed.success) acc.push(parsed.data)
+      return acc
+    }, [])
   // Order is important
   api.dispatch(playerOptions.setHistory(history))
   api.dispatch(playerOptions.updateOptions())
@@ -58,7 +61,11 @@ const prefer = asyncAction(
     } else {
       preferredSet.delete(opts.name)
     }
-    const preferred = [...preferredSet]
+    const preferred = [...preferredSet].reduce((acc, value) => {
+      const parsed = playerOptionSchema.safeParse(value)
+      if (parsed.success) acc.push(parsed.data)
+      return acc
+    }, [])
     debug('Setting preferred:', preferred, opts)
     api.dispatch(playerOptions.setPreferred(preferred))
     api.dispatch(playerOptions.updateOptions())

@@ -91,12 +91,16 @@ const updateWatched = asyncAction(
     },
     api
   ) => {
-    api.dispatch(watched.set(payload))
-    const keys = [payload.anime?.name, payload.anime?.episode]
+    if (!payload.anime) return
+    const parsed = watchedAnimeSchema.safeParse(payload.info)
+    if (!parsed.success) return
+    const info = parsed.data
+    api.dispatch(watched.set({ ...payload, info }))
+    const keys = [payload.anime.name, payload.anime.episode]
     await Promise.all([
-      setStaticStore(Store.WATCHED, ...keys, payload.info).catch(error),
+      setStaticStore(Store.WATCHED, ...keys, info).catch(error),
       // Should remove it because we can consider it as "watched"
-      payload.info.currentTime / payload.info.duration > 0.85
+      info.currentTime / info.duration > 0.85
         ? api.dispatch(watchHistory.remove(payload.anime.name))
         : api.dispatch(
             watchHistory.push({
@@ -135,7 +139,15 @@ export const slice = createSlice({
     ) {
       state.recently = payload.recently
       if (!payload.noUpdate) {
-        setStaticStore(Store.RECENTLY_WATCHED, 'sorted', payload.recently).catch(error)
+        setStaticStore(
+          Store.RECENTLY_WATCHED,
+          'sorted',
+          payload.recently.reduce((acc, value) => {
+            const parsed = recentAnimeSchema.safeParse(value)
+            if (parsed.success) acc.push(parsed.data)
+            return acc
+          }, [])
+        ).catch(error)
       }
     }
   },
