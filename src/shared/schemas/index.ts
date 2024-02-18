@@ -6,6 +6,12 @@ export const watchedAnimeSchema = z.object({
   at: z.number()
 })
 
+export const recentAnimeSchema = z.object({
+  name: z.string(),
+  lastEpisode: z.number(),
+  at: z.number()
+})
+
 export const playerOptionSchema = z.array(z.string())
 
 export const followedAnimeSchema = z.object({

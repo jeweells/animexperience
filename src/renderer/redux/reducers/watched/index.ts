@@ -5,7 +5,7 @@ import { Optional } from '@shared/types'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { watchHistory } from '../watchHistory'
 import { debug, error } from '@dev/events'
-import { watchedAnimeSchema } from '@shared/schemas'
+import { recentAnimeSchema, watchedAnimeSchema } from '@shared/schemas'
 
 const fetchStore = asyncAction('watched/fetchStore', async (arg: RecentAnimeData, { dispatch }) => {
   return await getStaticStore(Store.WATCHED, arg?.name, arg?.episode)
@@ -27,7 +27,17 @@ const fetchStore = asyncAction('watched/fetchStore', async (arg: RecentAnimeData
 
 const fetchRecentlyStore = asyncAction('watched/fetchRecentlyStore', async (_, { dispatch }) => {
   return await getStaticStore(Store.RECENTLY_WATCHED, 'sorted')
-    .then((x) => (Array.isArray(x) ? x : []) as RecentAnimeInfo[])
+    .then((x) => {
+      return Array.isArray(x)
+        ? x
+            .map((value) => {
+              const parsed = recentAnimeSchema.safeParse(value)
+              if (parsed.success) return parsed.data
+              return null
+            })
+            .filter((value) => value !== null)
+        : []
+    })
     .then((x) => {
       dispatch(
         watched.setRecently({

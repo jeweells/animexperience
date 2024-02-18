@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { Store } from '@shared/types'
-import { getStaticStore, setStaticStore } from '../../../src/hooks/useStaticStore'
+import { getStaticStore, setStaticStore } from '~/src/hooks'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { OptionInfo } from '../../state/types'
 import { debug } from '@dev/events'

@@ -1,4 +1,4 @@
-import { followedAnimeSchema, watchedAnimeSchema } from '@shared/schemas'
+import { followedAnimeSchema, recentAnimeSchema, watchedAnimeSchema } from '@shared/schemas'
 import { z } from 'zod'
 
 export type RecentAnimeData = Partial<{
@@ -51,11 +51,7 @@ export type AnimeInfo = Partial<{
   link: string
 }
 
-export type RecentAnimeInfo = {
-  name: string
-  lastEpisode: number
-  at: number
-}
+export type RecentAnimeInfo = z.infer<typeof recentAnimeSchema>
 
 /* eslint-disable camelcase */
 export type MalAnimeInfo = {
