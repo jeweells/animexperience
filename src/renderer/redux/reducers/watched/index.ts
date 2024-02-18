@@ -5,12 +5,12 @@ import { Optional } from '@shared/types'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { watchHistory } from '../watchHistory'
 import { debug, error } from '@dev/events'
-import { watchedAnime } from '@shared/schemas'
+import { watchedAnimeSchema } from '@shared/schemas'
 
 const fetchStore = asyncAction('watched/fetchStore', async (arg: RecentAnimeData, { dispatch }) => {
   return await getStaticStore(Store.WATCHED, arg?.name, arg?.episode)
     .then((x) => {
-      const parsed = watchedAnime.safeParse(x)
+      const parsed = watchedAnimeSchema.safeParse(x)
       return {
         anime: arg,
         info: parsed.success ? parsed.data : null
