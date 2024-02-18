@@ -1,12 +1,21 @@
 import { PayloadAction, unwrapResult } from '@reduxjs/toolkit'
 import { Store, WatchHistoryItem } from '@shared/types'
-import { getStaticStore, setStaticStore } from '../../../src/hooks/useStaticStore'
+import { getStaticStore, setStaticStore } from '~/src/hooks'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { error } from '@dev/events'
+import { watchedHistoryItemSchema } from '@shared/schemas'
 
 const fetchStore = asyncAction('watchHistory/fetchStore', async (_, api) => {
-  const history: WatchHistoryItem[] = await getStaticStore(Store.WATCH_HISTORY, 'sorted').then(
-    (x) => (Array.isArray(x) ? x : [])
+  const history = await getStaticStore(Store.WATCH_HISTORY, 'sorted').then((x) =>
+    Array.isArray(x)
+      ? x
+          .map((value) => {
+            const parsed = watchedHistoryItemSchema.safeParse(value)
+            if (parsed.success) return parsed.data
+            return null
+          })
+          .filter((value) => value !== null)
+      : []
   )
   api.dispatch(
     watchHistory.set({

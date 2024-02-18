@@ -24,3 +24,18 @@ export const followedAnimeSchema = z.object({
   nextCheckAt: z.number(),
   lastSuccessAt: z.number()
 })
+
+export const recentAnimeDataSchema = z
+  .object({
+    name: z.string(),
+    episode: z.number(),
+    img: z.string(),
+    link: z.string(),
+    date: z.string()
+  })
+  .partial()
+
+export const watchedHistoryItemSchema = z.object({
+  at: z.number(),
+  info: recentAnimeDataSchema
+})

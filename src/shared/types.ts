@@ -1,13 +1,13 @@
-import { followedAnimeSchema, recentAnimeSchema, watchedAnimeSchema } from '@shared/schemas'
+import {
+  followedAnimeSchema,
+  recentAnimeDataSchema,
+  recentAnimeSchema,
+  watchedAnimeSchema,
+  watchedHistoryItemSchema
+} from '@shared/schemas'
 import { z } from 'zod'
 
-export type RecentAnimeData = Partial<{
-  name: string
-  episode: number
-  img: string
-  link: string
-  date: string
-}>
+export type RecentAnimeData = z.infer<typeof recentAnimeDataSchema>
 
 export enum Store {
   WATCHED = 'watched',
@@ -78,10 +78,7 @@ export type RecommendationInfo = {
   image: string
 }
 
-export type WatchHistoryItem = {
-  at: number
-  info: RecentAnimeData
-}
+export type WatchHistoryItem = z.infer<typeof watchedHistoryItemSchema>
 
 export type AnimeIDAnimeMatch = {
   name: string

@@ -9,7 +9,7 @@ import { playerOptionSchema } from '@shared/schemas'
 const OPTIONS_HISTORY_SIZE = 30
 
 const fetchStore = asyncAction('playerOptions/fetchStore', async (_, api) => {
-  const history: Array<string> = await getStaticStore(Store.PLAYER_OPTIONS, 'history').then((x) => {
+  const history = await getStaticStore(Store.PLAYER_OPTIONS, 'history').then((x) => {
     return Array.isArray(x)
       ? x
           .map((value) => {
