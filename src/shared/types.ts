@@ -1,4 +1,4 @@
-import { watchedAnimeSchema } from '@shared/schemas'
+import { followedAnimeSchema, watchedAnimeSchema } from '@shared/schemas'
 import { z } from 'zod'
 
 export type RecentAnimeData = Partial<{
@@ -109,16 +109,7 @@ export type DeepAnimeIdSearchResultWithPages = Omit<
   maxPage: number
 }
 
-export type FollowedAnime = {
-  name: string
-  image: string
-  link: string
-  nextEpisodeToWatch: number
-  lastEpisodeWatched: number
-  lastCheckAt: number
-  nextCheckAt: number
-  lastSuccessAt: number
-}
+export type FollowedAnime = z.infer<typeof followedAnimeSchema>
 
 export type Optional<T> = T | undefined | null
 

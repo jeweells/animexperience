@@ -12,7 +12,7 @@ import { FollowedAnimeWStatus } from '../reducers/followedAnimes'
 import { PreAllowWatch } from '../reducers/invokedLink'
 import { RecentAnimeData } from '~/src/hooks'
 import { VideoOption } from '../../src/components/VideoPlayer'
-import { playerOptionsSchema } from '@shared/schemas'
+import { playerOptionSchema } from '@shared/schemas'
 import { z } from 'zod'
 
 export type AnimeSearchState = {
@@ -72,8 +72,8 @@ export type OptionInfo = {
 // Define a type for the slice state
 export type PlayerOptionsState = {
   options?: OptionInfo[]
-  history?: z.infer<typeof playerOptionsSchema>
-  preferred?: z.infer<typeof playerOptionsSchema>
+  history?: z.infer<typeof playerOptionSchema>[]
+  preferred?: z.infer<typeof playerOptionSchema>[]
   status: Partial<{
     options: FStatus
   }>

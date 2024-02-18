@@ -4,15 +4,21 @@ import { getStaticStore, setStaticStore } from '../../../src/hooks/useStaticStor
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { OptionInfo } from '../../state/types'
 import { debug } from '@dev/events'
-import { playerOptionsSchema } from '@shared/schemas'
+import { playerOptionSchema } from '@shared/schemas'
 
 const OPTIONS_HISTORY_SIZE = 30
 
 const fetchStore = asyncAction('playerOptions/fetchStore', async (_, api) => {
   const history: Array<string> = await getStaticStore(Store.PLAYER_OPTIONS, 'history').then((x) => {
-    const parsed = playerOptionsSchema.safeParse(x)
-    if (parsed.success) return parsed.data
-    return []
+    return Array.isArray(x)
+      ? x
+          .map((value) => {
+            const parsed = playerOptionSchema.safeParse(value)
+            if (parsed.success) return parsed.data
+            return null
+          })
+          .filter((value) => value !== null)
+      : []
   })
   const preferred = await getStaticStore(Store.PLAYER_OPTIONS, 'preferred').then((x) => {
     const parsed = playerOptionsSchema.safeParse(x)

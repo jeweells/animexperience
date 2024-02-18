@@ -1,14 +1,14 @@
 import { Draft, PayloadAction } from '@reduxjs/toolkit'
 import moment from 'moment'
 import { AnimeInfo, FollowedAnime, Store } from '@shared/types'
-import { RecentAnimeData } from '../../../src/hooks/useRecentAnimes'
-import { formatKeys, getStaticStore, setStaticStore } from '../../../src/hooks/useStaticStore'
+import { RecentAnimeData, formatKeys, getStaticStore, setStaticStore } from '~/src/hooks'
 import { FStatus } from '@shared/types'
-import { rendererInvoke } from '../../../src/utils'
+import { rendererInvoke } from '~/src/utils'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { FollowedAnimesState } from '../../state/types'
 import { ForcedAny } from '@shared/types'
 import { debug, error, info } from '@dev/events'
+import { followedAnimeSchema } from '@shared/schemas'
 
 export interface FollowedAnimeWStatus extends FollowedAnime {
   status: FStatus
@@ -17,9 +17,17 @@ export interface FollowedAnimeWStatus extends FollowedAnime {
 const nextCheck = (now: number): number => now
 
 const fetchStore = asyncAction('followedAnimes/fetchStore', async (_, api) => {
-  const followed: FollowedAnime[] = await getStaticStore(Store.FOLLOWED, 'followed').then((x) =>
-    x ? Object.values(x) : []
-  )
+  const followed = await getStaticStore(Store.FOLLOWED, 'followed').then((x) => {
+    if (!x) return []
+
+    return Object.values(x)
+      .map((value) => {
+        const parsed = followedAnimeSchema.safeParse(value)
+        if (parsed.success) return parsed.data
+        return null
+      })
+      .filter((value) => value !== null)
+  })
 
   const followedCpy: (FollowedAnimeWStatus | null)[] = followed.map((x) => ({
     ...x,
