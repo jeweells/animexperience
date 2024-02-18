@@ -23,6 +23,12 @@ jobs:
       - name: Installing dependencies
         run: yarn install --frozen-lockfile --network-timeout 10000000
 
+      - name: Linting
+        run: yarn lint
+
+      - name: Type checking
+        run: yarn typecheck
+
       - name: Building and releasing application
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
