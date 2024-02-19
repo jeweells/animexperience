@@ -34,6 +34,11 @@ export const optionNotLongerAvailable = (
 }
 
 const fembed: OptionFn = (iframe) => {
+  const _document = iframe[0]
+  if (isDocument(_document) && urlHasFailed(_document.location.href)) {
+    info('Fembed skipped since URL failed')
+    return true
+  }
   return _checkText(iframe, 'Fembed', 'could not be found')
 }
 

@@ -13,7 +13,7 @@ type OnBeforeHeaders = (
 ) => boolean
 
 export const handleFailedVideoUrlsCompleted = (details: OnCompletedListenerDetails) => {
-  ;[streamtape].forEach((handle) => {
+  ;[streamtape, fembed].forEach((handle) => {
     handle(details)
   })
 }
@@ -33,6 +33,17 @@ const streamtape = (details: OnCompletedListenerDetails) => {
   getMainWindow()?.webContents.send(eventNames.videoUrlFailed, {
     option: 'streamtape',
     url: details.url
+  } as VideoURLFailed)
+}
+
+const fembed = (details: OnCompletedListenerDetails) => {
+  if (details.statusCode !== 522) return
+  if (!['xhr', 'subFrame'].includes(details.resourceType)) return
+  if (!details.url.startsWith('https://embedsito.com')) return
+
+  getMainWindow()?.webContents.send(eventNames.videoUrlFailed, {
+    option: 'fembed',
+    url: 'chrome-error://chromewebdata/'
   } as VideoURLFailed)
 }
 
