@@ -1,18 +1,18 @@
 import { KeyInfo, useKeyUp } from '~/src/hooks'
 
-const buildHooks = <T extends string>(
-  options: Record<T, KeyInfo | KeyInfo[]>
-): Record<T, (callback: () => void) => void> => {
+type UseKeyHook = (callback: () => void) => void
+
+const buildHooks = <T extends string>(options: Record<T, KeyInfo | KeyInfo[]>) => {
   return Object.fromEntries(
     Object.entries<KeyInfo | KeyInfo[]>(options).map(([key, keyInfos]) => [
       key,
-      (callback: () => void) => {
+      ((callback) => {
         for (const keyInfo of Array.isArray(keyInfos) ? keyInfos : [keyInfos]) {
           useKeyUp(callback, keyInfo)
         }
-      }
+      }) as UseKeyHook
     ])
-  ) as Record<T, (callback: () => void) => void>
+  ) as Record<T, UseKeyHook>
 }
 
 export const {

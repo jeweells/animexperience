@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { useCallbackRef } from '~/src/hooks/useCallbackRef'
 
 type Modifiers = Record<'Alt' | 'AltGraph' | 'Control' | 'Meta' | 'Shift', boolean>
 
@@ -14,7 +13,6 @@ export const useKeyUp = (
   callback: () => void,
   { key, code, strict = true, modifiers = {} }: KeyInfo
 ) => {
-  const cbRef = useCallbackRef(callback)
   useEffect(() => {
     const handle = (e: KeyboardEvent) => {
       if (e.key !== key && e.code !== code) return
@@ -36,11 +34,11 @@ export const useKeyUp = (
           return
         }
       }
-      cbRef()
+      callback()
     }
     document.addEventListener('keyup', handle)
     return () => {
       document.removeEventListener('keyup', handle)
     }
-  }, [key, code, strict])
+  }, [key, code, strict, callback])
 }

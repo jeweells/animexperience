@@ -1,6 +1,6 @@
 import Dialog, { DialogProps } from '@mui/material/Dialog'
 import Fade from '@mui/material/Fade'
-import { useLayoutEffect, FC, memo } from 'react'
+import { useLayoutEffect, FC, memo, useCallback } from 'react'
 import { styled } from '@mui/system'
 import { topView } from '@reducers'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
@@ -56,10 +56,12 @@ export const FullModal: FC<FullModalProps> = memo<FullModalProps>(
       }
     }, [show])
 
-    usePopModal(() => {
-      if (currentTopview !== view) return
-      onPopRequested?.()
-    })
+    usePopModal(
+      useCallback(() => {
+        if (currentTopview !== view) return
+        onPopRequested?.()
+      }, [currentTopview, view])
+    )
 
     return (
       <SModal

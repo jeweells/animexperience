@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { useControls } from './useControls'
 
 export const usePlayPause = () => {
@@ -12,8 +12,8 @@ export const usePlayPause = () => {
     _w.navigator.mediaSession.playbackState = playing ? 'playing' : 'paused'
   }, [video, playing])
 
-  const play = () => video?.play() ?? Promise.resolve()
-  const pause = () => video?.pause()
+  const play = useCallback(() => video?.play() ?? Promise.resolve(), [video])
+  const pause = useCallback(() => video?.pause(), [video])
 
   useEffect(() => {
     if (!video) return

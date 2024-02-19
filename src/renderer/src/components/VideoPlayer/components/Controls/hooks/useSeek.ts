@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { FAST_SEEK_BACKWARD_IN_SECONDS, FAST_SEEK_FORWARD_IN_SECONDS } from '~/src/constants'
 import { useControls } from './useControls'
 
@@ -8,25 +8,31 @@ export const useSeek = () => {
   const { video } = useControls()
   const [time, setTime] = useState(defaultTime)
 
-  const seek = (value: number) => {
-    if (!video) return
-    video.currentTime = value
-  }
+  const seek = useCallback(
+    (value: number) => {
+      if (!video) return
+      video.currentTime = value
+    },
+    [video]
+  )
 
-  const fastSeek = (value: number) => {
-    if (!video) return
-    if (!video.fastSeek) video.currentTime = value
-    else video.fastSeek(value)
-  }
+  const fastSeek = useCallback(
+    (value: number) => {
+      if (!video) return
+      if (!video.fastSeek) video.currentTime = value
+      else video.fastSeek(value)
+    },
+    [video]
+  )
 
-  const seekForward = () => {
+  const seekForward = useCallback(() => {
     const nextCurrentTime = time.currentTime + FAST_SEEK_FORWARD_IN_SECONDS
     if (nextCurrentTime > time.duration) return
     fastSeek(nextCurrentTime)
-  }
-  const seekBackward = () => {
+  }, [fastSeek, time])
+  const seekBackward = useCallback(() => {
     fastSeek(Math.max(0, time.currentTime - FAST_SEEK_BACKWARD_IN_SECONDS))
-  }
+  }, [fastSeek, time])
 
   useEffect(() => {
     if (!video) return

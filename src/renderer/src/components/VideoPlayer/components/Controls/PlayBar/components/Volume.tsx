@@ -1,6 +1,6 @@
 import { Icon } from '../../Icon'
 import { useVolume } from '../../hooks'
-import { useDeferredValue } from 'react'
+import { useCallback, useDeferredValue } from 'react'
 import { Slider, Stack } from '@mui/material'
 import Tooltip from '@mui/material/Tooltip'
 import { useMute, useVolumeDown, useVolumeUp } from '~/src/hooks/shortcuts'
@@ -9,13 +9,13 @@ export const Volume = () => {
   const { volume, setVolume } = useVolume()
   const oldVolume = useDeferredValue(volume)
 
-  const toggleMute = () => {
+  const toggleMute = useCallback(() => {
     setVolume(volume === 0 ? (oldVolume === volume ? 1 : oldVolume) : 0)
-  }
+  }, [volume, oldVolume, setVolume])
 
   useMute(toggleMute)
-  useVolumeUp(() => setVolume(Math.min(1, volume + 0.1)))
-  useVolumeDown(() => setVolume(Math.max(0, volume - 0.1)))
+  useVolumeUp(useCallback(() => setVolume(Math.min(1, volume + 0.1)), [volume, setVolume]))
+  useVolumeDown(useCallback(() => setVolume(Math.max(0, volume - 0.1)), [volume, setVolume]))
 
   return (
     <>

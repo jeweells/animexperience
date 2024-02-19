@@ -2,7 +2,7 @@ import { Stack, Zoom } from '@mui/material'
 import { styled } from '@mui/system'
 import { useControls, usePlayPause } from './hooks'
 import { useFullscreen } from '~/src/hooks'
-import { useLayoutEffect, useState } from 'react'
+import { useCallback, useLayoutEffect, useState } from 'react'
 import { InverseFade } from '~/src/atoms/InverseFade'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import PauseIcon from '@mui/icons-material/Pause'
@@ -36,11 +36,11 @@ export const PlayPauseTap = () => {
     setKey(null)
   }, [video])
 
-  const toggle = () => {
+  const toggle = useCallback(() => {
     if (isPlaying) pause()
     else void play()
     setKey(isPlaying ? 'playing' : 'paused')
-  }
+  }, [isPlaying, play, pause])
 
   useTogglePlayPause(toggle)
 

@@ -1,7 +1,7 @@
 import { Icon } from '../../Icon'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { watch } from '@reducers'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useControls } from '../../hooks'
 import { useGoNextEpisode, useGoPreviousEpisode } from '~/src/hooks/shortcuts'
 
@@ -16,8 +16,8 @@ export const NextEpisode = () => {
   const hasMax =
     typeof max === 'number' && typeof watching?.episode === 'number' && watching.episode < max
 
-  const goNext = () => hasMax && dispatch(watch.nextEpisode())
-  const goPrev = () => hasMin && dispatch(watch.previousEpisode())
+  const goNext = useCallback(() => hasMax && dispatch(watch.nextEpisode()), [dispatch, hasMax])
+  const goPrev = useCallback(() => hasMin && dispatch(watch.previousEpisode()), [dispatch, hasMin])
 
   useGoNextEpisode(goNext)
   useGoPreviousEpisode(goPrev)

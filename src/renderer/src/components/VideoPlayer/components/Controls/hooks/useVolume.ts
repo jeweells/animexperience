@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { useControls } from './useControls'
 
 export const useVolume = () => {
@@ -22,10 +22,13 @@ export const useVolume = () => {
   }, [video])
   return {
     volume,
-    setVolume: (value: number) => {
-      if (!video) return
-      video.volume = value
-      setVolume(value)
-    }
+    setVolume: useCallback(
+      (value: number) => {
+        if (!video) return
+        video.volume = value
+        setVolume(value)
+      },
+      [video]
+    )
   }
 }

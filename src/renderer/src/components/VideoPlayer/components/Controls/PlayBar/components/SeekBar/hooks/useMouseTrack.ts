@@ -1,5 +1,4 @@
-import { MouseEvent, useEffect, useRef } from 'react'
-import { useCallbackRef } from '~/src/hooks/useCallbackRef'
+import { MouseEvent, useCallback, useEffect, useRef } from 'react'
 
 export const useMouseTrack = ({
   onChange,
@@ -10,13 +9,15 @@ export const useMouseTrack = ({
 }) => {
   const relOffset = useRef(0)
   const ref = useRef<HTMLDivElement>(null)
-  const onChangeRef = useCallbackRef(onChange)
-  const handleChange = useCallbackRef((e: { clientX: number }) => {
-    if (!ref.current) return
-    const rect = ref.current.getBoundingClientRect()
-    relOffset.current = Math.max(0, Math.min(1, (e.clientX - rect.x) / rect.width))
-    onChangeRef?.(relOffset.current)
-  })
+  const handleChange = useCallback(
+    (e: { clientX: number }) => {
+      if (!ref.current) return
+      const rect = ref.current.getBoundingClientRect()
+      relOffset.current = Math.max(0, Math.min(1, (e.clientX - rect.x) / rect.width))
+      onChange(relOffset.current)
+    },
+    [onChange]
+  )
 
   useEffect(() => {
     if (useOnTarget) return
@@ -24,7 +25,7 @@ export const useMouseTrack = ({
     return () => {
       document.removeEventListener('mousemove', handleChange)
     }
-  }, [useOnTarget])
+  }, [useOnTarget, handleChange])
   return {
     relOffset,
     ref,

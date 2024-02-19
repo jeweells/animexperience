@@ -1,4 +1,4 @@
-import { memo, useLayoutEffect, useRef, useState } from 'react'
+import { memo, useCallback, useLayoutEffect, useRef, useState } from 'react'
 import { useBuffer, useSeek } from '../../../hooks'
 import { formatTime } from '~/src/utils'
 import {
@@ -22,10 +22,10 @@ export const SeekBar = () => {
   const { time, seek, seekForward, seekBackward } = useSeek()
 
   const { onMouseDown, pressed: primaryButtonPressed } = usePrimaryButton({
-    onMouseUp: () => {
+    onMouseUp: useCallback(() => {
       pendingSeek.current?.()
       pendingSeek.current = null
-    }
+    }, [])
   })
 
   const seekOnTarget = () => {
@@ -41,7 +41,7 @@ export const SeekBar = () => {
     relOffset
   } = useMouseTrack({
     useOnTarget: !primaryButtonPressed,
-    onChange: (relOffset) => {
+    onChange: useCallback((relOffset) => {
       const trackElm = intentionRef.current
       const timeElm = timeRef.current
       const dotElm = dotRef.current
@@ -61,7 +61,7 @@ export const SeekBar = () => {
       timeElm.style.left = val
       if (isFinite(time.duration)) timeElm.innerText = formatTime(time.duration * relOffset)
       else timeElm.innerText = ''
-    }
+    }, [])
   })
 
   const [timePer, setTimePer] = useState(0)
