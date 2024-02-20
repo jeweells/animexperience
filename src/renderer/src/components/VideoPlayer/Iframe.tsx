@@ -24,7 +24,7 @@ export const Iframe: FC<Props> = memo(({ html, updateRef, loading, children }) =
   return (
     <Wrapper className={fadeIn} style={{ opacity: loading ? 0 : 1 }} ref={updateRef}>
       <div
-        style={{ flex: 1, width: '100%', overflow: 'hidden' }}
+        style={{ flex: 1, width: '100%', overflow: 'hidden', pointerEvents: 'none' }}
         ref={updateRef}
         dangerouslySetInnerHTML={{ __html: html }}
       />
