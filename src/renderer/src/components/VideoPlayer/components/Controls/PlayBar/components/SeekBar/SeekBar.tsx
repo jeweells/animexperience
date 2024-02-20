@@ -41,27 +41,30 @@ export const SeekBar = () => {
     relOffset
   } = useMouseTrack({
     useOnTarget: !primaryButtonPressed,
-    onChange: useCallback((relOffset) => {
-      const trackElm = intentionRef.current
-      const timeElm = timeRef.current
-      const dotElm = dotRef.current
-      const trackbarElm = trackBarRef.current
-      if (!trackElm) return
-      if (!timeElm) return
-      if (!dotElm) return
-      if (!trackbarElm) return
-      const val = `${relOffset * 100}%`
-      if (primaryButtonPressed) {
-        // This will simulate the "drag" state
-        dotElm.style.left = val
-        trackbarElm.style.width = val
-        pendingSeek.current = seekOnTarget
-      }
-      trackElm.style.width = val
-      timeElm.style.left = val
-      if (isFinite(time.duration)) timeElm.innerText = formatTime(time.duration * relOffset)
-      else timeElm.innerText = ''
-    }, [])
+    onChange: useCallback(
+      (relOffset) => {
+        const trackElm = intentionRef.current
+        const timeElm = timeRef.current
+        const dotElm = dotRef.current
+        const trackbarElm = trackBarRef.current
+        if (!trackElm) return
+        if (!timeElm) return
+        if (!dotElm) return
+        if (!trackbarElm) return
+        const val = `${relOffset * 100}%`
+        if (primaryButtonPressed) {
+          // This will simulate the "drag" state
+          dotElm.style.left = val
+          trackbarElm.style.width = val
+          pendingSeek.current = seekOnTarget
+        }
+        trackElm.style.width = val
+        timeElm.style.left = val
+        if (isFinite(time.duration)) timeElm.innerText = formatTime(time.duration * relOffset)
+        else timeElm.innerText = ''
+      },
+      [time]
+    )
   })
 
   const [timePer, setTimePer] = useState(0)
