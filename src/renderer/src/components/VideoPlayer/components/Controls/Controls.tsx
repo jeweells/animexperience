@@ -8,15 +8,20 @@ import { PlayPauseTap } from './PlayPauseTap'
 import NextEpisodeButton from '@components/NextEpisodeButton'
 import { Stack } from '@mui/material'
 import { Close } from './Close'
+import { OptionTimedOut } from './OptionTimedOut'
 
-export const Controls = ({ video }: Pick<ControlsContext, 'video'>) => {
+export const Controls = ({
+  video,
+  videoIsTakingLong
+}: Pick<ControlsContext, 'video' | 'videoIsTakingLong'>) => {
   return (
     <Context.Provider
       value={useMemo(() => {
         return {
-          video
+          video,
+          videoIsTakingLong
         }
-      }, [video])}
+      }, [video, videoIsTakingLong])}
     >
       <OpacityLayer>
         <PlayPauseTap />
@@ -28,6 +33,7 @@ export const Controls = ({ video }: Pick<ControlsContext, 'video'>) => {
         <PlayBar />
       </OpacityLayer>
       <Loading />
+      <OptionTimedOut />
       <NextEpisodeButton />
     </Context.Provider>
   )

@@ -1,13 +1,14 @@
 import { EpisodeInfo, Optional, Store } from '@shared/types'
 import { useAppDispatch } from '~/redux/utils'
 import { useStaticStore } from '~/src/hooks/useStaticStore'
-import { useEffect, useLayoutEffect } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { handleSeek } from '../seekHandlers'
 import {
   CURRENT_TIME_SAVE_DELAY,
   RATIO_TO_FOLLOW_AN_ANIME,
   SECONDS_LEFT_TO_NEXT_EPISODE,
-  ALMOST_ENDED_SECONDS
+  ALMOST_ENDED_SECONDS,
+  POLLING_TIMEOUT_MS
 } from '../constants'
 import { followedAnimes, watch, watched } from '@reducers'
 import store from '~/redux/store'
@@ -27,6 +28,18 @@ export const useVideoImprovements = ({ info, container, onOptionNotFound, ms }: 
   const video = useVideo({ info, container, onOptionNotFound, ms })
   const dispatch = useAppDispatch()
   const staticStore = useStaticStore(Store.WATCHED)
+  const [videoIsTakingLong, setVideoIsTakingLong] = useState(false)
+
+  useEffect(() => {
+    setVideoIsTakingLong(false)
+    if (video) return
+    const t = setTimeout(() => {
+      setVideoIsTakingLong(true)
+    }, POLLING_TIMEOUT_MS)
+    return () => {
+      clearTimeout(t)
+    }
+  }, [video, info.option?.id])
 
   useEffect(() => {
     if (!info.anime) return
@@ -75,7 +88,7 @@ export const useVideoImprovements = ({ info, container, onOptionNotFound, ms }: 
       video.removeEventListener('ended', handleVideoEnded)
     }
   }, [video])
-  return { video }
+  return { video, videoIsTakingLong }
 }
 
 export const canGoToNextEpisode = (time: { duration: number; currentTime: number }) => {

@@ -9,7 +9,7 @@ export const useShowControls = () => {
   const [show, setShow] = useState(true)
   const { isPlaying } = usePlayPause()
   const { loading } = useLoading()
-  const { video } = useControls()
+  const { video, videoIsTakingLong } = useControls()
 
   useLayoutEffect(() => {
     if (!isPlaying) setShow(true)
@@ -38,5 +38,5 @@ export const useShowControls = () => {
     }, MS_TO_HIDE)
     return () => clearTimeout(t)
   }, [show, isPlaying, loading])
-  return { show, transitionMs: 500 }
+  return { show: show || videoIsTakingLong, transitionMs: 500 }
 }

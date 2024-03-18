@@ -6,3 +6,4 @@ export const CURRENT_TIME_SAVE_DELAY = 1500
 
 // Useful to know when to start the video again instead of seeking to the last second of it
 export const ALMOST_ENDED_SECONDS = 5
+export const POLLING_TIMEOUT_MS = 4_000

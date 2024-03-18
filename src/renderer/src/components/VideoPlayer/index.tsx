@@ -32,7 +32,7 @@ export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
       iframe.attr('height', Math.floor(height) - 1)
     }, [ref, option?.id, width, height])
 
-    const { video } = useVideoImprovements({
+    const { video, videoIsTakingLong } = useVideoImprovements({
       info: {
         anime: watching,
         option
@@ -56,7 +56,7 @@ export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
         {!freezed && option && (
           <Iframe html={option?.html} updateRef={updateWrapperRef} loading={!video}></Iframe>
         )}
-        <Controls video={video ?? null} />
+        <Controls video={video ?? null} videoIsTakingLong={videoIsTakingLong} />
       </Wrapper>
     )
   }
