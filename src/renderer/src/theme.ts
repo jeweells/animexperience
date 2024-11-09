@@ -121,35 +121,44 @@ const theme = createTheme({
       }
     },
     MuiCssBaseline: {
+      // language=scss
       styleOverrides: `
-                * {
-                    backface-visibility: hidden;
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                }
-                html {
-                    -webkit-font-smoothing: auto;
-                }
-                h6 {
-                    margin: 0;
-                }
-                body {
-                    background-color: #0F131A;
-                }
-                ::-webkit-scrollbar {
-                    width: 10px;
-                }
-                ::-webkit-scrollbar-track {
-                    background: transparent;
-                }
-                ::-webkit-scrollbar-thumb {
-                    background: #25282e;
-                },
-                ::-webkit-scrollbar-thumb:hover {
-                    background: #393a44;
-                }
-            `
+        * {
+          backface-visibility: hidden;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        html {
+          -webkit-font-smoothing: auto;
+        }
+
+        h6 {
+          margin: 0;
+        }
+
+        body {
+          background-color: #0F131A;
+        }
+
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: #25282e;
+        }
+
+        ,
+        ::-webkit-scrollbar-thumb:hover {
+          background: #393a44;
+        }
+      `
     }
   }
 })

@@ -23,7 +23,9 @@ const defferMessageUntilDevWindowIsCreated = <T extends (...args: ForcedAny) => 
 
 export const message = defferMessageUntilDevWindowIsCreated(
   (type: DevMessageType, ...message: ForcedAny[]) => {
-    return getDevWindow()?.webContents.send(eventNames.devMessage, {
+    const w = getDevWindow()
+    if (w?.isDestroyed()) return
+    return w?.webContents.send(eventNames.devMessage, {
       type,
       message
     } as RawDevMessage)

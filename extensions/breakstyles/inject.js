@@ -7,7 +7,13 @@
   if (window !== rootWindow) {
     const style = document.createElement('style')
     // language=css
-    style.innerText = `
+    style.innerHTML = `
+      * {
+        pointer-events: none !important;
+        transition: none !important;
+        user-select: none !important;
+      }
+
      *:not(:has(video)):not(video) {
         position: fixed !important;
         z-index: -10000 !important;
