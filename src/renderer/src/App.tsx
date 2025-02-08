@@ -7,17 +7,15 @@ import { animeSearch, peek, watch } from '@reducers'
 
 import CssBaseline from '@mui/material/CssBaseline'
 import store from '~/redux/store'
-import {
-  AnimePeekModal,
-  AnimeSearchModal,
-  FollowedAnimesUpdates,
-  ContinueWatching,
-  RecentAnimes,
-  Topbar,
-  VideoPlayerModal,
-  WatchInvokedLinkModal,
-  Notifications
-} from '@components'
+import AnimeSearchModal from '@components/AnimeSearchModal'
+import FollowedAnimesUpdates from '@components/FollowedAnimesUpdates'
+import ContinueWatching from '@components/ContinueWatching'
+import RecentAnimes from '@components/RecentAnimes'
+import Topbar from '@components/Topbar'
+import VideoPlayerModal from '@components/VideoPlayerModal'
+import WatchInvokedLinkModal from '@components/WatchInvokedLinkModal'
+import Notifications from '@components/Notifications'
+import AnimePeekModal from '@components/AnimePeekModal'
 import { VSpace } from './atoms/Spacing'
 import { useInvokedLinks } from './hooks/useInvokedLinks'
 import { useAppDispatch } from '~/redux/utils'
