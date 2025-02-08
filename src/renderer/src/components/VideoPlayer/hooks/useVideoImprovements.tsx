@@ -10,7 +10,9 @@ import {
   ALMOST_ENDED_SECONDS,
   POLLING_TIMEOUT_MS
 } from '../constants'
-import { followedAnimes, watch, watched } from '@reducers'
+import { followedAnimes } from '@reducers/followedAnimes'
+import { watch } from '@reducers/watch'
+import { watched } from '@reducers/watched'
 import store from '~/redux/store'
 import { UseVideoArgs, useVideo } from './useVideo'
 import { dispatch } from '~/redux/dispatch'

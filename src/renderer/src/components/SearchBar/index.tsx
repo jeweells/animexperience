@@ -1,7 +1,7 @@
 import InputBase from '@mui/material/InputBase'
 import { FormEvent, memo, useState, FC, ComponentProps } from 'react'
 import { styled } from '@mui/system'
-import { animeSearch } from '@reducers'
+import { animeSearch } from '@reducers/animeSearch'
 import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search'
 import Tooltip from '@mui/material/Tooltip'

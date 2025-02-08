@@ -1,5 +1,5 @@
 import { Icon } from './Icon'
-import { player } from '@reducers'
+import { player } from '@reducers/player'
 import { useAppDispatch } from '~/redux/utils'
 
 export const Close = () => {

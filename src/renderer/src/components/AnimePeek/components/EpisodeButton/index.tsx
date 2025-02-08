@@ -1,7 +1,7 @@
 import { memo, FC, useCallback, useMemo } from 'react'
 import { styled } from '@mui/system'
 import { AnimeInfo } from '@shared/types'
-import { watch } from '@reducers'
+import { watch } from '@reducers/watch'
 import { FRowG16 } from '~/src/atoms/Layout'
 import { useWatched } from '~/src/hooks/useWatched'
 import WatchedRange from '../../../WatchedRange'

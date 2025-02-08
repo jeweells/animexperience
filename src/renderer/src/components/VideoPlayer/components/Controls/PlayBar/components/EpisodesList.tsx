@@ -1,6 +1,6 @@
 import { Icon } from '../../Icon'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
-import { peek } from '@reducers'
+import { peek } from '@reducers/peek'
 import { useOpenEpisodeList } from '~/src/hooks/shortcuts'
 import { useCallback } from 'react'
 

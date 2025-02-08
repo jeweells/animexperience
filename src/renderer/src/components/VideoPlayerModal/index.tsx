@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { player, playerOptions } from '@reducers'
+import { player } from '@reducers/player'
+import { playerOptions } from '@reducers/playerOptions'
 
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { TopView } from '@shared/types'

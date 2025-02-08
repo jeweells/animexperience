@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { peek } from '@reducers'
+import { peek } from '@reducers/peek'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import AnimePeekPlaceholder from '../../placeholders/AnimePeekPlaceholder'
 import { TopView } from '@shared/types'

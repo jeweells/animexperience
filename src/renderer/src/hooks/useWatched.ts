@@ -1,6 +1,6 @@
 import { useMemo, useLayoutEffect } from 'react'
 import { Optional, EpisodeInfo } from '@shared/types'
-import { watched } from '@reducers'
+import { watched } from '@reducers/watched'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { RecentAnimeData } from './useRecentAnimes'
 import { formatKeys } from './useStaticStore'

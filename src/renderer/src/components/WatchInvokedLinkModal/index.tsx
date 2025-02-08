@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import WatchInvokedLink from '../WatchInvokedLink'
 import FullModal, { FullModalProps } from '../FullModal'
 import { TopView } from '@shared/types'
-import { invokedLink } from '@reducers'
+import { invokedLink } from '@reducers/invokedLink'
 
 export type WatchInvokedLinkModalProps = Omit<FullModalProps, 'show' | 'children' | 'view'>
 

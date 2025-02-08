@@ -7,7 +7,7 @@ import ButtonBase from '@mui/material/ButtonBase'
 import { Optional } from '@shared/types'
 import { RecentAnimeData } from '../../hooks/useRecentAnimes'
 import { useFollowedByName } from '~/redux/reducers/followedAnimes/selectors'
-import { followedAnimes } from '@reducers'
+import { followedAnimes } from '@reducers/followedAnimes'
 import { useAppDispatch } from '~/redux/utils'
 import { MANAGE_FOLLOW_BUTTON } from '@selectors'
 

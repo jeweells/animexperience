@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { animeSearch } from '@reducers'
+import { animeSearch } from '@reducers/animeSearch'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { TopView } from '@shared/types'
 import AnimeSearch from '../AnimeSearch'

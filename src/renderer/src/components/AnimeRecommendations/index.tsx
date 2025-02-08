@@ -1,5 +1,6 @@
 import { useCallback, useLayoutEffect, useMemo, FC, memo, Fragment } from 'react'
-import { peek, recommendations } from '@reducers'
+import { peek } from '@reducers/peek'
+import { recommendations } from '@reducers/recommendations'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { AnimeCarouselContent } from '../../placeholders/AnimeCarouselContent'
 import { Optional } from '@shared/types'

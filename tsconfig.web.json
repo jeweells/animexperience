@@ -21,7 +21,7 @@
         "src/renderer/src/dev/*"
       ],
       "@components/*": ["src/renderer/src/components/*"],
-      "@reducers": ["src/renderer/redux/reducers/"],
+      "@reducers/*": ["src/renderer/redux/reducers/*"],
       "@selectors": ["src/renderer/src/selectors/"],
       "~/*": ["src/renderer/*"]
     }

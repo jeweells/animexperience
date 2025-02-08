@@ -2,7 +2,7 @@ import * as React from 'react'
 import { styled } from '@mui/system'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import Button from '@mui/material/Button'
-import { watch } from '@reducers'
+import { watch } from '@reducers/watch'
 
 import { FRowG16, FRowG8 } from '../../atoms/Layout'
 import DialogActions from '@mui/material/DialogActions'

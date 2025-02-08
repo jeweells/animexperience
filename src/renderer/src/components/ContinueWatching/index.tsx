@@ -1,5 +1,6 @@
 import { useLayoutEffect, FC, memo, useCallback, Fragment } from 'react'
-import { watch, watchHistory } from '@reducers'
+import { watch } from '@reducers/watch'
+import { watchHistory } from '@reducers/watchHistory'
 
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { VSpace } from '../../atoms/Spacing'

@@ -1,6 +1,7 @@
 import { useCallback, useRef, memo, FC } from 'react'
 import { Waypoint } from 'react-waypoint'
-import { animeSearch, peek } from '@reducers'
+import { animeSearch } from '@reducers/animeSearch'
+import { peek } from '@reducers/peek'
 
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import CloseButton from '../../atoms/CloseButton'

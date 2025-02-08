@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react'
-import { playerOptions } from '@reducers'
+import { playerOptions } from '@reducers/playerOptions'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { Optional } from '@shared/types'
 

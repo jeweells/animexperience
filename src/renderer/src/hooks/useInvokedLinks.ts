@@ -1,7 +1,7 @@
 import { eventNames } from '@shared/constants'
 import { InvokedLink } from '@shared/types'
 import * as React from 'react'
-import { invokedLink } from '@reducers'
+import { invokedLink } from '@reducers/invokedLink'
 import { rendererInvoke } from '../utils'
 import { useAppDispatch } from '~/redux/utils'
 import { debug } from '@dev/events'

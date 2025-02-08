@@ -2,7 +2,7 @@ import * as React from 'react'
 import { IconButtonProps } from '@mui/material/IconButton'
 import ShareButton from '../../atoms/ShareButton'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
-import { notifications } from '@reducers'
+import { notifications } from '@reducers/notifications'
 import { PUBLIC_URL } from '../../constants'
 import { error } from '@dev/events'
 

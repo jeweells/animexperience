@@ -1,6 +1,8 @@
 import * as React from 'react'
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
-import { peek, player, watch } from '@reducers'
+import { peek } from '@reducers/peek'
+import { player } from '@reducers/player'
+import { watch } from '@reducers/watch'
 
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import { TopView } from '@shared/types'

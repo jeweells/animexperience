@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { watch } from '@reducers'
+import { watch } from '@reducers/watch'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import Fade from '@mui/material/Fade'
 import { NEXT_EPISODE_BUTTON } from '@selectors'

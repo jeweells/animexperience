@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { watch } from '@reducers'
+import { watch } from '@reducers/watch'
 import { VSpace } from '../../atoms/Spacing'
 import { RecentAnimeData, useRecentAnimes } from '../../hooks/useRecentAnimes'
 import { AnimeEpisodeEntry } from '../AnimeEpisodeEntry'

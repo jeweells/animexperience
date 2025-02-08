@@ -1,6 +1,6 @@
 import { Icon } from '../../Icon'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
-import { watch } from '@reducers'
+import { watch } from '@reducers/watch'
 import { useCallback, useEffect } from 'react'
 import { useControls } from '../../hooks'
 import { useGoNextEpisode, useGoPreviousEpisode } from '~/src/hooks/shortcuts'

@@ -1,7 +1,7 @@
 import { useMemo, useState, useLayoutEffect, FC, memo, useCallback } from 'react'
 import { useAppDispatch, useAppSelector } from '~/redux/utils'
 import VideoPlayer, { VideoOption } from '../VideoPlayer'
-import { watch } from '@reducers'
+import { watch } from '@reducers/watch'
 import { VideoOptionsContext } from '@components/VideoPlayerWOptions/context'
 import { PRIORITY_VIDEO_OPTION_KEY } from '~/src/constants'
 
