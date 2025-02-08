@@ -9,6 +9,18 @@ module.exports = {
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
     'react/prop-types': 'off',
-    '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }]
+    '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
+    'no-restricted-imports': [
+      'error',
+      {
+        paths: [
+          {
+            name: '@mui/material',
+            message: 'Please do import ComponentName from "@mui/material/ComponentName" instead.'
+          }
+        ],
+        patterns: ['^@mui/material$']
+      }
+    ]
   }
 }
