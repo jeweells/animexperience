@@ -4,3 +4,4 @@ out
 .gitignore
 src/renderer/tests
 extensions
+*.tsbuildinfo
