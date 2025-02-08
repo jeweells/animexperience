@@ -20,6 +20,7 @@ export const SeekBar = () => {
   const dotRef = useRef<HTMLDivElement>(null)
   const trackBarRef = useRef<HTMLDivElement>(null)
   const { time, seek, seekForward, seekBackward } = useSeek()
+  const disableDrag = time.duration === 0
 
   const { onMouseDown, pressed: primaryButtonPressed } = usePrimaryButton({
     onMouseUp: useCallback(() => {
@@ -29,20 +30,22 @@ export const SeekBar = () => {
   })
 
   const seekOnTarget = () => {
+    if (disableDrag) return
     const offset = relOffset.current
     seek(offset * time.duration)
     setTimePer(offset * 100)
   }
-
   const {
     ref: wrapperRef,
-    onMouseMove,
+    relOffset,
     onMouseLeave,
-    relOffset
+    onMouseMove
   } = useMouseTrack({
-    useOnTarget: !primaryButtonPressed,
+    isTargetPressed: primaryButtonPressed,
     onChange: useCallback(
       (relOffset) => {
+        if (disableDrag) return
+
         const trackElm = intentionRef.current
         const timeElm = timeRef.current
         const dotElm = dotRef.current
@@ -63,7 +66,7 @@ export const SeekBar = () => {
         if (isFinite(time.duration)) timeElm.innerText = formatTime(time.duration * relOffset)
         else timeElm.innerText = ''
       },
-      [time]
+      [time, primaryButtonPressed, disableDrag]
     )
   })
 

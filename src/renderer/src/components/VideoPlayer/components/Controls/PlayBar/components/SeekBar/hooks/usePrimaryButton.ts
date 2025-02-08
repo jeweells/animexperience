@@ -1,12 +1,13 @@
 import { MouseEvent, useEffect, useState } from 'react'
 
+const PRIMARY_BUTTON = 0
+
 export const usePrimaryButton = ({
   onMouseUp
 }: {
   onMouseUp?: (e: DocumentEventMap['mouseup']) => void
 }) => {
   const [pressed, setPressed] = useState(false)
-  const PRIMARY_BUTTON = 0
 
   useEffect(() => {
     const handle = (e: DocumentEventMap['mouseup']) => {

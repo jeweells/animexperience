@@ -67,7 +67,7 @@ export const useSeek = () => {
     const updateTime = () => {
       setTime({
         currentTime: video.currentTime,
-        duration: video.duration
+        duration: isFinite(video.duration) ? video.duration : 0
       })
     }
     updateTime()

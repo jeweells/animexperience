@@ -1,39 +1,59 @@
-import { MouseEvent, useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
 export const useMouseTrack = ({
   onChange,
-  useOnTarget
+  isTargetPressed
 }: {
   onChange: (relOffset: number) => void
-  useOnTarget: boolean
+  isTargetPressed: boolean
 }) => {
   const relOffset = useRef(0)
   const ref = useRef<HTMLDivElement>(null)
-  const handleChange = useCallback(
-    (e: { clientX: number }) => {
-      if (!ref.current) return
-      const rect = ref.current.getBoundingClientRect()
-      relOffset.current = Math.max(0, Math.min(1, (e.clientX - rect.x) / rect.width))
-      onChange(relOffset.current)
-    },
-    [onChange]
-  )
+  const clientXRef = useRef(0)
+  const relOffsetBackup = useRef<number | null>(null)
+
+  const updatePosition = useCallback(() => {
+    if (!ref.current) return
+    const rect = ref.current.getBoundingClientRect()
+    relOffset.current = Math.max(0, Math.min(1, (clientXRef.current - rect.x) / rect.width))
+    onChange(relOffset.current)
+  }, [onChange])
 
   useEffect(() => {
-    if (useOnTarget) return
-    document.addEventListener('mousemove', handleChange)
+    if (!isTargetPressed) return
+    updatePosition()
+  }, [updatePosition, isTargetPressed])
+
+  useEffect(() => {
+    const ctrl = new AbortController()
+    document.addEventListener(
+      'mousemove',
+      (e) => {
+        // Always capture mouse X position
+        clientXRef.current = e.clientX
+        if (!ref.current) return
+        if (!isTargetPressed) return
+        updatePosition()
+      },
+      { signal: ctrl.signal }
+    )
     return () => {
-      document.removeEventListener('mousemove', handleChange)
+      ctrl.abort()
     }
-  }, [useOnTarget, handleChange])
+  }, [updatePosition, isTargetPressed])
+
   return {
     relOffset,
     ref,
-    onMouseMove: (e: MouseEvent<HTMLDivElement>) => {
-      if (!useOnTarget) return
-      handleChange(e)
+    onMouseMove: () => {
+      if (isTargetPressed) return
+      if (relOffsetBackup.current === null) {
+        relOffsetBackup.current = relOffset.current
+      }
+      updatePosition()
     },
     onMouseLeave: () => {
+      if (isTargetPressed) return
       relOffset.current = 0
       onChange(0)
     }
