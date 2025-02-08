@@ -1,6 +1,9 @@
+import ButtonBase from '@mui/material/ButtonBase'
+import type { ButtonProps } from '@mui/material/Button'
+import { lighten } from '@mui/material/styles'
+import type { Theme } from '@mui/material/styles'
 import * as React from 'react'
 import { makeStyles } from '@mui/styles'
-import { ButtonBase, ButtonProps, lighten, Theme } from '@mui/material'
 import { ForcedAny } from '@shared/types'
 
 const useStyles = makeStyles<Theme>((theme) => {

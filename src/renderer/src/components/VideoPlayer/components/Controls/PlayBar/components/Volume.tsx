@@ -1,7 +1,8 @@
+import Slider from '@mui/material/Slider'
+import Stack from '@mui/material/Stack'
 import { Icon } from '../../Icon'
 import { useVolume } from '../../hooks'
 import { useCallback, useDeferredValue } from 'react'
-import { Slider, Stack } from '@mui/material'
 import Tooltip from '@mui/material/Tooltip'
 import { useMute, useVolumeDown, useVolumeUp } from '~/src/hooks/shortcuts'
 

@@ -1,5 +1,5 @@
+import Box from '@mui/material/Box'
 import { styled } from '@mui/system'
-import { Box } from '@mui/material'
 import { TrackBar } from './TrackBar'
 import { Backdrop } from './Backdrop'
 import { IntentionBackdrop } from './IntentionBackdrop'

@@ -1,10 +1,10 @@
+import { ThemeProvider } from '@mui/material/styles'
 import { Provider } from 'react-redux'
 import EpisodesGroup, { EpisodesGroupProps } from './index'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import { MockStoreEnhanced } from 'redux-mock-store'
 import theme from '../../../../theme'
-import { ThemeProvider } from '@mui/material'
 
 describe('EpisodesGroup', () => {
   let initialState: DeepPartial<RootState>

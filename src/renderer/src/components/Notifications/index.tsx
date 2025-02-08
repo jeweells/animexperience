@@ -1,9 +1,10 @@
+import { alpha } from '@mui/material/styles'
+import type { Theme } from '@mui/material/styles'
 import * as React from 'react'
 import Snackbar from '@mui/material/Snackbar'
 import { useAppSelector } from '~/redux/utils'
 import { useTopBarHeight } from '../Topbar'
 import { makeStyles } from '@mui/styles'
-import { alpha, Theme } from '@mui/material'
 
 const useStyles = makeStyles<Theme>((theme) => {
   return {

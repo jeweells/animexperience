@@ -1,6 +1,7 @@
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
 import { useEvents } from './hooks/useEvents'
 import { MessagesByType } from './components/MessagesByType'
-import { Grid, Typography } from '@mui/material'
 import { DevMessage } from '~/src/dev/types'
 import { MAX_TOKENS } from '~/src/dev/hooks/useTokens'
 import { range } from '~/src/utils'

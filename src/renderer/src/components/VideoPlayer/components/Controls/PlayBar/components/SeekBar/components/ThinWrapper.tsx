@@ -1,5 +1,6 @@
+import Box from '@mui/material/Box'
+import type { BoxProps } from '@mui/material/Box'
 import { styled } from '@mui/system'
-import { Box, BoxProps } from '@mui/material'
 import { FC } from 'react'
 
 export const ThinWrapper = styled(Box)`

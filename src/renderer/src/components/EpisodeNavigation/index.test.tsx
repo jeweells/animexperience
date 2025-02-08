@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@mui/material/styles'
 import EpisodeNavigation from './index'
 import { MockStoreEnhanced } from 'redux-mock-store'
 import { RootState } from '~/redux/state'
@@ -6,7 +7,6 @@ import { Provider } from 'react-redux'
 import { TopView } from '@shared/types'
 import { EPISODE_NAVIGATION } from '@selectors'
 import theme from '../../theme'
-import { ThemeProvider } from '@mui/material'
 
 describe('EpisodeNavigation', () => {
   let initialState: DeepPartial<RootState>

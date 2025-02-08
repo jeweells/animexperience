@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@mui/material/styles'
 import FollowedAnimesUpdates from './index'
 import { ANIME_ENTRY_SELECTORS, ANIME_EPISODE_ENTRY } from '@selectors'
 import { Provider } from 'react-redux'
@@ -8,7 +9,6 @@ import useResizeObserver from 'use-resize-observer'
 import { FollowedAnime } from '@shared/types'
 import { FollowedAnimeWStatus } from '~/redux/reducers/followedAnimes'
 import theme from '../../theme'
-import { ThemeProvider } from '@mui/material'
 
 describe('FollowedAnimesUpdates', () => {
   const returnTestId = ANIME_EPISODE_ENTRY.ANIME_INFO

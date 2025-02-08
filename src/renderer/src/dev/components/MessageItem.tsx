@@ -1,6 +1,7 @@
+import Paper from '@mui/material/Paper'
+import Stack from '@mui/material/Stack'
 import { memo } from 'react'
 import { DevMessage } from '~/src/dev/types'
-import { Paper, Stack } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { MessageIcon } from './MessageIcon'
 import { Tag } from './Tag'

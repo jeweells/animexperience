@@ -1,8 +1,8 @@
+import { ThemeProvider } from '@mui/material/styles'
 import CardPopover, { CardPopoverProps } from './index'
 import * as React from 'react'
 import { ContentContext } from '@components/Topbar'
 import theme from '../../theme'
-import { ThemeProvider } from '@mui/material'
 
 describe('CardPopover', () => {
   let props: CardPopoverProps
@@ -18,6 +18,7 @@ describe('CardPopover', () => {
           right: 100,
           top: 0,
           width: 100,
+
           toJSON() {
             return {
               bottom: 100,

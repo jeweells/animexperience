@@ -1,5 +1,5 @@
+import CircularProgress from '@mui/material/CircularProgress'
 import Button from '@mui/material/Button'
-import { CircularProgress } from '@mui/material'
 import Tooltip from '@mui/material/Tooltip'
 export const Downloading = ({ progress }: { progress: number }) => {
   return (

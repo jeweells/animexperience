@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@mui/material/styles'
 import { Provider } from 'react-redux'
 import AnimePeekModal, { AnimePeekModalProps } from './index'
 import { RootState } from '~/redux/state'
@@ -6,7 +7,6 @@ import { ANIME_PEEK, IMAGE } from '@selectors'
 import { MockStoreEnhanced } from 'redux-mock-store'
 import useResizeObserver from 'use-resize-observer'
 import { FStatus, TopView } from '@shared/types'
-import { ThemeProvider } from '@mui/material'
 import theme from '../../theme'
 
 const statusTypes: FStatus[] = ['idle', 'loading', 'succeeded', 'failed']

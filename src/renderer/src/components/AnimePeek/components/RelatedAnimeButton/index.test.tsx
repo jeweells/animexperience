@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@mui/material/styles'
 import { Provider } from 'react-redux'
 import RelatedAnimeButton, { RelatedAnimeButtonProps, types } from './index'
 import { RootState } from '~/redux/state'
@@ -6,7 +7,6 @@ import { MockStoreEnhanced } from 'redux-mock-store'
 import { RelatedAnime } from '@shared/types'
 import { RELATED_ANIME_BUTTON } from '@selectors'
 import theme from '../../../../theme'
-import { ThemeProvider } from '@mui/material'
 
 describe('RelatedAnimeButton', () => {
   let initialState: DeepPartial<RootState>

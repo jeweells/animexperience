@@ -1,5 +1,5 @@
+import Badge from '@mui/material/Badge'
 import Button from '@mui/material/Button'
-import { Badge } from '@mui/material'
 import Tooltip from '@mui/material/Tooltip'
 import { useEffect, useState } from 'react'
 import UpdateIcon from '@mui/icons-material/Update'

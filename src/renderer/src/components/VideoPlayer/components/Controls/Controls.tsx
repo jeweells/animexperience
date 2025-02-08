@@ -1,3 +1,4 @@
+import Stack from '@mui/material/Stack'
 import { PlayBar } from './PlayBar'
 import { Context } from './context'
 import { ControlsContext } from './types'
@@ -6,7 +7,6 @@ import { OpacityLayer } from './OpacityLayer'
 import { Loading } from './Loading'
 import { PlayPauseTap } from './PlayPauseTap'
 import NextEpisodeButton from '@components/NextEpisodeButton'
-import { Stack } from '@mui/material'
 import { Close } from './Close'
 import { OptionTimedOut } from './OptionTimedOut'
 

@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@mui/material/styles'
 import ContinueWatching from './index'
 import useResizeObserver from 'use-resize-observer'
 import { MockStoreEnhanced } from 'redux-mock-store'
@@ -9,7 +10,6 @@ import { EpisodeInfo } from '@shared/types'
 import { FStatus } from '@shared/types'
 import { ANIME_ENTRY_SELECTORS } from '@selectors'
 import theme from '../../theme'
-import { ThemeProvider } from '@mui/material'
 
 const statusTypes: FStatus[] = ['idle', 'loading', 'succeeded', 'failed']
 

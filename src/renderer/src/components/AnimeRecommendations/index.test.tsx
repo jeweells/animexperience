@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@mui/material/styles'
 import { Provider } from 'react-redux'
 import AnimeRecommendations, { AnimeRecommendationsProps } from './index'
 import { RootState } from '~/redux/state'
@@ -6,7 +7,6 @@ import { MockStoreEnhanced } from 'redux-mock-store'
 import useResizeObserver from 'use-resize-observer'
 import { RecommendationsState } from '~/redux/state/types'
 import theme from '../../theme'
-import { ThemeProvider } from '@mui/material'
 
 describe.each([[0], [0.5]])('AnimeRecommendations (random: %s)', (randomValue) => {
   let initialState: DeepPartial<RootState>

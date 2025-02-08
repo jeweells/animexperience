@@ -1,3 +1,5 @@
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
 import {
   ReactNode,
   useRef,
@@ -7,7 +9,6 @@ import {
   forwardRef,
   useImperativeHandle
 } from 'react'
-import { Box, Stack } from '@mui/material'
 import { range } from '~/src/utils'
 import { GoToEndButton } from './GoToEndButton'
 

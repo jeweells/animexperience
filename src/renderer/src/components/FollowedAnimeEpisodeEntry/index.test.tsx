@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@mui/material/styles'
 import FollowedAnimeEpisodeEntry, { FollowedAnimeEpisodeEntryProps } from './index'
 import { ANIME_ENTRY_SELECTORS, ANIME_EPISODE_ENTRY } from '@selectors'
 import { Provider } from 'react-redux'
@@ -5,7 +6,6 @@ import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import { FStatus } from '@shared/types'
 import theme from '../../theme'
-import { ThemeProvider } from '@mui/material'
 
 const statusTypes: FStatus[] = ['idle', 'loading', 'succeeded', 'failed']
 

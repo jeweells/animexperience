@@ -1,4 +1,7 @@
-import { Badge, Box, Fab, Zoom } from '@mui/material'
+import Badge from '@mui/material/Badge'
+import Box from '@mui/material/Box'
+import Fab from '@mui/material/Fab'
+import Zoom from '@mui/material/Zoom'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 
 type Props = {

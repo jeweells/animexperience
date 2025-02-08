@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@mui/material/styles'
 import { Provider } from 'react-redux'
 import AnimePeek, { AnimePeekProps } from './index'
 import { RootState } from '~/redux/state'
@@ -5,7 +6,6 @@ import { DeepPartial } from 'redux'
 import { ANIME_PEEK, IMAGE } from '@selectors'
 import { MockStoreEnhanced } from 'redux-mock-store'
 import useResizeObserver from 'use-resize-observer'
-import { ThemeProvider } from '@mui/material'
 import theme from '../../theme'
 
 describe('AnimePeek', () => {

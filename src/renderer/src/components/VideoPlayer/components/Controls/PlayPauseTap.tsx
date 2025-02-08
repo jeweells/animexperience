@@ -1,4 +1,5 @@
-import { Stack, Zoom } from '@mui/material'
+import Stack from '@mui/material/Stack'
+import Zoom from '@mui/material/Zoom'
 import { styled } from '@mui/system'
 import { useControls, usePlayPause } from './hooks'
 import { useFullscreen } from '~/src/hooks'

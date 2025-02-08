@@ -1,8 +1,8 @@
+import Box from '@mui/material/Box'
 import { Token, useTokens } from '../hooks/useTokens'
 import { useEffect, useRef } from 'react'
 import 'luna-object-viewer/luna-object-viewer.css'
 import LunaObjectViewer from 'luna-object-viewer'
-import { Box } from '@mui/material'
 
 const BaseTokenViewer = ({ token }: { token: Token }) => {
   const ref = useRef<HTMLDivElement>(null)

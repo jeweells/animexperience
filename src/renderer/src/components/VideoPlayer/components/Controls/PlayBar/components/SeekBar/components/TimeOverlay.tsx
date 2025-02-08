@@ -1,5 +1,5 @@
+import type { BoxProps } from '@mui/material/Box'
 import { styled } from '@mui/system'
-import { BoxProps } from '@mui/material'
 import { Text } from '../../Text'
 import { StyledComponent } from '@emotion/styled'
 

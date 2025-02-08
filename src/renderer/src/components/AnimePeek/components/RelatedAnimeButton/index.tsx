@@ -1,4 +1,5 @@
-import { lighten, Typography } from '@mui/material'
+import Typography from '@mui/material/Typography'
+import { lighten } from '@mui/material/styles'
 import ButtonBase from '@mui/material/ButtonBase'
 import * as React from 'react'
 import { styled } from '@mui/system'

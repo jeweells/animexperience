@@ -1,3 +1,4 @@
+import Stack from '@mui/material/Stack'
 import Divider from '@mui/material/Divider'
 import { useMemo, useState, FC, memo } from 'react'
 import { styled } from '@mui/system'
@@ -9,7 +10,6 @@ import EpisodesGroup from '../EpisodesGroup'
 import SortIcon from '../SortIcon'
 import Tooltip from '@mui/material/Tooltip'
 import { EPISODES } from '@selectors'
-import { Stack } from '@mui/material'
 
 export type EpisodesProps = {
   info: Optional<AnimeInfo>

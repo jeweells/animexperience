@@ -1,6 +1,6 @@
+import { ThemeProvider } from '@mui/material/styles'
 import Info, { InfoProps } from './index'
 import theme from '../../../../theme'
-import { ThemeProvider } from '@mui/material'
 
 describe('Info', () => {
   let props: InfoProps

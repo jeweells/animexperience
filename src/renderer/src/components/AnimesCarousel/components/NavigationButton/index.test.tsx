@@ -1,7 +1,7 @@
+import { ThemeProvider } from '@mui/material/styles'
 import NavigationButton, { NavigationButtonProps } from './index'
 import { NAVIGATION_BUTTON } from '@selectors'
 import theme from '../../../../theme'
-import { ThemeProvider } from '@mui/material'
 
 describe.each([['right'], ['left']])('NavigationButton (%s)', (direction) => {
   let props: NavigationButtonProps

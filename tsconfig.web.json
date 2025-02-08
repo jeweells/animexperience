@@ -27,5 +27,5 @@
       "~/*": ["src/renderer/*"]
     }
   },
-  "exclude": ["src/renderer/src/**/*.test.ts", "src/renderer/src/**/*.test.tsx"]
+  "exclude": ["src/renderer/src/**/*.test.ts", "src/renderer/src/**/*.test.tsx", "**/node_modules", "**/.*/"]
 }

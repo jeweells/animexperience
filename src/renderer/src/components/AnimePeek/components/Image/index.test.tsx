@@ -1,7 +1,7 @@
+import { ThemeProvider } from '@mui/material/styles'
 import Image, { ImageProps } from './index'
 import { IMAGE } from '@selectors'
 import theme from '../../../../theme'
-import { ThemeProvider } from '@mui/material'
 
 const invokeNames = window.invokeNames
 

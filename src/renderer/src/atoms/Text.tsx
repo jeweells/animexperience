@@ -1,5 +1,5 @@
+import { alpha } from '@mui/material/styles'
 import { styled } from '@mui/system'
-import { alpha } from '@mui/material'
 
 export const CarouselTitle = styled('h2')`
   font-weight: 500;

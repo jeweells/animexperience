@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@mui/material/styles'
 import { Provider } from 'react-redux'
 import AnimeSearch, { AnimeSearchProps } from './index'
 import { RootState } from '~/redux/state'
@@ -6,7 +7,6 @@ import { MockStoreEnhanced } from 'redux-mock-store'
 import { range } from '~/src/utils'
 import { ANIME_ENTRY_SELECTORS, ANIME_SEARCH, WAYPOINT } from '@selectors'
 import theme from '../../theme'
-import { ThemeProvider } from '@mui/material'
 
 describe('AnimeSearch', () => {
   let initialState: DeepPartial<RootState>

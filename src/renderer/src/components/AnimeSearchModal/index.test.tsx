@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@mui/material/styles'
 import { Provider } from 'react-redux'
 import AnimeSearchModal, { AnimeSearchModalProps } from './index'
 import { RootState } from '~/redux/state'
@@ -5,7 +6,6 @@ import { DeepPartial } from 'redux'
 import { MockStoreEnhanced } from 'redux-mock-store'
 import { range } from '~/src/utils'
 import { TopView } from '@shared/types'
-import { ThemeProvider } from '@mui/material'
 import theme from '../../theme'
 
 describe('AnimeSearchModal', () => {

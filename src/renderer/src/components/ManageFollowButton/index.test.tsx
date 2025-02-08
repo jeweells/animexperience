@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@mui/material/styles'
 import ManageFollowButton, { ManageFollowButtonProps } from './index'
 import { Provider } from 'react-redux'
 import { RootState } from '~/redux/state'
@@ -5,7 +6,6 @@ import { DeepPartial } from 'redux'
 import { MockStoreEnhanced } from 'redux-mock-store'
 import { MANAGE_FOLLOW_BUTTON } from '@selectors'
 import theme from '../../theme'
-import { ThemeProvider } from '@mui/material'
 
 describe('ManageFollowButton', () => {
   let initialState: DeepPartial<RootState>

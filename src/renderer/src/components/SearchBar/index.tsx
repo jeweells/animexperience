@@ -1,4 +1,4 @@
-import { InputBase } from '@mui/material'
+import InputBase from '@mui/material/InputBase'
 import { FormEvent, memo, useState, FC, ComponentProps } from 'react'
 import { styled } from '@mui/system'
 import { animeSearch } from '@reducers'

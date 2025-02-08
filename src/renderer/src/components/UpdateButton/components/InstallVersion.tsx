@@ -1,6 +1,6 @@
+import Badge from '@mui/material/Badge'
 import Tooltip from '@mui/material/Tooltip'
 import Button from '@mui/material/Button'
-import { Badge } from '@mui/material'
 
 export const InstallVersion = ({ onClick }: { onClick?: () => void }) => {
   return (

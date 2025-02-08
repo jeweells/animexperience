@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@mui/material/styles";
 import '@testing-library/jest-dom'
 import { thunk } from 'redux-thunk'
 import configureStore from 'redux-mock-store'
@@ -5,7 +6,6 @@ import { render, fireEvent, waitFor } from '@testing-library/react'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
 import invokeNames from '../../main/invokeNames'
-import { ThemeProvider } from '@mui/material'
 import theme from '../src/theme'
 
 const _mockStore = configureStore<DeepPartial<RootState>>([thunk])

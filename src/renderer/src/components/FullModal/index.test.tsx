@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@mui/material/styles'
 import FullModal, { FullModalProps } from './index'
 import { Provider } from 'react-redux'
 import { RootState } from '~/redux/state'
@@ -5,7 +6,6 @@ import { DeepPartial } from 'redux'
 import { TopView } from '@shared/types'
 import { MockStoreEnhanced } from 'redux-mock-store'
 import theme from '../../theme'
-import { ThemeProvider } from '@mui/material'
 
 describe('FullModal', () => {
   let initialState: DeepPartial<RootState>

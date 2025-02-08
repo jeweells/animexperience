@@ -1,9 +1,9 @@
+import { ThemeProvider } from '@mui/material/styles'
 import { AnimeEpisodeEntry, AnimeEpisodeEntryProps } from './index'
 import { ANIME_ENTRY_SELECTORS, ANIME_EPISODE_ENTRY } from '@selectors'
 import { Provider } from 'react-redux'
 import { RootState } from '~/redux/state'
 import { DeepPartial } from 'redux'
-import { ThemeProvider } from '@mui/material'
 import theme from '../../theme'
 
 describe('AnimeEpisodeEntry', () => {

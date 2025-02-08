@@ -1,3 +1,6 @@
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
+import MenuItem from '@mui/material/MenuItem'
 import * as React from 'react'
 import { styled } from '@mui/system'
 import { VideoOption } from '../../../VideoPlayer'
@@ -6,7 +9,6 @@ import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
 import Tooltip from '@mui/material/Tooltip'
 import { debug } from '@dev/events'
-import { ListItemIcon, ListItemText, MenuItem } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
 
 export type OptionButtonProps = {

@@ -1,6 +1,6 @@
+import { ThemeProvider } from '@mui/material/styles'
 import AnimesCarousel, { AnimesCarouselProps } from './index'
 import useResizeObserver from 'use-resize-observer'
-import { ThemeProvider } from '@mui/material'
 import theme from '../../theme'
 
 describe('AnimesCarousel', () => {

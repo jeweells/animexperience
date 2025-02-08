@@ -1,6 +1,6 @@
+import { ThemeProvider } from '@mui/material/styles'
 import SortIcon, { SortIconProps } from './index'
 import theme from '../../../../theme'
-import { ThemeProvider } from '@mui/material'
 
 const orders: Array<SortIconProps['order']> = ['asc', 'desc']
 
