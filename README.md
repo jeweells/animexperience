@@ -1,6 +1,6 @@
 # Animexperience
 
-Automatized high level scrapper of an anime page to provide a better user experience based on the retrieved data.
+Automatized high level scrapper of an anime page (https://www3.animeflv.net/) to provide a better user experience based on the retrieved data.
 
 With low level interception in video players such as MEGA, OK.RU and more that makes their features controllable and overridable.
 
