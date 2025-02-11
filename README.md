@@ -19,6 +19,7 @@ _Submerge in the experience of watching anime with the app simplicity._
 <br/>
 Animexperience lets you quickly view a summary of what you're watching, what you didn't end up watching and what has been released this week.
 <br/>
+<br/>
 
 ![Home sample](./assets/home-sample.gif)
 
