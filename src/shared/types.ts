@@ -3,7 +3,8 @@ import {
   recentAnimeDataSchema,
   recentAnimeSchema,
   watchedAnimeSchema,
-  watchedHistoryItemSchema
+  watchedHistoryItemSchema,
+  startWatchingInfo
 } from '@shared/schemas'
 import { z } from 'zod'
 
@@ -163,3 +164,5 @@ export type RawDevMessage = {
   type: DevMessageType
   message: ForcedAny[]
 }
+
+export type StartWatchingInfo = z.infer<typeof startWatchingInfo>

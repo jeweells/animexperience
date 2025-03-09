@@ -11,5 +11,7 @@ export default {
     finished: 'update.finished',
     install: 'update.install',
     download: 'update.download'
-  }
+  },
+  startWatching: 'startWatching',
+  stopWatching: 'stopWatching'
 }

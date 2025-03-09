@@ -12,3 +12,5 @@ export const PUBLIC_PATH = PUBLIC_PATH_IS_FILE
 export const EXTENSIONS_DIRECTORY = resolve(
   join(app.isPackaged ? join(__dirname, '..', '..', '..') : __dirname, 'extensions')
 )
+
+export const DISCORD_CLIENT_ID = '1348279402571759687'

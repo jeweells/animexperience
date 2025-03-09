@@ -39,3 +39,9 @@ export const watchedHistoryItemSchema = z.object({
   at: z.number(),
   info: recentAnimeDataSchema
 })
+
+export const startWatchingInfo = z.object({
+  name: z.string(),
+  episode: z.number(),
+  startAt: z.number()
+})

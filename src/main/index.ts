@@ -17,6 +17,7 @@ import { PUBLIC_PATH } from './constants'
 import { debug, info } from '@dev'
 import { onDevRendererIsReady } from './setup/onDevRendererIsReady'
 import Store from 'electron-store'
+import { setupDiscord } from './setup/discord'
 
 moment.locale('es')
 
@@ -42,6 +43,7 @@ app.whenReady().then(async () => {
   await createMainWindow()
   onActivate()
   handleUpdates()
+  void setupDiscord()
 })
 
 app.on('window-all-closed', () => {

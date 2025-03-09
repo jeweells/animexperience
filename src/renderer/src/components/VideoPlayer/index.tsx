@@ -6,6 +6,7 @@ import { useVideoImprovements } from './hooks'
 import { FC, memo, PropsWithChildren, useCallback, useLayoutEffect, useState } from 'react'
 import { Controls } from './components'
 import { Iframe } from './Iframe'
+import { useWatchingStatus } from './hooks/useWatchingStatus'
 
 export type VideoOption = {
   id: string
@@ -23,6 +24,8 @@ export const VideoPlayer: FC<PropsWithChildren<VideoPlayerProps>> = memo(
     const freezed = useAppSelector((d) => d.player.freezed)
     const watching = useAppSelector((d) => d.watch.watching)
     const { ref: containerRef, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>()
+
+    useWatchingStatus(watching)
 
     useLayoutEffect(() => {
       if (!ref) return
