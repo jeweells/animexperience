@@ -41,3 +41,29 @@ function editDistance(s1: string, s2: string) {
   }
   return costs[s2.length]
 }
+
+const sleep = (ms: number) => {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+export const retry = <T>(call: () => Promise<T>, intervalMs: number) => {
+  let _stop = false
+  const stop = () => {
+    _stop = true
+  }
+
+  const loop = async () => {
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+      if (_stop) return null
+      try {
+        return await call()
+      } catch {
+        await sleep(intervalMs)
+        continue
+      }
+    }
+  }
+
+  return { promise: loop(), stop }
+}
