@@ -4,10 +4,10 @@ import { Logger } from 'tslog'
 import { JKAnimeSearchResults, searchJKAnime } from '../searchAnime/searchJKAnime'
 const logger = new Logger({ name: 'getJKAnimeEpisodeVideos' })
 
-export const getJKAnimeEpisodeVideos = async (anime: string, episode: number) => {
+const getJKAnimeEpisodeVideosIfSuccess = async (anime: string, episode: number) => {
   if (!(anime && episode)) {
     logger.error('getJKAnimeEpisodeVideos: Invalid input', anime, episode)
-    return null
+    return []
   }
   const results: JKAnimeSearchResults = await searchJKAnime(anime)
   if (Array.isArray(results) && results.length > 0) {
@@ -50,5 +50,9 @@ export const getJKAnimeEpisodeVideos = async (anime: string, episode: number) =>
     logger.debug('Script not found')
   }
   logger.debug('No results')
-  return null
+  return []
+}
+
+export const getJKAnimeEpisodeVideos = (anime: string, episode: number) => {
+  return getJKAnimeEpisodeVideosIfSuccess(anime, episode).catch(() => [])
 }
