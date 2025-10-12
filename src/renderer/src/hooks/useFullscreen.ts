@@ -6,6 +6,10 @@ export const useFullscreen = () => {
 
   return {
     isFullscreen,
+    exitFullscreen: useCallback(() => {
+      if (!isFullscreen) return
+      return window.setFullscreen(false)
+    }, [isFullscreen]),
     toggleFullscreen: useCallback(() => {
       return window.setFullscreen(!isFullscreen)
     }, [isFullscreen])
