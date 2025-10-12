@@ -81,22 +81,22 @@ export type RecommendationInfo = {
 
 export type WatchHistoryItem = z.infer<typeof watchedHistoryItemSchema>
 
-export type AnimeIDAnimeMatch = {
+export type AnimeFlvAnimeMatch = {
   name: string
   link: string
   image: string
 }
 
-export type DeepAnimeIdSearchResult = {
-  matches: AnimeIDAnimeMatch[]
+export type DeepAnimeFlvSearchResult = {
+  matches: AnimeFlvAnimeMatch[]
   search: string
   nextPage?: number
   maxPage?: number
   hasNext: boolean
 }
 
-export type DeepAnimeIdSearchResultWithPages = Omit<
-  DeepAnimeIdSearchResult,
+export type DeepAnimeFlvSearchResultWithPages = Omit<
+  DeepAnimeFlvSearchResult,
   'maxPage' | 'nextPage'
 > & {
   nextPage: number
@@ -110,15 +110,6 @@ export type Optional<T> = T | undefined | null
 // eslint-disable-next-line
 export type ForcedAny = any
 
-export type AnimeIDSearchItem = {
-  id: string
-  text: string
-  date: string
-  image: string
-  link: string
-}
-
-export type AnimeIDSearchResponse = Array<AnimeIDSearchItem>
 /* eslint-disable camelcase */
 
 export type MALImage = {

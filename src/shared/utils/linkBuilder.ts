@@ -1,4 +1,4 @@
-export type Site = 'animeid' | 'animeflv'
+export type Site = 'animeflv'
 
 export class AnimeLinkToEpisode {
   episodeLink: string
@@ -10,6 +10,7 @@ export class AnimeLinkToEpisode {
   ) {
     switch (site) {
       case 'animeflv':
+      default:
         {
           const episodeReplace = '<episode>'
           const episodeLink = `${link.replace(
@@ -20,14 +21,6 @@ export class AnimeLinkToEpisode {
           this.episodeReplace = episodeReplace
         }
         break
-
-      case 'animeid':
-      default: {
-        const episodeReplace = '<episode>'
-        const episodeLink = `${link.replace('animeid.tv/', 'animeid.tv/v/')}-${episodeReplace}`
-        this.episodeLink = episodeLink
-        this.episodeReplace = episodeReplace
-      }
     }
   }
 

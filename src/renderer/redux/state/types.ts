@@ -1,7 +1,7 @@
 import { FStatus, Optional, TopView } from '@shared/types'
 import {
   AnimeInfo,
-  DeepAnimeIdSearchResult,
+  DeepAnimeFlvSearchResult,
   EpisodeInfo,
   FollowedAnime,
   RecentAnimeInfo,
@@ -18,7 +18,7 @@ import { z } from 'zod'
 export type AnimeSearchState = {
   // Boolean id
   searching?: string
-  result?: Optional<DeepAnimeIdSearchResult>
+  result?: Optional<DeepAnimeFlvSearchResult>
   status: Partial<{
     result: FStatus
     moreResults: FStatus

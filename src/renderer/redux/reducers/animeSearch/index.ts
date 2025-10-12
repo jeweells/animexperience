@@ -1,12 +1,12 @@
 import { PayloadAction } from '@reduxjs/toolkit'
-import { DeepAnimeIdSearchResult, DeepAnimeIdSearchResultWithPages } from '@shared/types'
+import { DeepAnimeFlvSearchResult, DeepAnimeFlvSearchResultWithPages } from '@shared/types'
 import { Optional } from '@shared/types'
 import { rendererInvoke } from '../../../src/utils'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
 import { v4 as uuidv4 } from 'uuid'
 
 const search = asyncAction('animeSearch/search', async (name: string, api) => {
-  const result: DeepAnimeIdSearchResult = await rendererInvoke('deepSearchAnimeFlv', name)
+  const result: DeepAnimeFlvSearchResult = await rendererInvoke('deepSearchAnimeFlv', name)
   api.dispatch(
     animeSearch.setResult({
       ...result,
@@ -17,8 +17,8 @@ const search = asyncAction('animeSearch/search', async (name: string, api) => {
 })
 
 const resultHasPages = (
-  r: Optional<DeepAnimeIdSearchResult>
-): r is DeepAnimeIdSearchResultWithPages => {
+  r: Optional<DeepAnimeFlvSearchResult>
+): r is DeepAnimeFlvSearchResultWithPages => {
   return !!(r?.hasNext && typeof r.nextPage === 'number' && typeof r.maxPage === 'number')
 }
 
@@ -28,7 +28,7 @@ const searchMore = asyncAction('animeSearch/searchMore', async (_, api) => {
     return
   }
 
-  const result: DeepAnimeIdSearchResult = await rendererInvoke(
+  const result: DeepAnimeFlvSearchResult = await rendererInvoke(
     'deepSearchAnimeFlvByPage',
     current.search,
     current.nextPage
@@ -46,7 +46,7 @@ const searchMore = asyncAction('animeSearch/searchMore', async (_, api) => {
 export const slice = createSlice({
   name: 'animeSearch',
   reducers: {
-    setResult(state, { payload }: PayloadAction<Optional<DeepAnimeIdSearchResult>>) {
+    setResult(state, { payload }: PayloadAction<Optional<DeepAnimeFlvSearchResult>>) {
       state.result = payload
     },
     setSearching(state, { payload }: PayloadAction<boolean>) {

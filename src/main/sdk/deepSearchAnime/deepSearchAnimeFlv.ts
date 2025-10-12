@@ -1,4 +1,4 @@
-import { DeepAnimeIdSearchResult } from '@shared/types'
+import { DeepAnimeFlvSearchResult } from '@shared/types'
 import { searchAnimeByPage } from '../../scanners/animeflv/fns/searchAnimeByPage'
 import { BASE_ORIGIN, createAnimeFlvRequest } from '../../scanners/animeflv/window'
 import { cleanName } from '../../utils'
@@ -11,7 +11,7 @@ export const deepSearchAnimeFlvByPage = async (animeName: string, page = 1) => {
   const r = (await createAnimeFlvRequest(
     url.toString(),
     searchAnimeByPage
-  )) as unknown as DeepAnimeIdSearchResult
+  )) as unknown as DeepAnimeFlvSearchResult
   return {
     ...r,
     search: animeName

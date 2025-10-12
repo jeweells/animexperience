@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { v4 as uuidv4 } from 'uuid'
-import { AnimeIDAnimeMatch, AnimeInfo } from '@shared/types'
+import { AnimeFlvAnimeMatch, AnimeInfo } from '@shared/types'
 import { Optional } from '@shared/types'
 import { rendererInvoke } from '../../../src/utils'
 import { addFetchFlow, asyncAction, createSlice } from '../utils'
@@ -8,7 +8,7 @@ import { addFetchFlow, asyncAction, createSlice } from '../utils'
 const _peek = asyncAction('peek/peek', async (name: string, api) => {
   api.dispatch(peek.setPeeking(uuidv4()))
 
-  const animes: AnimeIDAnimeMatch[] = (await rendererInvoke('searchAnimeFlv', name)) ?? []
+  const animes: AnimeFlvAnimeMatch[] = (await rendererInvoke('searchAnimeFlv', name)) ?? []
   const anime = animes?.[0]
   if (anime?.link) {
     const info = await rendererInvoke('getAnimeFlvInfo', anime.name, anime.link)

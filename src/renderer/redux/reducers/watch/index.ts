@@ -47,10 +47,8 @@ const getAvailableVideos = asyncAction('watch/availableVideos', async (_, api) =
   ]
   if (videos[0].length <= FEW_VIDEOS) {
     videos.concat(
-      await Promise.all([
-        rendererInvoke('getAnimeIDEpisodeVideos', anime.name, anime.episode, anime.link),
-        rendererInvoke('getJKAnimeEpisodeVideos', anime.name, anime.episode)
-      ])
+      // These calls are optional and should not block the already found videos, that's why any error will be catched. Still logged in server side
+      await Promise.all([rendererInvoke('getJKAnimeEpisodeVideos', anime.name, anime.episode)])
     )
   }
   return (videos.filter(Array.isArray).flat(1) as VideoOption[]).filter(filter)
@@ -66,6 +64,7 @@ const getAnimeInfo = asyncAction('watch/getAnimeInfo', async (_, api) => {
     'getAnimeFlvInfo',
     anime.name,
     anime.link
+      // Small backwards compatibility
       ?.replace('animeid.tv/v/', 'animeid.tv/')
       .replace('animeflv.net/ver/', 'animeflv.net/anime/')
       .replace(new RegExp(`-${anime.episode}$`), '')
