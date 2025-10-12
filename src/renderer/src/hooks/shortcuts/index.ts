@@ -28,12 +28,18 @@ export const {
   useTogglePlayPause,
   useToggleFullscreen
 } = buildHooks({
-  useSeekForward: {
-    key: 'ArrowRight'
-  },
-  useSeekBackward: {
-    key: 'ArrowLeft'
-  },
+  useSeekForward: [
+    {
+      key: 'ArrowRight'
+    },
+    { key: 'l' }
+  ],
+  useSeekBackward: [
+    {
+      key: 'ArrowLeft'
+    },
+    { key: 'j' }
+  ],
   useOpenEpisodeList: { key: 'e' },
   usePopModal: { code: 'Escape' },
   useGoNextEpisode: [
@@ -47,6 +53,6 @@ export const {
   useMute: { key: 'm' },
   useVolumeUp: { key: 'ArrowUp' },
   useVolumeDown: { key: 'ArrowDown' },
-  useTogglePlayPause: { code: 'Space' },
+  useTogglePlayPause: [{ code: 'Space' }, { key: 'k' }],
   useToggleFullscreen: { key: 'f' }
 })
