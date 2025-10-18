@@ -32,7 +32,7 @@ export const useVideoImprovements = ({ info, container, onOptionNotFound, ms }: 
   const staticStore = useStaticStore(Store.WATCHED)
   const [videoIsTakingLong, setVideoIsTakingLong] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setVideoIsTakingLong(false)
     if (video) return
     const t = setTimeout(() => {
