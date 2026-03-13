@@ -15,3 +15,5 @@ export const EXTENSIONS_DIRECTORY = resolve(
 
 export const DISCORD_CLIENT_ID = '1348279402571759687'
 export const DISCORD_RECONNECT_INTERVAL_MS = 3_000
+
+export const ANIMEFLV_URL_REGEX = /^((www\d*)?\.)?animeflv\.net/gm

@@ -1,6 +1,7 @@
 import { BrowserWindow } from 'electron'
 import { requestFromWindow } from '../base'
 import { info } from '@dev'
+import { ANIMEFLV_URL_REGEX } from '../../constants'
 
 export const BASE_ORIGIN = 'https://animeflv.net'
 export const createAnimeFlvRequest = async (url: string, fnContent: string) => {
@@ -32,7 +33,6 @@ export const createAnimeFlvRequest = async (url: string, fnContent: string) => {
       (details, callback) => {
         let cancel = false
         const url = new URL(details.url)
-        const ANIMEFLV_URL_REGEX = /^((www)?3?\.)?animeflv\.net/gm
         const blackListExt = ['css', 'woff2', 'woff', 'ttf', 'js']
         if (
           url.protocol !== 'devtools:' &&

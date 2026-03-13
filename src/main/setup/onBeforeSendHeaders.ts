@@ -1,15 +1,11 @@
 import { session } from 'electron'
-import { PUBLIC_PATH } from '../constants'
+import { ANIMEFLV_URL_REGEX, PUBLIC_PATH } from '../constants'
 import { handleFailedVideoUrlsBeforeHeaders } from '../handleFailedVideoUrls'
 
 export const onBeforeSendHeaders = () => {
   session.defaultSession.webRequest.onBeforeSendHeaders(async (details, callback) => {
     if (handleFailedVideoUrlsBeforeHeaders(details, callback)) return
-    if (
-      ['https://jkanime.net/', 'https://www3.animeflv.net/', 'https://animeflv.net/'].some((u) =>
-        details.url.startsWith(u)
-      )
-    ) {
+    if ([/^https:\/\/jkanime\.net\//, ANIMEFLV_URL_REGEX].some((u) => u.test(details.url))) {
       const url = new URL(details.url)
       details.requestHeaders.Origin = url.origin
       if (
