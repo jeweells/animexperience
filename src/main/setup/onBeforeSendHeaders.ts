@@ -5,7 +5,7 @@ import { handleFailedVideoUrlsBeforeHeaders } from '../handleFailedVideoUrls'
 export const onBeforeSendHeaders = () => {
   session.defaultSession.webRequest.onBeforeSendHeaders(async (details, callback) => {
     if (handleFailedVideoUrlsBeforeHeaders(details, callback)) return
-    if ([/^https:\/\/jkanime\.net\//, ANIMEFLV_URL_REGEX].some((u) => u.test(details.url))) {
+    if ([/^https:\/\/jkanime\.net\//, ANIMEFLV_URL_REGEX].some((u) => !!details.url.match(u))) {
       const url = new URL(details.url)
       details.requestHeaders.Origin = url.origin
       if (

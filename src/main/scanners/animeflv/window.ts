@@ -36,7 +36,7 @@ export const createAnimeFlvRequest = async (url: string, fnContent: string) => {
         const blackListExt = ['css', 'woff2', 'woff', 'ttf', 'js']
         if (
           url.protocol !== 'devtools:' &&
-          (ANIMEFLV_URL_REGEX.exec(url.host) === null ||
+          (!url.host.match(ANIMEFLV_URL_REGEX) ||
             blackListExt.some((ext) => url.pathname.endsWith('.' + ext)))
         ) {
           info('[ANIMEFLV]', details.url, '(CANCELED)')
